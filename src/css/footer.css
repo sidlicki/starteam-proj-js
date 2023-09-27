@@ -1,1 +1,12 @@
-/* зважайте будь ласка на те щоб не дублювати назви класів */
+.footer {
+  padding-top: 40px;
+  padding-bottom: 80px;
+  background-color: var(--violet-color);
+}
+
+.icon-coctail-footer {
+  width: 21px;
+  height: 18px;
+  stroke: var(--turquoise-color);
+  fill: var(--turquoise-color);
+}
