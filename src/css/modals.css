@@ -1,0 +1,37 @@
+.overlay {
+  /* Приховуємо подложку  */
+  opacity: 0;
+  visibility: hidden;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 20;
+  transition: 0.3s all;
+}
+
+/* Спільні стилі для модальних вікон */
+
+.modal {
+  /* Приховуємо вікна  */
+  opacity: 0;
+  visibility: hidden;
+
+  /*  центруємо і задаємо z-index */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 30; /* має бути вище ніж в подложки*/
+}
+
+/* Стилі для активних класів подложки и вікна */
+
+.modal.active,
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
