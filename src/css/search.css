@@ -1,1 +1,13 @@
 /* зважайте будь ласка на те щоб не дублювати назви класів */
+.search-menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.search-menu-item {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    border: 1px solid #000;;
+    background-color: #FFF;
+}
