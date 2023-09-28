@@ -34,6 +34,11 @@ img {
   height: auto;
 }
 
+body {
+  margin: 0;
+  font-family: Poppins;
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -45,4 +50,8 @@ img {
   clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
+}
+
+.is-hidden {
+  display: none;
 }
