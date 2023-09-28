@@ -13,5 +13,3 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
-
-@import '~node_modules/modern-normalize/modern-normalize.css';
