@@ -1,1 +1,185 @@
-/* зважайте будь ласка на те щоб не дублювати назви класів */
+/* Стилі хедеру */
+
+.header-container {
+  display: flex;
+  padding-top: 27px;
+  padding-bottom: 68px;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.header-left-elements {
+  display: flex;
+  gap: 4px;
+}
+.header-desktop {
+  padding-top: 34px;
+}
+.header-home-link {
+  color: var(--black-color);
+}
+.header-logo-text {
+  color: var(--black-color);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.13;
+}
+.header-logo-icon {
+  fill: var(--violet-color);
+  width: 21px;
+  height: 18px;
+}
+.burger-icon {
+  stroke: var(--black-color);
+  width: 32px;
+  height: 32px;
+}
+
+@media screen and (max-width: 1279px) {
+  .header-desktop {
+    display: none;
+  }
+  .bg-switcher {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .header-container {
+    padding-top: 29px;
+    padding-bottom: 80px;
+  }
+  .header-left-elements {
+    gap: 8px;
+  }
+  .header-logo-text {
+    font-size: 22px;
+    line-height: 1.09;
+  }
+  .header-logo-icon {
+    width: 29px;
+    height: 25px;
+  }
+  .burger-icon {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .header-right-elements {
+    display: none;
+  }
+}
+
+/* Перемикач тем */
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 64px;
+  height: 36px;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--pale-blue-color);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border: 2px solid var(--black-color);
+}
+
+.slider:before {
+  position: absolute;
+  content: '';
+  height: 28px;
+  width: 28px;
+  left: 2px;
+  bottom: 2px;
+  background-color: var(--turquoise-color);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: var(--turquoise-color);
+  border: 2px solid var(--violet-color);
+}
+input:checked + .slider::before {
+  background-color: var(--pale-blue-color);
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(28px);
+  -ms-transform: translateX(28px);
+  transform: translateX(28px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 100px;
+}
+
+/* Випливаюче меню */
+/* Dropdown Button */
+.dropbtn {
+  background-color: transparent;
+  color: var(--black-color);
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 28px;
+}
+.header-arrow-icon {
+  fill: transparent;
+  stroke: var(--violet-color);
+  width: 24px;
+  height: 24px;
+}
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: var(--violet-color);
+  min-width: 192px;
+  z-index: 1;
+  border-radius: 16px;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: var(--light-gray-color);
+  padding-top: 18px;
+  padding-left: 24px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-favorite-ingredients-link {
+  padding-bottom: 18px;
+  color: #fdfdff80;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
