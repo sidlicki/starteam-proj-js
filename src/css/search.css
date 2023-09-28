@@ -15,6 +15,9 @@
     margin-right: auto;
 }
 .search-menu-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 40px;
     height: 40px;
     border-radius: 8px;
@@ -27,8 +30,8 @@
     font-style: normal;
     font-weight: 600;
     line-height: normal;
-    padding-top: 5px;
-    padding-bottom: 5px;
+   
+    cursor: pointer;
 }
 .search-menu-item:hover {
 background: #9CDFDF;
