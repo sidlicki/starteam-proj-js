@@ -4,7 +4,7 @@
   | default @import url()
   |============================
 */
-@import url('//node_modules/modern-normalize/modern-normalize.css');
+@import 'modern-normalize/modern-normalize.css';
 
 @import url('./root.css');
 @import url('./fonts.css');
