@@ -1,1 +1,58 @@
 /* зважайте будь ласка на те щоб не дублювати назви класів */
+.hero-section{
+    padding-top: 68px;
+}
+
+/*стилі для контейнеру з текстом*/
+.hero-text-wrapper{
+    max-width: 335px;  
+    margin-bottom: 26px;
+}
+
+/*стилі для заголовку*/
+.hero-title{
+    color: var(--black-color);
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 1.2;
+    margin-bottom: 18px;
+}
+/*стилі для фрагменту заголовка курсивом*/
+.title-fragment-italic{
+    color: var(--violet-color);
+    font-style: italic;
+}
+/*стилі для підзаголовка*/
+.hero-title-motto{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.4;
+    margin-bottom: 36px;
+}
+/*стилі для кнопки*/
+.hero-button{
+    border: none;
+    padding: 14px 28px;
+    border-radius: 12px;
+    background-color: var(--violet-color);
+    color: var(--light-gray-color);
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1.4;
+    letter-spacing: 2%;
+    text-transform: uppercase;
+}
+
+/*стилі для блоку з зображенням і описом до зображення*/
+
+.hero-image-elements-wrapper{
+    max-width: 342px;
+    margin-bottom: 32px;
+}
+
+.hero-img-description-container{
+    max-width: 173px;
+    margin: 0 auto;
+    margin-top: 36px;
+}
+
