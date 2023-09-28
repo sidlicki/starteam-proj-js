@@ -35,57 +35,6 @@ const searchCocktailsByName = async name => {
   return fetchData(`${BASE_URL}/cocktails/search`, { s: name });
 };
 
-// TODO: REMOVE ------------- USAGE EXAMPLES -------------
-// -----  cocktailIds -----
-// 639b6de9ff77d221f190c68e
-// 639b6de9ff77d221f190c579
-// 639b6de9ff77d221f190c595
-// 639b6de9ff77d221f190c60f
-
-// ----- ingredientIds -----
-// 64aebb7f82d96cc69e0eb4c1
-// 64aebb7f82d96cc69e0eb4bc
-// 64aebb7f82d96cc69e0eb4a6
-
-// fetchRandomCocktails(9).then(cocktails =>
-//   console.log('Random cocktails', cocktails)
-// );
-
-// fetchCocktailDetails('639b6de9ff77d221f190c68e').then(cocktails =>
-//   console.log('Cocktail details', cocktails)
-// );
-
-// fetchCocktailDetails(['639b6de9ff77d221f190c68e']).then(cocktails =>
-//   console.log('Cocktail details', cocktails)
-// );
-
-// fetchCocktailDetails([
-//   '639b6de9ff77d221f190c68e',
-//   '639b6de9ff77d221f190c579',
-// ]).then(cocktails => console.log('Cocktail details', cocktails));
-
-// fetchIngredientDetails('64aebb7f82d96cc69e0eb4c1').then(ingredientDetails =>
-//   console.log('Ingredient details', ingredientDetails)
-// );
-
-// searchCocktailsByFirstLetter('0').then(cocktails =>
-//   console.log('Search cocktails by first letter', cocktails)
-// );
-
-// searchCocktailsByFirstLetter('1').then(cocktails =>
-//   console.log('Search cocktails by first letter', cocktails)
-// );
-
-// searchCocktailsByName('1asfashgsadgfhs').then(cocktails =>
-//   console.log('Search cocktails by name', cocktails)
-// );
-
-// searchCocktailsByName('abc').then(cocktails =>
-//   console.log('Search cocktails by name', cocktails)
-// );
-
-// ------------- /REMOVE USEGE EXAMPLES -------------
-
 export {
   fetchRandomCocktails,
   fetchCocktailDetails,
