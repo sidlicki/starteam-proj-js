@@ -8,3 +8,4 @@ import './js/modal-ingredient';
 import './js/search-by-name';
 import './js/pagination';
 // додаткові підключення робіть під цією стрічкою
+import './js/favorite-cocktails';
