@@ -1,6 +1,6 @@
 import './js/abc-search';
 import './js/create-abc';
-import './js/fetch-api';
+import './js/cocktail-api';
 import './js/light-dark';
 import './js/mobile-menu';
 import './js/modal-coctail';
