@@ -1,6 +1,42 @@
 <header class="header" id="home">
-    <!-- розмір контейнера вже заданий в /container.css для всіх пристроїв -->
-    <div class="container">
-
+  <!-- розмір контейнера вже заданий в /container.css для всіх пристроїв -->
+  <div class="container header-container">
+    <div class="header-desktop">
+      <a href="/index.html" class="header-home-link">Home</a>
+      <div class="dropdown">
+        <button class="dropbtn">
+          Favorite
+          <svg class="header-arrow-icon">
+            <use href="/img/svg/sprite.svg#icon-arrow-down"></use>
+          </svg>
+        </button>
+        <div class="dropdown-content">
+          <a href="/favorite-coctails.html">Favorite cocktails</a>
+          <a
+            class="dropdown-favorite-ingredients-link"
+            href="/favorite-ingredients.html"
+            >Favorite ingredients</a
+          >
+        </div>
+      </div>
     </div>
+    <div class="header-left-elements">
+      <p class="header-logo-text">DRINKIFY</p>
+      <a href="/index.html" class="header-logo-link"
+        ><svg class="header-logo-icon">
+          <use href="/img/svg/sprite.svg#icon-cocktail"></use></svg
+      ></a>
+    </div>
+    <div class="header-right-elements">
+      <svg class="burger-icon">
+        <use href="/img/svg/sprite.svg#icon-burger"></use>
+      </svg>
+    </div>
+    <div class="bg-switcher">
+      <label class="switch">
+        <input type="checkbox" />
+        <span class="slider round"></span>
+      </label>
+    </div>
+  </div>
 </header>
