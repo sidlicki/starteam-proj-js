@@ -12,20 +12,65 @@
 </head>
 
 <body>
-    <section class="hero-section">
+    <header class="header" id="home">
+  <!-- розмір контейнера вже заданий в /container.css для всіх пристроїв -->
+  <div class="container header-container">
+    <div class="header-desktop">
+      <a href="/index.html" class="header-home-link">Home</a>
+      <div class="dropdown">
+        <button class="dropbtn">
+          Favorite
+          <svg class="header-arrow-icon">
+            <use href="/starteam-proj-js/assets/sprite-1eb45ddf.svg#icon-arrow-down"></use>
+          </svg>
+        </button>
+        <div class="dropdown-content">
+          <a href="/favorite-coctails.html">Favorite cocktails</a>
+          <a
+            class="dropdown-favorite-ingredients-link"
+            href="/favorite-ingredients.html"
+            >Favorite ingredients</a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="header-left-elements">
+      <p class="header-logo-text">DRINKIFY</p>
+      <a href="/index.html" class="header-logo-link"
+        ><svg class="header-logo-icon">
+          <use href="/starteam-proj-js/assets/sprite-1eb45ddf.svg#icon-cocktail"></use></svg
+      ></a>
+    </div>
+    <div class="header-right-elements">
+      <svg class="burger-icon">
+        <use href="/starteam-proj-js/assets/sprite-1eb45ddf.svg#icon-burger"></use>
+      </svg>
+    </div>
+    <div class="bg-switcher">
+      <label class="switch">
+        <input type="checkbox" />
+        <span class="slider round"></span>
+      </label>
+    </div>
+  </div>
+</header>
+
+
+    <main>
+        <section class="favorite-ingredients">
     <!-- розмір контейнера вже заданий в /container.css для всіх пристроїв -->
     <div class="container">
 
     </div>
 </section>
-
-    <section class="favorite-ingredients">
+        <!--  -->
+        <section class="pagination">
     <!-- розмір контейнера вже заданий в /container.css для всіх пристроїв -->
     <div class="container">
-
+        <div id="tui-pagination-container" class="tui-pagination"></div>
     </div>
 </section>
-    <!--  -->
+    </main>
 
     <footer class="footer" id="footer">
     <div class="container footer-container">
