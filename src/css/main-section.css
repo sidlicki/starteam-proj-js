@@ -216,14 +216,14 @@
   }
 }
 
-@media only screen and (min-width: 1280px) {
+/* @media only screen and (min-width: 1280px) {
 	.learn-more-button{
 		/* position: absolute;
 
 		width: 407px;
 		height: auto; */
-   }
-}
+   /* }
+} */
 
 
 /* .learn-more-button:hover,
@@ -257,14 +257,14 @@
   }
 }
 
-@media only screen and (min-width: 1280px) {
+/* @media only screen and (min-width: 1280px) {
 	.add-to-button{
-		/* position: absolute;
+		position: absolute;
 
 		width: 407px;
-		height: auto; */
+		height: auto;
    }
-}
+} */
 
 .icon-heart{
 	fill:none;
