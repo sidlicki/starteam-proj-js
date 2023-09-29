@@ -1,36 +1,49 @@
 /* зважайте будь ласка на те щоб не дублювати назви класів */
+/*-----------MOBILE-------------*/
+/*--cтилі для HERO-mobile--*/
+
 .hero-section{
     padding-top: 68px;
 }
+.hero-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
-/*стилі для контейнеру з текстом*/
+}
+
+/*--стилі для контейнеру з текстом--*/
 .hero-text-wrapper{
-    max-width: 335px;  
     margin-bottom: 26px;
 }
 
-/*стилі для заголовку*/
+/*--стилі для заголовк--*/
 .hero-title{
+    max-width: 335px;  
     color: var(--black-color);
     font-weight: 400;
     font-size: 32px;
     line-height: 1.2;
     margin-bottom: 18px;
 }
-/*стилі для фрагменту заголовка курсивом*/
+/*--стилі для фрагменту заголовка курсивом--*/
+
 .title-fragment-italic{
     color: var(--violet-color);
     font-style: italic;
 }
-/*стилі для підзаголовка*/
+/*--стилі для підзаголовка--*/
+
 .hero-title-motto{
+    max-width: 335px;
     font-weight: 400;
     font-size: 14px;
     line-height: 1.4;
     margin-bottom: 36px;
 }
-/*стилі для кнопки*/
-.hero-button{
+/*--стилі для кнопки--*/
+
+.hero-button {
     border: none;
     padding: 14px 28px;
     border-radius: 12px;
@@ -43,16 +56,192 @@
     text-transform: uppercase;
 }
 
-/*стилі для блоку з зображенням і описом до зображення*/
+/*--стилі для блоку з зображенням і описом до зображення--*/
 
-.hero-image-elements-wrapper{
+/*--стилі для зовнішнього контейнера, який огортає зображення--*/
+.hero-image-elements-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding-top: 50px;
     max-width: 342px;
+    min-height: 481px;
     margin-bottom: 32px;
+    background-image: 
+        image-set('/img/mobile/elements.webp' type('image/webp'),
+        '/img/mobile/elements@2x.webp' type('image/webp'));
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+   
+   
 }
 
-.hero-img-description-container{
-    max-width: 173px;
+/*--описуємо медіа-правило для фонового зображення для HERO-mobile--*/
+
+@media screen and (min-device-pixel-ratio: 2) and (max-width: 767px),
+screen and (min-resolution: 192dpi) and (max-width: 767px),
+screen and (min-resolution: 2ppx) and (max-width: 767px) {
+    .hero-image-elements-wrapper{
+    background-image:   image-set('/img/mobile/elements.webp' type('image/webp'),
+                '/img/mobile/elements@2x.webp' type('image/webp')
+                );
+    }
+}
+
+/*--стилі для внутрішнього контейнера,який є бузковим фоном зображення--*/
+.background-decoration-recktangle {
+    width: 230px;
+    height: 338px; 
+    background-color: #7E8FDD;
+    margin: 0 auto;
+    border-radius: 80px 0px 80px 0px;
+    position: relative;
+}
+
+/*--стилі для зображення--*/
+.picture-hero {
+    object-fit: contain;
+position: absolute;
+/* Position the image absolutely */
+    top: -60px;
+ /* Adjust the negative top value to extend the image upwards */
+    left: -70px;
+ /* Adjust the negative left value to extend the image to the left */
+    width: calc(100% + 134px);
+ /* Adjust the width to extend the image to the right */
+    height: calc(100% + 134px);
+/* Adjust the height to extend the image downwards */
+    object-fit: contain;
+ /* Maintain the image's aspect ratio and cover the entire space */
+    z-index: 1;
+/* Ensure the image is above other content in the wrapper */     
+
+}
+/*--стилі для контейнера, що огортає текст під зображенням--*/
+.hero-img-description-container {
     margin: 0 auto;
     margin-top: 36px;
+    /* display: flex;
+    justify-content: center;
+    text-align: center; */
+}
+/*--стилі для тексту під зображенням--*/
+.hero-img-description{
+    max-width: 173px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.4;
+    letter-spacing: 2%;
+}
+/*-------------------------TABLET-------------------------*/
+
+@media screen and (min-width: 768px) {
+    .hero-content {
+        flex-direction: row;
+    }
+}
+@media screen and (min-width: 768px) {
+    .hero-text-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;    
+    }
 }
 
+
+@media screen and (min-width: 768px) {
+    .hero-title {
+       max-width: 384px;
+       font-size: 44px;
+       line-height: 1.1;
+       margin-bottom: 18px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .hero-title-motto {
+        max-width: 338px;
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 48px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .hero-button {
+        padding: 22px 44px;
+        font-size: 18px;
+        line-height: 1.3;
+    }
+}
+
+/*--стилі для блоку з зображенням і описом до зображення--*/
+
+/*--стилі для зовнішнього контейнера, 
+який огортає контентне зображення HERO-tablet--*/
+
+@media screen and (min-width: 768px){
+    .hero-image-elements-wrapper {
+        max-width: 427px;
+        min-height: 493px;
+        margin-bottom: 32px;
+        background-image:
+            image-set('/img/tablet/elements.webp' type('image/webp'),
+                '/img/tablet/elements@2x.webp' type('image/webp'));
+    
+    }
+}
+
+
+
+/*--описуємо медіа-правило для фонового зображення для HERO-desctop--*/
+
+@media screen and (min-device-pixel-ratio: 2) and (min-width: 1280px),
+screen and (min-resolution: 192dpi) and (min-width: 1280px),
+screen and (min-resolution: 2ppx) and (min-width: 1280px) {
+    .hero-image-elements-wrapper {
+        background-image: image-set('/img/tablet/elements.webp' type('image/webp'),
+                '/img/tablet/elements@2x.webp' type('image/webp'));
+    }
+}
+
+
+
+
+/*--------------------DESKTOP--------------------*/
+
+/*--стилі для зовнішнього контейнера, 
+який огортає зображення HERO-desctop--*/
+
+@media screen and (min-width: 1280px) {
+    .hero-image-elements-wrapper {
+        padding-top: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        align-items: end;
+        max-width: 342px;
+        min-height: 481px;
+        margin-bottom: 32px;
+        background-image:
+            image-set('/img/desktop/elements.webp' type('image/webp'),
+                '/img/desktop/elements@2x.webp' type('image/webp'));
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+
+    }
+}
+
+/*--описуємо медіа-правило для фонового зображення для HERO-desctop--*/
+
+@media screen and (min-device-pixel-ratio: 2) and (min-width: 1280px),
+screen and (min-resolution: 192dpi) and (min-width: 1280px),
+screen and (min-resolution: 2ppx) and (min-width: 1280px) {
+    .hero-image-elements-wrapper {
+        background-image: image-set('/img/tablet/elements.webp' type('image/webp'),
+                '/img/tablet/elements@2x.webp' type('image/webp'));
+    }
+}
