@@ -151,6 +151,8 @@
 	letter-spacing: -0.02em;
 
 	overflow-y: hidden;
+	text-overflow: ellipsis;
+
 
 	/* background-color: var(--main-background-color); */
 
@@ -264,7 +266,7 @@
    }
 }
 
-.icon{
+.icon-heart{
 	fill:none;
 	stroke: white;
 }
