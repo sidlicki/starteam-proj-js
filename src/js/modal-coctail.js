@@ -10,12 +10,8 @@ const cardCocktail = document.querySelector('.modal-cocktail-content');
 const btnOpenModal = document.querySelectorAll('.js-modal-open');
 const btnCloseModal = document.querySelectorAll('.js-modal-close');
 
-// Кнопки добавления-удаления в коллекцию модального окна
-//const btnModalAddFav = document.querySelector('.modal-add-cocktail-btn-fav');
-//const btnModalRemoveFav = document.querySelector('.modal-remove-cocktail-btn-fav');
-
 const overlay = document.querySelector('.overlay');
-const modalCocktail = document.querySelector('.modal');
+const modal = document.querySelector('.modal');
 
 const { drink, drinkThumb, instructions, ingredients } = testArr[1];
 
@@ -82,8 +78,7 @@ async function createModalCard(event) {
      
       // Проверяем, есть ли карточка с определенным id в массиве, считанном из Local Storage
       const indexModalFav = arrFav.findIndex(item => item === resp[0]._id);
-      console.log(indexModalFav);
-     
+           
       // Если карточки с таким id нет, то скрываем кнопку "Add to Fav" и показываем кнопку "Remove from Fav" 
       if (indexModalFav !== -1) {
         btnModalAddFav.classList.add('is-hidden');
@@ -92,44 +87,38 @@ async function createModalCard(event) {
         
       // Устанавливаем прослушиватель кнопки "Add to Favorite"
       btnModalAddFav.addEventListener('click', onAddFavClick);
-      
 
       // Функция обработки клика кнопки "Add to Favorite"
       function onAddFavClick() {
-         const indexFavCockt = arrFav.findIndex(item => item === resp[0]._id);
-        
-        if (indexFavCockt === -1) {
-          arrFav.push(resp[0]._id);
-          btnModalAddFav.classList.add('is-hidden');
-          btnModalRemoveFav.classList.remove('is-hidden');
-          localStorage.setItem('favoriteCocktails', JSON.stringify(arrFav)); 
-          return arrFav;
-        }
-      }
-      
-      // Устанавливаем прослушиватель кнопки "Remove from Favorite"
+      const indexFavCockt = arrFav.findIndex(item => item === resp[0]._id);
+ 
+      if (indexFavCockt === -1) {
+      arrFav.push(resp[0]._id);
+      btnModalAddFav.classList.add('is-hidden');
+      btnModalRemoveFav.classList.remove('is-hidden');
+      localStorage.setItem('favoriteCocktails', JSON.stringify(arrFav)); 
+      return arrFav;
+ }
+}
+     // Устанавливаем прослушиватель кнопки "Remove from Favorite"
       btnModalRemoveFav.addEventListener('click', onRemoveFavClick);
-      
-
+ 
       // Функция обработки клика кнопки "Remove from Favorite"
       function onRemoveFavClick() {
-        btnModalAddFav.classList.remove('is-hidden');
-        btnModalRemoveFav.classList.add('is-hidden');
-        const indFavRem = arrFav.findIndex(item => item === resp[0]._id);
-        console.log(indFavRem);
-        
-        
-        if (indFavRem !== -1) {
-          arrFav.splice(indFavRem, 1)
-          localStorage.setItem("favoriteCocktails", JSON.stringify(arrFav));
-          return arrFav;
-        }
-      }
-      //------------------ОКОНЧАНИЕ КОДА РАБОТЫ с LOCAL STORAGE -------------------//
-    }
-   catch(error){console.log(error)}
-   }
-
+      btnModalAddFav.classList.remove('is-hidden');
+      btnModalRemoveFav.classList.add('is-hidden');
+      const indFavRem = arrFav.findIndex(item => item === resp[0]._id);
+      console.log(indFavRem);
+      if (indFavRem !== -1) {
+      arrFav.splice(indFavRem, 1)
+      localStorage.setItem("favoriteCocktails", JSON.stringify(arrFav));
+      return arrFav;
+    } 
+  }
+  //------------------ОКОНЧАНИЕ КОДА РАБОТЫ с LOCAL STORAGE -------------------//
+  }
+      catch(error){console.log(error)}
+}
 
 //*--------------УПРАВЛЕНИЕ МОДАЛЬНЫМ ОКНОМ----------------*/
 
@@ -150,24 +139,31 @@ item.addEventListener('click', modalClose)});
 
 // Прослушивание оверлея (пространства вне модального окна)
  overlay.addEventListener('click', function() {
- modalCocktail.classList.remove('active');
+ modal.classList.remove('active');
  this.classList.remove('active');
  });
 
  // Функция открытия модального окна по кнопке
- function modalOpen(event) {
+   function modalOpen(event) {
    event.preventDefault();
    createModalCard();
    overlay.classList.add('active');
-   modalCocktail.classList.add('active');
+   modal.classList.add('active');
 }
  
 // Функция закрытия модального окна по кнопке
 function modalClose(event) {
 //let parentModal = this.closest('.modal');
 //parentModal.classList.remove('active');
-modalCocktail.classList.remove('active');
+modal.classList.remove('active');
 overlay.classList.remove('active');
 }
 
 /*-----------------ОКОНЧАНИЕ КОДА УПРАВЛЕНИЯ МОДАЛЬНЫМ ОКНОМ-------------------------------*/
+
+
+export { onAddFavClick };
+export { onRemoveFavClick };
+export { arrFav} ;
+export { modalOpen };
+export { modalClose };
