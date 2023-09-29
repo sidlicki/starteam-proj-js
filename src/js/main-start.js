@@ -23,3 +23,5 @@ cardList.insertAdjacentHTML(`beforeend`, createMarkup(allCards));
 
 // createMarkup(allCards);
 
+
+
