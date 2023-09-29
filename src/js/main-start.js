@@ -22,3 +22,4 @@ console.log(allCards);
 cardList.insertAdjacentHTML(`beforeend`, createMarkup(allCards));
 
 // createMarkup(allCards);
+
