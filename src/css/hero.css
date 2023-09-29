@@ -1,10 +1,7 @@
 /* зважайте будь ласка на те щоб не дублювати назви класів */
-/*-----------MOBILE-------------*/
-/*--cтилі для HERO-mobile--*/
 
-.hero-section{
-    padding-top: 68px;
-}
+/*-----------MOBILE-------------*/
+
 .hero-content{
     display: flex;
     flex-direction: column;
@@ -35,8 +32,14 @@
 /*--стилі для підзаголовка--*/
 
 .hero-title-motto{
+    max-width: 335px;
     margin-top: 18px;
     margin-bottom: 36px;
+    font-size: 14px;
+    line-height: 1.4;
+    font-weight: 400;
+    color: var(--black-color);
+
 }
 /*--стилі для кнопки--*/
 
@@ -108,14 +111,7 @@ screen and (min-resolution: 2ppx) and (max-width: 767px) {
     width: 354px;
     height: 387px;
 }
-/*--стилі для контейнера, що огортає текст під зображенням--*/
-.hero-img-description-container {
-    margin: 0 auto;
-    margin-top: 36px;
-    /* display: flex;
-    justify-content: center;
-    text-align: center; */
-}
+
 /*--стилі для тексту під зображенням--*/
 .hero-img-description{
     color: #242424;
@@ -149,6 +145,7 @@ screen and (min-resolution: 2ppx) and (max-width: 767px) {
     font-size: 44px;
     line-height: 1.1;
     margin-bottom: 18px;
+    color: var(--black-color);
     }
          
     .hero-title-motto {
@@ -156,6 +153,7 @@ screen and (min-resolution: 2ppx) and (max-width: 767px) {
       font-size: 16px;
       line-height: 1.6;
       margin-bottom: 48px;
+      color: var(--black-color);
     } 
     .hero-button {
     padding: 22px 44px;
@@ -167,6 +165,9 @@ screen and (min-resolution: 2ppx) and (max-width: 767px) {
     який огортає контентне зображення HERO-tablet--*/
 
  .hero-image-elements-wrapper {
+    padding-top: 78px;
+    max-width: 427px;
+    gap: 50px;
     background-image:
     image-set('/img/tablet/elements.webp' type('image/webp'),
     '/img/tablet/elements@2x.webp' type('image/webp'));
@@ -180,6 +181,16 @@ screen and (min-resolution: 2ppx) and (max-width: 767px) {
             background-image: image-set('/img/tablet/elements.webp' type('image/webp'),
             '/img/tablet/elements@2x.webp' type('image/webp'));
         }
+    }
+
+    .background-decoration-recktangle {
+        width: 293px;
+         height: 417px;
+    }
+
+    .picture-hero {
+        width: 333px;
+        height: 451px;
     }
 
 }
