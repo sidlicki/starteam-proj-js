@@ -19,6 +19,19 @@
 
 #tui-pagination-container .tui-page-btn:nth-last-child(2){
     margin-left: 39px;
+    margin-right: 0;
+}
+
+#tui-pagination-container .tui-prev-is-ellip{
+    display: none;
+}
+
+/* #tui-pagination-container .tui-next-is-ellip{
+    display: none;
+} */
+
+.dpn{
+    display: none;
 }
 
 /*  */
