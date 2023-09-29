@@ -4,7 +4,7 @@
 import { testArr } from './test/test-coctails' ;
 import { fetchCocktailDetails } from './cocktail-api';
 
-let arrFav = [];
+let arrFav;
 
 const cardCocktail = document.querySelector('.modal-cocktail-content');
 const btnOpenModal = document.querySelectorAll('.js-modal-open');
@@ -17,23 +17,21 @@ const btnCloseModal = document.querySelectorAll('.js-modal-close');
 const overlay = document.querySelector('.overlay');
 const modalCocktail = document.querySelector('.modal');
 
-//const { drink, drinkThumb, instructions, ingredients } = testArr[1];
-//const cocktailIds = "639b6de9ff77d221f190c518";
+const { drink, drinkThumb, instructions, ingredients } = testArr[1];
+
+const cocktailIds = "639b6de9ff77d221f190c518";
 //const cocktailIds = "639b6de9ff77d221f190c521";
 //const cocktailIds = "639b6de9ff77d221f190c51c";
 //const cocktailIds = "639b6de9ff77d221f190c52a";
 //const cocktailIds = "639b6de9ff77d221f190c527";
 //const cocktailIds = "639b6de9ff77d221f190c517";
-const cocktailIds = "639b6de9ff77d221f190c524";
-
-//console.log(fetchCocktailDetails(cocktailIds));
-//console.log(fetchData);
+//const cocktailIds = "639b6de9ff77d221f190c524";
 
 
 // Функция рендера ингредиентов (их несколько)
 function renderIngredients (ingredients) {
   return ingredients
-  .map((item) => `<li data-id="${item._id}" class=""><a href="" class="modal-coctail-ingred">${item.title}</a>
+  .map((item) => `<li data-id="${item.ingredientId}" class=""><a href="" class="modal-coctail-ingred">${item.title}</a>
   </li>`)
   .join(''); 
 }  
@@ -47,7 +45,6 @@ function createCardCocktail( {drink, drinkThumb, instructions, ingredients} ) {
   <h1 class="modal-cocktail-title">${drink}</h1>
   <h2 class="modal-cocktail-subtitle">INGREDIENTS:</h2>
   <p class="modal-cocktail-text add-one">Per cocktail</p>
- 
   <div class="modal-cocktail-ingred add-two">${renderIngredients(ingredients)}</div>
 </div>
 </div>
@@ -68,16 +65,12 @@ async function createModalCard(event) {
       const { drink, drinkThumb, instructions, ingredients } = resp[0];
       cardCocktail.innerHTML = createCardCocktail(resp[0]);
       
-      //btnCloseModal.classList.remove('is-hidden');
-
-      //console.log(btnCloseModal);
-
-
+   
       //----------- КОД РАБОТЫ с LOCAL STORAGE ----------- //
             
       // Объявляем переменную для работы с Local Storage
-      let arrFromLocalStoragePars = JSON.parse(localStorage.getItem("favoriteList")) || [];
-       
+      let arrFav = JSON.parse(localStorage.getItem("favoriteCocktails")) || [];
+             
      // Кнопка "Add-to-Favorite" модального окна коктейля 
       const btnModalAddFav = document.querySelector('.modal-add-cocktail-btn-fav');
 
@@ -88,8 +81,8 @@ async function createModalCard(event) {
       //const btnModalRemoveFav = document.querySelectorAll('.modal-remove-cocktail-btn-fav');
      
       // Проверяем, есть ли карточка с определенным id в массиве, считанном из Local Storage
-      const indexModalFav = arrFromLocalStoragePars.findIndex(item => item.id === resp[0]._id);
-      //console.log(resp[0]._id);
+      const indexModalFav = arrFav.findIndex(item => item === resp[0]._id);
+      console.log(indexModalFav);
      
       // Если карточки с таким id нет, то скрываем кнопку "Add to Fav" и показываем кнопку "Remove from Fav" 
       if (indexModalFav !== -1) {
@@ -103,14 +96,13 @@ async function createModalCard(event) {
 
       // Функция обработки клика кнопки "Add to Favorite"
       function onAddFavClick() {
-        const indexFavCockt = arrFav.findIndex(item => item.id === resp[0]._id);
+         const indexFavCockt = arrFav.findIndex(item => item === resp[0]._id);
+        
         if (indexFavCockt === -1) {
-          arrFav.push(resp[0]);
-          
+          arrFav.push(resp[0]._id);
           btnModalAddFav.classList.add('is-hidden');
           btnModalRemoveFav.classList.remove('is-hidden');
-          //console.log(arrFav);
-          localStorage.setItem('favoriteList', JSON.stringify(arrFav));
+          localStorage.setItem('favoriteCocktails', JSON.stringify(arrFav)); 
           return arrFav;
         }
       }
@@ -123,19 +115,17 @@ async function createModalCard(event) {
       function onRemoveFavClick() {
         btnModalAddFav.classList.remove('is-hidden');
         btnModalRemoveFav.classList.add('is-hidden');
-        //console.log(arrFav);
-        const indFavRem = arrFromLocalStoragePars.findIndex(item => item.id === resp[0]._id);
-        //console.log(indFavRem);
+        const indFavRem = arrFav.findIndex(item => item === resp[0]._id);
+        console.log(indFavRem);
         
-        if (indFavRem !== 1) {
-          arrFav.splice(indFavRem, 1);
-          localStorage.setItem("favoriteList", JSON.stringify(arrFav));
+        
+        if (indFavRem !== -1) {
+          arrFav.splice(indFavRem, 1)
+          localStorage.setItem("favoriteCocktails", JSON.stringify(arrFav));
           return arrFav;
-
-       //------------------ОКОНЧАНИЕ КОДА РАБОТЫ с LOCAL STORAGE -------------------//
-
         }
       }
+      //------------------ОКОНЧАНИЕ КОДА РАБОТЫ с LOCAL STORAGE -------------------//
     }
    catch(error){console.log(error)}
    }
@@ -150,12 +140,10 @@ async function createModalCard(event) {
 
 btnOpenModal.forEach(function(item) {
 item.addEventListener('click', modalOpen)});
-//console.log(btnOpenModal);
 
 // Прослушивание кнопки закрытия модального окна (если их несколько)
 btnCloseModal.forEach(function(item){
 item.addEventListener('click', modalClose)});
-//console.log(btnCloseModal);
  
 // Прослушивание кнопки закрытия модального окна (если оно одно)
 //btnCloseModal.addEventListener('click', modalClose);
