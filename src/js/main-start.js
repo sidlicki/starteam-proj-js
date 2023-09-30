@@ -1,7 +1,7 @@
 console.log(`Hi, cards!`);
 
 import {fetchRandomCocktails} from './cocktail-api';
-import {createMarkup} from './create-cards';
+import {createMarkup} from './create-card';
 
 const cardList = document.querySelector(`.cocktails-list`)
 
@@ -17,9 +17,30 @@ cardList.innerHTML = ``;
 
 let allCards = await fetchRandomCocktails(quantity);
 
-console.log(allCards);
+//console.log(allCards);
 
 cardList.insertAdjacentHTML(`beforeend`, createMarkup(allCards));
 
-// createMarkup(allCards);
+// const addFavor = document.querySelectorAll(`.js-add-to`)
 
+// console.log(addFavor)
+
+// window.addEventListener(`click`, handlerAddToFavor)
+    
+// function handlerAddToFavor(evt) {
+//     if (evt.target.nodeName == '.js-add-to')
+//         console.log(evt.target)
+// };
+
+// // function handlerAddToFavor(evt) {
+// //     console.log(evt.target);
+
+// //  nodeName}
+
+document.body.addEventListener("click", function(event) {
+    if (event.target.nodeName == "BUTTON")
+        // console.log(event.target.className);
+        console.log("Clicked", event.target.textContent);
+        console.log("Clicked", event.target.id)
+    
+  });
