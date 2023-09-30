@@ -89,20 +89,25 @@ function createCardCocktail( {drink, drinkThumb, instructions, ingredients} ) {
         btnModalRemoveFav.classList.remove('is-hidden');
       }
         
+
       // Устанавливаем прослушиватель кнопки "Add to Favorite"
       btnModalAddFav.addEventListener('click', onAddFavClick);
 
+      //onAddFavClick();  
+      
       // Функция обработки клика кнопки "Add to Favorite"
-  function onAddFavClick() {
-  const indexFavCockt = arrFav.findIndex(item => item === resp[0]._id);
-  if (indexFavCockt === -1) {
-  arrFav.push(resp[0]._id);
-  btnModalAddFav.classList.add('is-hidden');
-  btnModalRemoveFav.classList.remove('is-hidden');
-  localStorage.setItem('favoriteCocktails', JSON.stringify(arrFav)); 
-  return arrFav;
-}
-}      
+   function onAddFavClick() {
+    const indexFavCockt = arrFav.findIndex(item => item === resp[0]._id);
+    if (indexFavCockt === -1) {
+    arrFav.push(resp[0]._id);
+    btnModalAddFav.classList.add('is-hidden');
+    btnModalRemoveFav.classList.remove('is-hidden');
+    localStorage.setItem('favoriteCocktails', JSON.stringify(arrFav)); 
+    return arrFav;
+ }
+} 
+
+         
      // Устанавливаем прослушиватель кнопки "Remove from Favorite"
       btnModalRemoveFav.addEventListener('click', onRemoveFavClick);
  
@@ -121,6 +126,8 @@ function createCardCocktail( {drink, drinkThumb, instructions, ingredients} ) {
   });
     //  catch(error){console.log(error)}
 //}
+
+  
 
 //*--------------УПРАВЛЕНИЕ МОДАЛЬНЫМ ОКНОМ----------------*/
 
