@@ -142,7 +142,7 @@
 
   letter-spacing: -0.02em;
 
-  overflow-y: hidden;
+  overflow: hidden;
   text-overflow: ellipsis;
 
   /* background-color: var(--main-background-color); */
@@ -170,7 +170,7 @@
   display: flex;
 }
 
-.learn-more-button {
+.js-learn-more-button {
   /* display: block; */
   margin: 0px auto;
   margin-right: 10px;
@@ -199,7 +199,7 @@
 }
 
 @media only screen and (min-width: 768px) {
-  .learn-more-button {
+  .js-learn-more-button {
     min-width: 225px;
     min-height: 56px;
     padding: 16px 55px;
@@ -221,7 +221,7 @@
 	color:#FD9222;
 } */
 
-.add-to-button {
+.js-add-to-button {
   margin: 0px;
   padding: 0;
 
@@ -239,7 +239,7 @@
 }
 
 @media only screen and (min-width: 768px) {
-  .add-to-button {
+  .js-add-to-button {
     min-width: 56px;
     min-height: 56px;
     /* padding: 16px 32px; */
