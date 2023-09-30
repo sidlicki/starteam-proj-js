@@ -4,7 +4,7 @@ function createMarkup(arr) {
     .map(
       ({ description, drink, drinkThumb, _id }) =>
         `
-    <div class="cocktail-card" id="${_id}">
+    <li class="cocktail-card" id="${_id}">
             <img class="cocktail-image" src="${drinkThumb}" onerror="this.src='https://bibliotekant.pl/wp-content/uploads/2021/04/placeholder-image.png'" alt="${drink}" loading="lazy" width="307" height="257"/>
             <h3 class="cocktail-name">${drink}</h3>
             <p class="cocktail-info">${description.slice(0, 115)+"..."}</p>

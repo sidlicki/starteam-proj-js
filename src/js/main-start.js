@@ -5,7 +5,6 @@ import { getScreenWidthValue } from './screen-value';
 const cardList = document.querySelector(`.cocktails-list`);
 const pageWidth = document.documentElement.scrollWidth;
 //console.log(pageWidth);
-let quantity = 8;
 
 let quantity = getScreenWidthValue(); //присвоєння значення 8/9 викликом функція яка визначає ширину екрану
 
