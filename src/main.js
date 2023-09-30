@@ -8,3 +8,5 @@ import './js/modal-ingredient';
 import './js/search-by-name';
 import './js/pagination';
 // додаткові підключення робіть під цією стрічкою
+import './js/create-card';
+import './js/main-start';
