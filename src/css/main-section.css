@@ -97,6 +97,11 @@
 
   box-shadow: 0px 4px 46px 0px #0000000d;
 }
+.cocktail-card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
 @media only screen and (min-width: 768px) {
   .cocktail-card {
     width: 344px;
@@ -170,9 +175,9 @@
   display: flex;
 }
 
-.js-learn-more-button {
+.learn-more-button {
   /* display: block; */
-  margin: 0px auto;
+  /* margin: 0px auto; */
   margin-right: 10px;
 
   cursor: pointer;
@@ -197,9 +202,16 @@
   /* transition-property: background-color, color;
 	transition: 250ms cubic-bezier(0.4, 0, 0.2, 1); */
 }
+.learn-more-button:hover,
+.learn-more-button:focus{
+  background-color: #7e8fdd;
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
 
 @media only screen and (min-width: 768px) {
-  .js-learn-more-button {
+  .learn-more-button {
     min-width: 225px;
     min-height: 56px;
     padding: 16px 55px;
@@ -221,7 +233,7 @@
 	color:#FD9222;
 } */
 
-.js-add-to-button {
+.add-to-button {
   margin: 0px;
   padding: 0;
 
@@ -237,9 +249,14 @@
 
   align-content: center;
 }
+.add-to-button:hover,
+.add-to-button:focus{
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
 
 @media only screen and (min-width: 768px) {
-  .js-add-to-button {
+  .add-to-button {
     min-width: 56px;
     min-height: 56px;
     /* padding: 16px 32px; */
