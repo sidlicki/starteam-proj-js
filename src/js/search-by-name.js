@@ -1,5 +1,5 @@
 const refs = {
-  formSelect: document.querySelector('.js-hero-mobile'),
+    formSelect: document.querySelector('.js-hero-mobile'),
 };
 
 const array = [
@@ -54,19 +54,6 @@ function renderLitery(array) {
 renderLitery(array);
 
 refs.formSelect.insertAdjacentHTML('beforeend', markup);
-
-function renderItemsLitery(array) {
-  markupItems = array
-    .map(element => {
-      return `<li class="search-menu-item">${element}</li>`;
-    })
-    .join('');
-}
-
-renderItemsLitery(array);
-refs.formItems.insertAdjacentHTML('beforeend', markupItems);
-
-refs.formItems.addEventListener('click', onTargetCocktailClick);
 
 function onTargetCocktailClick(event) {
   event.preventDefault();
