@@ -1,25 +1,15 @@
-console.log(`Hi, cards!`);
-
 import { fetchRandomCocktails } from './cocktail-api';
 import { createMarkup } from './create-card';
 
 const cardList = document.querySelector(`.cocktails-list`);
 
-//console.log(cardList);
+let quantity = 9;
 
-let quantity;
-
-quantity = 9;
-
-cardList.innerHTML = ``;
-
-//console.log(fetchRandomCocktails(quantity));
-
-let allCards = fetchRandomCocktails(quantity);
+fetchRandomCocktails(quantity).then(cocktails => {
+  cardList.innerHTML = createMarkup(cocktails);
+});
 
 //console.log(allCards);
-
-cardList.insertAdjacentHTML(`beforeend`, createMarkup(allCards));
 
 // const addFavor = document.querySelectorAll(`.js-add-to`)
 
