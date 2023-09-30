@@ -89,7 +89,6 @@ function createCardCocktail( {drink, drinkThumb, instructions, ingredients} ) {
         btnModalRemoveFav.classList.remove('is-hidden');
       }
         
-
       // Устанавливаем прослушиватель кнопки "Add to Favorite"
       btnModalAddFav.addEventListener('click', onAddFavClick);
 
