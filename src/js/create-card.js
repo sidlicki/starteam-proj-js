@@ -1,6 +1,8 @@
 function createMarkup(arr) {
-    return arr.map(({description, drink, drinkThumb, _id})=>
-    `
+  return arr
+    .map(
+      ({ description, drink, drinkThumb, _id }) =>
+        `
     <div class="cocktail-card" id="${_id}">
             <img class="cocktail-image" src="${drinkThumb}" alt="${drink}" loading="lazy" width="307" height="257"/>
             <h3 class="cocktail-name">${drink}</h3>
@@ -15,7 +17,8 @@ function createMarkup(arr) {
             </div>
         </div>
     `
-    ).join(``);
-};
+    )
+    .join(``);
+}
 
-export {createMarkup};
+export { createMarkup };

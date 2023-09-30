@@ -1,9 +1,10 @@
 import { fetchRandomCocktails } from './cocktail-api';
 import { createMarkup } from './create-card';
+import { getScreenWidthValue } from './screen-value';
 
 const cardList = document.querySelector(`.cocktails-list`);
 
-let quantity = 9;
+let quantity = getScreenWidthValue(); //присвоєння значення 8/9 викликом функція яка визначає ширину екрану
 
 fetchRandomCocktails(quantity).then(cocktails => {
   cardList.innerHTML = createMarkup(cocktails);
