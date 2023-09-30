@@ -1,1 +1,306 @@
 /* зважайте будь ласка на те щоб не дублювати назви класів */
+a {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
+}
+
+:root {
+  --modal-color: #f8f9ff;
+  --color-text-bold: #242424;
+  --color-text-medium: rgba(36, 36, 36, 0.8);
+  --color-text-light: rgba(36, 36, 36, 0.5);
+  --btn-text-color-white: #fdfdff;
+  --background-fav-btn: #7e8fdd;
+  --background-fav-btn-hover: #6e7fcf;
+  --background-back-btn: rgba(36, 36, 36, 0.1);
+  --background-back-btn-hover: rgba(36, 36, 36, 0.2);
+  --modal-color-dark: #232330;
+  --color-text-medium-dark: rgba(253, 253, 255, 0.8);
+  --color-text-light-dark: rgba(253, 253, 255, 0.5);
+  --background-back-btn-dark: rgba(253, 253, 255, 0.1);
+  --background-back-btn-dark-hover: rgba(253, 253, 255, 0.2);
+}
+
+.ingredient-close-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  width: 22px;
+  height: 22px;
+  /*--transition: background-color 0.3s, border 0.3s;--*/
+}
+
+@media screen and (min-width: 768px) {
+  .ingredient-close-btn {
+    top: 18px;
+    right: 18px;
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.ingredient-close-btn-icon {
+  stroke: var(--color-text-bold);
+}
+
+.ingredient-close-btn-icon-dark {
+  stroke: var(--btn-text-color-white);
+}
+
+.ingredient-modal {
+  position: relative;
+  width: 295px;
+  height: 576px;
+  border-radius: 20px;
+  background-color: var(--modal-color);
+  padding: 20px;
+  margin-top: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .ingredient-modal {
+    width: 600px;
+    height: 506px;
+    background-color: var(--modal-color-dark);
+    padding: 40px;
+  }
+}
+
+.ingredient-modal-dark {
+  background-color: var(--modal-color-dark);
+}
+
+.ingredient-modal-name {
+  color: var(--color-text-bold);
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+  margin-top: 20px;
+  margin-bottom: 8px;
+}
+
+@media screen and (min-width: 768px) {
+  .ingredient-modal-name {
+    font-size: 20px;
+    margin-top: 0;
+    margin-bottom: 12px;
+  }
+}
+
+.ingredient-modal-name-dark {
+  color: var(--btn-text-color-white);
+}
+
+.ingredient-modal-type {
+  color: var(--color-text-light);
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 18px;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(36, 36, 36, 0.1);
+  padding-bottom: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .ingredient-modal-type {
+    font-size: 16px;
+    line-height: 18px;
+    padding-bottom: 22px;
+  }
+}
+
+.ingredient-modal-type-dark {
+  color: var(--color-text-light-dark);
+  border-bottom: 1px solid rgba(253, 253, 255, 0.10);
+}
+
+.ingredient-modal-descr {
+  color: var(--color-text-light);
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+@media screen and (min-width: 768px) {
+  .ingredient-modal-descr {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    margin-top: 18px;
+    margin-bottom: 40px;
+  }
+}
+
+.ingredient-modal-descr-dark {
+  color: rgba(253, 253, 255, 0.5);
+}
+
+.modal-span {
+  color: var(--color-text-bold);
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .modal-span {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+  }
+}
+
+.modal-span-dark {
+  color: var(--btn-text-color-white);
+}
+
+.ingredient-modal-list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+  color: var(--color-text-medium);
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  list-style: disc;
+  margin-left: 26px;
+  margin-bottom: 40px;
+}
+
+@media screen and (min-width: 768px) {
+  .ingredient-modal-list {
+    display: inline-flex;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    margin-bottom: 40px;
+  }
+}
+
+
+.ingredient-modal-list-dark {
+  color: var(--color-text-medium-dark);
+}
+
+.ingredient-modal-btns {
+  display: flex;
+  flex-direction: column;
+  row-gap: 14px;
+}
+
+@media screen and (min-width: 768px) {
+  .ingredient-modal-btns {
+    display: flex;
+    flex-direction: row;
+    column-gap: 18px;
+    margin: 0;
+  }
+}
+
+.favorite-btn {
+  width: 100%;
+  padding: 14px 84px;
+  border-radius: 12px;
+  background: var(--background-fav-btn);
+  color: var(--btn-text-color-white);
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0.28px;
+  text-transform: uppercase;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+@media screen and (min-width: 768px) {
+  .favorite-btn {
+   width: 50%;
+   height: 56px;
+   padding: 0;
+  }
+}
+
+/* @media screen and (min-width: 768px) {
+  .favorite-btn {
+    width: 50%;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0.36px;
+  }
+} */
+
+.favorite-btn:hover,
+.favorite-btn:focus {
+  background-color: var(--background-fav-btn-hover);
+}
+
+.back-btn {
+  width: 100%;
+  padding: 14px 84px;
+  border-radius: 12px;
+  background: rgba(36, 36, 36, 0.1);
+  color: var(--color-text-bold);
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0.28px;
+  text-transform: uppercase;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+@media screen and (min-width: 768px) {
+  .back-btn {
+    width: 172px;
+    padding: 16px 60px;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0.36px;
+  }
+}
+
+.back-btn:hover,
+.back-btn:focus {
+  background-color: rgba(36, 36, 36, 0.2);
+}
+
+.back-btn-dark {
+  color: var(--btn-text-color-white);
+  background-color: var(--background-back-btn-dark);
+}
+
+.back-btn-dark:hover,
+.back-btn-dark:focus {
+  background-color: var(--background-back-btn-dark-hover);
+}
