@@ -11,7 +11,7 @@
                 <button type="button" class="js-learn-more learn-more-button" id="${s}">Learn more</button>
                 <button type="button" class="js-add-to add-to-button" id="${s}">
                     <svg class="icon-heart" width="20px" height="16px">
-                        <use href="/img/svg/sprite.svg#icon-heart"></use>
+                        <use href="../img/svg/sprite.svg#icon-heart"></use>
                     </svg>
                 </button>
             </div>
