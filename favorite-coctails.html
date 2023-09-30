@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Favorite cocktails</title>
     
-  <script type="module" crossorigin src="/starteam-proj-js/assets/main-start-2021022b.js"></script>
-  <link rel="stylesheet" href="/starteam-proj-js/assets/main-start-dba06687.css">
+  <script type="module" crossorigin src="/starteam-proj-js/assets/main-start-563aabfd.js"></script>
+  <link rel="stylesheet" href="/starteam-proj-js/assets/main-start-f285f2b8.css">
 </head>
 
 <body>
@@ -16,7 +16,7 @@
   <!-- розмір контейнера вже заданий в /container.css для всіх пристроїв -->
   <div class="container header-container">
     <div class="header-desktop">
-      <a href="/index.html" class="header-home-link">Home</a>
+      <a href="./index.html" class="header-home-link">Home</a>
       <div class="dropdown">
         <button class="dropbtn">
           Favorite
@@ -25,26 +25,23 @@
           </svg>
         </button>
         <div class="dropdown-content">
-          <a href="/favorite-coctails.html">Favorite cocktails</a>
-          <a
-            class="dropdown-favorite-ingredients-link"
-            href="/favorite-ingredients.html"
-            >Favorite ingredients</a
-          >
+          <a class="dropdown-favorite-cocktails-link" href="./favorite-coctails.html">Favorite cocktails</a>
+          <a class="dropdown-favorite-ingredients-link" href="./favorite-ingredients.html">Favorite ingredients</a>
         </div>
       </div>
     </div>
     <div class="header-left-elements">
       <p class="header-logo-text">DRINKIFY</p>
-      <a href="/index.html" class="header-logo-link"
-        ><svg class="header-logo-icon">
-          <use href="/starteam-proj-js/assets/sprite-1eb45ddf.svg#icon-cocktail"></use></svg
-      ></a>
+      <a href="./index.html" class="header-logo-link"><svg class="header-logo-icon">
+          <use href="/starteam-proj-js/assets/sprite-1eb45ddf.svg#icon-cocktail"></use>
+        </svg></a>
     </div>
     <div class="header-right-elements">
-      <svg class="burger-icon">
-        <use href="/starteam-proj-js/assets/sprite-1eb45ddf.svg#icon-burger"></use>
-      </svg>
+      <button type="button" class="mobile-menu-open-btn js-open-mobile-menu" aria-expanded="false">
+        <svg class="burger-icon">
+          <use href="/starteam-proj-js/assets/sprite-1eb45ddf.svg#icon-burger"></use>
+        </svg>
+      </button>
     </div>
     <div class="bg-switcher">
       <label class="switch">
@@ -53,8 +50,46 @@
       </label>
     </div>
   </div>
+  <!-- Мобільне меню -->
+  <div class="mobile-menu js-menu-container">
+    <div class="container mobile-menu-container">
+      <div class="mobile-menu-top">
+        <div class="mobile-menu-elements">
+          <p class="mobile-menu-logo-text">DRINKIFY</p>
+          <a href="./index.html" class="mobile-menu-logo-link"><svg class="mobile-menu-logo-icon">
+              <use href="/starteam-proj-js/assets/sprite-1eb45ddf.svg#icon-cocktail"></use>
+            </svg></a>
+        </div>
+        <div class="mobile-buttons">
+          <label class="mobile-switch">
+            <input type="checkbox" />
+            <span class="mobile-slider mobile-round"></span>
+          </label>
+          <button class="mobile-menu-close-btn js-close-mobile-menu">
+            <svg class="mobile-menu-close-icon">
+              <use href="/starteam-proj-js/assets/sprite-1eb45ddf.svg#icon-close"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="mobile-menu-links">
+        <a href="./index.html" class="mobile-menu-home-link">Home</a>
+        <div class="mobile-dropdown">
+          <button class="mobile-dropbtn">
+            Favorite
+            <svg class="mobile-menu-arrow-icon">
+              <use href="/starteam-proj-js/assets/sprite-1eb45ddf.svg#icon-arrow-down"></use>
+            </svg>
+          </button>
+          <div class="mobile-dropdown-content">
+            <a href="./favorite-coctails.html">Favorite cocktails</a>
+            <a class="mobile-dropdown-favorite-ingredients-link" href="./favorite-ingredients.html">Favorite
+              ingredients</a>
+          </div>
+        </div>
+        <img src="/starteam-proj-js/assets/star-564abfe2.webp" alt="Star" class="tablet-menu-img">
+      </div>
 </header>
-
 
     <main>
         <section class="favorite-coctails">
