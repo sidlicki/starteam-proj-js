@@ -1,13 +1,43 @@
 /* зважайте будь ласка на те щоб не дублювати назви класів */
+.search-one {
+    text-align: center;
+    padding-top: 40px;
+}
 
+.search-select{
+    display: inline-flex;
+    width: 90px;
+    height: 34px;
+    padding: 8px 14px;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 33px;
+    border: 2px solid #ffffff;
+    border-radius: 8px;
+    color: #ffffff;
+    background: rgba(126, 143, 221, 0.40);
+    cursor: pointer;
+}
+.search-select:focus,
+.search-select:hover {
+background: #9CDFDF;
+}
 
-
+.search-select-one {
+    color: #FDFDFF;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;  
+    line-height: 1.3;
+   
+}
 .search-two {  
 }
 
 .search-menu {
     max-width: 904px;
-    display: flex;
+    display: none;
     flex-wrap: wrap;
     gap: 16px 8px;
     justify-content: center;
@@ -42,8 +72,8 @@ background: #9CDFDF;
 .search-tree {
     position: relative;
     text-align: center;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 40px;
+    padding-bottom: 40px;
     
 }
 .search-input {
@@ -53,16 +83,69 @@ background: #9CDFDF;
     border: 2px solid #7E8FDD;
     padding-left: 42px;
     color: rgba(36, 36, 36, 0.20);
-        font-family: Poppins;
-        font-size: 14px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
 .search-icon {
     position: absolute;
     display: block;
-    top: 45%;
-    left: 405px;
+    top: 50%;
+    left: 35px;
    fill: #242424;
+transform: translateY(-50%);
+}
+
+
+
+@media screen and (min-width: 768px) {
+.search-menu {
+        display: flex;
+    }
+
+
+    .search-menu-item:hover,
+    .search-menu-item:focus {
+        background: #9CDFDF;
+    }
+.mobile-alphabet-button {
+    display: none;
+}
+
+    .search-tree {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+
+    .search-icon {
+        left: 220px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+.search-menu {
+        display: flex;
+    }
+
+
+    .search-menu-item:hover,
+    .search-menu-item:focus {
+        background: #9CDFDF;
+    }
+.mobile-alphabet-button {
+    display: none;
+}
+
+    .search-tree {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+
+    .search-icon {
+        left: 405px; 
+    }
 }
