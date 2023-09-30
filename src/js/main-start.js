@@ -1,9 +1,9 @@
 console.log(`Hi, cards!`);
 
-import {fetchRandomCocktails} from './cocktail-api';
-import {createMarkup} from './create-card';
+import { fetchRandomCocktails } from './cocktail-api';
+import { createMarkup } from './create-card';
 
-const cardList = document.querySelector(`.cocktails-list`)
+const cardList = document.querySelector(`.cocktails-list`);
 
 //console.log(cardList);
 
@@ -15,7 +15,7 @@ cardList.innerHTML = ``;
 
 //console.log(fetchRandomCocktails(quantity));
 
-let allCards = await fetchRandomCocktails(quantity);
+let allCards = fetchRandomCocktails(quantity);
 
 //console.log(allCards);
 
@@ -26,7 +26,7 @@ cardList.insertAdjacentHTML(`beforeend`, createMarkup(allCards));
 // console.log(addFavor)
 
 // window.addEventListener(`click`, handlerAddToFavor)
-    
+
 // function handlerAddToFavor(evt) {
 //     if (evt.target.nodeName == '.js-add-to')
 //         console.log(evt.target)
@@ -37,10 +37,9 @@ cardList.insertAdjacentHTML(`beforeend`, createMarkup(allCards));
 
 // //  nodeName}
 
-document.body.addEventListener("click", function(event) {
-    if (event.target.nodeName == "BUTTON")
-        // console.log(event.target.className);
-        console.log("Clicked", event.target.textContent);
-        console.log("Clicked", event.target.id)
-    
-  });
+document.body.addEventListener('click', function (event) {
+  if (event.target.nodeName == 'BUTTON')
+    // console.log(event.target.className);
+    console.log('Clicked', event.target.textContent);
+  console.log('Clicked', event.target.id);
+});
