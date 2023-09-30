@@ -1,71 +1,16 @@
-const refs = {
-    formSelect: document.querySelector('.js-hero-mobile'),
-};
 
-const array = [
-  'A',
-  'B',
-  'C',
-  'D',
-  'E',
-  'F',
-  'G',
-  'H',
-  'I',
-  'J',
-  'K',
-  'L',
-  'M',
-  'N',
-  'O',
-  'P',
-  'Q',
-  'R',
-  'S',
-  'T',
-  'U',
-  'V',
-  'W',
-  'X',
-  'Y',
-  'Z',
-  '1',
-  '2',
-  '3',
-  '4',
-  '5',
-  '6',
-  '7',
-  '8',
-  '9',
-  '0',
-];
 
-let markup = [];
+// function onTargetCocktailClick(event) {
+//   event.preventDefault();
+//   const nameCocktail = event.target.textContent;
 
-function renderLitery(array) {
-  markup = array
-    .map(element => {
-      return `<option class="search-select-one" value="${element}">${element}</option>`;
-    })
-    .join('');
-}
+// //   fetchCocktail(nameCocktail).then(data => {});
+// }
 
-renderLitery(array);
+// refs.formSelect.addEventListener('change', onTargetSearchCocktailChange);
 
-refs.formSelect.insertAdjacentHTML('beforeend', markup);
-
-function onTargetCocktailClick(event) {
-  event.preventDefault();
-  const nameCocktail = event.target.textContent;
-
-  fetchCocktail(nameCocktail).then(data => {});
-}
-
-refs.formSelect.addEventListener('change', onTargetSearchCocktailChange);
-
-function onTargetSearchCocktailChange(event) {
-  event.preventDefault();
-  const nameSearchCoctail = event.target.value;
-  fetchCocktail(nameSearchCoctail).then(data => {});
-}
+// function onTargetSearchCocktailChange(event) {
+//   event.preventDefault();
+//   const nameSearchCoctail = event.target.value;
+// //   fetchCocktail(nameSearchCoctail).then(data => {});
+// }
