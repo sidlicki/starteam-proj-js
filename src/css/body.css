@@ -1,0 +1,25 @@
+body {
+  background-image: url('../img/body-background/bg-light-mobile.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+body.dark {
+  background-image: url('../img/body-background/bg-dark-mobile.webp');
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    background-image: url('../img/body-background/bg-light-tablet.webp');
+  }
+  body.dark {
+    background-image: url('../img/body-background/bg-dark-tablet.webp');
+  }
+}
+@media screen and (min-width: 1280px) {
+  body {
+    background-image: url('../img/body-background/bg-light-desktop.webp');
+  }
+  body.dark {
+    background-image: url('../img/body-background/bg-dark-desktop.webp');
+  }
+}
