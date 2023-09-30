@@ -1,3 +1,4 @@
+import './js/added';
 import './js/abc-search';
 import './js/create-abc';
 import './js/cocktail-api';
