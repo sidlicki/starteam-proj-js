@@ -51,6 +51,7 @@
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+  z-index: 10;
 }
 .mobile-menu.is-open {
   opacity: 1;
@@ -126,6 +127,9 @@
   position: relative;
   display: inline-block;
 }
+.mobile-dropbtn {
+  padding-bottom: 18px;
+}
 
 /* Dropdown Content (Hidden by Default) */
 .mobile-dropdown-content {
@@ -133,20 +137,20 @@
   position: absolute;
   min-width: 192px;
   z-index: 1;
+  font-size: 14px;
 }
 
 /* Links inside the dropdown */
 .mobile-dropdown-content a {
   color: var(--light-gray-color);
   opacity: 50%;
-  padding-top: 18px;
+  padding-top: 8px;
   padding-left: 24px;
   text-decoration: none;
   display: block;
 }
 
 .mobile-dropdown-favorite-ingredients-link {
-  padding-bottom: 18px;
   color: var(--light-gray-color);
   opacity: 50%;
 }
