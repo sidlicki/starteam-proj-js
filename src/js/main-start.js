@@ -1,27 +1,41 @@
-console.log(`Hi, cards!`);
+import { fetchRandomCocktails } from './cocktail-api';
+import { createMarkup } from './create-card';
+import { getScreenWidthValue } from './screen-value';
 
-import {fetchRandomCocktails} from './cocktail-api';
-import {createMarkup} from './create-cards';
+const cardList = document.querySelector(`.cocktails-list`);
 
-const cardList = document.querySelector(`.cocktails-list`)
+let quantity = getScreenWidthValue(); //присвоєння значення 8/9 викликом функція яка визначає ширину екрану
 
-//console.log(cardList);
+fetchRandomCocktails(quantity).then(cocktails => {
+  cardList.innerHTML = createMarkup(cocktails);
+});
 
-let quantity;
+//console.log(allCards);
 
-quantity = 9;
+// const addFavor = document.querySelectorAll(`.js-add-to`)
 
-cardList.innerHTML = ``;
+// console.log(addFavor)
 
-//console.log(fetchRandomCocktails(quantity));
+// window.addEventListener(`click`, handlerAddToFavor)
 
-let allCards = await fetchRandomCocktails(quantity);
+// function handlerAddToFavor(evt) {
+//     if (evt.target.nodeName == '.js-add-to')
+//         console.log(evt.target)
+// };
 
-console.log(allCards);
+// // function handlerAddToFavor(evt) {
+// //     console.log(evt.target);
 
-cardList.insertAdjacentHTML(`beforeend`, createMarkup(allCards));
+// //  nodeName}
 
-// createMarkup(allCards);
+<<<<<<< HEAD
 
 
-
+=======
+document.body.addEventListener('click', function (event) {
+  if (event.target.nodeName == 'BUTTON')
+    // console.log(event.target.className);
+    console.log('Clicked', event.target.textContent);
+  console.log('Clicked', event.target.id);
+});
+>>>>>>> main
