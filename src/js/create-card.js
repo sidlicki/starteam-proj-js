@@ -11,7 +11,7 @@ function createMarkup(arr) {
                 <button type="button" class="js-learn-more learn-more-button" id="${_id}">Learn more</button>
                 <button type="button" class="js-add-to add-to-button" id="${_id}">
                     <svg class="icon-heart" width="20px" height="16px">
-                        <use href="/img/svg/sprite.svg#icon-heart"></use>
+                        <use href="../img/svg/sprite.svg#icon-heart"></use>
                     </svg>
                 </button>
             </div>
