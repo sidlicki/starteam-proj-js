@@ -60,6 +60,12 @@
     line-height: 1.4;
     letter-spacing: 2%;
     text-transform: uppercase;
+    transition: background-color var(--transition-dur-and-time-func);
+}
+
+.hero-button:hover,
+.hero-button:focus {
+    background-color:#6E7FCF;
 }
 
 /*--стилі для блоку з зображенням і описом до зображення--*/
