@@ -13,12 +13,12 @@ const btnCloseModal = document.querySelectorAll('.js-modal-close');
 const overlay = document.querySelector('.overlay');
 const modal = document.querySelector('.modal');
 
-const { drink, drinkThumb, instructions, ingredients } = testArr[1];
+//const { drink, drinkThumb, instructions, ingredients } = testArr[1];
 
 //const cocktailIds = "639b6de9ff77d221f190c518";
-const cocktailIds = "639b6de9ff77d221f190c521";
+//const cocktailIds = "639b6de9ff77d221f190c521";
 //const cocktailIds = "639b6de9ff77d221f190c51c";
-//const cocktailIds = "639b6de9ff77d221f190c52a";
+const cocktailIds = "639b6de9ff77d221f190c52a";
 //const cocktailIds = "639b6de9ff77d221f190c527";
 //const cocktailIds = "639b6de9ff77d221f190c517";
 //const cocktailIds = "639b6de9ff77d221f190c524";
@@ -52,21 +52,23 @@ function createCardCocktail( {drink, drinkThumb, instructions, ingredients} ) {
   return markup;
 }
 
-
 // Функция полного рендера модального окна коктейля
-async function createModalCard(event) {
-   cardCocktail.innerHTML = '';
-   try {
-      const resp = await fetchCocktailDetails(cocktailIds)  // (event.target.id)
-      const { drink, drinkThumb, instructions, ingredients } = resp[0];
-      cardCocktail.innerHTML = createCardCocktail(resp[0]);
-      
+
+   fetchCocktailDetails(cocktailIds).then(resp => {
+     if (resp.length === 0) {
+      console.log(`Error`);
+      return;
+    }
    
-      //----------- КОД РАБОТЫ с LOCAL STORAGE ----------- //
+   //console.log(resp);
+   cardCocktail.innerHTML = '';
+   cardCocktail.innerHTML = createCardCocktail(resp[0]);
+
+      
+   //----------- КОД РАБОТЫ с LOCAL STORAGE ----------- //
             
       // Объявляем переменную для работы с Local Storage
       let arrFav = JSON.parse(localStorage.getItem("favoriteCocktails")) || [];
-
       //console.log(arrFav);
              
      // Кнопка "Add-to-Favorite" модального окна коктейля 
@@ -91,17 +93,16 @@ async function createModalCard(event) {
       btnModalAddFav.addEventListener('click', onAddFavClick);
 
       // Функция обработки клика кнопки "Add to Favorite"
-      function onAddFavClick() {
-        const indexFavCockt = arrFav.findIndex(item => item === resp[0]._id);
-        if (indexFavCockt === -1) {
-         arrFav.push(resp[0]._id);
-         btnModalAddFav.classList.add('is-hidden');
-         btnModalRemoveFav.classList.remove('is-hidden');
-         localStorage.setItem('favoriteCocktails', JSON.stringify(arrFav)); 
-         return arrFav;
-       }
-     }
-      
+  function onAddFavClick() {
+  const indexFavCockt = arrFav.findIndex(item => item === resp[0]._id);
+  if (indexFavCockt === -1) {
+  arrFav.push(resp[0]._id);
+  btnModalAddFav.classList.add('is-hidden');
+  btnModalRemoveFav.classList.remove('is-hidden');
+  localStorage.setItem('favoriteCocktails', JSON.stringify(arrFav)); 
+  return arrFav;
+}
+}      
      // Устанавливаем прослушиватель кнопки "Remove from Favorite"
       btnModalRemoveFav.addEventListener('click', onRemoveFavClick);
  
@@ -110,7 +111,6 @@ async function createModalCard(event) {
       btnModalAddFav.classList.remove('is-hidden');
       btnModalRemoveFav.classList.add('is-hidden');
       const indFavRem = arrFav.findIndex(item => item === resp[0]._id);
-      console.log(indFavRem);
       if (indFavRem !== -1) {
       arrFav.splice(indFavRem, 1)
       localStorage.setItem("favoriteCocktails", JSON.stringify(arrFav));
@@ -118,10 +118,9 @@ async function createModalCard(event) {
     } 
   }
   //------------------ОКОНЧАНИЕ КОДА РАБОТЫ с LOCAL STORAGE -------------------//
-  }
-      catch(error){console.log(error)}
-}
-
+  });
+    //  catch(error){console.log(error)}
+//}
 
 //*--------------УПРАВЛЕНИЕ МОДАЛЬНЫМ ОКНОМ----------------*/
 
@@ -149,7 +148,7 @@ item.addEventListener('click', modalClose)});
  // Функция открытия модального окна по кнопке
    function modalOpen(event) {
    event.preventDefault();
-   createModalCard();
+   //createModalCard();
    overlay.classList.add('active');
    modal.classList.add('active');
 }
