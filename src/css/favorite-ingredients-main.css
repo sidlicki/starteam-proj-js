@@ -60,7 +60,7 @@
 
 .fav-ingredients-list {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: 20px;
   margin-top: 40px;
 }
@@ -105,11 +105,13 @@
   align-items: center;
   gap: 15px;
 }
+
 .fav-ingredients-learn-more-btn {
-  padding: 14px 69px;
+  padding: 14px;
+  /* width: 100%; */
   border-radius: 12px;
   border: 1px solid var(--violet-color);
-
+  width: 100%;
   color: var(--black-color);
   background-color: white;
   font-size: 14px;
@@ -133,4 +135,29 @@
 .fav-ingredients-icon-trash {
   fill: none;
   stroke: white;
+}
+
+@media screen and (min-width: 375px) {
+  .fav-ingredients-learn-more-btn {
+    padding: 14px 69px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .fav-ingredients-learn-more-btn {
+    padding: 16px 55px;
+  }
+
+  .fav-ingredients-list-item {
+    padding: 24px;
+    width: 344px;
+    height: 242px;
+  }
+
+  .fav-ingredients-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 40px;
+  }
 }

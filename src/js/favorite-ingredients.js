@@ -25,19 +25,30 @@ let favoriteIngredientIds = JSON.parse(
   localStorage.getItem('favoriteIngredients') || '[]'
 );
 
+const getAlcoholLabelText = alcoholValue => {
+  alcoholValue = alcoholValue.toLowerCase();
+
+  return alcoholValue === 'yes'
+    ? 'Alcoholic'
+    : alcoholValue === 'no'
+    ? 'Non-Alcoholic'
+    : 'NA';
+};
+
 const renderFavoriteIngredients = ingredientIds => {
   if (ingredientIds.length) {
     fetchIngredientDetails(ingredientIds).then(ingredients => {
+      console.log('ingredients', ingredients);
       let ingredientItemsMarkup = ingredients
         .map(
-          ({ _id, title, description }) => `
+          ({ _id, title, alcohol, description }) => `
         <li class="fav-ingredients-list-item">
           <h2 class="fav-ingredient-title">${title}</h2>
-          <p class="fav-ingredient-alcohol">Non-Alcoholic</p>
+          <p class="fav-ingredient-alcohol">${getAlcoholLabelText(alcohol)}</p>
           <p class="fav-ingredient-description">${description}</p>
           <div class="fav-ingredients-buttons-wrapper">
             <button type="button" class="fav-ingredients-learn-more-btn" data-ingredient-id="${_id}">Learn more</button>
-            <button type="button" class="fav-ingredients-remove-from-fav-btn" id="${_id}">
+            <button type="button" class="fav-ingredients-remove-from-fav-btn" data-ingredient-id="${_id}">
               <svg
                 class="fav-ingredients-icon-trash"
                 width="18px"
@@ -61,54 +72,3 @@ const renderFavoriteIngredients = ingredientIds => {
 };
 
 renderFavoriteIngredients(favoriteIngredientIds);
-
-// let favoriteIngredientsDetails;
-
-// if (favoriteIngredientIds.length) {
-//   getFavoriteIngredientsDetails(favoriteIngredientIds).then(
-//     ingredientsDetails => (favoriteIngredientsDetails = ingredientsDetails)
-//   );
-//   console.log(favoriteIngredientsDetails);
-// }
-
-// async function getFavoriteIngredientsDetails(ids) {
-//   return await fetchIngredientDetails(ids);
-// }
-
-// async function getFavoriteIngredientsMarkup() {}
-
-// console.log('favoriteIngredientsDetails', favoriteIngredientsDetails);
-
-// // const getFavoriteIngredientsMarkup = (ingredients) => {
-
-// // }
-
-// const getFavoriteIngredientsMarkup = async ingredientIds => {
-//   if (ingredientIds.length) {
-//     console.log('favoriteIngredients contains values:', ingredientIds);
-//     await fetchIngredientDetails(ingredientIds).then(ingredients => {
-//       console.log(ingredients);
-//       const markup = ingredients
-//         .map(
-//           ({ title, description }) => `<ul class="fav-ingredients-list">
-//         <li class="fav-ingredients-list-item">
-//           <h2 class="fav-ingredient-title">${title}</h2>
-//           <p class="fav-ingredient-alcohol">Non-Alcoholic</p>
-//           <p class="fav-ingredient-description">${description}</p>
-//         </li>
-//       </ul>`
-//         )
-//         .join('');
-//       console.log('markup', markup);
-
-//       return markup;
-//     });
-//   } else {
-//     return emptyFavoriteIngredientsMarkup;
-//   }
-// };
-
-// getFavoriteIngredientsMarkup(favoriteIngredientIds).then(markup => {
-//   console.log('Markup2', markup);
-//   favoriteIngredientsContainer.innerHTML = markup;
-// });
