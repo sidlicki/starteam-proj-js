@@ -1,11 +1,12 @@
 import spriteUrl from '/img/svg/sprite.svg';
+import defaultImg from '/img/mobile/coctail@2x.webp';
 function createMarkup(arr) {
   return arr
     .map(
       ({ description, drink, drinkThumb, _id }) =>
         `
     <li class="cocktail-card" id="${_id}">
-            <img class="cocktail-image" src="${drinkThumb}" onerror="this.src='https://bibliotekant.pl/wp-content/uploads/2021/04/placeholder-image.png'" alt="${drink}" loading="lazy" width="307" height="257"/>
+            <img class="cocktail-image" src="${drinkThumb}" onerror="this.src='${defaultImg}'" alt="${drink}" loading="lazy" width="307" height="257"/>
             <h3 class="cocktail-name">${drink.slice(0, 25)}</h3>
             <p class="cocktail-info">${description.slice(0, 115) + '...'}</p>
             <div class="btns-info">
