@@ -1,1 +1,30 @@
-/* зважайте будь ласка на те щоб не дублювати назви класів */
+.fav-ingredients-section-header {
+  color: var(--black-color);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.17;
+  margin-top: 80px;
+  margin-bottom: 138px;
+}
+
+.no-fav-ingredients-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 244px;
+  height: 190px;
+  align-items: center;
+  margin: 0 auto 138px;
+}
+
+.no-fav-ingredients-text {
+  color: var(--black-color);
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.33;
+}
+
+.no-fav-ingredients-text-accent {
+  color: var(--turquoise-color);
+  font-style: italic;
+}
