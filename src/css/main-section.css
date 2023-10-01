@@ -51,9 +51,12 @@
 
   margin-bottom: 40px;
 }
+body.dark .cocktails-header{
+  color: var(--light-gray-color);
+}
 
 @media only screen and (min-width: 768px) {
-  .section-header-top-sallers {
+  .cocktails-header {
     font-size: 40px;
     line-height: 1.2;  }
 }
@@ -101,6 +104,9 @@
   transform: translateY(-4px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
+body.dark .cocktail-card{
+    background-color: #232330;
+}
 
 @media only screen and (min-width: 768px) {
   .cocktail-card {
@@ -116,6 +122,9 @@
 
   margin-left: 6px;
   margin-bottom: 14px;
+}
+body.dark .cocktail-name {
+  color: var(--light-gray-color);
 }
 @media only screen and (min-width: 768px) {
   .cocktail-name {
@@ -163,6 +172,9 @@
 
   color: var(--color-black);
 }
+body.dark .cocktail-info {
+  color: var(--light-gray-color);
+}
 @media only screen and (min-width: 768px) {
   .cocktail-info {
     width: 296px;
@@ -194,10 +206,10 @@
   min-width: 232px;
   min-height: 48px;
   border-radius: 12px;
-  border-color: var(--violet-color)                ;
+  border-color: var(--violet-color);
   border-width: 1px;
 
-  background-color: var(--light-gray-color);
+  background-color: inherit;
 
   font-family: inherit;
   font-weight: 600;
@@ -215,6 +227,9 @@
 
   transform: translateY(-1px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+body.dark .learn-more-button {
+  color: var(--light-gray-color);
 }
 
 @media only screen and (min-width: 768px) {
