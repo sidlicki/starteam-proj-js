@@ -1,7 +1,7 @@
 // "axios"/ "modern-normalize" /"notiflix" /"tui-pagination" - вже встановлено
 // console.log('hello');
 const refs = {
-    formSelect: document.querySelector('.js-hero-mobile'),
+    formSelect: document.querySelector('.js-search-mobile'),
     searchList: document.querySelector('.js-search-menu'),
 };
 
