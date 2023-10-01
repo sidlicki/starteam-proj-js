@@ -1,6 +1,6 @@
 import { fetchCocktailDetails } from "./cocktail-api";
 import spriteUrl from '../img/svg/sprite.svg';
-
+// ["639b6de9ff77d221f190c52f","639b6de9ff77d221f190c521","639b6de9ff77d221f190c52a","639b6de9ff77d221f190c529","639b6de9ff77d221f190c523","639b6de9ff77d221f190c51a","639b6de9ff77d221f190c526","639b6de9ff77d221f190c528","639b6de9ff77d221f190c52d"]
 document.addEventListener('DOMContentLoaded', generateCocktails);
 // структура картки 
 const renderCocktail = (arr, container) => {
@@ -60,3 +60,4 @@ const renderCocktail = (arr, container) => {
         }
    
 }
+

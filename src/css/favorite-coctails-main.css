@@ -1,9 +1,9 @@
 /* =================Стилі Мобільні======================== */
 
-/* стиля для блоку notFoundBlock */
+/* стиля для блоку notFoundBlock ***************************/
 .favorite-coctails {
   padding-top: 80px;
-  padding-bottom: 138px;
+  padding-bottom: 80px;
 }
 .fav-title-coctails {
   margin-bottom: 40px;
@@ -39,20 +39,19 @@
   margin-left: auto;
   margin-right: auto;
 }
-/* стиля для блоку fav-cocktail*/
+/* стиля для блоку fav-cocktail**********************************/
 .cocktail-list-favorite {
   display: flex;
   flex-direction: column;
-  /* width: 335px;
-  height: 471px; */
+
   width: 100%;
   height: 100%;
   max-width: 335px;
   max-height: 471px;
+  margin-bottom: 0px;
   border-radius: 20px;
   background-color: var(--light-gray-color);
   box-shadow: 0 4px 46px #0000000d;
-  margin-bottom: 20px;
 }
 
 .cocktail-item-img-favorite {
@@ -78,11 +77,10 @@
   font-style: normal;
   font-weight: 600;
   margin-bottom: 14px;
+  line-height: 24px;
 }
 
 .description-container-favorite {
-  /* width: 295px;
-  height: 54px; */
   width: 100%;
   height: 100%;
   max-width: 295px;
@@ -132,11 +130,11 @@
 }
 /* =====================Стилі Планшет======================== */
 
-/* стиля для блоку notFoundBlock */
+/* стиля для блоку notFoundBlock ******************************/
 @media screen and (min-width: 768px) {
   .favorite-coctails {
     padding-top: 110px;
-    padding-bottom: 140px;
+    padding-bottom: 100px;
   }
 
   .fav-title-coctails {
@@ -154,105 +152,68 @@
     width: 372px;
   }
 
-  /* стиля для блоку fav-cocktail*/
+  /* стиля для блоку fav-cocktail*******************************/
   .fav-title-coctails {
     margin-bottom: 32px;
   }
 
   .cocktail-list-favorite {
-    width: 345px;
-    height: 523px;
-    border-radius: 20px;
-    background-color: var(--light-gray-color);
-    box-shadow: 0 4px 46px #0000000d;
-    margin-bottom: 20px;
+    max-width: 344px;
+    max-height: 523px;
   }
   .cocktail-item-img-favorite {
-    border-radius: 16px;
     width: 316px;
     height: 289px;
+  }
+  .trk {
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-bottom: 24px;
+  }
+  .cocktail-name-favorite {
+    font-size: 20px;
+    line-height: 24px;
+  }
 
+  .description-container-favorite {
+    width: 100%;
+    height: 100%;
+    max-width: 296px;
+    max-height: 54px;
     margin-bottom: 24px;
-    margin-left: auto;
-    margin-right: auto;
+  }
+
+  .learn-more-favorite {
+    font-size: 18px;
+    width: 225px;
+    padding: 0;
+  }
+
+  .remove-favorite {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+  }
+
+  .fav-cocktail-list {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 16px;
+    row-gap: 32px;
   }
 }
 
 /* =====================Стилі Десктопні======================== */
+@media screen and (min-width: 1280px) {
+  /* стиля для блоку notFoundBlock ********************************/
 
-/* стиля для блоку notFoundBlock */
+  /* стиля для блоку fav-cocktail**********************************/
+  .fav-title-coctails {
+    margin-bottom: 44px;
+  }
 
-/* .cocktail-list-favorite {
-  width: 344px;
+  .fav-cocktail-list {
+    column-gap: 24px;
+    row-gap: 44px;
+  }
 }
-
-.remove-favorite {
-  padding: 0;
-  background-color: var(--violet-color);
-  border: none;
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.button-wrap-favorite {
-  display: flex;
-  gap: 15px;
-  justify-content: center;
-}
-
-.learn-more-favorite {
-  padding: 16px 55px;
-  border-radius: 12px;
-  border-color: var(--violet-color);
-  background-color: transparent;
-  width: 225px;
-
-  color: #242424;
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.fav-cocktail-list {
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: center;
-  margin: 0 auto;
-  display: flex;
-  row-gap: 44px;
-  column-gap: 24px;
-}
-
-.description-container-favorite {
-  height: 54px;
-  overflow: hidden;
-  position: relative;
-
-  font-family: Poppins;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 18px;
-} */
-/* .cocktail-item-img-favorite {
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 14px;
-  border-radius: 16px;
-  width: 307px;
-  height: 257px;
-} */
-
-/* .trk {
-  padding: 24px;
-}
-.cocktail-name-favorite {
-  color: #242424;
-  font-family: Poppins;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 600;
-} */
