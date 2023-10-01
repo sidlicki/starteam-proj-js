@@ -233,7 +233,7 @@ background-color: var(--violet-color);
 
 
 /*----Adding styles for li---*/
-li:before{
+.add-li:before{
   content: '';
   display: inline-block;
   height:4px;
