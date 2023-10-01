@@ -17,31 +17,33 @@ fetchRandomCocktails(quantity).then(cocktails => {
 let favoriteId = `cards-id`;
 let favCocktailIds = JSON.parse(localStorage.getItem(favoriteId)) || [];
 
+
 cardList.addEventListener('click', function (event) {
   
   const currentIdCard = event.target.id;
   console.log(event);
 
-  if (event.target.dataset.action == 'addtofav') {
-    // викликати тут функцію. котра додає/забирає елемент до локал сторейдж
-    console.log('Add to Favorite, ID', currentIdCard);
+  switch (event.target.dataset.action) {
+    case 'addtofav':
+      console.log('Add to Favorite, ID', currentIdCard);
 
-    favCocktailIds.push(currentIdCard);
+      // викликати тут функцію. котра додає/забирає елемент до локал сторейдж
 
-    localStorage.setItem(favoriteId, JSON.stringify(favCocktailIds)) 
-    console.log(favCocktailIds);
+      favCocktailIds.push(currentIdCard);
 
+      localStorage.setItem(favoriteId, JSON.stringify(favCocktailIds))
+      console.log(favCocktailIds);
     
-    
-    
-    //localStorage.setItem(`id-card`, JSON.stringify(favCocktailIds))
+      //localStorage.setItem(`id-card`, JSON.stringify(favCocktailIds))
 
-  }
-  if (event.target.dataset.action == 'learnmore') {
-    //console.log("Learn More, ID", event.target.id);
-    console.log('Learn More, ID', currentIdCard);
-    // викликати тут функцію відкриваня модального вікна за Id коктеля
-
+      break;
+    
+    case 'learnmore':
+      //console.log("Learn More, ID", event.target.id);
+      console.log('Learn More, ID', currentIdCard);
+      // викликати тут функцію відкриваня модального вікна за Id коктеля
+      
+      break;
   }
 });
 
