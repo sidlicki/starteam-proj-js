@@ -1,25 +1,11 @@
 import { fetchIngredientDetails } from '/js/cocktail-api';
+import coctailWebp from '/img/mobile/coctail.webp';
+import coctailWebp2x from '/img/mobile/coctail@2x.webp';
 
 import spriteUrl from '/img/svg/sprite.svg';
 
-const favoriteIngredientsContainer = document.querySelector(
-  '.fav-ingredients-container'
-);
-
-const emptyFavoriteIngredientsMarkup = `<div class="no-fav-ingredients-wrapper">
-        <img
-          class="cocktail-photo-placeholder"
-          srcset="/img/mobile/coctail.webp 1x, /img/mobile/coctail@2x.webp 2x"
-          src="/img/mobile/coctail.webp"
-          alt="Favorite Cocktail Image"
-          width="142"
-          height="122"
-        />
-        <p class="no-fav-ingredients-text">
-          You haven't added any
-          <span class="no-fav-ingredients-text-accent"> favorite ingredients </span>yet
-        </p>
-      </div>`;
+// "64aebb7f82d96cc69e0eb4c1","64aebb7f82d96cc69e0eb4bc","64aebb7f82d96cc69e0eb4a6","64aebb7f82d96cc69e0eb4f7","64f1d5d069d8333cf130fc6c","64f1d5d169d8333cf130fc7c","64f1d5d369d8333cf130fc9d","64f1d5d969d8333cf130fd0a","64f1d5ed69d8333cf130fe0c","64f1d5fa69d8333cf130feb5"
+let favoriteIngredients;
 
 let favoriteIngredientIds = JSON.parse(
   localStorage.getItem('favoriteIngredients') || '[]'
@@ -35,22 +21,34 @@ const getAlcoholLabelText = alcoholValue => {
     : 'NA';
 };
 
-let favoriteIngredients;
+const favoriteIngredientsContainer = document.querySelector(
+  '.fav-ingredients-container'
+);
 
-const getIngredientsData = async ids => {
-  await fetchIngredientDetails(ids).then(
-    ingredients => (favoriteIngredients = ingredients)
-  );
-};
+const emptyFavoriteIngredientsMarkup = `
+  <div class="no-fav-ingredients-wrapper">
+    <img
+      class="cocktail-photo-placeholder"
+      srcset="${coctailWebp} 1x, ${coctailWebp2x} 2x"
+      src="${coctailWebp}"
+      alt="Favorite Cocktail Image Placeholder"
+      width="142"
+      height="122"
+    />
+    <p class="no-fav-ingredients-text">
+      You haven't added any
+      <span class="no-fav-ingredients-text-accent"> favorite ingredients </span>yet
+    </p>
+  </div>
+  `;
 
-// TODO: refactor to work with fetched data. Fix render after delete fav ing
-const renderFavoriteIngredients = async ids => {
-  if (ids.length) {
-    await getIngredientsData(ids);
-    console.log(favoriteIngredients);
-    let ingredientItemsMarkup = favoriteIngredients
-      .map(
-        ({ _id, title, alcohol, description }) => `
+const createFavoriteIngredientItemMarkup = ({
+  _id,
+  title,
+  alcohol,
+  description,
+}) => {
+  return `
         <li class="fav-ingredients-list-item">
           <h2 class="fav-ingredient-title">${title || 'No title'}</h2>
           <p class="fav-ingredient-alcohol">${getAlcoholLabelText(alcohol)}</p>
@@ -70,8 +68,22 @@ const renderFavoriteIngredients = async ids => {
               </svg>
             </button>
           </div>
-        </li>`
-      )
+        </li>`;
+};
+
+const getIngredientsData = async ids => {
+  await fetchIngredientDetails(ids).then(
+    ingredients => (favoriteIngredients = ingredients)
+  );
+};
+
+// TODO: refactor to work with fetched data. Fix render after delete fav ing
+const renderFavoriteIngredients = async ids => {
+  if (ids.length) {
+    await getIngredientsData(ids);
+    console.log(favoriteIngredients);
+    let ingredientItemsMarkup = favoriteIngredients
+      .map(ingredient => createFavoriteIngredientItemMarkup(ingredient))
       .join('');
     let ingredientsListMarkup = `<ul class="fav-ingredients-list">${ingredientItemsMarkup}</ul>`;
 
