@@ -15,9 +15,9 @@ const renderCocktail = (arr, container) => {
             <div class="trk">
             <h2 class="cocktail-name-favorite">${item.drink}</h2>
             <p class="description-container-favorite">${item.description.slice(0, 111) + '...'}</p>
-            <div class="button-wrap-favorite" data-id-drink='${item._id}'>
-                <button type="button" class="learn-more-favorite">LEARN MORE</button>
-                <button type="button" class="remove-favorite">
+            <div class="button-wrap-favorite" >
+                <button type="button" class="learn-more-favorite" id="${item._id}">LEARN MORE</button>
+                <button type="button" class="remove-favorite" id="${item._id}>
                     <svg class="svg-icon-favorite-trash" width="18" height="18">
                         <use href="${spriteUrl}#icon-trash"></use>
                     </svg>
