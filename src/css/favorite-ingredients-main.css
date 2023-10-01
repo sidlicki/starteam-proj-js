@@ -235,7 +235,16 @@
 }
 
 @media screen and (min-width: 1280px) {
+  .fav-ingredients-section-header {
+    font-size: 40px;
+    line-height: 1.2;
+    margin-top: 110px;
+  }
+
   .fav-ingredients-list {
     column-gap: 24px;
+    row-gap: 44px;
+    /* margin-top move to parent element */
+    margin-top: 44px;
   }
 }
