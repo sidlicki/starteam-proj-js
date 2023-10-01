@@ -73,6 +73,7 @@
 /*--стилі для зовнішнього контейнера, який огортає зображення--*/
 
 
+
 .hero-image-elements-wrapper {
     padding-top: 50px;
     display: flex;
@@ -99,9 +100,11 @@ screen and (min-resolution: 2ppx) and (max-width: 767px) {
     .hero-image-elements-wrapper{
     background-image:   image-set('/img/mobile/elements.webp' type('image/webp'),
                 '/img/mobile/elements@2x.webp' type('image/webp')
-                );
+        );
     }
 }
+
+
 
 /*--стилі для внутрішнього контейнера,який є бузковим фоном зображення--*/
 .background-decoration-recktangle {
@@ -217,7 +220,7 @@ screen and (min-resolution: 2ppx) and (max-width: 767px) {
 /*--------------------DESKTOP--------------------*/
 
 /*--стилі для зовнішнього контейнера, 
-який огортає зображення HERO-desctop--*/
+який огортає зображення HERO-desktop--*/
 
 @media screen and (min-width: 1280px) {
 
@@ -280,65 +283,72 @@ screen and (min-resolution: 2ppx) and (max-width: 767px) {
 }
 
 /*-----MOBILE___DARK_THEME---------*/
-body.dark .hero-title{
-    color: var(--light-gray-color);
-}
-body.dark .hero-title-motto{
-    color: var(--light-gray-color);
-}
-body.dark .hero-button{
-    color: var(--light-gray-color);
-}
-body.dark .hero-img-description{
+body.dark .hero-title {
     color: var(--light-gray-color);
 }
 
-body.dark .hero-image-elements-wrapper{
-background-image: linear-gradient(rgba(253, 253, 255,0), rgba(253, 253, 255, 0.3)),image-set('/img/mobile/elements.webp' type('image/webp'),
-'/img/mobile/elements@2x.webp' type('image/webp')); 
+body.dark .hero-title-motto {
+    color: var(--light-gray-color);
+}
 
-/*--описуємо медіа-правило для фонового зображення для HERO-mobile--*/
+body.dark .hero-button {
+    color: var(--light-gray-color);
+}
 
-    @media screen and (min-device-pixel-ratio: 2) and (max-width: 767px),
-    screen and (min-resolution: 192dpi) and (max-width: 767px),
-    screen and (min-resolution: 2ppx) and (max-width: 767px) {
-        .hero-image-elements-wrapper {
-            background-image: linear-gradient(rgba(253, 253, 255, 0), rgba(253, 253, 255, 0.3)) ,image-set('/img/mobile/elements.webp' type('image/webp'),
-                    '/img/mobile/elements@2x.webp' type('image/webp'));
-        }
+body.dark .hero-img-description {
+    color: var(--light-gray-color);
+}
+
+body.dark .hero-image-elements-wrapper {
+
+    background-image: image-set('/img/mobile/elements-dark-m.webp' type('image/webp'),
+            '/img/mobile/elements-dark-m@2x.webp' type('image/webp'));
+    
+}
+
+/* --описуємо медіа-правило для фонового зображення для HERO-mobile-- */
+@media screen and (min-device-pixel-ratio: 2) and (max-width: 767px),
+screen and (min-resolution: 192dpi) and (max-width: 767px),
+screen and (min-resolution: 2ppx) and (max-width: 767px) {
+    body.dark .hero-image-elements-wrapper {
+        background-image: image-set('/img/mobile/elements-dark-m.webp' type('image/webp'),
+                '/img/mobile/elements-dark-m@2x.webp' type('image/webp'));
+        
     }
 }
+
 
 /*-----TABLET___DARK_THEME---------*/
 body.dark .hero-image-elements-wrapper {
-    background-image: linear-gradient(rgba(253, 253, 255, 0), rgba(253, 253, 255, 0.3)), image-set('/img/tablet/elements.webp' type('image/webp'),
-            '/img/tablet/elements@2x.webp' type('image/webp'));
+    background-image: image-set('/img/tablet/elements-dark-t.webp' type('image/webp'),
+            '/img/tablet/elements-dark-t@2x.webp' type('image/webp'));
+}
 
-    /*--описуємо медіа-правило для фонового зображення для HERO-mobile--*/
+/*--описуємо медіа-правило для фонового зображення для HERO-tablet--*/
 
-    @media screen and (min-device-pixel-ratio: 2) and (min-width: 768px),
-    screen and (min-resolution: 192dpi) and (min-width: 768px),
-    screen and (min-resolution: 2ppx) and (min-width: 768px) {
-        .hero-image-elements-wrapper {
-            background-image: linear-gradient(rgba(253, 253, 255, 0), rgba(253, 253, 255, 0.3)), image-set('/img/tablet/elements.webp' type('image/webp'),
-                    '/img/tablet/elements@2x.webp' type('image/webp'));
-        }
+@media screen and (min-device-pixel-ratio: 2) and (min-width: 768px),
+screen and (min-resolution: 192dpi) and (min-width: 768px),
+screen and (min-resolution: 2ppx) and (min-width: 768px) {
+    body.dark .hero-image-elements-wrapper {
+        background-image: image-set('/img/tablet/elements-dark-t.webp' type('image/webp'),
+                '/img/tablet/elements-dark-t@2x.webp' type('image/webp'));
     }
 }
 
+
 /*-----DESKTOP___DARK_THEME---------*/
 body.dark .hero-image-elements-wrapper {
-    background-image: linear-gradient(rgba(253, 253, 255, 0), rgba(253, 253, 255, 0.3)), image-set('/img/desktop/elements.webp' type('image/webp'),
-            '/img/desktop/elements@2x.webp' type('image/webp'));
+    background-image: image-set('/img/desktop/elements-dark-d.webp' type('image/webp'),
+            '/img/desktop/elements-dark-d@2x.webp' type('image/webp'));
+}
 
-    /*--описуємо медіа-правило для фонового зображення для HERO-mobile--*/
+/*--описуємо медіа-правило для фонового зображення для HERO-desktop--*/
 
-    @media screen and (min-device-pixel-ratio: 2) and (min-width: 1280px),
-    screen and (min-resolution: 192dpi) and (min-width: 1280px),
-    screen and (min-resolution: 2ppx) and (min-width: 1280px) {
-        .hero-image-elements-wrapper {
-            background-image: linear-gradient(rgba(253, 253, 255, 0), rgba(253, 253, 255, 0.3)), image-set('/img/desktop/elements.webp' type('image/webp'),
-                    '/img/desktop/elements@2x.webp' type('image/webp'));
-        }
+@media screen and (min-device-pixel-ratio: 2) and (min-width: 1280px),
+screen and (min-resolution: 192dpi) and (min-width: 1280px),
+screen and (min-resolution: 2ppx) and (min-width: 1280px) {
+    body.dark .hero-image-elements-wrapper {
+        background-image: image-set('/img/desktop/elements-dark-d.webp' type('image/webp'),
+                '/img/desktop/elements-dark-d@2x.webp' type('image/webp'));
     }
 }
