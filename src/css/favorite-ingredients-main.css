@@ -70,6 +70,12 @@
   background: var(--light-gray-color);
   box-shadow: 0px 4px 46px 0px rgba(0, 0, 0, 0.05);
   padding: 20px;
+  transition: box-shadow var(--transition-dur-and-time-func);
+}
+
+.fav-ingredients-list-item:hover {
+  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
 }
 
 .fav-ingredient-title {
@@ -120,6 +126,15 @@
   line-height: 1.42;
   letter-spacing: 0.28px;
   text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color var(--transition-dur-and-time-func),
+    color var(--transition-dur-and-time-func);
+}
+
+.fav-ingredients-learn-more-btn:hover,
+.fav-ingredients-learn-more-btn:focus {
+  background: var(--violet-color);
+  color: var(--light-gray-color);
 }
 
 .fav-ingredients-remove-from-fav-btn {
@@ -131,6 +146,17 @@
   border-radius: 12px;
   background: var(--violet-color);
   border: none;
+  cursor: pointer;
+  transition: background-color var(--transition-dur-and-time-func);
+}
+
+.fav-ingredients-remove-from-fav-btn:hover,
+.fav-ingredients-remove-from-fav-btn:focus {
+  background: var(--violet-color-accent);
+}
+
+.fav-ingredients-remove-from-fav-btn:active {
+  background: var(--turquoise-color);
 }
 
 .fav-ingredients-icon-trash {
