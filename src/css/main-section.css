@@ -127,7 +127,7 @@
 
 .cocktail-name {
   margin-left: 6px;
-  padding-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .cocktail-image {
@@ -150,6 +150,7 @@
   width: 295px;
   height: 54px;
   margin-left: 6px;
+  margin-bottom: 20px;
 
   font-weight: 400;
   font-size: 14px;
@@ -158,12 +159,11 @@
   letter-spacing: -0.02em;
 
   overflow: hidden;
-  text-overflow: ellipsis;
+  /* text-overflow: ellipsis; */
 
   /* background-color: var(--main-background-color); */
 
   color: var(--color-black);
-  margin-bottom: 20px;
 }
 @media only screen and (min-width: 768px) {
   .top-sallers-txt {

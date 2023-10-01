@@ -14,15 +14,34 @@ fetchRandomCocktails(quantity).then(cocktails => {
 
 //console.log(allCards);
 
+let favoriteId = `cards-id`;
+let favCocktailIds = JSON.parse(localStorage.getItem(favoriteId)) || [];
+
 cardList.addEventListener('click', function (event) {
+  
+  const currentIdCard = event.target.id;
+
   if (event.target.dataset.action == 'addtofav') {
-    console.log('Add to Favorite, ID', event.target.id);
     // викликати тут функцію. котра додає/забирає елемент до локал сторейдж
+    console.log('Add to Favorite, ID', currentIdCard);
+
+    favCocktailIds.push(currentIdCard);
+
+    localStorage.setItem(favoriteId, JSON.stringify(favCocktailIds)) 
+    console.log(favCocktailIds);
+
+    
+    
+    
+    //localStorage.setItem(`id-card`, JSON.stringify(favCocktailIds))
+
   }
   if (event.target.dataset.action == 'learnmore') {
     //console.log("Learn More, ID", event.target.id);
-    let currentIdCard = event.target.id;
     console.log('Learn More, ID', currentIdCard);
     // викликати тут функцію відкриваня модального вікна за Id коктеля
+
   }
 });
+
+
