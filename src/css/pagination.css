@@ -34,4 +34,18 @@
     display: none;
 }
 
+@media screen and (max-width:376px) {
+    #tui-pagination-container .tui-page-btn:nth-child(2){
+        margin-right: 8px;
+        
+        
+    }
+
+    #tui-pagination-container .tui-page-btn:nth-last-child(2){
+        margin-left:8px;
+        
+    }
+} 
+
+
 /*  */

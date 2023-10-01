@@ -6,11 +6,18 @@ import 'tui-pagination/dist/tui-pagination.css';
 
 // console.log(testArr);
 
+// console.log(window.innerWidth);
+
 export function pagiation(cocList){
-    const container = document.getElementById('tui-pagination-container');
-    const numberOfPhoto = 8;
-    const maxNumberOfPaginator = 3;
+    let numberOfPhoto = 8;
+    let maxNumberOfPaginator = 3;
    
+    // if(window.innerWidth>=768){
+    //     console.log("adsadsa")
+    // }
+    
+    const container = document.getElementById('tui-pagination-container');
+    
 
     const createNewArr= () =>{
         let newArr = [];
@@ -34,26 +41,26 @@ export function pagiation(cocList){
         //// console.log(createNewArr()[currentItemPaginator]);
         //// console.log("");
 
+
+            const markup = createNewArr()[currentItemPaginator].map((item) => {
+            const { _id, drink, drinkThumb, description } = item;
+              return `<li class="cocktail-list__cocktail-item">
+                  <img class="cocktail-item_img" src="${drinkThumb}" alt="preview cocktail" width="316" height="auto">
+                  <h2 class="cocktail-item__name">${drink}</h2>
+                  <p class="cocktail-item__description">${description}</p>
+                  <div class="button-wrap" data-id-drink='${_id}'>
+                      <button type="button" class="cocktail-item__learn-more">Learn more</button>
+                      <button type="button" class="cocktail-item__"></button>
+                          <svg class="svg" width="21" height="19">
+                              <use href=""></use>
+                          </svg>
+                      </button>
+                  </div>
+              </li>`;
+            }).join("");
         
-    //         const markup = createNewArr()[currentItemPaginator].map((item) => {
-    //         const { _id, drink, drinkThumb, description } = item;
-    //           return `<li class="cocktail-list__cocktail-item">
-    //               <img class="cocktail-item_img" src="${drinkThumb}" alt="preview cocktail" width="316" height="auto">
-    //               <h2 class="cocktail-item__name">${drink}</h2>
-    //               <p class="cocktail-item__description">${description}</p>
-    //               <div class="button-wrap" data-id-drink='${_id}'>
-    //                   <button type="button" class="cocktail-item__learn-more">Learn more</button>
-    //                   <button type="button" class="cocktail-item__"></button>
-    //                       <svg class="svg" width="21" height="19">
-    //                           <use href=""></use>
-    //                       </svg>
-    //                   </button>
-    //               </div>
-    //           </li>`;
-    //         }).join("");
-        
-    //         document.querySelector('.search-cards').innerHTML= markup;
-    //         window.scroll(0,0)
+            document.querySelector('.search-cards').innerHTML= markup;
+            window.scroll(0,0)
     }
     renderCards(0);
 
@@ -74,13 +81,49 @@ export function pagiation(cocList){
     // console.log(cocList.length);
     const psvArrItemPagination = container.querySelectorAll('.tui-page-btn');
     const arrItemPagination = Array.from(psvArrItemPagination);
-    arrItemPagination[5].insertAdjacentHTML('afterend',`<a href="#" class="tui-page-btn last-item">${Math.ceil(cocList.length/numberOfPhoto)}</a> ` );
+    arrItemPagination[5].insertAdjacentHTML('afterend',`<a href="#" class="tui-page-btn new-btn last-item">${Math.ceil(cocList.length/numberOfPhoto)}</a> ` );
+    
+    function changeNumberOfItem(){
         
-        
-
+        if(window.innerWidth>=768 && Math.ceil(cocList.length/numberOfPhoto) === 5){
+        arrItemPagination[5].insertAdjacentHTML('afterend',`<a href="#" class="tui-page-btn new-btn">${Math.ceil(cocList.length/numberOfPhoto)-1}</a> ` );
+        console.log(1);
+    }   
+    else if(window.innerWidth>=768 && Math.ceil(cocList.length/numberOfPhoto) > 5){
+        arrItemPagination[5].insertAdjacentHTML('afterend',`<a href="#" class="tui-page-btn new-btn">${Math.ceil(cocList.length/numberOfPhoto)-1}</a> ` );
+        arrItemPagination[5].insertAdjacentHTML('afterend',`<a href="#" class="tui-page-btn new-btn">${Math.ceil(cocList.length/numberOfPhoto)-2}</a> ` );
+        }   
+    }
+    changeNumberOfItem();
+    
        
 
+
+
     const renerAditionalBtn = (e)=>{
+     
+        function changeNumberOfItem(){
+            
+            if(window.innerWidth>=768 && Math.ceil(cocList.length/numberOfPhoto) === 5){
+            
+            arrItemPagination[5].insertAdjacentHTML('afterend',`<a href="#" class="tui-page-btn new-btn lol">${Math.ceil(cocList.length/numberOfPhoto)-1}</a> ` );
+            console.log(1);
+        }   
+
+        else if(window.innerWidth>=768 && Math.ceil(cocList.length/numberOfPhoto) > 5){
+            if(e.target.classList.contains("new-btn")){
+                arrItemPagination[6].remove();
+                arrItemPagination[7].remove();
+                arrItemPagination[8].remove();
+            }
+    
+            lastDotsEl.insertAdjacentHTML('afterend',`<a href="#" class="tui-page-btn new-btn lol">${Math.ceil(cocList.length/numberOfPhoto)-1}</a> ` );
+            lastDotsEl.insertAdjacentHTML('afterend',`<a href="#" class="tui-page-btn new-btn lol">${Math.ceil(cocList.length/numberOfPhoto)-2}</a> ` );
+            
+        }   
+        }
+        
+    
         if (Number.isInteger(Number(e.target.textContent))){
             renderCards(Number(e.target.textContent)-1);
         }
@@ -93,12 +136,21 @@ export function pagiation(cocList){
         
         const psvArrItemPagination = container.querySelectorAll('.tui-page-btn');
         const arrItemPagination = Array.from(psvArrItemPagination);
+        
+        
+        
         const lastDotsEl = arrItemPagination.find(item =>{
             if (item.classList.contains("tui-next-is-ellip")){
                 // console.log("last")
                 return item;
             }
         })
+        lastDotsEl.insertAdjacentHTML('afterend',`<a href="#" class="tui-page-btn new-btn last-item">${Math.ceil(cocList.length/numberOfPhoto)}</a> ` );
+       
+
+         changeNumberOfItem();
+         
+        
         const firstDotsEl = arrItemPagination.find(item=>{
             if (item.classList.contains("tui-prev-is-ellip")){
                 // console.log("first")
@@ -129,7 +181,7 @@ export function pagiation(cocList){
 
         
 
-        lastDotsEl.insertAdjacentHTML('afterend',`<a href="#" class="tui-page-btn last-item">${Math.ceil(cocList.length/numberOfPhoto)}</a> ` );
+        
     }
 
 
