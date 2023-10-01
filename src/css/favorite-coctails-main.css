@@ -40,6 +40,7 @@
   margin-right: auto;
 }
 /* стиля для блоку fav-cocktail**********************************/
+
 .cocktail-list-favorite {
   display: flex;
   flex-direction: column;
@@ -194,7 +195,10 @@
     height: 56px;
     border-radius: 12px;
   }
-
+  .svg-icon-favorite-trash {
+    width: 24px;
+    height: 24px;
+  }
   .fav-cocktail-list {
     display: flex;
     flex-wrap: wrap;
@@ -216,4 +220,15 @@
     column-gap: 24px;
     row-gap: 44px;
   }
+}
+
+body.dark .cocktail-name-favorite,
+body.dark .description-container-favorite,
+body.dark .learn-more-favorite,
+body.dark .remove-favorite,
+body.dark .fav-title-coctails {
+  color: #fdfdff;
+}
+body.dark .cocktail-list-favorite {
+  background: #232330;
 }
