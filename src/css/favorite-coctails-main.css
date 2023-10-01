@@ -1,1 +1,262 @@
-/* зважайте будь ласка на те щоб не дублювати назви класів */
+/* =================Стилі Мобільні======================== */
+
+/* стиля для блоку notFoundBlock ***************************/
+.favorite-coctails {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+.fav-title-coctails {
+  margin-bottom: 40px;
+  color: var(--black-color);
+  font-family: Poppins;
+
+  font-style: normal;
+  font-weight: 500;
+}
+
+.no-fav-cocktail-img {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.no-fav-cocktail-text {
+  margin-top: 20px;
+  text-align: center;
+  color: var(--black-color);
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+}
+.no-fav-cocktail-color {
+  color: var(--turquoise-color);
+  font-style: italic;
+}
+
+.not-found {
+  width: 244px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* стиля для блоку fav-cocktail**********************************/
+
+.fav-cocktail-list {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 20px;
+}
+
+.cocktail-list-favorite {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  height: 100%;
+  max-width: 335px;
+  max-height: 471px;
+  margin-bottom: 0px;
+  border-radius: 20px;
+  background-color: var(--light-gray-color);
+  box-shadow: 0 4px 46px #0000000d;
+}
+
+.cocktail-list-favorite:hover,
+.cocktail-list-favorite:focus {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px #0000004d;
+}
+
+.cocktail-item-img-favorite {
+  border-radius: 16px;
+  width: 307px;
+  height: 257px;
+
+  object-fit: cover;
+  margin-top: 14px;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.trk {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+
+.cocktail-name-favorite {
+  color: #242424;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  margin-bottom: 14px;
+  line-height: 24px;
+}
+
+.description-container-favorite {
+  width: 100%;
+  height: 100%;
+  max-width: 295px;
+  max-height: 54px;
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.02em;
+  overflow-y: hidden;
+  text-overflow: ellipsis;
+  color: var(--color-black);
+  margin-bottom: 20px;
+}
+
+.button-wrap-favorite {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+.learn-more-favorite {
+  width: 232px;
+  border-radius: 12px;
+  border: 2px solid var(--violet-color);
+  background-color: transparent;
+
+  color: #242424;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.learn-more-favorite:hover,
+.learn-more-favorite:focus {
+  background-color: #7e8fdd;
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.remove-favorite {
+  padding: 0;
+  background-color: var(--violet-color);
+  border: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.remove-favorite:hover,
+.remove-favorite:focus {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.svg-icon-favorite-trash {
+  stroke: white;
+  fill: transparent;
+}
+/* =====================Стилі Планшет======================== */
+
+/* стиля для блоку notFoundBlock ******************************/
+@media screen and (min-width: 768px) {
+  .favorite-coctails {
+    padding-top: 110px;
+    padding-bottom: 100px;
+  }
+
+  .fav-title-coctails {
+    margin-bottom: 100px;
+    font-size: 40px;
+    line-height: 48px;
+  }
+  .no-fav-cocktail-text {
+    margin-top: 40px;
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  .not-found {
+    width: 372px;
+  }
+
+  /* стиля для блоку fav-cocktail*******************************/
+  .fav-title-coctails {
+    margin-bottom: 32px;
+  }
+
+  .cocktail-list-favorite {
+    max-width: 344px;
+    max-height: 523px;
+  }
+  .cocktail-item-img-favorite {
+    width: 316px;
+    height: 289px;
+  }
+  .trk {
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-bottom: 24px;
+  }
+  .cocktail-name-favorite {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .description-container-favorite {
+    width: 100%;
+    height: 100%;
+    max-width: 296px;
+    max-height: 54px;
+    margin-bottom: 24px;
+  }
+
+  .learn-more-favorite {
+    font-size: 18px;
+    width: 225px;
+    padding: 0;
+  }
+
+  .remove-favorite {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+  }
+  .svg-icon-favorite-trash {
+    width: 24px;
+    height: 24px;
+  }
+  .fav-cocktail-list {
+    column-gap: 16px;
+    row-gap: 32px;
+  }
+}
+
+/* =====================Стилі Десктопні======================== */
+@media screen and (min-width: 1280px) {
+  /* стиля для блоку notFoundBlock ********************************/
+
+  /* стиля для блоку fav-cocktail**********************************/
+  .fav-title-coctails {
+    margin-bottom: 44px;
+  }
+
+  .fav-cocktail-list {
+    column-gap: 24px;
+    row-gap: 44px;
+  }
+}
+
+body.dark .cocktail-name-favorite,
+body.dark .description-container-favorite,
+body.dark .learn-more-favorite,
+body.dark .remove-favorite,
+body.dark .fav-title-coctails {
+  color: #fdfdff;
+}
+body.dark .cocktail-list-favorite {
+  background: #232330;
+}

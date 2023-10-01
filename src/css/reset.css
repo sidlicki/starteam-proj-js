@@ -39,6 +39,10 @@ body {
   font-family: Poppins;
 }
 
+svg {
+  pointer-events: none;
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;
