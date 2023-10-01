@@ -2,6 +2,7 @@
 .search-one {
     text-align: center;
     padding-top: 40px;
+    
 }
 .form-mobile {
    position: relative; 
@@ -19,15 +20,21 @@
     color: #ffffff;
     background: rgba(126, 143, 221, 0.40);
     cursor: pointer;
-    
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
 }
 .search-select:focus,
 .search-select:hover {
 background: #9CDFDF;
 
 }
-
-
+.search-icon-down {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 14px;
+}
 
 .search-select-one {
     color: #FDFDFF;
@@ -92,6 +99,7 @@ background: #9CDFDF;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    
 }
 .search-icon {
     position: absolute;
