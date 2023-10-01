@@ -20,6 +20,7 @@ let favCocktailIds = JSON.parse(localStorage.getItem(favoriteId)) || [];
 cardList.addEventListener('click', function (event) {
   
   const currentIdCard = event.target.id;
+  console.log(event);
 
   if (event.target.dataset.action == 'addtofav') {
     // викликати тут функцію. котра додає/забирає елемент до локал сторейдж
