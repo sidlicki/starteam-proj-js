@@ -120,6 +120,15 @@
   line-height: 1.42;
   letter-spacing: 0.28px;
   text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color var(--transition-dur-and-time-func),
+    color var(--transition-dur-and-time-func);
+}
+
+.fav-ingredients-learn-more-btn:hover,
+.fav-ingredients-learn-more-btn:focus {
+  background: var(--violet-color);
+  color: var(--light-gray-color);
 }
 
 .fav-ingredients-remove-from-fav-btn {
@@ -131,6 +140,7 @@
   border-radius: 12px;
   background: var(--violet-color);
   border: none;
+  cursor: pointer;
 }
 
 .fav-ingredients-icon-trash {
