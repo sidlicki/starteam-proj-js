@@ -28,9 +28,11 @@ fetchRandomCocktails(quantity).then(cocktails => {
 
 // //  nodeName}
 
+/*---
 document.body.addEventListener('click', function (event) {
   if (event.target.nodeName == 'BUTTON')
-    // console.log(event.target.className);
+     console.log(event.target.className);
     console.log('Clicked', event.target.textContent);
-  console.log('Clicked', event.target.id);
+    console.log('Clicked', event.target.id);  
 });
+---*/

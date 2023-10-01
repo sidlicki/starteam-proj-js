@@ -10,14 +10,12 @@
     max-height: 95%;
     height: auto;
     /*--max-height: 905px;--*/
-    overflow: scroll;
+    overflow-y: scroll;
     border-radius: 20px;
-    background-color: white;
-    /*--border: 1px solid blue;--*/    
+    background-color: var(--pale-blue-color);
 }
 
 .modal-cocktail-content {
-  /*--border: 1px solid red;--*/
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 40px;
@@ -59,13 +57,16 @@
   color: rgba(36, 36, 36, 0.8);
 }
 
+.add-two:hover,
+.add-two:focus {
+  color: var(--violet-color);
+}
 
 .modal-cocktail-ingred {
     margin-top: 20px;
     display: flex;
     flex-direction: column;
     gap: 8px;
-    /*--border: 1px solid red;--*/
 }
 
 
@@ -76,12 +77,13 @@ height: 48px;
 margin-top: 40px;
 border-radius: 12px;
 font-size: 14px;
-color: #FDFDFF;
+color: var(--light-gray-color);
 border: none;
-background-color: #7E8FDD;
+background-color: var(--violet-color);
 }
 
-.modal-add-cocktail-btn-fav:hover {
+.modal-add-cocktail-btn-fav:hover,
+.modal-add-cocktail-btn-fav:focus {
   background-color: #6E7FCF;
 }
 
@@ -94,10 +96,11 @@ background-color: #7E8FDD;
   font-size: 14px;
   color: #FDFDFF;
   border: none;
-  background-color: #7E8FDD;
+  background-color: var(--violet-color);
   }
   
-  .modal-remove-cocktail-btn-fav:hover {
+  .modal-remove-cocktail-btn-fav:hover,
+  .modal-remove-cocktail-btn-fav:focus {
     background-color: #6E7FCF;
   }
   
@@ -109,11 +112,13 @@ background-color: #7E8FDD;
     margin-top: 14px;
     border-radius: 12px;
     font-size: 14px;
-    color: #242424;
+    color: var(--black-color);
+    background-color: rgba(36, 36, 36, 0.1) ;
     border: none;
     }
 
-    .modal-btn-back:hover {
+    .modal-cocktail-btn-back:hover,
+    .modal-cocktail-btn-back:focus {
      background-color: rgba(36, 36, 36, 0.2);
     }
 
@@ -128,35 +133,32 @@ background-color: #7E8FDD;
     border: none;
     padding: 0;
     width: 22px;
-    height: 22px;
-    /*--transition: background-color 0.3s, border 0.3s;--*/  
+    height: 22px;     
 }
 
 /*-Описание иконки закрытия модального окна-*/
 .modal-btn-close-icon {
     width: 24px;
     height: 24px;
-    stroke: #111;
-    /*--transition: fill 0.3s;--*/
+    stroke: var(--black-color);
   }
 
   .modal-cocktail-ingred {
     font-size: 14px;
-    /*--color: #7E8FDD;--*/
-  }
+   }
   
+
 
 /*------------TABLET------------*/
 @media screen and (min-width: 768px) {
     .modal-cocktail-window {
         width: 600px;
         height: auto;
-        /*--max-height: 569px;--*/
-        /*--border: 1px solid blue; ---*/   
-    }  
+        /*--overflow: hidden;--*/
+        /*--max-height: 569px;--*/          
+  }  
 
     .modal-cocktail-content {
-        /*--border: 1px solid red;--*/
         padding-left: 40px;
         padding-right: 40px;
         padding-top: 40px;
@@ -176,13 +178,11 @@ background-color: #7E8FDD;
     
    .add-cont {
     display: flex;
-    /*--border: 1px solid green;--*/
-   }
+  }
 
    .add-content {
     margin-left: 20px;
-    /*--border: 1px solid black;--*/
-   }
+ }
 
    .modal-cocktail-subtitle {
     margin-top: 20px;
@@ -218,7 +218,6 @@ background-color: #7E8FDD;
 .modal-cocktail-btn-back {
     width: 172px;
     height: 56px;
-    /*--margin-top: 14px;--*/
     border-radius: 12px;
     font-size: 18px;
     }
@@ -228,18 +227,49 @@ background-color: #7E8FDD;
 /*------------DESKTOP-----------*/
 @media screen and (min-width: 1280px) {
 
+  /*---New styles for Desktop is absent---*/
+
 }
 
 
-/*-------ДОПОЛНИТЕЛЬНЫЕ КЛАССЫ МОДАЛКИ----------*/
-
-/*-----Временная кнопка открытия модального окна----*/
-.btn-open-modal {
-    display: block;
-    width: 150px;
-    height: 50px;
-    background-color: blue;
-    color: white;
-    margin-top: 20px;
-    border-radius: 5px;
+/*----Adding styles for li---*/
+li:before{
+  content: '';
+  display: inline-block;
+  height:4px;
+  width: 4px;
+  vertical-align: middle;
+  border-radius:50%;
+  background-color: rgba(36, 36, 36, 0.8);
+  margin-left: 10px;
+  margin-right: 12px;
+  margin-bottom: 3px;
+  margin-top: 6px; 
 }
+
+/*---
+li a:hover,
+li a:focus {
+  color: var(--violet-color); 
+}
+---*/
+
+/*---
+li:hover:before
+li:focus:before {
+  color: var(--violet-color); 
+}
+---*/
+
+.add-li {
+ /*--border: 1px solid red;--*/
+ display: flex; 
+}
+
+/*--
+.add-two {
+ display: flex;
+ justify-content: space-between;
+ border: 1px solid blue;
+}
+--*/
