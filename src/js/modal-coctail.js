@@ -8,7 +8,8 @@ const btnCloseModal = document.querySelector('.modal-btn-close');
 
 const overlay = document.querySelector('.overlay');
 const modal = document.querySelector('.modal');
-const cocktailList = document.querySelector('.cocktails-list')
+const cocktailList = document.querySelector('.cocktails-list');
+const favoriteCocktailList = document.querySelector('.fav-cocktail-list');
 
 let favoriteCocktails = JSON.parse(localStorage.getItem('favoriteCocktails')) || [];
 
@@ -44,7 +45,7 @@ function createCardCocktail({ drink, drinkThumb, instructions, ingredients }) {
 // Add listener to Main page "Cocktails"
   cocktailList.addEventListener('click', onRenderOpenModal);
 // Add listener to page "Favorite Cocktails"
-// ------ AWAITING-DATA-from-ANDRII-SIRYI------- // 
+favoriteCocktailList.addEventListener('click', onRenderOpenModal);
 
 
 // Async function render and open modal window cocktails
