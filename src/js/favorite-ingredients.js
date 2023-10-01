@@ -93,4 +93,4 @@ const renderFavoriteIngredients = async ids => {
   }
 };
 
-renderFavoriteIngredients(favoriteIngredientIds);
+// renderFavoriteIngredients(favoriteIngredientIds);
