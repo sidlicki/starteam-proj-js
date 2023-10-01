@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/starteam-proj-js/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Favorite ingredients</title>
     
-  <script type="module" crossorigin src="/starteam-proj-js/assets/mobile-menu-13b48881.js"></script>
-  <link rel="stylesheet" href="/starteam-proj-js/assets/mobile-menu-aa758270.css">
-</head>
+    <script type="module" crossorigin src="/starteam-proj-js/assets/favorite-ingredients-7b54b541.js"></script>
+    <link rel="modulepreload" crossorigin href="/starteam-proj-js/assets/coctail@2x-78857b83.js">
+    <link rel="stylesheet" href="/starteam-proj-js/assets/coctail@2x-b7ecbc55.css">
+  </head>
 
-<body>
+  <body>
     <header class="header" id="home">
   <!-- розмір контейнера вже заданий в /container.css для всіх пристроїв -->
   <div class="container header-container">
@@ -92,14 +92,19 @@
 </header>
 
     <main>
-        <section class="favorite-ingredients">
-    <!-- розмір контейнера вже заданий в /container.css для всіх пристроїв -->
-    <div class="container">
-
+      <section class="section fav-ingredients-section">
+  <div class="container">
+    <h1 class="fav-ingredients-section-header">Favorite ingredients</h1>
+    <div class="fav-ingredients-container">
+      <div class="fav-ingredients-loader-container">
+        <span class="loader"></span>
+      </div>
     </div>
+  </div>
 </section>
-        <!--  -->
-        <section class="pagination">
+
+      <!--  -->
+      <section class="pagination">
     <!-- розмір контейнера вже заданий в /container.css для всіх пристроїв -->
     <div class="container">
         <div id="tui-pagination-container" class="tui-pagination"></div>
@@ -153,6 +158,6 @@
 </footer>
 
     
-</body>
-
+    
+  </body>
 </html>
