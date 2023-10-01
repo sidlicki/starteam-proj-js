@@ -9,5 +9,9 @@ import './js/modal-ingredient';
 import './js/search-by-name';
 import './js/pagination';
 // додаткові підключення робіть під цією стрічкою
-import './js/create-card';
-import './js/main-start';
+
+// підключили в основні HMLL файли!!!!!
+
+// import './js/create-card';
+// import './js/main-start';
+// import './js/favorite-cocktails';
