@@ -1,5 +1,10 @@
 import { fetchCocktailDetails } from "./cocktail-api";
 import spriteUrl from '../img/svg/sprite.svg';
+import noCoctailMobWebp from '/img/mobile/coctail.webp';
+import noCoctailMobWebp2x from '/img/mobile/coctail@2x.webp';
+import noCoctailTabWebp from '/img/tablet/coctail.webp';
+import noCoctailTabWebp2x from '/img/tablet/coctail@2x.webp';
+
 // ["639b6de9ff77d221f190c52f","639b6de9ff77d221f190c521","639b6de9ff77d221f190c52a","639b6de9ff77d221f190c529","639b6de9ff77d221f190c523","639b6de9ff77d221f190c51a","639b6de9ff77d221f190c526","639b6de9ff77d221f190c528","639b6de9ff77d221f190c52d"]
 document.addEventListener('DOMContentLoaded', generateCocktails);
 // структура картки 
@@ -42,13 +47,11 @@ const renderCocktail = (arr, container) => {
             notFoundBlock.classList.remove('is-hidden');
             notFoundBlock.innerHTML = `
             <picture>
-                <!-- DESKTOP -->
-                <source srcset="/img/tablet/coctail.webp 1x, /img/tablet/coctail@2x.webp 2x" type="image/webp" media="(min-width: 1280px)">
                 <!-- TABLET -->
-                <source srcset="/img/tablet/coctail.webp 1x, /img/tablet/coctail@2x.webp 2x" type="image/webp" media="(min-width: 768px)">
+                <source srcset="${noCoctailTabWebp} 1x, ${noCoctailTabWebp2x} 2x" type="image/webp" media="(min-width: 768px)">
                 <!-- MOBILE -->
-                <source srcset="/img/mobile/coctail.webp 1x, /img/mobile/coctail@2x.webp 2x" type="image/webp" media="(min-width: 320px)">
-                <img class="no-fav-cocktail-img" src="/img/tablet/coctail.webp" alt="cocktail">
+                <source srcset="${noCoctailMobWebp} 1x, ${noCoctailMobWebp2x} 2x" type="image/webp" media="(min-width: 320px)">
+                <img class="no-fav-cocktail-img" src="${noCoctailMobWebp}" alt="cocktail">
             </picture>
             <p class="no-fav-cocktail-text">
                 You haven't added any
