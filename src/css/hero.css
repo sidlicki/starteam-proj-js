@@ -280,20 +280,20 @@ screen and (min-resolution: 2ppx) and (max-width: 767px) {
 }
 
 /*-----MOBILE___DARK_THEME---------*/
-body.dark.hero-title{
+body.dark .hero-title{
     color: var(--light-gray-color);
 }
-body.dark.hero-title-motto{
+body.dark .hero-title-motto{
     color: var(--light-gray-color);
 }
-body.dark.hero-button{
+body.dark .hero-button{
     color: var(--light-gray-color);
 }
-body.dark.hero-img-description{
+body.dark .hero-img-description{
     color: var(--light-gray-color);
 }
 
-body.dark.hero-image-elements-wrapper{
+body.dark .hero-image-elements-wrapper{
 background-image: linear-gradient(rgba(253, 253, 255,0), rgba(253, 253, 255, 0.3)),image-set('/img/mobile/elements.webp' type('image/webp'),
 '/img/mobile/elements@2x.webp' type('image/webp')); 
 
@@ -310,7 +310,7 @@ background-image: linear-gradient(rgba(253, 253, 255,0), rgba(253, 253, 255, 0.3
 }
 
 /*-----TABLET___DARK_THEME---------*/
-body.dark.hero-image-elements-wrapper {
+body.dark .hero-image-elements-wrapper {
     background-image: linear-gradient(rgba(253, 253, 255, 0), rgba(253, 253, 255, 0.3)), image-set('/img/tablet/elements.webp' type('image/webp'),
             '/img/tablet/elements@2x.webp' type('image/webp'));
 
@@ -327,7 +327,7 @@ body.dark.hero-image-elements-wrapper {
 }
 
 /*-----DESKTOP___DARK_THEME---------*/
-body.dark.hero-image-elements-wrapper {
+body.dark .hero-image-elements-wrapper {
     background-image: linear-gradient(rgba(253, 253, 255, 0), rgba(253, 253, 255, 0.3)), image-set('/img/desktop/elements.webp' type('image/webp'),
             '/img/desktop/elements@2x.webp' type('image/webp'));
 
