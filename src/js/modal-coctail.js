@@ -11,6 +11,7 @@ const modal = document.querySelector('.modal');
 const cocktailList = document.querySelector('.cocktails-list');
 const favoriteCocktailList = document.querySelector('.fav-cocktail-list');
 
+
 let favoriteCocktails = JSON.parse(localStorage.getItem('favoriteCocktails')) || [];
 
 // Function Render ingredients in modal cocktails
@@ -43,9 +44,9 @@ function createCardCocktail({ drink, drinkThumb, instructions, ingredients }) {
 }
 
 // Add listener to Main page "Cocktails"
-  cocktailList.addEventListener('click', onRenderOpenModal);
+cocktailList.addEventListener('click', onRenderOpenModal);
 // Add listener to page "Favorite Cocktails"
-favoriteCocktailList.addEventListener('click', onRenderOpenModal);
+//favoriteCocktailList.addEventListener('click', onRenderOpenModal);
 
 
 // Async function render and open modal window cocktails

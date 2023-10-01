@@ -1,7 +1,6 @@
 
-//let favoriteCocktails = JSON.parse(localStorage.getItem('favoriteCocktails')) || [];
+
 import { favoriteCocktails } from './modal-coctail';
-//console.log(favoriteCocktails)
 
 // Add to Favorite Cocktails   
     function onAddFavCocktClick(cocktailId) {

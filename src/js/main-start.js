@@ -28,4 +28,3 @@ cardList.addEventListener('click', function (event) {
     //onRenderOpenModal(currentIdCard);
   }
 });
-
