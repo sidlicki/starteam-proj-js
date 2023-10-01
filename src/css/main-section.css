@@ -282,9 +282,13 @@ body.dark .learn-more-button {
 } */
 
 .icon-heart {
-  fill: none;
+  fill: var(--violet-color);
   stroke: var(--light-gray-color);
+  /* fill: var(--light-gray-color); */
   
   width: 18px;
   height: 18px;
+}
+.icon-heart-addtofavorite {
+  fill: var(--light-gray-color);
 }
