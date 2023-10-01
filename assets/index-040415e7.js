@@ -1,4 +1,4 @@
-import"./pagination-cc934069.js";import{s as n,a as s}from"./sprite-71a01015.js";const r="/starteam-proj-js/assets/coctail@2x-256bfe20.webp";function l(t){return t.map(({description:a,drink:o,drinkThumb:c,_id:e})=>`
+import"./pagination-cfd5d029.js";import{s as n,a as s}from"./sprite-71a01015.js";const r="/starteam-proj-js/assets/coctail@2x-256bfe20.webp";function l(t){return t.map(({description:a,drink:o,drinkThumb:c,_id:e})=>`
     <li class="cocktail-card" id="${e}">
             <img class="cocktail-image" src="${c}" onerror="this.src='${r}'" alt="${o}" loading="lazy" width="307" height="257"/>
             <h3 class="cocktail-name">${o.slice(0,25)}</h3>

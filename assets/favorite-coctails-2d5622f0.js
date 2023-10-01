@@ -1,4 +1,4 @@
-import"./pagination-cc934069.js";import{f as c,s}from"./sprite-71a01015.js";document.addEventListener("DOMContentLoaded",n);const l=(a,e)=>{const i=a.map(t=>`<li class="cocktail-list-favorite">
+import"./pagination-cfd5d029.js";import{f as c,s}from"./sprite-71a01015.js";document.addEventListener("DOMContentLoaded",n);const l=(a,e)=>{const i=a.map(t=>`<li class="cocktail-list-favorite">
             <img class="cocktail-item-img-favorite" src="${t.drinkThumb}" alt="preview cocktail" width="307" height="auto">
             <div class="trk">
             <h2 class="cocktail-name-favorite">${t.drink}</h2>
