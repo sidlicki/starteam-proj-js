@@ -258,4 +258,34 @@
 }
 
 /* ----- DARK THEME ----- */
+body.dark .fav-ingredients-section-header {
+  color: var(--light-gray-color);
+}
+
+body.dark .no-fav-ingredients-text {
+  color: var(--light-gray-color);
+}
+
+body.dark .fav-ingredients-list-item {
+  background: #232330;
+}
+
+body.dark .fav-ingredient-title {
+  color: var(--light-gray-color);
+}
+
+body.dark .fav-ingredient-alcohol {
+  color: rgba(253, 253, 255, 0.5);
+}
+
+body.dark .fav-ingredient-description {
+  color: var(--light-gray-color);
+}
+
+body.dark .fav-ingredients-learn-more-btn {
+  color: #fdfdff;
+  /* border: 1px solid #7e8fdd; */
+  background-color: transparent;
+}
+
 /* ----- /DARK THEME ----- */
