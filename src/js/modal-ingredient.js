@@ -1,2 +1,226 @@
 // "axios"/ "modern-normalize" /"notiflix" /"tui-pagination" - вже встановлено
 // console.log('hello');
+// "axios"/ "modern-normalize" /"notiflix" /"tui-pagination" - вже встановлено
+// console.log('hello');
+
+//import { testArr } from './test/test-coctails';
+//import { fetchCocktailDetails } from './cocktail-api';
+import { fetchIngredientDetails } from './cocktail-api';
+
+const cardCocktail = document.querySelector('.modal-cocktail-content');
+const btnOpenModal = document.querySelectorAll('.js-modal-open');
+const btnCloseModal = document.querySelectorAll('.js-modal-close');
+
+const overlay = document.querySelector('.overlay');
+const modal = document.querySelector('.modal');
+
+// const FAVORITE_COCKTAILS_KEY = 'favoriteIngredients';
+// const FAVORITE_INGREDIENTS_KEY = 'favoriteIngredients';
+
+// const addFavorite = (key, id) => {};
+// const removeFavorite = (key, id) => {};
+
+// const addFavoriteCocktail = id => {
+//   addFavorite(FAVORITE_COCKTAILS_KEY, id);
+// };
+
+// const addFavoriteIngredient = id => {
+//   addFavorite(FAVORITE_INGREDIENTS_KEY, id);
+// };
+
+// const removeFavoriteCocktail = id => {
+//   removeFavorite(FAVORITE_COCKTAILS_KEY, id);
+// };
+// const removeFavoriteIngredient = id => {
+//   removeFavorite(FAVORITE_INGREDIENTS_KEY, id);
+// };
+
+let favoriteIngredients =
+  JSON.parse(localStorage.getItem('favoriteIngredients')) || [];
+
+function onAddFavClick(cocktailId) {
+  const indexFavCockt = favoriteIngredients.findIndex(
+    item => item === cocktailId
+  );
+  if (indexFavCockt === -1) {
+    favoriteIngredients.push(cocktailId);
+    localStorage.setItem(
+      'favoriteIngredients',
+      JSON.stringify(favoriteIngredients)
+    );
+    return favoriteIngredients;
+  }
+}
+
+//const { drink, drinkThumb, instructions, ingredients } = testArr[1];
+
+//const cocktailIds = "639b6de9ff77d221f190c518";
+//const cocktailIds = "639b6de9ff77d221f190c521";
+//const cocktailIds = "639b6de9ff77d221f190c51c";
+const cocktailIds = '64aebb7f82d96cc69e0eb4a5';
+//const cocktailIds = "639b6de9ff77d221f190c527";
+//const cocktailIds = "639b6de9ff77d221f190c517";
+//const cocktailIds = "639b6de9ff77d221f190c524";
+
+// Функция рендера ингредиентов (их несколько)
+// function renderIngredients(ingredients) {
+//   return ingredients
+//     .map(
+//       item => `<li data-id="${item.ingredientId}" class=""><a href="" class="modal-coctail-ingred">${item.title}</a>
+//   </li>`
+//     )
+//     .join('');
+// }
+
+// Функция рендера содержимого модального окна
+//_id, title, description, type, abv, flavour, country
+
+function createCardCocktail({ _id, title, description, type, abv, flavour, country }) {
+  const markup = `<div class="add-cont">
+ 
+  <div class="add-content">
+  <h1 class="modal-cocktail-title">${title}</h1>
+  
+  <p class="modal-cocktail-text add-one">${type}</p>
+  <div class="modal-cocktail-ingred add-two"></div>
+</div>
+</div>
+  <h2 class="modal-cocktail-subtitle add-subtitle"></h2>
+  <p class="modal-cocktail-text add-one">${title}: ${description}</p>
+  <ul class="ingredients-list">
+  <li class="ingredients-element">Type: ${type}</li>
+  <li class="ingredients-element">Country of origin: ${country}</li>
+  <li class="ingredients-element">Alcohol by volume: ${abv}</li>
+  <li class="ingredients-element">Flavour: ${flavour}</li>
+</ul>
+
+
+  <button type="button" class="modal-add-cocktail-btn-fav">ADD TO FAVORITE</button>
+  <button type="button" class="modal-remove-cocktail-btn-fav is-hidden">REMOVE FROM FAVORITE</button>
+  <button type="button" class="modal-cocktail-btn-back js-modal-close" >BACK</button>`;
+  return markup;
+}
+
+// Функция полного рендера модального окна коктейля
+
+fetchIngredientDetails(cocktailIds).then(cocktailDetails => {
+  if (cocktailDetails.length === 0) {
+    console.log(`Error`);
+    return;
+  }
+
+  //console.log(cocktailDetails[0].country);
+  cardCocktail.innerHTML = '';
+  cardCocktail.innerHTML = createCardCocktail(cocktailDetails[0]);
+
+  //----------- КОД РАБОТЫ с LOCAL STORAGE ----------- //
+
+  // Объявляем переменную для работы с Local Storage
+
+  //console.log(favoriteIngredients);
+
+  // Кнопка "Add-to-Favorite" модального окна коктейля
+  const btnModalAddFav = document.querySelector('.modal-add-cocktail-btn-fav');
+
+  // Кнопка "Remove-from-Favorite" модального окна коктейля
+  const btnModalRemoveFav = document.querySelector(
+    '.modal-remove-cocktail-btn-fav'
+  );
+
+  // В случае, если кнопок Remove несколько
+  //const btnModalRemoveFav = document.querySelectorAll('.modal-remove-cocktail-btn-fav');
+
+  // Проверяем, есть ли карточка с определенным id в массиве, считанном из Local Storage
+  const indexModalFav = favoriteIngredients.findIndex(
+    item => item === cocktailDetails[0]._id
+  );
+
+  // Если карточки с таким id нет, то скрываем кнопку "Add to Fav" и показываем кнопку "Remove from Fav"
+  if (indexModalFav !== -1) {
+    btnModalAddFav.classList.add('is-hidden');
+    btnModalRemoveFav.classList.remove('is-hidden');
+  }
+
+  // Устанавливаем прослушиватель кнопки "Add to Favorite"
+  btnModalAddFav.addEventListener('click', () => {
+    btnModalAddFav.classList.add('is-hidden');
+    btnModalRemoveFav.classList.remove('is-hidden');
+    onAddFavClick(cocktailDetails[0]._id);
+  });
+
+  //onAddFavClick();
+
+  // Функция обработки клика кнопки "Add to Favorite"
+
+  // Устанавливаем прослушиватель кнопки "Remove from Favorite"
+  btnModalRemoveFav.addEventListener('click', onRemoveFavClick);
+
+  // Функция обработки клика кнопки "Remove from Favorite"
+  function onRemoveFavClick() {
+    btnModalAddFav.classList.remove('is-hidden');
+    btnModalRemoveFav.classList.add('is-hidden');
+    const indFavRem = favoriteIngredients.findIndex(
+      item => item === cocktailDetails[0]._id
+    );
+    if (indFavRem !== -1) {
+      favoriteIngredients.splice(indFavRem, 1);
+      localStorage.setItem(
+        'favoriteIngredients',
+        JSON.stringify(favoriteIngredients)
+      );
+      return favoriteIngredients;
+    }
+  }
+  //------------------ОКОНЧАНИЕ КОДА РАБОТЫ с LOCAL STORAGE -------------------//
+});
+//  catch(error){console.log(error)}
+//}
+
+//*--------------УПРАВЛЕНИЕ МОДАЛЬНЫМ ОКНОМ----------------*/
+
+// Прослушивание кнопки открытия модального окна (если оно одно)
+//btnOpenModal.addEventListener('click', modalOpen);
+
+// Прослушивание кнопок открытия модального окна (если их несколько)
+
+btnOpenModal.forEach(function (item) {
+  item.addEventListener('click', modalOpen);
+});
+
+// Прослушивание кнопки закрытия модального окна (если их несколько)
+btnCloseModal.forEach(function (item) {
+  item.addEventListener('click', modalClose);
+});
+
+// Прослушивание кнопки закрытия модального окна (если оно одно)
+//btnCloseModal.addEventListener('click', modalClose);
+
+// Прослушивание оверлея (пространства вне модального окна)
+overlay.addEventListener('click', function () {
+  modal.classList.remove('active');
+  this.classList.remove('active');
+});
+
+// Функция открытия модального окна по кнопке
+function modalOpen(event) {
+  event.preventDefault();
+  //createModalCard();
+  overlay.classList.add('active');
+  modal.classList.add('active');
+}
+
+// Функция закрытия модального окна по кнопке
+function modalClose(event) {
+  modal.classList.remove('active');
+  overlay.classList.remove('active');
+}
+
+/*-----------------ОКОНЧАНИЕ КОДА УПРАВЛЕНИЯ МОДАЛЬНЫМ ОКНОМ-------------------------------*/
+
+//export { onAddFavClick };
+//export { onRemoveFavClick };
+
+//console.log(favoriteIngredients);
+export { favoriteIngredients };
+//export { modalOpen };
+//export { modalClose };
