@@ -12,6 +12,10 @@
 
   /* position: relative; */
 }
+.icon-heart {
+  width: 18px;
+  height: 18px;
+}
 
 /* Tablet */
 @media only screen and (min-width: 768px) {
@@ -21,6 +25,10 @@
   }
   .main-section {
     padding-bottom: 100px;
+  }
+  .icon-heart {
+    width: 24px;
+    height: 24px;
   }
 }
 /* Desktop */
@@ -97,6 +105,11 @@
 
   box-shadow: 0px 4px 46px 0px #0000000d;
 }
+.cocktail-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
 @media only screen and (min-width: 768px) {
   .cocktail-card {
     width: 344px;
@@ -142,7 +155,7 @@
 
   letter-spacing: -0.02em;
 
-  overflow-y: hidden;
+  overflow: hidden;
   text-overflow: ellipsis;
 
   /* background-color: var(--main-background-color); */
@@ -172,7 +185,7 @@
 
 .learn-more-button {
   /* display: block; */
-  margin: 0px auto;
+  /* margin: 0px auto; */
   margin-right: 10px;
 
   cursor: pointer;
@@ -196,6 +209,13 @@
 
   /* transition-property: background-color, color;
 	transition: 250ms cubic-bezier(0.4, 0, 0.2, 1); */
+}
+.learn-more-button:hover,
+.learn-more-button:focus {
+  background-color: #7e8fdd;
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 @media only screen and (min-width: 768px) {
@@ -222,8 +242,9 @@
 } */
 
 .add-to-button {
-  margin: 0px;
-  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   cursor: pointer;
 
@@ -236,6 +257,11 @@
   background-color: #7e8fdd;
 
   align-content: center;
+}
+.add-to-button:hover,
+.add-to-button:focus {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 @media only screen and (min-width: 768px) {
