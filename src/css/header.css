@@ -363,7 +363,6 @@ body.dark .dropbtn {
 @media screen and (min-width: 768px) {
   .header-container {
     padding-top: 29px;
-    padding-bottom: 80px;
   }
   .header-left-elements {
     gap: 8px;
