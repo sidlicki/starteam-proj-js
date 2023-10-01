@@ -3,7 +3,6 @@
 .header-container {
   display: flex;
   padding-top: 27px;
-  padding-bottom: 68px;
   align-items: center;
   flex-direction: row;
   justify-content: space-between;
@@ -18,11 +17,18 @@
 .header-home-link {
   color: var(--black-color);
 }
+body.dark .header-home-link {
+  color: var(--light-gray-color);
+}
 .header-logo-text {
   color: var(--black-color);
   font-weight: 600;
   font-size: 16px;
   line-height: 1.13;
+  margin: 0 auto;
+}
+body.dark .header-logo-text {
+  color: var(--light-gray-color);
 }
 .header-logo-icon {
   fill: var(--violet-color);
@@ -37,6 +43,9 @@
   stroke: var(--black-color);
   width: 32px;
   height: 32px;
+}
+body.dark .burger-icon {
+  stroke: var(--light-gray-color);
 }
 
 /* Мобільне меню */
@@ -283,6 +292,9 @@ input:checked + .slider:before {
   gap: 4px;
   margin-left: 28px;
 }
+body.dark .dropbtn {
+  color: var(--light-gray-color);
+}
 .header-arrow-icon {
   fill: transparent;
   stroke: var(--violet-color);
@@ -351,7 +363,6 @@ input:checked + .slider:before {
 @media screen and (min-width: 768px) {
   .header-container {
     padding-top: 29px;
-    padding-bottom: 80px;
   }
   .header-left-elements {
     gap: 8px;
@@ -443,9 +454,12 @@ input:checked + .slider:before {
   .header-right-elements {
     display: none;
   }
+  .header-left-elements {
+    position: absolute;
+    left: 45%;
+  }
   .header-container {
     padding-top: 0;
-    padding-bottom: 80px;
   }
   .header-left-elements {
     padding-top: 29px;
