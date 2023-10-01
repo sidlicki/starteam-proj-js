@@ -1,4 +1,4 @@
-import"./mobile-menu-a30ace53.js";import{d as m,s as v,a as k,f}from"./coctail@2x-17c11c10.js";function h(t){return t.map(({description:a,drink:e,drinkThumb:c,_id:i})=>`
+import"./mobile-menu-39eede8f.js";import{d as m,s as v,a as k,f}from"./coctail@2x-17c11c10.js";function h(t){return t.map(({description:a,drink:e,drinkThumb:c,_id:i})=>`
     <li class="cocktail-card" id="${i}">
             <img class="cocktail-image" src="${c}" onerror="this.src='${m}'" alt="${e}" loading="lazy" width="307" height="257"/>
             <h3 class="cocktail-name">${e.slice(0,25)}</h3>
