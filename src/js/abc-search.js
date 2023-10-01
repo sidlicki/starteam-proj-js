@@ -10,7 +10,6 @@ alphabetList.addEventListener('click', onSearchbyLetter);
 
 function onSearchbyLetter(evt) {
     let firstLetter = evt.target.textContent;
-    console.log(evt.target.textContent);
   searchCocktailsByFirstLetter(firstLetter)
     .then(cocktails => {
       if (cocktails && cocktails.length > 0) {
@@ -29,7 +28,6 @@ alphabetSerchList.addEventListener('change', onSearchByLetter);
 function onSearchByLetter(evt) {
     let selectedOption = evt.target.options[evt.target.selectedIndex];
     let firstLetter = selectedOption.value;
-    console.log(firstLetter);
     searchCocktailsByFirstLetter(firstLetter)
         .then(cocktails => {
             if (cocktails && cocktails.length > 0) {
