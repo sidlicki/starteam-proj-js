@@ -1,6 +1,7 @@
 import { fetchRandomCocktails } from './cocktail-api';
 import { createMarkup } from './create-card';
 import { getScreenWidthValue } from './screen-value';
+//import { onRenderOpenModal } from './modal-coctail';
 
 const cardList = document.querySelector(`.cocktails-list`);
 //const pageWidth = document.documentElement.scrollWidth;
@@ -24,5 +25,7 @@ cardList.addEventListener('click', function (event) {
     let currentIdCard = event.target.id;
     console.log('Learn More, ID', currentIdCard);
     // викликати тут функцію відкриваня модального вікна за Id коктеля
+    //onRenderOpenModal(currentIdCard);
   }
 });
+

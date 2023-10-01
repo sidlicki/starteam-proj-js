@@ -8,6 +8,7 @@ import './js/modal-coctail';
 import './js/modal-ingredient';
 import './js/search-by-name';
 import './js/pagination';
+import './js/add-remove-favorite';
 // додаткові підключення робіть під цією стрічкою
 
 // підключили в основні HMLL файли!!!!!
