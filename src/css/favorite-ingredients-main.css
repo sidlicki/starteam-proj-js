@@ -28,6 +28,7 @@
 
 .fav-ingredients-container {
   margin-bottom: 138px;
+  margin-top: 40px;
 }
 
 .fav-ingredients-section-header {
@@ -66,7 +67,6 @@
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  margin-top: 40px;
 }
 
 .fav-ingredients-list-item {
@@ -206,11 +206,14 @@
     line-height: 1.67;
   }
 
+  .fav-ingredients-container {
+    margin-top: 32px;
+  }
+
   .fav-ingredients-list {
     display: flex;
     column-gap: 16px;
     row-gap: 20px;
-    margin-top: 40px;
   }
 
   .fav-ingredients-list-item {
@@ -251,11 +254,13 @@
     margin-top: 110px;
   }
 
+  .fav-ingredients-container {
+    margin-top: 44px;
+  }
+
   .fav-ingredients-list {
     column-gap: 24px;
     row-gap: 44px;
-    /* margin-top move to parent element */
-    margin-top: 44px;
   }
 }
 
@@ -286,7 +291,6 @@ body.dark .fav-ingredient-description {
 
 body.dark .fav-ingredients-learn-more-btn {
   color: #fdfdff;
-  /* border: 1px solid #7e8fdd; */
   background-color: transparent;
 }
 
