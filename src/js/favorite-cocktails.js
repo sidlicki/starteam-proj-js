@@ -4,6 +4,7 @@ import noCoctailMobWebp from '/img/mobile/coctail.webp';
 import noCoctailMobWebp2x from '/img/mobile/coctail@2x.webp';
 import noCoctailTabWebp from '/img/tablet/coctail.webp';
 import noCoctailTabWebp2x from '/img/tablet/coctail@2x.webp';
+// import { fetchCocktailDetails } from "./cocktail-api";
 
 // ["639b6de9ff77d221f190c52f","639b6de9ff77d221f190c521","639b6de9ff77d221f190c52a","639b6de9ff77d221f190c529","639b6de9ff77d221f190c523","639b6de9ff77d221f190c51a","639b6de9ff77d221f190c526","639b6de9ff77d221f190c528","639b6de9ff77d221f190c52d"]
 document.addEventListener('DOMContentLoaded', generateCocktails);
@@ -17,7 +18,7 @@ const renderCocktail = (arr, container) => {
             <p class="description-container-favorite">${item.description.slice(0, 111) + '...'}</p>
             <div class="button-wrap-favorite" >
                 <button type="button" class="learn-more-favorite" id="${item._id}">LEARN MORE</button>
-                <button type="button" class="remove-favorite" id="${item._id}>
+                <button type="button" class="remove-favorite" id="${item._id}">
                     <svg class="svg-icon-favorite-trash" width="18" height="18">
                         <use href="${spriteUrl}#icon-trash"></use>
                     </svg>
@@ -34,7 +35,7 @@ const renderCocktail = (arr, container) => {
         const favCocktailList = document.querySelector('.fav-cocktail-list');
         const notFoundBlock = document.querySelector('.not-found');
     
-    const localFavorite = JSON.parse(localStorage.getItem('favoriteList')) || [];
+    const localFavorite = JSON.parse(localStorage.getItem('favoriteCocktails')) || [];
     console.log(localFavorite);
         if (localFavorite.length > 0) {
             notFoundBlock.classList.add('is-hidden');
