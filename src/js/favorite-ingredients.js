@@ -43,16 +43,20 @@ const getIngredientsData = async ids => {
   );
 };
 
+// TODO: refactor to work with fetched data. Fix render after delete fav ing
 const renderFavoriteIngredients = async ids => {
   if (ids.length) {
     await getIngredientsData(ids);
+    console.log(favoriteIngredients);
     let ingredientItemsMarkup = favoriteIngredients
       .map(
         ({ _id, title, alcohol, description }) => `
         <li class="fav-ingredients-list-item">
-          <h2 class="fav-ingredient-title">${title}</h2>
+          <h2 class="fav-ingredient-title">${title || 'No title'}</h2>
           <p class="fav-ingredient-alcohol">${getAlcoholLabelText(alcohol)}</p>
-          <p class="fav-ingredient-description">${description}</p>
+          <p class="fav-ingredient-description">${
+            description || 'No description'
+          }</p>
           <div class="fav-ingredients-buttons-wrapper">
             <button type="button" class="fav-ingredients-learn-more-btn" data-ingredient-id="${_id}">Learn more</button>
             <button type="button" class="fav-ingredients-remove-from-fav-btn" data-ingredient-id="${_id}">
@@ -60,7 +64,7 @@ const renderFavoriteIngredients = async ids => {
                 class="fav-ingredients-icon-trash"
                 width="18px"
                 height="18px"
-                aria-label="remove favorite ingredient icon"
+                aria-label="Remove favorite ingredient"
                 >
                   <use href="${spriteUrl}#icon-trash"></use>
               </svg>
