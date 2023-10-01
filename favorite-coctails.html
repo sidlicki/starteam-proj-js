@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Favorite cocktails</title>
     
-    <script type="module" crossorigin src="/starteam-proj-js/assets/favorite-coctails-afd79354.js"></script>
-    <link rel="modulepreload" crossorigin href="/starteam-proj-js/assets/mobile-menu-304cd704.js">
-    <link rel="modulepreload" crossorigin href="/starteam-proj-js/assets/coctail@2x-17c11c10.js">
-    <link rel="stylesheet" href="/starteam-proj-js/assets/mobile-menu-4e5b179d.css">
+    <script type="module" crossorigin src="/starteam-proj-js/assets/favorite-coctails-d2ff35bc.js"></script>
+    <link rel="modulepreload" crossorigin href="/starteam-proj-js/assets/modal-coctail-9f669a42.js">
+    <link rel="modulepreload" crossorigin href="/starteam-proj-js/assets/coctail@2x-bfdaa116.js">
+    <link rel="stylesheet" href="/starteam-proj-js/assets/modal-coctail-b21b736c.css">
   </head>
 
   <body>
@@ -135,6 +135,32 @@
 </section>
 
       <!---->
+<div class="modal modal-cocktail-window " data-modal="1">
+    <button type="button" class="modal-btn-close">
+        <svg class="modal-btn-close-icon">
+          <use href="/starteam-proj-js/assets/sprite-1eb45ddf.svg#icon-close"></use>
+        </svg>
+      </button>
+    
+      <div class="modal-cocktail-content">
+        <!----
+       <div class="add-cont">
+       <img class="modal-cocktail-img" src="https://res.cloudinary.com/dy7bjyqln/image/upload/v1695418892/drinkify/recipes/ACID.jpg" alt="" />
+       <div class="add-content">
+       <h1 class="modal-cocktail-title">Acid</h1>
+       <h2 class="modal-cocktail-subtitle">INGREDIENTS:</h2>
+       <p class="modal-cocktail-text">Per cocktail</p>
+       <div class="modal-cocktail-ingred">${renderIngredients (data.ingredients)}</div>
+    </div>
+    </div>
+    <h2 class="modal-cocktail-subtitle add-subtitle">INSTRUCTIONS:</h2>
+       <p class="modal-cocktail-text ">${renderIngredients(data.ingredients)}</p>
+       <button type="button" class="modal-btn-fav">ADD TO FAVORITE</button>
+       <button type="button" class="modal-btn-back">BACK</button>
+    ---->
+     </div>
+  </div>
+<div class="overlay js-overlay-modal"></div>
       <!--  -->
       <section class="pagination">
     <!-- розмір контейнера вже заданий в /container.css для всіх пристроїв -->
