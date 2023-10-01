@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/starteam-proj-js/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Favorite cocktails</title>
     
-  <script type="module" crossorigin src="/starteam-proj-js/assets/main-start-1f35b6b8.js"></script>
-  <link rel="stylesheet" href="/starteam-proj-js/assets/main-start-d2132ec7.css">
-</head>
+    <script type="module" crossorigin src="/starteam-proj-js/assets/favorite-coctails-b3135db2.js"></script>
+    <link rel="modulepreload" crossorigin href="/starteam-proj-js/assets/pagination-fa2bbf6c.js">
+    <link rel="modulepreload" crossorigin href="/starteam-proj-js/assets/sprite-71a01015.js">
+    <link rel="stylesheet" href="/starteam-proj-js/assets/pagination-a6c3aef8.css">
+  </head>
 
-<body>
+  <body>
     <header class="header" id="home">
   <!-- розмір контейнера вже заданий в /container.css для всіх пристроїв -->
   <div class="container header-container">
@@ -92,15 +93,50 @@
 </header>
 
     <main>
-        <section class="favorite-coctails">
-    <!-- розмір контейнера вже заданий в /container.css для всіх пристроїв -->
-    <div class="container">
+      <section class="favorite-coctails">
+  <!-- розмір контейнера вже заданий в /container.css для всіх пристроїв -->
+  <div class="container">
+    <h1 class="fav-title-coctails">Favorite cocktails</h1>
 
+    <div class="not-found">
+      <!-- <picture class=""> -->
+      <!-- DESKTOP -->
+      <!-- <source
+          srcset="/img/tablet/coctail.webp 1x, /img/tablet/coctail@2x.webp 2x"
+          type="image/webp"
+          media="(min-width: 1280px)" -->
+      <!-- /> -->
+      <!-- TABLET -->
+      <!-- <source
+          srcset="/img/tablet/coctail.webp 1x, /img/tablet/coctail@2x.webp 2x"
+          type="image/webp"
+          media="(min-width: 768px)" -->
+      <!-- /> -->
+      <!-- MOBILE -->
+      <!-- <source
+          srcset="/img/mobile/coctail.webp 1x, /img/mobile/coctail@2x.webp 2x"
+          type="image/webp"
+          media="(min-width: 320px)"
+        />
+        <img
+          class="no-fav-cocktail-img"
+          src="/img/tablet/coctail.webp"
+          alt="cocktail"
+        />
+      </picture>
+      <p class="no-fav-cocktail-text">
+        You haven't added any
+        <span class="no-fav-cocktail-color">favorite cocktails</span> yet
+      </p> -->
     </div>
+
+    <ul class="fav-cocktail-list"></ul>
+  </div>
 </section>
-        <!---->
-        <!--  -->
-        <section class="pagination">
+
+      <!---->
+      <!--  -->
+      <section class="pagination">
     <!-- розмір контейнера вже заданий в /container.css для всіх пристроїв -->
     <div class="container">
         <div id="tui-pagination-container" class="tui-pagination"></div>
@@ -153,8 +189,7 @@
     </div>
 </footer>
 
-
     
-</body>
-
+    
+  </body>
 </html>
