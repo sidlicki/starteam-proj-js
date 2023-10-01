@@ -35,13 +35,20 @@ const getAlcoholLabelText = alcoholValue => {
     : 'NA';
 };
 
-const renderFavoriteIngredients = ingredientIds => {
-  if (ingredientIds.length) {
-    fetchIngredientDetails(ingredientIds).then(ingredients => {
-      console.log('ingredients', ingredients);
-      let ingredientItemsMarkup = ingredients
-        .map(
-          ({ _id, title, alcohol, description }) => `
+let favoriteIngredients;
+
+const getIngredientsData = async ids => {
+  await fetchIngredientDetails(ids).then(
+    ingredients => (favoriteIngredients = ingredients)
+  );
+};
+
+const renderFavoriteIngredients = async ids => {
+  if (ids.length) {
+    await getIngredientsData(ids);
+    let ingredientItemsMarkup = favoriteIngredients
+      .map(
+        ({ _id, title, alcohol, description }) => `
         <li class="fav-ingredients-list-item">
           <h2 class="fav-ingredient-title">${title}</h2>
           <p class="fav-ingredient-alcohol">${getAlcoholLabelText(alcohol)}</p>
@@ -60,12 +67,11 @@ const renderFavoriteIngredients = ingredientIds => {
             </button>
           </div>
         </li>`
-        )
-        .join('');
-      let ingredientsListMarkup = `<ul class="fav-ingredients-list">${ingredientItemsMarkup}</ul>`;
+      )
+      .join('');
+    let ingredientsListMarkup = `<ul class="fav-ingredients-list">${ingredientItemsMarkup}</ul>`;
 
-      favoriteIngredientsContainer.innerHTML = ingredientsListMarkup;
-    });
+    favoriteIngredientsContainer.innerHTML = ingredientsListMarkup;
   } else {
     favoriteIngredientsContainer.innerHTML = emptyFavoriteIngredientsMarkup;
   }
