@@ -104,6 +104,8 @@
   background-color: #f8f9ff;
 
   box-shadow: 0px 4px 46px 0px #0000000d;
+
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 .cocktail-card:hover {
   transform: translateY(-4px);
@@ -179,21 +181,26 @@
 }
 
 .btns-info {
-  margin-left: 6px;
+  /* margin-left: 6px; */
   display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 10px;
 }
 
 .learn-more-button {
-  /* display: block; */
-  /* margin: 0px auto; */
-  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* margin-right: 10px; */
 
   cursor: pointer;
   /* margin-bottom: 12px;   */
 
   min-width: 232px;
   min-height: 48px;
-  padding: 12px 28px;
+  /* padding: 12px 28px; */
   border-radius: 12px;
   border-color: #7e8fdd;
   border-width: 1px;
@@ -209,6 +216,7 @@
 
   /* transition-property: background-color, color;
 	transition: 250ms cubic-bezier(0.4, 0, 0.2, 1); */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 .learn-more-button:hover,
 .learn-more-button:focus {
@@ -222,7 +230,7 @@
   .learn-more-button {
     min-width: 225px;
     min-height: 56px;
-    padding: 16px 55px;
+    /* padding: 16px 55px; */
   }
 }
 
@@ -233,12 +241,6 @@
 		width: 407px;
 		height: auto; */
 /* }
-} */
-
-/* .learn-more-button:hover,
-.learn-more-button:focus{
-	background-color: #FCF1E0;
-	color:#FD9222;
 } */
 
 .add-to-button {
@@ -257,6 +259,7 @@
   background-color: #7e8fdd;
 
   align-content: center;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 .add-to-button:hover,
 .add-to-button:focus {
