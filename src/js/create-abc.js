@@ -63,7 +63,7 @@ let markupAlphabet = [];
 function renderAlphabet(array) {
       markupAlphabet = array
     .map(element => {
-      return `<li class="search-menu-item ">${element}</li>`;
+      return `<li class="search-menu-item">${element}</li>`;
     })
     .join('');
 }

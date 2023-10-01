@@ -26,7 +26,6 @@ function onChangeInput(event) {
         })
         .catch(error => {
           console.error('Error fetching cocktails:', error);
-          cardList.innerHTML = errorSearch;
         });
     }
   }
