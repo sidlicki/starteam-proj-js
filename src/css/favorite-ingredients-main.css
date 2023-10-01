@@ -1,3 +1,5 @@
+/* ----- Loader ----- */
+
 .loader {
   width: 48px;
   height: 48px;
@@ -17,6 +19,7 @@
     transform: rotate(360deg);
   }
 }
+/* ----- /Loader ----- */
 
 .fav-ingredients-loader-container {
   margin: 60px auto 0;
@@ -26,6 +29,7 @@
 .fav-ingredients-container {
   margin-bottom: 138px;
 }
+
 .fav-ingredients-section-header {
   color: var(--black-color);
   font-size: 24px;
@@ -171,6 +175,27 @@
 }
 
 @media screen and (min-width: 768px) {
+  .fav-ingredients-section-header {
+    font-size: 40px;
+    line-height: 1.2;
+  }
+
+  .no-fav-ingredients-wrapper {
+    margin-top: 100px;
+    gap: 40px;
+    width: 359px;
+  }
+
+  .cocktail-photo-placeholder {
+    width: 234px;
+    height: 201px;
+  }
+
+  .no-fav-ingredients-text {
+    font-size: 24px;
+    line-height: 1.67;
+  }
+
   .fav-ingredients-learn-more-btn {
     padding: 16px 55px;
   }
