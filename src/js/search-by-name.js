@@ -4,7 +4,7 @@ import { searchCocktailsByName } from './cocktail-api';
 const searchInput = document.querySelector('.search-input');
 const cardList = document.querySelector('.cocktails-list');
 
-const emptySearch = `<p>Sorry, we didn’t find any cocktail for you</p>`;
+export const emptySearch = `<p>Sorry, we didn’t find any cocktail for you</p>`;
 
 searchInput.addEventListener('keyup', onChangeInput);
 
@@ -30,11 +30,3 @@ function onChangeInput(event) {
     }
   }
 }
-
-
-
-
-
-
-
-
