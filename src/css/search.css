@@ -3,7 +3,9 @@
     text-align: center;
     padding-top: 40px;
 }
-
+.form-mobile {
+   position: relative; 
+}
 .search-select{
     display: inline-flex;
     width: 90px;
@@ -12,16 +14,20 @@
     align-items: center;
     padding-left: 14px;
     gap: 33px;
-    border: 2px solid #ffffff;
+    border: 2px solid rgba(126, 143, 221, 0.40);
     border-radius: 8px;
     color: #ffffff;
     background: rgba(126, 143, 221, 0.40);
     cursor: pointer;
+    
 }
 .search-select:focus,
 .search-select:hover {
 background: #9CDFDF;
+
 }
+
+
 
 .search-select-one {
     color: #FDFDFF;
@@ -74,7 +80,8 @@ background: #9CDFDF;
     
 }
 .search-input {
-    width: 300px;
+    max-width: 300px;
+    width: 100%;
     height: 44px;
     border-radius: 80px;
     border: 2px solid #7E8FDD;
