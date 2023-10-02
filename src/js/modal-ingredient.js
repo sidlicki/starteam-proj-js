@@ -60,8 +60,7 @@ async function onRenderOpenModalIngred(event) {
   if (event.target.nodeName == 'A')
     try {
       const ingredientDetails = await fetchIngredientDetails(event.target.id);
-
-      console.log(ingredientDetails)
+      //const ingredientDetails = await fetchCocktailDetails('639b6de9ff77d221f190c51e')
 
       if (ingredientDetails.length === 0) {
         console.log(`Error`);
