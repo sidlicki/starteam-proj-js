@@ -61,6 +61,12 @@
   box-shadow: 0 4px 46px #0000000d;
 }
 
+.cocktail-list-favorite:hover,
+.cocktail-list-favorite:focus {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px #0000004d;
+}
+
 .cocktail-item-img-favorite {
   border-radius: 16px;
   width: 307px;

@@ -8,7 +8,7 @@
 <path d="M17.455 16.667l-6.788 6.741 1.939 1.926 8.728-8.667-8.728-8.667-1.939 1.926 6.788 6.741z"></path>
 </symbol>
 <symbol id="icon-arrow-down" viewBox="0 0 32 32">
-<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M7.999 12l8 8 8-8"></path>
+<path d="M7.999 12l8 8 8-8"></path>
 </symbol>
 <!-- бургер -->
 <symbol id="icon-burger" viewBox="0 0 32 32">

@@ -1,6 +1,7 @@
 /* CONTAINER SIZES */
 /* //////////////////////////////////////////////////////////// */
 .container {
+  min-width: 320px;
   max-width: 375px;
   padding-left: 20px;
   padding-right: 20px;
