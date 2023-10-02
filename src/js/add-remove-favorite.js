@@ -2,6 +2,8 @@
 
 import { favoriteCocktails } from './modal-coctail';
 
+import { favoriteIngredients } from './modal-ingredient';
+
 // Add to Favorite Cocktails   
     function onAddFavCocktClick(cocktailId) {
     const indexFavCockt = favoriteCocktails.findIndex(
@@ -49,7 +51,7 @@ import { favoriteCocktails } from './modal-coctail';
   
     // Remove from Favorite Ingredients
     function onRemFavIngredClick(ingredientId) {
-      const indFavRem = favoriteCocktails.findIndex(
+      const indFavRem = favoriteIngredients.findIndex(
         item => item === ingredientId
       );
       if (indFavRem !== -1) {
