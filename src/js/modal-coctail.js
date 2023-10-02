@@ -52,7 +52,7 @@ cocktailList.addEventListener('click', onRenderOpenModal);
 
 // Async function render and open modal window cocktails
 async function onRenderOpenModal(event) {
-  if (event.target.nodeName == 'BUTTON')
+  if (event.target.nodeName == 'BUTTON' && event.target.dataset.action === 'learnmore')
     try {
       const cocktailDetails = await fetchCocktailDetails(event.target.id);
 

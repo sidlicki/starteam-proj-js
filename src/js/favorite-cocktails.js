@@ -2,14 +2,27 @@ import { fetchCocktailDetails } from './cocktail-api';
 import spriteUrl from '../img/svg/sprite.svg';
 import { onRemFavCocktClick } from './add-remove-favorite';
 
+import defaultImg from '/img/mobile/coctail@2x.webp';
 import noCoctailMobWebp from '/img/mobile/coctail.webp';
 import noCoctailMobWebp2x from '/img/mobile/coctail@2x.webp';
 import noCoctailTabWebp from '/img/tablet/coctail.webp';
 import noCoctailTabWebp2x from '/img/tablet/coctail@2x.webp';
-// import { fetchCocktailDetails } from "./cocktail-api";
 
-// ["639b6de9ff77d221f190c52f","639b6de9ff77d221f190c521","639b6de9ff77d221f190c52a","639b6de9ff77d221f190c529","639b6de9ff77d221f190c523","639b6de9ff77d221f190c51a","639b6de9ff77d221f190c526","639b6de9ff77d221f190c528","639b6de9ff77d221f190c52d"]
 document.addEventListener('DOMContentLoaded', generateCocktails);
+
+// Оновлено: додавання обробників подій для кнопок видалення
+function addRemoveFavoriteButtonClickHandlers() {
+  const removeFavoriteButtons = document.querySelectorAll('.remove-favorite');
+
+  removeFavoriteButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const cocktailId = button.id;
+      onRemFavCocktClick(cocktailId);
+      generateCocktails(); // Оновлено: оновіть дані після видалення коктейлю
+    });
+  });
+}
+
 // структура картки
 const renderCocktail = (arr, container) => {
   const list = arr
@@ -18,14 +31,14 @@ const renderCocktail = (arr, container) => {
         `<li class="cocktail-list-favorite">
             <img class="cocktail-item-img-favorite" src="${
               item.drinkThumb
-            }" alt="preview cocktail" width="307" height="auto">
+            }" onerror="this.src='${defaultImg}'" alt="preview cocktail" width="307" height="auto">
             <div class="trk">
-            <h2 class="cocktail-name-favorite">${item.drink}</h2>
+            <h2 class="cocktail-name-favorite">${item.drink.slice(0, 25)}</h2>
             <p class="description-container-favorite">${
-              item.description.slice(0, 111) + '...'
+              item.description.slice(0, 111) + ' . . .'
             }</p>
             <div class="button-wrap-favorite" >
-                <button type="button" class="learn-more-favorite" id="${
+                <button type="button" data-action="learnmore" class="learn-more-favorite" id="${
                   item._id
                 }">LEARN MORE</button>
                 <button type="button" class="remove-favorite" id="${item._id}">
@@ -38,7 +51,9 @@ const renderCocktail = (arr, container) => {
         </li>`
     )
     .join('');
-  container.insertAdjacentHTML('beforeend', list);
+  
+  container.innerHTML = list; // Оновлено: використовуємо innerHTML для заміни вмісту контейнера
+  addRemoveFavoriteButtonClickHandlers(); // Оновлено: додали обробники подій для нових кнопок видалення
 };
 
 // функція для генерації списку коктейлів
@@ -48,14 +63,12 @@ async function generateCocktails() {
 
   const localFavorite =
     JSON.parse(localStorage.getItem('favoriteCocktails')) || [];
-  console.log(localFavorite);
+  
   if (localFavorite.length > 0) {
     notFoundBlock.classList.add('is-hidden');
-    console.log(localFavorite.length);
     const data = await fetchCocktailDetails(
       localFavorite.map(cocktail => cocktail)
     );
-    console.log(data);
     renderCocktail(data, favCocktailList);
   } else {
     notFoundBlock.classList.remove('is-hidden');
@@ -75,4 +88,6 @@ async function generateCocktails() {
     notFoundBlock.style.display = 'block';
     favCocktailList.innerHTML = '';
   }
+
+  addRemoveFavoriteButtonClickHandlers(); // Оновлено: додали обробники подій для кнопок видалення
 }
