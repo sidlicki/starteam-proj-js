@@ -57,10 +57,16 @@ const searchCocktailsByName = async name => {
   return fetchData(`${BASE_URL}/cocktails/search`, { s: name });
 };
 
+const fetchIngredientDetailsTest = async ingredientId => {
+  // Виклик функції для отримання даних з API за вказаним ідентифікатором
+  return fetchData(`${BASE_URL}/ingredients/${ingredientId}`);
+};
+
 export {
   fetchRandomCocktails,
   fetchCocktailDetails,
   fetchIngredientDetails,
   searchCocktailsByFirstLetter,
   searchCocktailsByName,
+  fetchIngredientDetailsTest,
 };
