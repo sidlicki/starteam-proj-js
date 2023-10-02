@@ -1,1 +1,261 @@
 /* зважайте будь ласка на те щоб не дублювати назви класів */
+
+/*------------MOBILE------------*/
+@media screen and (max-width: 767px) {
+}
+
+.modal-cocktail-window {
+  width: 335px;
+  max-height: 95%;
+  height: auto;
+  /*--max-height: 905px;--*/
+  overflow-y: scroll;
+  border-radius: 20px;
+  background-color: var(--pale-blue-color);
+}
+
+.modal-cocktail-content {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.modal-cocktail-img {
+  width: 295px;
+  height: 277px;
+  border-radius: 16px;
+}
+
+.modal-cocktail-title {
+  visibility: hidden;
+  font-size: 1px;
+}
+
+.modal-cocktail-subtitle {
+  margin-top: 40px;
+  font-size: 16px;
+}
+
+.add-subtitle {
+  margin-bottom: 14px;
+}
+
+.modal-cocktail-text {
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+.add-one {
+  color: rgba(36, 36, 36, 0.5);
+}
+
+.add-two {
+  color: rgba(36, 36, 36, 0.8);
+}
+
+.add-two:hover,
+.add-two:focus {
+  color: var(--violet-color);
+}
+
+.modal-cocktail-ingred {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/*---Кнопка "Add to Favorite"---*/
+.modal-add-cocktail-btn-fav {
+  width: 295px;
+  height: 48px;
+  margin-top: 40px;
+  border-radius: 12px;
+  font-size: 14px;
+  color: var(--light-gray-color);
+  border: none;
+  background-color: var(--violet-color);
+}
+
+.modal-add-cocktail-btn-fav:hover,
+.modal-add-cocktail-btn-fav:focus {
+  background-color: #6e7fcf;
+}
+
+/*---Кнопка "Remove from Favorite"---*/
+.modal-remove-cocktail-btn-fav {
+  width: 295px;
+  height: 48px;
+  margin-top: 40px;
+  border-radius: 12px;
+  font-size: 14px;
+  color: #fdfdff;
+  border: none;
+  background-color: var(--violet-color);
+}
+
+.modal-remove-cocktail-btn-fav:hover,
+.modal-remove-cocktail-btn-fav:focus {
+  background-color: #6e7fcf;
+}
+
+/*---Кнопка "Back"---*/
+.modal-cocktail-btn-back {
+  width: 295px;
+  height: 48px;
+  margin-top: 14px;
+  border-radius: 12px;
+  font-size: 14px;
+  color: var(--black-color);
+  background-color: rgba(36, 36, 36, 0.1);
+  border: none;
+}
+
+.modal-cocktail-btn-back:hover,
+.modal-cocktail-btn-back:focus {
+  background-color: rgba(36, 36, 36, 0.2);
+}
+
+.modal-btn-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  width: 22px;
+  height: 22px;
+}
+
+/*-Описание иконки закрытия модального окна-*/
+.modal-btn-close-icon {
+  width: 24px;
+  height: 24px;
+  stroke: var(--black-color);
+}
+
+.modal-cocktail-ingred {
+  font-size: 14px;
+}
+
+/*------------TABLET------------*/
+@media screen and (min-width: 768px) {
+  .modal-cocktail-window {
+    width: 600px;
+    height: auto;
+    /*--overflow: hidden;--*/
+    /*--max-height: 569px;--*/
+  }
+
+  .modal-cocktail-content {
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .modal-cocktail-img {
+    width: 288px;
+    /*--height: 277px;--*/
+  }
+
+  .modal-cocktail-title {
+    visibility: visible;
+    font-size: 20px;
+  }
+
+  .add-cont {
+    display: flex;
+  }
+
+  .add-content {
+    margin-left: 20px;
+  }
+
+  .modal-cocktail-subtitle {
+    margin-top: 20px;
+  }
+
+  .add-subtitle {
+    margin-bottom: 18px;
+  }
+
+  /*---Кнопка "Add to Favorite"---*/
+  .modal-add-cocktail-btn-fav {
+    width: 251px;
+    height: 56px;
+    margin-top: 40px;
+    margin-right: 18px;
+    border-radius: 12px;
+    font-size: 18px;
+  }
+
+  /*---Кнопка "Remove from Favorite"---*/
+  .modal-remove-cocktail-btn-fav {
+    width: 291px;
+    height: 56px;
+    margin-top: 40px;
+    margin-right: 18px;
+    border-radius: 12px;
+    font-size: 18px;
+  }
+
+  /*---Кнопка "Back"---*/
+  .modal-cocktail-btn-back {
+    width: 172px;
+    height: 56px;
+    border-radius: 12px;
+    font-size: 18px;
+  }
+}
+
+/*------------DESKTOP-----------*/
+@media screen and (min-width: 1280px) {
+  /*---New styles for Desktop is absent---*/
+}
+
+/*----Adding styles for li---*/
+.add-li:before {
+  content: '';
+  display: inline-block;
+  height: 4px;
+  width: 4px;
+  vertical-align: middle;
+  border-radius: 50%;
+  background-color: rgba(36, 36, 36, 0.8);
+  margin-left: 10px;
+  margin-right: 12px;
+  margin-bottom: 3px;
+  margin-top: 6px;
+}
+
+/*---
+li a:hover,
+li a:focus {
+  color: var(--violet-color); 
+}
+---*/
+
+/*---
+li:hover:before
+li:focus:before {
+  color: var(--violet-color); 
+}
+---*/
+
+.add-li {
+  /*--border: 1px solid red;--*/
+  display: flex;
+}
+
+/*--
+.add-two {
+ display: flex;
+ justify-content: space-between;
+ border: 1px solid blue;
+}
+--*/
