@@ -1,4 +1,4 @@
-import{f as c,n as i,a as n,s as l}from"./coctail@2x-84029ac7.js";import{n as r,a as d}from"./coctail@2x-d8dacd4c.js";document.addEventListener("DOMContentLoaded",v);const p=(e,o)=>{const a=e.map(t=>`<li class="cocktail-list-favorite">
+import{f as c,n as i,a as n,s as l}from"./coctail@2x-804d4a57.js";import{n as r,a as d}from"./coctail@2x-45cc53c0.js";document.addEventListener("DOMContentLoaded",v);const p=(e,o)=>{const a=e.map(t=>`<li class="cocktail-list-favorite">
             <img class="cocktail-item-img-favorite" src="${t.drinkThumb}" alt="preview cocktail" width="307" height="auto">
             <div class="trk">
             <h2 class="cocktail-name-favorite">${t.drink}</h2>
