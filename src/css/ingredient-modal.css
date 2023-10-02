@@ -6,7 +6,7 @@
     
 }
 
-.modal-cocktail-window {
+.modal-ingredient-window {
     width: 335px;
     max-height: 95%;
     height: auto;
@@ -17,7 +17,7 @@
     /*--border: 1px solid blue;--*/    
 }
 
-.modal-cocktail-content {
+.modal-ingredient-content {
   /*--border: 1px solid red;--*/
   padding-left: 20px;
   padding-right: 20px;
@@ -25,19 +25,13 @@
   padding-bottom: 40px; 
 }
 
-.modal-cocktail-img {
-    width: 295px;
-    height: 277px;
-    border-radius: 16px;
-}
-
-.modal-cocktail-title {
+.modal-ingred-title {
     visibility: hidden;
     font-size: 1px;
 }
 
 
-.modal-cocktail-subtitle {
+.modal-ingred-subtitle {
   margin-top: 40px;
   font-size: 16px;   
 } 
@@ -47,7 +41,7 @@
 }
 
 
-.modal-cocktail-text {
+.modal-ingred-text {
     margin-top: 8px;
     font-size: 14px;
 }
@@ -71,7 +65,7 @@
 
 
 /*---Кнопка "Add to Favorite"---*/
-.modal-add-cocktail-btn-fav {
+.modal-add-ingred-btn-fav {
 width: 295px;
 height: 48px;
 margin-top: 40px;
@@ -82,12 +76,12 @@ border: none;
 background-color: #7E8FDD;
 }
 
-.modal-add-cocktail-btn-fav:hover {
+.modal-add-ingred-btn-fav:hover {
   background-color: #6E7FCF;
 }
 
 /*---Кнопка "Remove from Favorite"---*/
-.modal-remove-cocktail-btn-fav {
+.modal-remove-ingred-btn-fav {
   width: 295px;
   height: 48px;
   margin-top: 40px;
@@ -98,13 +92,13 @@ background-color: #7E8FDD;
   background-color: #7E8FDD;
   }
   
-  .modal-remove-cocktail-btn-fav:hover {
+  .modal-remove-ingred-btn-fav:hover {
     background-color: #6E7FCF;
   }
   
 
 /*---Кнопка "Back"---*/
-.modal-cocktail-btn-back {
+.modal-ingred-btn-back {
     width: 295px;
     height: 48px;
     margin-top: 14px;
@@ -114,7 +108,7 @@ background-color: #7E8FDD;
     border: none;
     }
 
-    .modal-btn-back:hover {
+    .modal-ingred-btn-back:hover {
      background-color: rgba(36, 36, 36, 0.2);
     }
 
@@ -149,14 +143,14 @@ background-color: #7E8FDD;
 
 /*------------TABLET------------*/
 @media screen and (min-width: 768px) {
-    .modal-cocktail-window {
+    .modal-ingred-window {
         width: 600px;
         height: auto;
         /*--max-height: 569px;--*/
         /*--border: 1px solid blue; ---*/   
     }  
 
-    .modal-cocktail-content {
+    .modal-ingred-content {
         /*--border: 1px solid red;--*/
         padding-left: 40px;
         padding-right: 40px;
@@ -164,13 +158,7 @@ background-color: #7E8FDD;
         padding-bottom: 40px;
       }
 
-      .modal-cocktail-img {
-        width: 288px;
-        /*--height: 277px;--*/
-    }
-
-
-    .modal-cocktail-title {
+        .modal-ingred-title {
         visibility: visible;
         font-size: 20px;
     }
@@ -185,7 +173,7 @@ background-color: #7E8FDD;
     /*--border: 1px solid black;--*/
    }
 
-   .modal-cocktail-subtitle {
+   .modal-ingred-subtitle {
     margin-top: 20px;
      
   } 
@@ -195,7 +183,7 @@ background-color: #7E8FDD;
    }
    
 /*---Кнопка "Add to Favorite"---*/
-.modal-add-cocktail-btn-fav {
+.modal-add-ingred-btn-fav {
     width: 251px;
     height: 56px;
     margin-top: 40px;
@@ -206,7 +194,7 @@ background-color: #7E8FDD;
 
 
 /*---Кнопка "Remove from Favorite"---*/
-.modal-remove-cocktail-btn-fav {
+.modal-remove-ingred-btn-fav {
   width: 291px;
   height: 56px;
   margin-top: 40px;
@@ -216,7 +204,7 @@ background-color: #7E8FDD;
   }
 
 /*---Кнопка "Back"---*/
-.modal-cocktail-btn-back {
+.modal-ingred-btn-back {
     width: 172px;
     height: 56px;
     /*--margin-top: 14px;--*/
@@ -229,18 +217,4 @@ background-color: #7E8FDD;
 /*------------DESKTOP-----------*/
 @media screen and (min-width: 1280px) {
 
-}
-
-
-/*-------ДОПОЛНИТЕЛЬНЫЕ КЛАССЫ МОДАЛКИ----------*/
-
-/*-----Временная кнопка открытия модального окна----*/
-.btn-open-modal {
-    display: block;
-    width: 150px;
-    height: 50px;
-    background-color: blue;
-    color: white;
-    margin-top: 20px;
-    border-radius: 5px;
 }

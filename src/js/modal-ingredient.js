@@ -1,226 +1,164 @@
 // "axios"/ "modern-normalize" /"notiflix" /"tui-pagination" - вже встановлено
-// console.log('hello');
-// "axios"/ "modern-normalize" /"notiflix" /"tui-pagination" - вже встановлено
-// console.log('hello');
 
-//import { testArr } from './test/test-coctails';
-//import { fetchCocktailDetails } from './cocktail-api';
 import { fetchIngredientDetails } from './cocktail-api';
+import { onAddFavIngredClick, onRemFavIngredClick } from './add-remove-favorite';
 
-const cardCocktail = document.querySelector('.modal-cocktail-content');
-const btnOpenModal = document.querySelectorAll('.js-modal-open');
-const btnCloseModal = document.querySelectorAll('.js-modal-close');
+const cardIngredient = document.querySelector('.modal-ingredient-content');
+const btnCloseModal = document.querySelector('.js-modal-close');
+
+const modalCocktailCard = document.querySelector('.modal-cocktail-window');
 
 const overlay = document.querySelector('.overlay');
-const modal = document.querySelector('.modal');
+const modal1 = document.querySelector('.modal1');
+const modal2 = document.querySelector('.modal2');
 
-// const FAVORITE_COCKTAILS_KEY = 'favoriteIngredients';
-// const FAVORITE_INGREDIENTS_KEY = 'favoriteIngredients';
-
-// const addFavorite = (key, id) => {};
-// const removeFavorite = (key, id) => {};
-
-// const addFavoriteCocktail = id => {
-//   addFavorite(FAVORITE_COCKTAILS_KEY, id);
-// };
-
-// const addFavoriteIngredient = id => {
-//   addFavorite(FAVORITE_INGREDIENTS_KEY, id);
-// };
-
-// const removeFavoriteCocktail = id => {
-//   removeFavorite(FAVORITE_COCKTAILS_KEY, id);
-// };
-// const removeFavoriteIngredient = id => {
-//   removeFavorite(FAVORITE_INGREDIENTS_KEY, id);
-// };
+//const ingredientList =
+//  document.querySelector('.ingredients-list') ??
+//  document.querySelector('.fav-ingredient-list');
 
 let favoriteIngredients =
   JSON.parse(localStorage.getItem('favoriteIngredients')) || [];
 
-function onAddFavClick(cocktailId) {
-  const indexFavCockt = favoriteIngredients.findIndex(
-    item => item === cocktailId
-  );
-  if (indexFavCockt === -1) {
-    favoriteIngredients.push(cocktailId);
-    localStorage.setItem(
-      'favoriteIngredients',
-      JSON.stringify(favoriteIngredients)
-    );
-    return favoriteIngredients;
-  }
-}
-
-//const { drink, drinkThumb, instructions, ingredients } = testArr[1];
-
-//const cocktailIds = "639b6de9ff77d221f190c518";
-//const cocktailIds = "639b6de9ff77d221f190c521";
-//const cocktailIds = "639b6de9ff77d221f190c51c";
-const cocktailIds = '64aebb7f82d96cc69e0eb4a5';
-//const cocktailIds = "639b6de9ff77d221f190c527";
-//const cocktailIds = "639b6de9ff77d221f190c517";
-//const cocktailIds = "639b6de9ff77d221f190c524";
-
-// Функция рендера ингредиентов (их несколько)
-// function renderIngredients(ingredients) {
-//   return ingredients
-//     .map(
-//       item => `<li data-id="${item.ingredientId}" class=""><a href="" class="modal-coctail-ingred">${item.title}</a>
-//   </li>`
-//     )
-//     .join('');
-// }
-
-// Функция рендера содержимого модального окна
-//_id, title, description, type, abv, flavour, country
-
-function createCardCocktail({ _id, title, description, type, abv, flavour, country }) {
+function createCardIngredient({ _id, title, description, type, abv, flavour, country }) {
   const markup = `<div class="add-cont">
  
   <div class="add-content">
-  <h1 class="modal-cocktail-title">${title}</h1>
+  <h1 class="modal-ingred-title">${title}</h1>
   
-  <p class="modal-cocktail-text add-one">${type}</p>
+  <p class="modal-ingred-text add-one">${type}</p>
   <div class="modal-cocktail-ingred add-two"></div>
 </div>
 </div>
-  <h2 class="modal-cocktail-subtitle add-subtitle"></h2>
-  <p class="modal-cocktail-text add-one">${title}: ${description}</p>
+  <h2 class="modal-ingred-subtitle add-subtitle"></h2>
+  <p class="modal-ingred-text add-one">${title}: ${description}</p>
   <ul class="ingredients-list">
   <li class="ingredients-element">Type: ${type}</li>
   <li class="ingredients-element">Country of origin: ${country}</li>
   <li class="ingredients-element">Alcohol by volume: ${abv}</li>
   <li class="ingredients-element">Flavour: ${flavour}</li>
 </ul>
-
-
-  <button type="button" class="modal-add-cocktail-btn-fav">ADD TO FAVORITE</button>
-  <button type="button" class="modal-remove-cocktail-btn-fav is-hidden">REMOVE FROM FAVORITE</button>
-  <button type="button" class="modal-cocktail-btn-back js-modal-close" >BACK</button>`;
+  <button type="button" class="modal-add-ingred-btn-fav">ADD TO FAVORITE</button>
+  <button type="button" class="modal-remove-ingred-btn-fav is-hidden">REMOVE FROM FAVORITE</button>
+  <button type="button" class="modal-ingred-btn-back" name="close-modal" >BACK</button>`;
   return markup;
 }
 
-// Функция полного рендера модального окна коктейля
+/*---------------МОЙ КОД-------------------------*/
 
-fetchIngredientDetails(cocktailIds).then(cocktailDetails => {
-  if (cocktailDetails.length === 0) {
-    console.log(`Error`);
-    return;
-  }
+// Add listener to Main page "Cocktails"
+modalCocktailCard.addEventListener('click', onRenderOpenModalIngred)
 
-  //console.log(cocktailDetails[0].country);
-  cardCocktail.innerHTML = '';
-  cardCocktail.innerHTML = createCardCocktail(cocktailDetails[0]);
+//cocktailList.addEventListener('click', onRenderOpenModal);  ??
+// Add listener to page "Favorite Cocktails"
+//favoriteCocktailList.addEventListener('click', onRenderOpenModal);
 
-  //----------- КОД РАБОТЫ с LOCAL STORAGE ----------- //
+// Async function render and open modal window cocktails
+async function onRenderOpenModalIngred(event) {
+  event.preventDefault();
+  
+  //if (event.target.nodeName == 'BUTTON' && event.target.dataset.action == 'learnmore')
+  if (event.target.nodeName == 'A')
+    try {
+      const ingredientDetails = await fetchIngredientDetails(event.target.id);
 
-  // Объявляем переменную для работы с Local Storage
+      console.log(ingredientDetails)
 
-  //console.log(favoriteIngredients);
+      if (ingredientDetails.length === 0) {
+        console.log(`Error`);
+        return;
+      }
+      cardIngredient.innerHTML = '';
+      cardIngredient.innerHTML = createCardIngredient(ingredientDetails[0]);
+      modalCocktClose();
+      modalIngredOpen();
 
-  // Кнопка "Add-to-Favorite" модального окна коктейля
-  const btnModalAddFav = document.querySelector('.modal-add-cocktail-btn-fav');
+      //----------- Working with Local Storage ----------- //
 
-  // Кнопка "Remove-from-Favorite" модального окна коктейля
-  const btnModalRemoveFav = document.querySelector(
-    '.modal-remove-cocktail-btn-fav'
-  );
-
-  // В случае, если кнопок Remove несколько
-  //const btnModalRemoveFav = document.querySelectorAll('.modal-remove-cocktail-btn-fav');
-
-  // Проверяем, есть ли карточка с определенным id в массиве, считанном из Local Storage
-  const indexModalFav = favoriteIngredients.findIndex(
-    item => item === cocktailDetails[0]._id
-  );
-
-  // Если карточки с таким id нет, то скрываем кнопку "Add to Fav" и показываем кнопку "Remove from Fav"
-  if (indexModalFav !== -1) {
-    btnModalAddFav.classList.add('is-hidden');
-    btnModalRemoveFav.classList.remove('is-hidden');
-  }
-
-  // Устанавливаем прослушиватель кнопки "Add to Favorite"
-  btnModalAddFav.addEventListener('click', () => {
-    btnModalAddFav.classList.add('is-hidden');
-    btnModalRemoveFav.classList.remove('is-hidden');
-    onAddFavClick(cocktailDetails[0]._id);
-  });
-
-  //onAddFavClick();
-
-  // Функция обработки клика кнопки "Add to Favorite"
-
-  // Устанавливаем прослушиватель кнопки "Remove from Favorite"
-  btnModalRemoveFav.addEventListener('click', onRemoveFavClick);
-
-  // Функция обработки клика кнопки "Remove from Favorite"
-  function onRemoveFavClick() {
-    btnModalAddFav.classList.remove('is-hidden');
-    btnModalRemoveFav.classList.add('is-hidden');
-    const indFavRem = favoriteIngredients.findIndex(
-      item => item === cocktailDetails[0]._id
-    );
-    if (indFavRem !== -1) {
-      favoriteIngredients.splice(indFavRem, 1);
-      localStorage.setItem(
-        'favoriteIngredients',
-        JSON.stringify(favoriteIngredients)
+      // Button "Add-to-Favorite" modal window ingredient
+      const btnModalAddFav = document.querySelector(
+        '.modal-add-ingred-btn-fav'
       );
-      return favoriteIngredients;
+
+      // Button "Remove-from-Favorite" modal window ingredient
+      const btnModalRemoveFav = document.querySelector(
+        '.modal-remove-ingred-btn-fav'
+      );
+
+      // Проверяем, есть ли карточка с определенным id в массиве, считанном из Local Storage
+      const indexModalFav = favoriteIngredients.findIndex(
+        item => item === ingredientDetails[0]._id
+      );
+
+      // Если карточки с таким id нет, то скрываем кнопку "Add to Fav"
+      // и показываем кнопку "Remove from Fav"
+      if (indexModalFav !== -1) {
+        btnModalAddFav.classList.add('is-hidden');
+        btnModalRemoveFav.classList.remove('is-hidden');
+      }
+
+      // Manage button "Add to Favorite"
+      btnModalAddFav.addEventListener('click', () => {
+        btnModalAddFav.classList.add('is-hidden');
+        btnModalRemoveFav.classList.remove('is-hidden');
+        onAddFavIngredClick(ingredientDetails[0]._id);
+      });
+
+      // Manage button "Remove from Favorite"
+      btnModalRemoveFav.addEventListener('click', () => {
+        btnModalAddFav.classList.remove('is-hidden');
+        btnModalRemoveFav.classList.add('is-hidden');
+        onRemFavIngredClick(ingredientDetails[0]._id);
+      });
+
+      // Listen static html-button close modal window
+      btnCloseModal.addEventListener('click', modalIngredCloseBtn);
+      // Listen dynamic js-button close modal window
+      cardIngredient.addEventListener('click', event => {
+        if (event.target.name == 'close-modal') modalIngredCloseBack();
+      });
+      //------------------END WORKING with LOCAL STORAGE -------------------//
+    } catch (error) {
+      console.log(error);
     }
-  }
-  //------------------ОКОНЧАНИЕ КОДА РАБОТЫ с LOCAL STORAGE -------------------//
-});
-//  catch(error){console.log(error)}
-//}
+}
 
-//*--------------УПРАВЛЕНИЕ МОДАЛЬНЫМ ОКНОМ----------------*/
+//*--------------MANAGE of MODAL WINDOW----------------*/
 
-// Прослушивание кнопки открытия модального окна (если оно одно)
-//btnOpenModal.addEventListener('click', modalOpen);
-
-// Прослушивание кнопок открытия модального окна (если их несколько)
-
-btnOpenModal.forEach(function (item) {
-  item.addEventListener('click', modalOpen);
-});
-
-// Прослушивание кнопки закрытия модального окна (если их несколько)
-btnCloseModal.forEach(function (item) {
-  item.addEventListener('click', modalClose);
-});
-
-// Прослушивание кнопки закрытия модального окна (если оно одно)
-//btnCloseModal.addEventListener('click', modalClose);
-
-// Прослушивание оверлея (пространства вне модального окна)
+// Listen overlay (space around modal window)
 overlay.addEventListener('click', function () {
-  modal.classList.remove('active');
+  modal2.classList.remove('active');
   this.classList.remove('active');
 });
 
-// Функция открытия модального окна по кнопке
-function modalOpen(event) {
-  event.preventDefault();
-  //createModalCard();
+// Function open modal from button
+function modalIngredOpen() {
   overlay.classList.add('active');
-  modal.classList.add('active');
+  modal2.classList.add('active');
 }
 
-// Функция закрытия модального окна по кнопке
-function modalClose(event) {
-  modal.classList.remove('active');
+// Function close modal from button
+function modalIngredCloseBack() {
+  modal2.classList.remove('active');
+  overlay.classList.remove('active');
+  modalCocktOpen();
+}
+
+// Function close modal from button
+function modalIngredCloseBtn() {
+  modal2.classList.remove('active');
   overlay.classList.remove('active');
 }
 
-/*-----------------ОКОНЧАНИЕ КОДА УПРАВЛЕНИЯ МОДАЛЬНЫМ ОКНОМ-------------------------------*/
+// Function open modal from button
+function modalCocktOpen() {
+  overlay.classList.add('active');
+  modal1.classList.add('active');
+}
 
-//export { onAddFavClick };
-//export { onRemoveFavClick };
+// Function close modal from button
+function modalCocktClose() {
+  modal1.classList.remove('active');
+  overlay.classList.remove('active');
+}
 
-//console.log(favoriteIngredients);
 export { favoriteIngredients };
-//export { modalOpen };
-//export { modalClose };

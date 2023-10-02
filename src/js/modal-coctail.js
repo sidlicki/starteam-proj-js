@@ -7,7 +7,7 @@ const cardCocktail = document.querySelector('.modal-cocktail-content');
 const btnCloseModal = document.querySelector('.modal-btn-close');
 
 const overlay = document.querySelector('.overlay');
-const modal = document.querySelector('.modal');
+const modal1 = document.querySelector('.modal1');
 const cocktailList =
   document.querySelector('.cocktails-list') ??
   document.querySelector('.fav-cocktail-list');
@@ -20,7 +20,7 @@ let favoriteCocktails =
 function renderIngredients(ingredients) {
   return ingredients
     .map(
-      item => `<li data-id="${item.ingredientId}" class="add-li"><a href="" class="add-two">${item.title}</a>
+      item => `<li class="add-li"><a href="" class="add-two" id="${item.ingredientId}">${item.title}</a>
   </li>`
     )
     .join('');
@@ -52,7 +52,7 @@ cocktailList.addEventListener('click', onRenderOpenModal);
 
 // Async function render and open modal window cocktails
 async function onRenderOpenModal(event) {
-  if (event.target.nodeName == 'BUTTON')
+  if (event.target.nodeName == 'BUTTON' && event.target.dataset.action == 'learnmore')
     try {
       const cocktailDetails = await fetchCocktailDetails(event.target.id);
 
@@ -62,7 +62,7 @@ async function onRenderOpenModal(event) {
       }
       cardCocktail.innerHTML = '';
       cardCocktail.innerHTML = createCardCocktail(cocktailDetails[0]);
-      modalOpen();
+      modalCocktOpen();
 
       //----------- Working with Local Storage ----------- //
 
@@ -101,11 +101,12 @@ async function onRenderOpenModal(event) {
         onRemFavCocktClick(cocktailDetails[0]._id);
       });
 
+    
       // Listen static html-button close modal window
-      btnCloseModal.addEventListener('click', modalClose);
+      btnCloseModal.addEventListener('click', modalCocktClose);
       // Listen dynamic js-button close modal window
       cardCocktail.addEventListener('click', event => {
-        if (event.target.name == 'close-modal') modalClose();
+        if (event.target.name == 'close-modal') modalCocktClose();
       });
       //------------------END WORKING with LOCAL STORAGE -------------------//
     } catch (error) {
@@ -117,19 +118,19 @@ async function onRenderOpenModal(event) {
 
 // Listen overlay (space around modal window)
 overlay.addEventListener('click', function () {
-  modal.classList.remove('active');
+  modal1.classList.remove('active');
   this.classList.remove('active');
 });
 
 // Function open modal from button
-function modalOpen() {
+function modalCocktOpen() {
   overlay.classList.add('active');
-  modal.classList.add('active');
+  modal1.classList.add('active');
 }
 
 // Function close modal from button
-function modalClose() {
-  modal.classList.remove('active');
+function modalCocktClose() {
+  modal1.classList.remove('active');
   overlay.classList.remove('active');
 }
 
