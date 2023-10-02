@@ -20,20 +20,21 @@
 body.dark .header-home-link {
   color: var(--light-gray-color);
 }
-.header-logo-text {
+.header-logo-link {
   color: var(--black-color);
   font-weight: 600;
   font-size: 16px;
   line-height: 1.13;
-  margin: 0 auto;
 }
-body.dark .header-logo-text {
+body.dark .header-logo-link {
   color: var(--light-gray-color);
 }
 .header-logo-icon {
   fill: var(--violet-color);
   width: 21px;
   height: 18px;
+  display: inline-block;
+  vertical-align: text-top;
 }
 .mobile-menu-open-btn {
   border: none;
@@ -367,7 +368,7 @@ body.dark .dropbtn {
   .header-left-elements {
     gap: 8px;
   }
-  .header-logo-text {
+  .header-logo-link {
     font-size: 22px;
     line-height: 1.09;
   }
