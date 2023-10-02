@@ -1,6 +1,7 @@
 // "axios"/ "modern-normalize" /"notiflix" /"tui-pagination" - вже встановлено
 
 import { fetchIngredientDetailsTest } from './cocktail-api';
+import { loadFavoriteIngredientsData } from './favorite-ingredients';
 import {
   onAddFavIngredClick,
   onRemFavIngredClick,
@@ -10,6 +11,9 @@ const cardIngredient = document.querySelector('.modal-ingredient-content');
 const btnCloseModal = document.querySelector('.js-modal-close');
 
 const modalCocktailCard = document.querySelector('.modal-cocktail-window');
+const favIngredientsContainer = document.querySelector(
+  '.fav-ingredients-container'
+);
 
 const overlay = document.querySelector('.overlay');
 const modal1 = document.querySelector('.modal1');
@@ -32,10 +36,10 @@ function createCardIngredient({
   country,
 }) {
   const markup = `<div class="add-cont">
- 
+
   <div class="add-content">
   <h1 class="modal-ingred-title">${title}</h1>
-  
+
   <p class="modal-ingred-text add-one">${type}</p>
   <div class="modal-cocktail-ingred add-two"></div>
 </div>
@@ -57,7 +61,13 @@ function createCardIngredient({
 /*---------------МОЙ КОД-------------------------*/
 
 // Add listener to Main page "Cocktails"
-modalCocktailCard.addEventListener('click', onRenderOpenModalIngred);
+if (modalCocktailCard) {
+  modalCocktailCard.addEventListener('click', onRenderOpenModalIngred);
+}
+
+if (favIngredientsContainer) {
+  favIngredientsContainer.addEventListener('click', onRenderOpenModalIngred);
+}
 
 //cocktailList.addEventListener('click', onRenderOpenModal);  ??
 // Add listener to page "Favorite Cocktails"
@@ -66,13 +76,17 @@ modalCocktailCard.addEventListener('click', onRenderOpenModalIngred);
 // Async function render and open modal window cocktails
 async function onRenderOpenModalIngred(event) {
   event.preventDefault();
-
   //if (event.target.nodeName == 'BUTTON' && event.target.dataset.action == 'learnmore')
-  if (event.target.nodeName == 'A')
+  if (
+    event.target.dataset.action === 'ingredient-learn-more' ||
+    event.target.nodeName === 'A'
+  )
     try {
-      const ingredientDetails = await fetchIngredientDetailsTest(
-        event.target.id
-      );
+      const ingredientId = modalCocktailCard
+        ? event.target.id
+        : event.target.closest('.fav-ingredients-list-item').dataset
+            .ingredientId;
+      const ingredientDetails = await fetchIngredientDetailsTest(ingredientId);
       //const ingredientDetails = await fetchCocktailDetails('639b6de9ff77d221f190c51e')
 
       if (ingredientDetails.length === 0) {
@@ -81,7 +95,9 @@ async function onRenderOpenModalIngred(event) {
       }
       cardIngredient.innerHTML = '';
       cardIngredient.innerHTML = createCardIngredient(ingredientDetails[0]);
-      modalCocktClose();
+      if (modal1) {
+        modalCocktClose();
+      }
       modalIngredOpen();
 
       //----------- Working with Local Storage ----------- //
@@ -141,6 +157,9 @@ overlay.addEventListener('click', function () {
   modal2.classList.remove('active');
   document.body.classList.remove('overflow-hidden');
   this.classList.remove('active');
+  if (favIngredientsContainer) {
+    loadFavoriteIngredientsData();
+  }
 });
 
 // Function open modal from button
@@ -154,6 +173,9 @@ function modalIngredCloseBack() {
   modal2.classList.remove('active');
   overlay.classList.remove('active');
   modalCocktOpen();
+  if (favIngredientsContainer) {
+    loadFavoriteIngredientsData();
+  }
 }
 
 // Function close modal from button
@@ -161,18 +183,26 @@ function modalIngredCloseBtn() {
   modal2.classList.remove('active');
   overlay.classList.remove('active');
   document.body.classList.remove('overflow-hidden');
+  if (favIngredientsContainer) {
+    loadFavoriteIngredientsData();
+  }
 }
 
 // Function open modal from button
 function modalCocktOpen() {
-  overlay.classList.add('active');
-  modal1.classList.add('active');
+  if (modal1) {
+    overlay.classList.add('active');
+    modal1.classList.add('active');
+  }
 }
 
 // Function close modal from button
 function modalCocktClose() {
-  modal1.classList.remove('active');
+  if (modal1) {
+    modal1.classList.remove('active');
+  }
+
   overlay.classList.remove('active');
 }
 
-export { favoriteIngredients };
+export { favoriteIngredients, createCardIngredient, modalIngredOpen };
