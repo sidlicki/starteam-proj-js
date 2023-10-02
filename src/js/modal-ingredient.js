@@ -139,6 +139,7 @@ async function onRenderOpenModalIngred(event) {
 // Listen overlay (space around modal window)
 overlay.addEventListener('click', function () {
   modal2.classList.remove('active');
+  document.body.classList.remove('overflow-hidden');
   this.classList.remove('active');
 });
 
@@ -159,6 +160,7 @@ function modalIngredCloseBack() {
 function modalIngredCloseBtn() {
   modal2.classList.remove('active');
   overlay.classList.remove('active');
+  document.body.classList.remove('overflow-hidden');
 }
 
 // Function open modal from button
