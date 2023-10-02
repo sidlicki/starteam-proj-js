@@ -13,12 +13,14 @@ const favIngredientsContainer = document.querySelector(
   '.fav-ingredients-container'
 );
 
-const getAlcoholLabelText = alcoholValue =>
-  alcoholValue.toLowerCase() === 'yes'
+const getAlcoholLabelText = alcoholValue => {
+  alcoholValue = alcoholValue.toLowerCase();
+  return alcoholValue === 'yes'
     ? 'Alcoholic'
     : alcoholValue === 'no'
     ? 'Non-Alcoholic'
     : 'NA';
+};
 
 const emptyFavoriteIngredientsMarkup = `
   <div class="no-fav-ingredients-wrapper">
