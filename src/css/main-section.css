@@ -206,8 +206,11 @@ body.dark .cocktail-info {
   min-width: 232px;
   min-height: 48px;
   border-radius: 12px;
-  border-color: var(--violet-color);
-  border-width: 1px;
+
+  border: 1px solid #7E8FDD;
+
+  /* border-color: var(--violet-color);
+  border-width: 1px; */
 
   background-color: inherit;
 
@@ -252,8 +255,10 @@ body.dark .learn-more-button {
   min-width: 48px;
   min-height: 48px;
   border-radius: 12px;
-  border-color: var(--violet-color);
-  border-width: 1px;
+  
+  border: 1px solid #7E8FDD;
+  /* border-color: var(--violet-color);
+  border-width: 1px; */
 
   background-color: var(--violet-color);
 
@@ -284,7 +289,6 @@ body.dark .learn-more-button {
 .icon-heart {
   fill: var(--violet-color);
   stroke: var(--light-gray-color);
-  /* fill: var(--light-gray-color); */
   
   width: 18px;
   height: 18px;
