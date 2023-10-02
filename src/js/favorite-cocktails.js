@@ -1,6 +1,7 @@
 import { fetchCocktailDetails } from './cocktail-api';
 import spriteUrl from '../img/svg/sprite.svg';
 import { onRemFavCocktClick } from './add-remove-favorite';
+import { favoriteCocktails, onRenderOpenModal } from './modal-coctail';
 
 import defaultImg from '/img/mobile/coctail@2x.webp';
 import noCoctailMobWebp from '/img/mobile/coctail.webp';
@@ -8,6 +9,8 @@ import noCoctailMobWebp2x from '/img/mobile/coctail@2x.webp';
 import noCoctailTabWebp from '/img/tablet/coctail.webp';
 import noCoctailTabWebp2x from '/img/tablet/coctail@2x.webp';
 
+const favCocktailList = document.querySelector('.fav-cocktail-list');
+const notFoundBlock = document.querySelector('.not-found');
 document.addEventListener('DOMContentLoaded', generateCocktails);
 
 // Оновлено: додавання обробників подій для кнопок видалення
@@ -57,9 +60,8 @@ const renderCocktail = (arr, container) => {
 };
 
 // функція для генерації списку коктейлів
-async function generateCocktails() {
-  const favCocktailList = document.querySelector('.fav-cocktail-list');
-  const notFoundBlock = document.querySelector('.not-found');
+export async function generateCocktails() {
+  
 
   const localFavorite =
     JSON.parse(localStorage.getItem('favoriteCocktails')) || [];
@@ -91,3 +93,15 @@ async function generateCocktails() {
 
   addRemoveFavoriteButtonClickHandlers(); // Оновлено: додали обробники подій для кнопок видалення
 }
+
+
+favCocktailList.addEventListener('click', function (event) {
+  const currentIdCard = event.target.id;
+   switch (event.target.dataset.action) {
+     case 'learnmore':
+           onRenderOpenModal(currentIdCard);
+           
+      break;
+  }
+});
+
