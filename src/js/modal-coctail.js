@@ -46,7 +46,7 @@ function createCardCocktail({ drink, drinkThumb, instructions, ingredients }) {
 }
 
 // Add listener to Main page "Cocktails"
-cocktailList.addEventListener('click', onRenderOpenModal);
+//cocktailList.addEventListener('click', onRenderOpenModal);
 // Add listener to page "Favorite Cocktails"
 //favoriteCocktailList.addEventListener('click', onRenderOpenModal);
 
@@ -138,4 +138,4 @@ function modalCocktClose() {
 
 /*-----------------END CODE MANAGE of MODAL WINDOW-------------------------------*/
 
-export { favoriteCocktails };
+export { favoriteCocktails, onRenderOpenModal };

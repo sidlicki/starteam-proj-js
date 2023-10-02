@@ -14,6 +14,10 @@
   background-color: var(--pale-blue-color);
 }
 
+body.dark .modal-cocktail-window {
+  background-color: #232330;
+}
+
 .modal-cocktail-content {
   padding-left: 20px;
   padding-right: 20px;
@@ -37,6 +41,10 @@
   font-size: 16px;
 }
 
+body.dark .modal-cocktail-subtitle {
+  color: var(--light-gray-color);
+}
+
 .add-subtitle {
   margin-bottom: 14px;
 }
@@ -44,6 +52,10 @@
 .modal-cocktail-text {
   margin-top: 8px;
   font-size: 14px;
+}
+
+body.dark .modal-cocktail-text {
+  color: rgba(253, 253, 255, 0.5);
 }
 
 .add-one {
@@ -56,6 +68,15 @@
 
 .add-two:hover,
 .add-two:focus {
+  color: var(--violet-color);
+}
+
+body.dark .add-two {
+  color: var(--light-gray-color);
+}
+
+body.dark .add-two:hover,
+body.dark .add-two:focus {
   color: var(--violet-color);
 }
 
@@ -117,6 +138,17 @@
   background-color: rgba(36, 36, 36, 0.2);
 }
 
+body.dark .modal-cocktail-btn-back {
+  color: var(--light-gray-color);
+  background-color: rgba(253, 253, 255, 0.1);
+}
+
+body.dark .modal-cocktail-btn-back:hover,
+body.dark .modal-cocktail-btn-back:focus {
+  background-color: rgba(253, 253, 255, 0.2);
+}
+
+
 .modal-btn-close {
   position: absolute;
   top: 14px;
@@ -136,6 +168,10 @@
   width: 24px;
   height: 24px;
   stroke: var(--black-color);
+}
+
+body.dark .modal-btn-close-icon {
+  stroke: var(--light-gray-color);
 }
 
 .modal-cocktail-ingred {
@@ -166,6 +202,10 @@
   .modal-cocktail-title {
     visibility: visible;
     font-size: 20px;
+  }
+
+  body.dark .modal-cocktail-title {
+    color: var(--light-gray-color);
   }
 
   .add-cont {
@@ -233,29 +273,20 @@
   margin-top: 6px;
 }
 
-/*---
-li a:hover,
-li a:focus {
-  color: var(--violet-color); 
-}
----*/
-
-/*---
-li:hover:before
-li:focus:before {
-  color: var(--violet-color); 
-}
----*/
-
 .add-li {
-  /*--border: 1px solid red;--*/
   display: flex;
 }
 
-/*--
-.add-two {
- display: flex;
- justify-content: space-between;
- border: 1px solid blue;
+body.dark .add-li:before {
+  content: '';
+  display: inline-block;
+  height: 4px;
+  width: 4px;
+  vertical-align: middle;
+  border-radius: 50%;
+  background-color: var(--light-gray-color);
+  margin-left: 10px;
+  margin-right: 12px;
+  margin-bottom: 3px;
+  margin-top: 6px;
 }
---*/
