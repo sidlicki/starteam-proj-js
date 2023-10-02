@@ -7,10 +7,10 @@ const cardCocktail = document.querySelector('.modal-cocktail-content');
 const btnCloseModal = document.querySelector('.modal-btn-close');
 
 const overlay = document.querySelector('.overlay');
-const modal1 = document.querySelector('.modal');
-const cocktailList =
-  document.querySelector('.cocktails-list') ??
-  document.querySelector('.fav-cocktail-list');
+const modal1 = document.querySelector('.modal1');
+//const cocktailList =
+//  document.querySelector('.cocktails-list') ??
+//  document.querySelector('.fav-cocktail-list');
 // const favoriteCocktailList = document.querySelector('.fav-cocktail-list');
 
 let favoriteCocktails =
