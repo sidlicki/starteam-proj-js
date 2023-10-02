@@ -1,1 +1,220 @@
+
 /* зважайте будь ласка на те щоб не дублювати назви класів */
+
+/*------------MOBILE------------*/
+@media screen and (max-width: 767px) {
+    
+}
+
+.modal-ingredient-window {
+    width: 335px;
+    max-height: 95%;
+    height: auto;
+    /*--max-height: 905px;--*/
+    overflow: scroll;
+    border-radius: 20px;
+    background-color: white;
+    /*--border: 1px solid blue;--*/    
+}
+
+.modal-ingredient-content {
+  /*--border: 1px solid red;--*/
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 40px;
+  padding-bottom: 40px; 
+}
+
+.modal-ingred-title {
+    visibility: hidden;
+    font-size: 1px;
+}
+
+
+.modal-ingred-subtitle {
+  margin-top: 40px;
+  font-size: 16px;   
+} 
+
+.add-subtitle {
+ margin-bottom: 14px;   
+}
+
+
+.modal-ingred-text {
+    margin-top: 8px;
+    font-size: 14px;
+}
+
+.add-one {
+  color: rgba(36, 36, 36, 0.5);
+}
+
+.add-two {
+  color: rgba(36, 36, 36, 0.8);
+}
+
+
+.modal-cocktail-ingred {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    /*--border: 1px solid red;--*/
+}
+
+
+/*---Кнопка "Add to Favorite"---*/
+.modal-add-ingred-btn-fav {
+width: 295px;
+height: 48px;
+margin-top: 40px;
+border-radius: 12px;
+font-size: 14px;
+color: #FDFDFF;
+border: none;
+background-color: #7E8FDD;
+}
+
+.modal-add-ingred-btn-fav:hover {
+  background-color: #6E7FCF;
+}
+
+/*---Кнопка "Remove from Favorite"---*/
+.modal-remove-ingred-btn-fav {
+  width: 295px;
+  height: 48px;
+  margin-top: 40px;
+  border-radius: 12px;
+  font-size: 14px;
+  color: #FDFDFF;
+  border: none;
+  background-color: #7E8FDD;
+  }
+  
+  .modal-remove-ingred-btn-fav:hover {
+    background-color: #6E7FCF;
+  }
+  
+
+/*---Кнопка "Back"---*/
+.modal-ingred-btn-back {
+    width: 295px;
+    height: 48px;
+    margin-top: 14px;
+    border-radius: 12px;
+    font-size: 14px;
+    color: #242424;
+    border: none;
+    }
+
+    .modal-ingred-btn-back:hover {
+     background-color: rgba(36, 36, 36, 0.2);
+    }
+
+.modal-btn-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    width: 22px;
+    height: 22px;
+    /*--transition: background-color 0.3s, border 0.3s;--*/  
+}
+
+/*-Описание иконки закрытия модального окна-*/
+.modal-btn-close-icon {
+    width: 24px;
+    height: 24px;
+    stroke: #111;
+    /*--transition: fill 0.3s;--*/
+  }
+
+  .modal-cocktail-ingred {
+    font-size: 14px;
+    /*--color: #7E8FDD;--*/
+  }
+  
+
+/*------------TABLET------------*/
+@media screen and (min-width: 768px) {
+    .modal-ingred-window {
+        width: 600px;
+        height: auto;
+        /*--max-height: 569px;--*/
+        /*--border: 1px solid blue; ---*/   
+    }  
+
+    .modal-ingred-content {
+        /*--border: 1px solid red;--*/
+        padding-left: 40px;
+        padding-right: 40px;
+        padding-top: 40px;
+        padding-bottom: 40px;
+      }
+
+        .modal-ingred-title {
+        visibility: visible;
+        font-size: 20px;
+    }
+    
+   .add-cont {
+    display: flex;
+    /*--border: 1px solid green;--*/
+   }
+
+   .add-content {
+    margin-left: 20px;
+    /*--border: 1px solid black;--*/
+   }
+
+   .modal-ingred-subtitle {
+    margin-top: 20px;
+     
+  } 
+
+  .add-subtitle {
+    margin-bottom: 18px;   
+   }
+   
+/*---Кнопка "Add to Favorite"---*/
+.modal-add-ingred-btn-fav {
+    width: 251px;
+    height: 56px;
+    margin-top: 40px;
+    margin-right: 18px;
+    border-radius: 12px;
+    font-size: 18px;
+    }
+
+
+/*---Кнопка "Remove from Favorite"---*/
+.modal-remove-ingred-btn-fav {
+  width: 291px;
+  height: 56px;
+  margin-top: 40px;
+  margin-right: 18px;
+  border-radius: 12px;
+  font-size: 18px;
+  }
+
+/*---Кнопка "Back"---*/
+.modal-ingred-btn-back {
+    width: 172px;
+    height: 56px;
+    /*--margin-top: 14px;--*/
+    border-radius: 12px;
+    font-size: 18px;
+    }
+
+}
+
+/*------------DESKTOP-----------*/
+@media screen and (min-width: 1280px) {
+
+}

@@ -15,7 +15,8 @@
 
 /* Спільні стилі для модальних вікон */
 
-.modal {
+.modal1,
+.modal2 {
   /* Приховуємо вікна  */
   opacity: 0;
   visibility: hidden;
@@ -28,9 +29,11 @@
   z-index: 30; /* має бути вище ніж в подложки*/
 }
 
+
 /* Стилі для активних класів подложки и вікна */
 
-.modal.active,
+.modal1.active,
+.modal2.active,
 .overlay.active {
   opacity: 1;
   visibility: visible;
