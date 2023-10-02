@@ -1,1 +1,306 @@
-/* зважайте будь ласка на те щоб не дублювати назви класів */
+/* ----- Loader ----- */
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #fff;
+  border-bottom-color: var(--violet-color);
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* ----- /Loader ----- */
+
+.fav-ingredients-loader-container {
+  margin: 60px auto 0;
+  text-align: center;
+}
+
+.fav-ingredients-container {
+  margin-top: 40px;
+  margin-bottom: 80px;
+}
+
+.fav-ingredients-container:has(.no-fav-ingredients-wrapper) {
+  margin-top: 138px;
+  margin-bottom: 138px;
+}
+
+.fav-ingredients-section-header {
+  color: var(--black-color);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.17;
+  margin-top: 80px;
+}
+
+.no-fav-ingredients-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 244px;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.no-fav-ingredients-text {
+  color: var(--black-color);
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.33;
+}
+
+.no-fav-ingredients-text-accent {
+  color: var(--turquoise-color);
+  font-style: italic;
+}
+
+/* ----- INGREDIENT CARD----- */
+
+.fav-ingredients-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.fav-ingredients-list-item {
+  border-radius: 20px;
+  background: var(--light-gray-color);
+  box-shadow: 0px 4px 46px 0px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  width: 335px;
+  height: 222px;
+  transition: box-shadow var(--transition-dur-and-time-func);
+}
+
+.fav-ingredients-list-item:hover {
+  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+}
+
+.fav-ingredient-title {
+  color: var(--black-color);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.33;
+  margin-bottom: 4px;
+}
+.fav-ingredient-alcohol {
+  color: rgba(36, 36, 36, 0.5);
+  font-family: Poppins;
+  font-size: 14px;
+  line-height: 1.28;
+  margin-bottom: 14px;
+}
+.fav-ingredient-description {
+  max-height: 54px;
+  height: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--black-color);
+  font-size: 14px;
+  line-height: 1.28;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  margin-bottom: 20px;
+}
+
+.fav-ingredients-buttons-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.fav-ingredients-learn-more-btn {
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid var(--violet-color);
+  width: 100%;
+  color: var(--black-color);
+  background-color: white;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.42;
+  letter-spacing: 0.28px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color var(--transition-dur-and-time-func),
+    color var(--transition-dur-and-time-func);
+}
+
+.fav-ingredients-learn-more-btn:hover,
+.fav-ingredients-learn-more-btn:focus {
+  background: var(--violet-color);
+  color: var(--light-gray-color);
+}
+
+.fav-ingredients-remove-from-fav-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--violet-color);
+  border: none;
+  cursor: pointer;
+  transition: background-color var(--transition-dur-and-time-func);
+}
+
+.fav-ingredients-remove-from-fav-btn:hover,
+.fav-ingredients-remove-from-fav-btn:focus {
+  background: var(--violet-color-accent);
+}
+
+.fav-ingredients-remove-from-fav-btn:active {
+  background: var(--turquoise-color);
+}
+
+.fav-ingredients-icon-trash {
+  fill: none;
+  stroke: white;
+}
+
+@media screen and (min-width: 375px) {
+  .fav-ingredients-learn-more-btn {
+    padding: 14px 69px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .loader {
+    width: 60px;
+    height: 60px;
+  }
+  .fav-ingredients-loader-container {
+    margin-top: 100px;
+  }
+
+  .fav-ingredients-section-header {
+    font-size: 40px;
+    line-height: 1.2;
+    margin-top: 100px;
+  }
+
+  .fav-ingredients-container:has(.no-fav-ingredients-wrapper) {
+    margin-top: 100px;
+    margin-bottom: 140px;
+  }
+
+  .no-fav-ingredients-wrapper {
+    gap: 40px;
+    width: 359px;
+  }
+
+  .cocktail-photo-placeholder {
+    width: 234px;
+    height: 201px;
+  }
+
+  .no-fav-ingredients-text {
+    font-size: 24px;
+    line-height: 1.67;
+  }
+
+  .fav-ingredients-container {
+    margin-top: 32px;
+    margin-bottom: 100px;
+  }
+
+  .fav-ingredients-list {
+    display: flex;
+    column-gap: 16px;
+    row-gap: 20px;
+  }
+
+  .fav-ingredients-list-item {
+    padding: 24px;
+    width: 344px;
+    height: 242px;
+  }
+
+  .fav-ingredient-title {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  .fav-ingredients-learn-more-btn {
+    padding: 16px 53px;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.33;
+    letter-spacing: 0.36px;
+  }
+
+  .fav-ingredients-remove-from-fav-btn {
+    min-width: 56px;
+    height: 56px;
+  }
+
+  .fav-ingredients-icon-trash {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .fav-ingredients-section-header {
+    font-size: 40px;
+    line-height: 1.2;
+    margin-top: 110px;
+  }
+
+  .fav-ingredients-container {
+    margin-top: 44px;
+  }
+
+  .fav-ingredients-list {
+    column-gap: 24px;
+    row-gap: 44px;
+  }
+}
+
+/* ----- DARK THEME ----- */
+body.dark .fav-ingredients-section-header {
+  color: var(--light-gray-color);
+}
+
+body.dark .no-fav-ingredients-text {
+  color: var(--light-gray-color);
+}
+
+body.dark .fav-ingredients-list-item {
+  background: #232330;
+}
+
+body.dark .fav-ingredient-title {
+  color: var(--light-gray-color);
+}
+
+body.dark .fav-ingredient-alcohol {
+  color: rgba(253, 253, 255, 0.5);
+}
+
+body.dark .fav-ingredient-description {
+  color: var(--light-gray-color);
+}
+
+body.dark .fav-ingredients-learn-more-btn {
+  color: #fdfdff;
+  background-color: transparent;
+}
+
+/* ----- /DARK THEME ----- */

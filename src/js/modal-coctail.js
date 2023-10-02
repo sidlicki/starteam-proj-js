@@ -7,7 +7,7 @@ const cardCocktail = document.querySelector('.modal-cocktail-content');
 const btnCloseModal = document.querySelector('.modal-btn-close');
 
 const overlay = document.querySelector('.overlay');
-const modal1 = document.querySelector('.modal1');
+const modal1 = document.querySelector('.modal');
 const cocktailList =
   document.querySelector('.cocktails-list') ??
   document.querySelector('.fav-cocktail-list');
@@ -46,15 +46,15 @@ function createCardCocktail({ drink, drinkThumb, instructions, ingredients }) {
 }
 
 // Add listener to Main page "Cocktails"
-cocktailList.addEventListener('click', onRenderOpenModal);
+//cocktailList.addEventListener('click', onRenderOpenModal);
 // Add listener to page "Favorite Cocktails"
 //favoriteCocktailList.addEventListener('click', onRenderOpenModal);
 
 // Async function render and open modal window cocktails
-async function onRenderOpenModal(event) {
-  if (event.target.nodeName == 'BUTTON' && event.target.dataset.action == 'learnmore')
+async function onRenderOpenModal(currentIdCard) {
+  // if (event.target.nodeName == 'BUTTON')
     try {
-      const cocktailDetails = await fetchCocktailDetails(event.target.id);
+      const cocktailDetails = await fetchCocktailDetails(currentIdCard);
 
       if (cocktailDetails.length === 0) {
         console.log(`Error`);
@@ -136,4 +136,4 @@ function modalCocktClose() {
 
 /*-----------------END CODE MANAGE of MODAL WINDOW-------------------------------*/
 
-export { favoriteCocktails };
+export { favoriteCocktails, onRenderOpenModal };
