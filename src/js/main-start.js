@@ -30,10 +30,12 @@ const currentIdCard = event.target.id;
     case 'addtofav':
       console.log('Add to Favorite, ID', currentIdCard);
       // викликати тут функцію. котра додає/забирає елемент до локал сторейдж
-      //console.log(favoriteCocktails);
       // зробити пееремикач
       
-      
+      onAddFavCocktClick(currentIdCard)
+
+
+      console.log(favoriteCocktails);
 
 
 
