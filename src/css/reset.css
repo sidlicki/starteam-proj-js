@@ -39,6 +39,10 @@ body {
   font-family: Poppins;
 }
 
+svg {
+  pointer-events: none;
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -54,4 +58,8 @@ body {
 
 .is-hidden {
   display: none;
+}
+
+.overflow-hidden {
+  overflow: hidden;
 }
