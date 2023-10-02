@@ -29,9 +29,20 @@ const fetchCocktailDetails = async cocktailIds => {
 };
 
 // Отримати деталі інгредієнта за його ідентифікатором
-const fetchIngredientDetails = async ingredientId => {
-  // Виклик функції для отримання даних з API за вказаним ідентифікатором
-  return fetchData(`${BASE_URL}/ingredients/${ingredientId}`);
+const fetchIngredientDetails = async ingredientIds => {
+  try {
+    const ingredientPromises = ingredientIds.map(async ingredientId => {
+      const response = await fetchData(
+        `${BASE_URL}/ingredients/${ingredientId}`
+      );
+      return response[0];
+    });
+
+    const ingredients = await Promise.all(ingredientPromises);
+    return ingredients;
+  } catch (error) {
+    return [];
+  }
 };
 
 // Пошук коктейлів за першою літерою в назві
