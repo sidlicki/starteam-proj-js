@@ -1,7 +1,10 @@
 // "axios"/ "modern-normalize" /"notiflix" /"tui-pagination" - вже встановлено
 
-import { fetchIngredientDetails } from './cocktail-api';
-import { onAddFavIngredClick, onRemFavIngredClick } from './add-remove-favorite';
+import { fetchIngredientDetailsTest } from './cocktail-api';
+import {
+  onAddFavIngredClick,
+  onRemFavIngredClick,
+} from './add-remove-favorite';
 
 const cardIngredient = document.querySelector('.modal-ingredient-content');
 const btnCloseModal = document.querySelector('.js-modal-close');
@@ -19,7 +22,15 @@ const modal2 = document.querySelector('.modal2');
 let favoriteIngredients =
   JSON.parse(localStorage.getItem('favoriteIngredients')) || [];
 
-function createCardIngredient({ _id, title, description, type, abv, flavour, country }) {
+function createCardIngredient({
+  _id,
+  title,
+  description,
+  type,
+  abv,
+  flavour,
+  country,
+}) {
   const markup = `<div class="add-cont">
  
   <div class="add-content">
@@ -46,7 +57,7 @@ function createCardIngredient({ _id, title, description, type, abv, flavour, cou
 /*---------------МОЙ КОД-------------------------*/
 
 // Add listener to Main page "Cocktails"
-modalCocktailCard.addEventListener('click', onRenderOpenModalIngred)
+modalCocktailCard.addEventListener('click', onRenderOpenModalIngred);
 
 //cocktailList.addEventListener('click', onRenderOpenModal);  ??
 // Add listener to page "Favorite Cocktails"
@@ -55,11 +66,13 @@ modalCocktailCard.addEventListener('click', onRenderOpenModalIngred)
 // Async function render and open modal window cocktails
 async function onRenderOpenModalIngred(event) {
   event.preventDefault();
-  
+
   //if (event.target.nodeName == 'BUTTON' && event.target.dataset.action == 'learnmore')
   if (event.target.nodeName == 'A')
     try {
-      const ingredientDetails = await fetchIngredientDetails(event.target.id);
+      const ingredientDetails = await fetchIngredientDetailsTest(
+        event.target.id
+      );
       //const ingredientDetails = await fetchCocktailDetails('639b6de9ff77d221f190c51e')
 
       if (ingredientDetails.length === 0) {
