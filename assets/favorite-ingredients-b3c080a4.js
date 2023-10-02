@@ -1,4 +1,4 @@
-import{n as s,a as g,s as l,b as v}from"./coctail@2x-804d4a57.js";const a="favoriteIngredients";let r=[],n=[];const f=document.querySelector(".fav-ingredients-container"),p=e=>(e=e.toLowerCase(),e==="yes"?"Alcoholic":e==="no"?"Non-Alcoholic":"NA"),m=`
+import{n as s,a as g,s as l,b as v}from"./coctail-f72e31ba.js";const a="favoriteIngredients";let r=[],n=[];const f=document.querySelector(".fav-ingredients-container"),p=e=>(e=e.toLowerCase(),e==="yes"?"Alcoholic":e==="no"?"Non-Alcoholic":"NA"),m=`
   <div class="no-fav-ingredients-wrapper">
     <img
       class="cocktail-photo-placeholder"
