@@ -176,6 +176,7 @@ function modalIngredCloseBack() {
   modalCocktOpen();
   if (favIngredientsContainer) {
     loadFavoriteIngredientsData();
+    document.body.classList.remove('overflow-hidden');
   }
 }
 
