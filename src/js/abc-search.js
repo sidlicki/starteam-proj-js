@@ -2,6 +2,10 @@ import { createMarkup } from './create-card';
 import { searchCocktailsByFirstLetter } from './cocktail-api';
 import { emptySearch } from './search-by-name';
 
+import Pagination from 'tui-pagination';
+import {pagiation} from "./pagination";
+import 'tui-pagination/dist/tui-pagination.css';
+
 const alphabetList = document.querySelector('.js-search-menu');
 const cardList = document.querySelector('.cocktails-list');
 const alphabetSerchList = document.querySelector('.js-search-mobile');
@@ -13,13 +17,15 @@ function onSearchbyLetter(evt) {
   searchCocktailsByFirstLetter(firstLetter)
     .then(cocktails => {
       if (cocktails && cocktails.length > 0) {
-        cardList.innerHTML = createMarkup(cocktails);
+        console.log(cocktails);
+        pagiation(cocktails);
       } else {
         cardList.innerHTML = emptySearch;
       }
     })
     .catch(error => {
       console.error('Error fetching cocktails:', error);
+      document.querySelector(".tui-pagination").innerHTML="";
     });
 }
 
@@ -32,8 +38,10 @@ function onSearchByLetter(evt) {
         .then(cocktails => {
             if (cocktails && cocktails.length > 0) {
                 cardList.innerHTML = createMarkup(cocktails);
+                pagiation(cocktails);
             } else {
                 cardList.innerHTML = emptySearch;
+                document.querySelector(".tui-pagination").innerHTML="";
             }
         })
         .catch(error => {
