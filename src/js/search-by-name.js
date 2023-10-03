@@ -1,9 +1,8 @@
 import { createMarkup } from './create-card';
 import { searchCocktailsByName } from './cocktail-api';
 import Pagination from 'tui-pagination';
-import {pagiation} from "./pagination";
+import { pagiation } from './pagination';
 import 'tui-pagination/dist/tui-pagination.css';
-
 
 import noCoctailMobWebp from '/img/mobile/coctail.webp';
 import noCoctailMobWebp2x from '/img/mobile/coctail@2x.webp';
@@ -43,12 +42,14 @@ function onChangeInput(event) {
       searchCocktailsByName(inputValue)
         .then(cocktails => {
           if (cocktails && cocktails.length > 0) {
-            console.log(createMarkup(cocktails));
-            pagiation(cocktails);
-            
+            document.querySelector('.cocktails-header').innerHTML =
+              'Searching results';
+            pagiation(cocktails, 'byName', 'cocktails-list');
           } else {
             cardList.innerHTML = emptySearch;
-            document.querySelector(".tui-pagination").innerHTML="";
+            document.querySelector('.tui-pagination').innerHTML = '';
+            document.querySelector('.cocktails-header').innerHTML =
+              'Searching results';
           }
         })
         .catch(error => {
@@ -57,4 +58,3 @@ function onChangeInput(event) {
     }
   }
 }
-
