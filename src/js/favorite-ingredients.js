@@ -1,5 +1,4 @@
 import { fetchIngredientDetails } from '/js/cocktail-api';
-import { createCardIngredient, modalIngredOpen } from '/js/modal-ingredient';
 import coctailWebp from '/img/mobile/coctail.webp';
 import coctailWebp2x from '/img/mobile/coctail@2x.webp';
 import spriteUrl from '/img/svg/sprite.svg';
