@@ -47,10 +47,10 @@ function createCardIngredient({
   <h2 class="modal-ingred-subtitle add-subtitle"></h2>
   <p class="modal-ingred-text add-one"><span style ="font-weight: bold"> ${title}</span> is an ${description}</p>
   <ul class="ingredients-list">
-  <li class="ingredients-element">Type: ${type}</li>
-  <li class="ingredients-element">Country of origin: ${country}</li>
-  <li class="ingredients-element">Alcohol by volume: ${abv}</li>
-  <li class="ingredients-element">Flavour: ${flavour}</li>
+  <li class="ingredients-element add-li">Type: ${type}</li>
+  <li class="ingredients-element add-li">Country of origin: ${country}</li>
+  <li class="ingredients-element add-li">Alcohol by volume: ${abv}</li>
+  <li class="ingredients-element add-li">Flavour: ${flavour}</li>
 </ul>
   <button type="button" class="modal-add-ingred-btn-fav">ADD TO FAVORITE</button>
   <button type="button" class="modal-remove-ingred-btn-fav is-hidden">REMOVE FROM FAVORITE</button>
