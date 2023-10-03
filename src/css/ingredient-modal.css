@@ -1,4 +1,3 @@
-
 /* зважайте будь ласка на те щоб не дублювати назви класів */
 
 /* .ingredient-modal-type {
@@ -14,22 +13,19 @@
 
 /*------------MOBILE------------*/
 @media screen and (max-width: 767px) {
-    
 }
 
 .modal-ingredient-window {
-    width: 335px;
-    max-height: 95%;
-    height: auto;
-    /*--max-height: 905px;--*/
-    overflow: scroll;
-    border-radius: 20px;
-    background-color: white;
-    /*--border: 1px solid blue;--*/    
+  width: 335px;
+  max-height: 95%;
+  height: auto;
+  /*--max-height: 905px;--*/
+  overflow: scroll;
+  border-radius: 20px;
+  background-color: white;
+  /*--border: 1px solid blue;--*/
 
-    overflow-x: hidden;
-
-    
+  overflow-x: hidden;
 }
 
 .modal-ingredient-content {
@@ -37,34 +33,30 @@
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 40px;
-  padding-bottom: 40px; 
+  padding-bottom: 40px;
 }
 
 .modal-ingred-title {
-    /* visibility: hidden; */
-    font-size: 20px;
+  /* visibility: hidden; */
+  font-size: 20px;
 }
-
 
 .modal-ingred-subtitle {
   margin-top: 40px;
-  font-size: 16px;   
-} 
+  font-size: 16px;
+}
 
 .add-subtitle {
- margin-bottom: 14px;   
+  margin-bottom: 14px;
 }
-
 
 .modal-ingred-text {
-    margin-top: 18px;
-    font-size: 14px;
-    margin-bottom: 40px;
-  
+  margin-top: 18px;
+  font-size: 14px;
+  margin-bottom: 40px;
 }
 
-.type-ingred
-{
+.type-ingred {
   text-transform: uppercase;
 }
 
@@ -72,7 +64,7 @@
   color: rgba(36, 36, 36, 0.5);
 }
 
-.add-two {
+/* .add-two {
   
   color: rgba(36, 36, 36, 0.5);
   font-size: 14px;
@@ -81,32 +73,29 @@
   text-transform: uppercase;
   border-bottom: 1px solid rgba(36, 36, 36, 0.1);
   /* padding-bottom: 20px; */
-}
-
 
 .modal-cocktail-ingred {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    /*--border: 1px solid red;--*/
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  /*--border: 1px solid red;--*/
 }
-
 
 /*---Кнопка "Add to Favorite"---*/
 .modal-add-ingred-btn-fav {
-width: 295px;
-height: 48px;
-margin-top: 40px;
-border-radius: 12px;
-font-size: 14px;
-color: #FDFDFF;
-border: none;
-background-color: #7E8FDD;
+  width: 295px;
+  height: 48px;
+  margin-top: 40px;
+  border-radius: 12px;
+  font-size: 14px;
+  color: #fdfdff;
+  border: none;
+  background-color: #7e8fdd;
 }
 
 .modal-add-ingred-btn-fav:hover {
-  background-color: #6E7FCF;
+  background-color: #6e7fcf;
 }
 
 /*---Кнопка "Remove from Favorite"---*/
@@ -116,135 +105,129 @@ background-color: #7E8FDD;
   margin-top: 40px;
   border-radius: 12px;
   font-size: 14px;
-  color: #FDFDFF;
+  color: #fdfdff;
   border: none;
-  background-color: #7E8FDD;
-  }
-  
-  .modal-remove-ingred-btn-fav:hover {
-    background-color: #6E7FCF;
-  }
-  
+  background-color: #7e8fdd;
+}
+
+.modal-remove-ingred-btn-fav:hover {
+  background-color: #6e7fcf;
+}
 
 /*---Кнопка "Back"---*/
 .modal-ingred-btn-back {
-    width: 295px;
-    height: 48px;
-    margin-top: 14px;
-    border-radius: 12px;
-    font-size: 14px;
-    color: #242424;
-    border: none;
-    }
+  width: 295px;
+  height: 48px;
+  margin-top: 14px;
+  border-radius: 12px;
+  font-size: 14px;
+  color: #242424;
+  border: none;
+}
 
-    .modal-ingred-btn-back:hover {
-     background-color: rgba(36, 36, 36, 0.2);
-    }
+.modal-ingred-btn-back:hover {
+  background-color: rgba(36, 36, 36, 0.2);
+}
 
 .modal-btn-close {
-    position: absolute;
-    top: 14px;
-    right: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: transparent;
-    border: none;
-    padding: 0;
-    width: 22px;
-    height: 22px;
-    /*--transition: background-color 0.3s, border 0.3s;--*/  
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  width: 22px;
+  height: 22px;
+  /*--transition: background-color 0.3s, border 0.3s;--*/
 }
 
 /*-Описание иконки закрытия модального окна-*/
 .modal-btn-close-icon {
-    width: 24px;
-    height: 24px;
-    stroke: #111;
-    /*--transition: fill 0.3s;--*/
-  }
+  width: 24px;
+  height: 24px;
+  stroke: #111;
+  /*--transition: fill 0.3s;--*/
+}
 
-  .modal-cocktail-ingred {
-    font-size: 14px;
-    /*--color: #7E8FDD;--*/
-  }
-  
+.modal-cocktail-ingred {
+  font-size: 14px;
+  /*--color: #7E8FDD;--*/
+}
 
 /*------------TABLET------------*/
 @media screen and (min-width: 768px) {
   .modal-ingredient-window {
-        width: 600px;
-        height: auto;
-        /*--max-height: 569px;--*/
-        /*--border: 1px solid blue; ---*/   
-    }  
+    width: 600px;
+    height: auto;
+    /*--max-height: 569px;--*/
+    /*--border: 1px solid blue; ---*/
+  }
 
-    .modal-ingred-content {
-        /*--border: 1px solid red;--*/
-        padding-left: 40px;
-        padding-right: 40px;
-        padding-top: 40px;
-        padding-bottom: 40px;
-      }
+  .modal-ingred-content {
+    /*--border: 1px solid red;--*/
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
 
-        /* .modal-ingred-title {
+  /* .modal-ingred-title {
          visibility: visible; 
         font-size: 20px;
 
     } */
-    
-   .add-cont {
+
+  .add-cont {
     display: flex;
     /*--border: 1px solid green;--*/
-   }
+  }
 
-   .add-content {
+  .add-content {
     margin-left: 20px;
     /*--border: 1px solid black;--*/
-   }
+  }
 
-   .modal-ingred-subtitle {
+  .modal-ingred-subtitle {
     margin-top: 20px;
-     
-  } 
+  }
 
   .add-subtitle {
-    margin-bottom: 18px;   
-   }
-   
-/*---Кнопка "Add to Favorite"---*/
-.modal-add-ingred-btn-fav {
+    margin-bottom: 18px;
+  }
+
+  /*---Кнопка "Add to Favorite"---*/
+  .modal-add-ingred-btn-fav {
     width: 251px;
     height: 56px;
     margin-top: 40px;
     margin-right: 18px;
     border-radius: 12px;
     font-size: 18px;
-    }
-
-
-/*---Кнопка "Remove from Favorite"---*/
-.modal-remove-ingred-btn-fav {
-  width: 291px;
-  height: 56px;
-  margin-top: 40px;
-  margin-right: 18px;
-  border-radius: 12px;
-  font-size: 18px;
   }
 
-/*---Кнопка "Back"---*/
-.modal-ingred-btn-back {
+  /*---Кнопка "Remove from Favorite"---*/
+  .modal-remove-ingred-btn-fav {
+    width: 291px;
+    height: 56px;
+    margin-top: 40px;
+    margin-right: 18px;
+    border-radius: 12px;
+    font-size: 18px;
+  }
+
+  /*---Кнопка "Back"---*/
+  .modal-ingred-btn-back {
     width: 172px;
     height: 56px;
     /*--margin-top: 14px;--*/
     border-radius: 12px;
     font-size: 18px;
-    }
-
+  }
 }
 
 /*------------DESKTOP-----------*/
 @media screen and (min-width: 1280px) {
-
 }
