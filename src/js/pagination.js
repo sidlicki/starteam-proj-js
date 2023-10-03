@@ -106,21 +106,21 @@ export function pagiation(cocList, cardMarkup){
         }
 
         if (e.target.classList.contains("tui-prev") || e.target.classList.contains("tui-ico-prev") ) {
-                console.log("1");
-                console.log(createNewArr()[Number(document.querySelector('.tui-is-selected').textContent)-1]);
+                //console.log("1");
+                //console.log(createNewArr()[Number(document.querySelector('.tui-is-selected').textContent)-1]);
                 renderCards(Number(document.querySelector('.tui-is-selected').textContent)-1);   
         }
         
         if ( e.target.classList.contains("tui-next") || e.target.classList.contains("tui-ico-next") && e.target.classList.contains("tui-is-disabled")===false){
-              console.log("2")
-              console.log(createNewArr()[Number(document.querySelector('.tui-is-selected').textContent)-1]);
+              //console.log("2")
+              //console.log(createNewArr()[Number(document.querySelector('.tui-is-selected').textContent)-1]);
               renderCards(Number(document.querySelector('.tui-is-selected').textContent)-1);
         }
 
         if(e.target.classList.contains("tui-number-item")){
-            console.log(Number(e.target.textContent)-1)
-            console.log(createNewArr()[Number(e.target.textContent)-1])
-            renderCards(Number(e.target.textContent));
+            //console.log(Number(e.target.textContent)-1)
+            //console.log(createNewArr()[Number(e.target.textContent)-1])
+            renderCards(Number(e.target.textContent)-1);
         }
     }
 
