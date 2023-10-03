@@ -71,8 +71,10 @@ export async function generateCocktails() {
     const data = await fetchCocktailDetails(
       localFavorite.map(cocktail => cocktail)
     );
-    renderCocktail(data, favCocktailList);
+      renderCocktail(data, favCocktailList);
+      notFoundBlock.innerHTML = '';
   } else {
+      
     notFoundBlock.classList.remove('is-hidden');
     notFoundBlock.innerHTML = `
             <picture>
@@ -87,7 +89,7 @@ export async function generateCocktails() {
                 <span class="no-fav-cocktail-color">favorite cocktails</span> yet
             </p>
         `;
-    notFoundBlock.style.display = 'block';
+    // notFoundBlock.style.display = 'block';
     favCocktailList.innerHTML = '';
   }
 
@@ -105,3 +107,35 @@ favCocktailList.addEventListener('click', function (event) {
   }
 });
 
+document.body.addEventListener('click', (event) => {
+  if (event.target.name === 'remove-cocktail' || event.target.name === 'add-cocktail') {
+    generateCocktails();
+  }
+})
+
+// document.body.addEventListener('click', async (event) => {
+//   if (event.target.name === 'remove-cocktail' || event.target.name === 'add-cocktail') {
+//     const localFavorite = JSON.parse(localStorage.getItem('favoriteCocktails')) || [];
+    
+//     if (localFavorite.length > 0) {
+//       generateCocktails();
+//     } else {
+//       // Якщо список фейворитів порожній, приховати список і відобразити блок not-found
+//       favCocktailList.innerHTML = '';
+//       notFoundBlock.classList.remove('is-hidden');
+//       notFoundBlock.innerHTML = `
+//             <picture>
+//                 <!-- TABLET -->
+//                 <source srcset="${noCoctailTabWebp} 1x, ${noCoctailTabWebp2x} 2x" type="image/webp" media="(min-width: 768px)">
+//                 <!-- MOBILE -->
+//                 <source srcset="${noCoctailMobWebp} 1x, ${noCoctailMobWebp2x} 2x" type="image/webp" media="(min-width: 320px)">
+//                 <img class="no-fav-cocktail-img" src="${noCoctailMobWebp}" alt="cocktail">
+//             </picture>
+//             <p class="no-fav-cocktail-text">
+//                 You haven't added any
+//                 <span class="no-fav-cocktail-color">favorite cocktails</span> yet
+//             </p>
+//         `;
+//     }
+//   }
+// });

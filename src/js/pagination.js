@@ -6,11 +6,11 @@ import 'tui-pagination/dist/tui-pagination.css';
 
 import spriteUrl from '/img/svg/sprite.svg';
 import defaultImg from '/img/mobile/coctail@2x.webp';
-
-
+import { getScreenWidthValue } from './screen-value';
+ 
 
 export function pagiation(cocList, cardMarkup){
-    let numberOfPhoto = 9;
+    let numberOfPhoto =getScreenWidthValue();
     let maxNumberOfPaginator = 3;
     // console.log(cardMarkup);
     
@@ -106,21 +106,21 @@ export function pagiation(cocList, cardMarkup){
         }
 
         if (e.target.classList.contains("tui-prev") || e.target.classList.contains("tui-ico-prev") ) {
-                console.log("1");
-                console.log(createNewArr()[Number(document.querySelector('.tui-is-selected').textContent)-1]);
+                //console.log("1");
+                //console.log(createNewArr()[Number(document.querySelector('.tui-is-selected').textContent)-1]);
                 renderCards(Number(document.querySelector('.tui-is-selected').textContent)-1);   
         }
         
         if ( e.target.classList.contains("tui-next") || e.target.classList.contains("tui-ico-next") && e.target.classList.contains("tui-is-disabled")===false){
-              console.log("2")
-              console.log(createNewArr()[Number(document.querySelector('.tui-is-selected').textContent)-1]);
+              //console.log("2")
+              //console.log(createNewArr()[Number(document.querySelector('.tui-is-selected').textContent)-1]);
               renderCards(Number(document.querySelector('.tui-is-selected').textContent)-1);
         }
 
         if(e.target.classList.contains("tui-number-item")){
-            console.log(Number(e.target.textContent)-1)
-            console.log(createNewArr()[Number(e.target.textContent)-1])
-            renderCards(Number(e.target.textContent));
+            //console.log(Number(e.target.textContent)-1)
+            //console.log(createNewArr()[Number(e.target.textContent)-1])
+            renderCards(Number(e.target.textContent)-1);
         }
     }
 
