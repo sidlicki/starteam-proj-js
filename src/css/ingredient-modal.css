@@ -157,7 +157,7 @@ background-color: #7E8FDD;
 
 /*------------TABLET------------*/
 @media screen and (min-width: 768px) {
-    .modal-ingred-window {
+  .modal-ingredient-window {
         width: 600px;
         height: auto;
         /*--max-height: 569px;--*/
