@@ -1,5 +1,5 @@
 import{P as w,a as p,s as u}from"./add-remove-favorite-ebd511dd.js";function x(){const n=window.innerWidth;return Number(n>1280?"9":"8")}function A(n,c,h,v){let s=v===6?6:x(),$=3;n.length<=s&&document.querySelector(".tui-pagination").classList.add("visually-hidden");const g=document.getElementById("tui-pagination-container");new w(g,{totalItems:n.length,itemsPerPage:s,visiblePages:$}).getCurrentPage();const l=()=>{let t=[],a=s,e=0;for(let i=0;i<Math.ceil(n.length/s);i++){for(t.push([]),e;e<a&&n[e]!==void 0;e++)t[i].push(n[e]);a+=s}return t};console.log(l());let o;const y=t=>(t=t.toLowerCase(),t==="yes"?"Alcoholic":t==="no"?"Non-Alcoholic":"NA"),r=t=>{console.log(t),console.log(l()[t]),console.log("");const a=l()[t].map(e=>{const{_id:i,drink:d,drinkThumb:f,description:m}=e;return c==="byName"||c==="byAbc"?o=`
-                <li class="cocktail-card" id="${i}">
+                <li class="cocktail-card">
                         <img class="cocktail-image" src="${f}" onerror="this.src='${p}'" alt="${d}" loading="lazy" width="307" height="257"/>
                         <h3 class="cocktail-name">${d.slice(0,25)}</h3>
                         <p class="cocktail-info">${m.slice(0,115)+"..."}</p>
