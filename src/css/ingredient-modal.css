@@ -12,19 +12,6 @@
   --background-back-btn-dark-hover: rgba(253, 253, 255, 0.2);
 }
 
-/* .visually-hidden {
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  border: 0;
-  padding: 0;
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  margin: -1px;
-} */
-
 .ingredient-close-btn {
   position: absolute;
   top: 14px;
@@ -43,7 +30,7 @@
   stroke: var(--black-color);
 }
 
-.dark-mode .ingredient-close-btn-icon {
+body.dark .ingredient-close-btn-icon {
   stroke: var(--light-gray-color);
 }
 
@@ -65,6 +52,10 @@
   padding: 20px;
 }
 
+body.dark .ingredient-modal {
+  background-color: #232330;
+}
+
 @media screen and (min-width: 768px) {
   .ingredient-modal {
     width: 600px;
@@ -81,6 +72,10 @@
   line-height: 24px;
   margin-top: 20px;
   margin-bottom: 8px;
+}
+
+body.dark .ingredient-modal-name {
+  color: var(--light-gray-color);
 }
 
 @media screen and (min-width: 768px) {
@@ -101,6 +96,11 @@
   padding-bottom: 20px;
 }
 
+body.dark .ingredient-modal-type {
+  color: var(--color-text-light-dark);
+  border-bottom: 1px solid rgba(253, 253, 255, 0.1);
+}
+
 @media screen and (min-width: 768px) {
   .ingredient-modal-type {
     font-size: 16px;
@@ -118,6 +118,10 @@
   margin-bottom: 40px;
 }
 
+body.dark .ingredient-modal-descr {
+  color: var(--color-text-light-dark);
+}
+
 @media screen and (min-width: 768px) {
   .ingredient-modal-descr {
     font-size: 14px;
@@ -133,6 +137,10 @@
   font-size: 14px;
   font-weight: 600;
   line-height: 20px;
+}
+
+body.dark .modal-span {
+  color: var(--light-gray-color);
 }
 
 @media screen and (min-width: 768px) {
@@ -154,6 +162,10 @@
   list-style: disc;
   margin-left: 26px;
   margin-bottom: 40px;
+}
+
+body.dark .ingredient-modal-list {
+  color: var(--color-text-medium-dark);
 }
 
 @media screen and (min-width: 768px) {
@@ -228,6 +240,11 @@
   transition: background-color 0.3s ease;
 }
 
+body.dark .back-btn {
+  background-color: var(--background-back-btn-dark);
+  color: var(--light-gray-color);
+}
+
 @media screen and (min-width: 768px) {
   .back-btn {
     width: 172px;
@@ -241,4 +258,9 @@
 .back-btn:hover,
 .back-btn:focus {
   background-color: rgba(36, 36, 36, 0.2);
+}
+
+body.dark .back-btn:hover,
+.back-btn:focus {
+  background-color: var(--background-back-btn-dark-hover);
 }
