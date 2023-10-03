@@ -117,7 +117,10 @@ async function onRenderOpenModal(currentIdCard) {
 
 // Listen overlay (space around modal window)
 overlay.addEventListener('click', function () {
-  modal1.classList.remove('active');
+  if (modal1) {
+    modal1.classList.remove('active');
+  }
+
   document.body.classList.remove('overflow-hidden');
   this.classList.remove('active');
 });

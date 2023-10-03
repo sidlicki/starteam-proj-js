@@ -1,7 +1,6 @@
 import { fetchIngredientDetails } from '/js/cocktail-api';
 import coctailWebp from '/img/mobile/coctail.webp';
 import coctailWebp2x from '/img/mobile/coctail@2x.webp';
-
 import spriteUrl from '/img/svg/sprite.svg';
 
 const LOCAL_STORAGE_FAV_INGREDIENTS_KEY = 'favoriteIngredients';
@@ -104,10 +103,12 @@ const removeIngredientFromFavorites = event => {
   renderFavoriteIngredients();
 };
 
-favIngredientsContainer.addEventListener(
-  'click',
-  removeIngredientFromFavorites
-);
+if (favIngredientsContainer) {
+  favIngredientsContainer.addEventListener(
+    'click',
+    removeIngredientFromFavorites
+  );
+}
 
 const favoriteIngredientsContainer = document.querySelector(
   '.fav-ingredients-container'
@@ -137,4 +138,8 @@ const loadFavoriteIngredientsData = async () => {
   renderFavoriteIngredients();
 };
 
-loadFavoriteIngredientsData();
+if (favIngredientsContainer) {
+  loadFavoriteIngredientsData();
+}
+
+export { loadFavoriteIngredientsData };
