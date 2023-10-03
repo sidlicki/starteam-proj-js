@@ -14,6 +14,12 @@
   background-color: var(--pale-blue-color);
 }
 
+/*----Hide vertical scroll-----*/
+.modal-cocktail-window::-webkit-scrollbar {
+  display: none;
+}
+
+
 body.dark .modal-cocktail-window {
   background-color: #232330;
 }
