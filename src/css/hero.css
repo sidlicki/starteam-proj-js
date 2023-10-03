@@ -66,7 +66,7 @@ body.dark .hero-title-motto {
     font-style: oblique;
     line-height: 1.4;
     text-transform: uppercase;
-    transition: background-color   var(--transition-dur-and-time-func), 
+    transition: background-color var(--transition-dur-and-time-func), 
                 border-style var(--transition-dur-and-time-func),
                 color var(--transition-dur-and-time-func);
 }
@@ -81,8 +81,15 @@ body.dark .hero-title-motto {
 /*-----стилі для кнопки [ТЕМНА ТЕМА]-----*/
 body.dark .hero-button {
     color: var(--light-gray-color);
+    transition: border-color var(--transition-dur-and-time-func),
+                border-style var(--transition-dur-and-time-func);
 }
 
+body.dark .hero-button:hover,
+body.dark .hero-button:focus{
+    border-color: #6E7FCF ;
+    border-style: solid ;
+}
 /*-----стилі для зображення [ТЕМНА] і [СВІТЛА] теми-----*/
 
 .hero-image-elements-wrapper {
