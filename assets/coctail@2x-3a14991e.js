@@ -1,4 +1,4 @@
-import{f as k,b as L}from"./coctail-fb19d49b.js";const r=document.querySelector(".modal-cocktail-content"),h=document.querySelector(".modal-btn-close"),v=document.querySelector(".overlay"),u=document.querySelector(".modal1");let d=JSON.parse(localStorage.getItem("favoriteCocktails"))||[];function p(o){return o.map(e=>`<li class="add-li"><a href="" class="add-two" id="${e.ingredientId}">${e.title}</a>
+import{f as k,b as L}from"./coctail-e7ab091e.js";const r=document.querySelector(".modal-cocktail-content"),h=document.querySelector(".modal-btn-close"),v=document.querySelector(".overlay"),u=document.querySelector(".modal1");let d=JSON.parse(localStorage.getItem("favoriteCocktails"))||[];function p(o){return o.map(e=>`<li class="add-li"><a href="" class="add-two" id="${e.ingredientId}">${e.title}</a>
   </li>`).join("")}function y({drink:o,drinkThumb:e,instructions:t,ingredients:a}){return`<div class="add-cont">
   <img class="modal-cocktail-img" src="${e}" alt="" />
   <div class="add-content">
