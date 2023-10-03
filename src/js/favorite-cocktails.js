@@ -80,7 +80,7 @@ export async function generateCocktails() {
       pagiation(data, "byfavoriteCoctails", "fav-cocktail-list",6);
       notFoundBlock.innerHTML = '';
   } else {
-      
+    document.querySelector(".tui-pagination").innerHTML=""; 
     notFoundBlock.classList.remove('is-hidden');
     notFoundBlock.innerHTML = `
             <picture>
