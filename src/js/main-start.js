@@ -4,13 +4,7 @@ import { getScreenWidthValue } from './screen-value';
 import { favoriteCocktails, onRenderOpenModal } from './modal-coctail';
 import { onAddFavCocktClick, onRemFavCocktClick } from './add-remove-favorite';
 
-const cardList = document.querySelector(`.cocktails-list`); //
-
 let quantity = getScreenWidthValue(); //присвоєння значення 8/9 викликом функція яка визначає ширину екрану
-
-fetchRandomCocktails(quantity).then(cocktails => {
-  cardList.innerHTML = createMarkup(cocktails);
-});
 
 // Потрібна перевірка, чи є вже Улюблені коктейлі...
 // Зробити файл з загальними змінними для всіх...
@@ -27,13 +21,19 @@ fetchRandomCocktails(quantity).then(cocktails => {
 //    if (indexModalFav !== -1) {
 //       btnModalAddFav.classList.add('is-hidden');
 //       btnModalRemoveFav.classList.remove('is-hidden');
-//     } 
+//     }
 // }
 
 //let favCocktailIds = JSON.parse(localStorage.getItem(favoriteId)) || [];
 //console.log(favoriteCocktails);
 
+// Запит на бекенд + відмальовування карток в список (cardList)
+fetchRandomCocktails(quantity).then(cocktails => {
+  cardList.innerHTML = createMarkup(cocktails);
+});
+
 // Прослуховувач + Обробник кліку по кнопках карток на головній сторінці
+const cardList = document.querySelector(`.cocktails-list`); //
 
 cardList.addEventListener('click', function (event) {
   
@@ -80,38 +80,42 @@ cardList.addEventListener('click', function (event) {
 
 export { cardList };
   
-// ADD HEART in ICON
-
+// ADD HEART in ICON 
 document.body.addEventListener('click', onClickAdd);
 
 function onClickAdd(event) {
  if (event.target.name === 'add-cocktail' && event.target.nodeName === 'BUTTON'){
-   let cardId = event.target.id;
-    console.log(cardId)
-
-   onAddSvg(cardId);
- }
-}
-
-function onAddSvg(cardId) {
+  let cardId = event.target.id;
+  //console.log(cardId)
+  //onAddSvg(cardId);
   let btnAdd = document.getElementById(cardId);
   const addSvg = (btnAdd.nextElementSibling).firstElementChild;
   addSvg.classList.replace('icon-heart', 'icon-heart-addtofavorite')
+ }
 }
+
+// function onAddSvg(cardId) {
+//   let btnAdd = document.getElementById(cardId);
+//   const addSvg = (btnAdd.nextElementSibling).firstElementChild;
+//   addSvg.classList.replace('icon-heart', 'icon-heart-addtofavorite')
+// }
   
 // REMOVE HEART from ICON
 document.body.addEventListener('click', onClickRem);
 
 function onClickRem(event) {
  if (event.target.name === 'remove-cocktail' && event.target.nodeName === 'BUTTON'){
-   let cardId = event.target.id;
-   onRemSvg(cardId);
- }
-}
-
-function onRemSvg(cardId) {
+  let cardId = event.target.id;
+  // onRemSvg(cardId);
   let btnRem = document.getElementById(cardId);
   const remSvg = (btnRem.nextElementSibling).firstElementChild;
   remSvg.classList.replace('icon-heart-addtofavorite', 'icon-heart')
+ }
 }
 
+// function onRemSvg(cardId) {
+//   let btnRem = document.getElementById(cardId);
+//   const remSvg = (btnRem.nextElementSibling).firstElementChild;
+//   remSvg.classList.replace('icon-heart-addtofavorite', 'icon-heart')
+// }
+export { onClickAdd, onClickRem };
