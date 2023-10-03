@@ -43,8 +43,8 @@ function onChangeInput(event) {
       searchCocktailsByName(inputValue)
         .then(cocktails => {
           if (cocktails && cocktails.length > 0) {
-            console.log(createMarkup(cocktails));
-            pagiation(cocktails);
+            
+            pagiation(cocktails,"byName","cocktails-list");
             
           } else {
             cardList.innerHTML = emptySearch;

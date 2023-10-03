@@ -18,7 +18,7 @@ function onSearchbyLetter(evt) {
     .then(cocktails => {
       if (cocktails && cocktails.length > 0) {
         console.log(cocktails);
-        pagiation(cocktails);
+        pagiation(cocktails, "byAbc", "cocktails-list");
       } else {
         cardList.innerHTML = emptySearch;
       }
@@ -38,7 +38,7 @@ function onSearchByLetter(evt) {
         .then(cocktails => {
             if (cocktails && cocktails.length > 0) {
                 cardList.innerHTML = createMarkup(cocktails);
-                pagiation(cocktails);
+                pagiation(cocktails, "byAbc", "cocktails-list");
             } else {
                 cardList.innerHTML = emptySearch;
                 document.querySelector(".tui-pagination").innerHTML="";
