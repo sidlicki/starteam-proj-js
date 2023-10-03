@@ -1,3 +1,16 @@
+.visually-hidden {
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    border: 0;
+    padding: 0;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    margin: -1px;
+  }
+
 #tui-pagination-container .tui-first, #tui-pagination-container .tui-last{
    display:none;
 }
@@ -19,6 +32,29 @@
 
 #tui-pagination-container .tui-page-btn:nth-last-child(2){
     margin-left: 39px;
+    margin-right: 0;
 }
+
+#tui-pagination-container .tui-prev-is-ellip{
+    display: none;
+}
+
+
+
+
+
+@media screen and (max-width:376px) {
+    #tui-pagination-container .tui-page-btn:nth-child(2){
+        margin-right: 8px;
+        
+        
+    }
+
+    #tui-pagination-container .tui-page-btn:nth-last-child(2){
+        margin-left:8px;
+        
+    }
+} 
+
 
 /*  */

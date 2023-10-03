@@ -1,5 +1,9 @@
 import { createMarkup } from './create-card';
 import { searchCocktailsByName } from './cocktail-api';
+import Pagination from 'tui-pagination';
+import {pagiation} from "./pagination";
+import 'tui-pagination/dist/tui-pagination.css';
+
 
 import noCoctailMobWebp from '/img/mobile/coctail.webp';
 import noCoctailMobWebp2x from '/img/mobile/coctail@2x.webp';
@@ -8,7 +12,8 @@ import noCoctailTabWebp2x from '/img/tablet/coctail@2x.webp';
 
 const searchInput = document.querySelector('.search-input');
 const cardList = document.querySelector('.cocktails-list');
-
+let coctailList;
+let markupCard;
 export const emptySearch = `
           <div>
             <picture>
@@ -38,9 +43,12 @@ function onChangeInput(event) {
       searchCocktailsByName(inputValue)
         .then(cocktails => {
           if (cocktails && cocktails.length > 0) {
-            cardList.innerHTML = createMarkup(cocktails);
+            console.log(createMarkup(cocktails));
+            pagiation(cocktails);
+            
           } else {
             cardList.innerHTML = emptySearch;
+            document.querySelector(".tui-pagination").innerHTML="";
           }
         })
         .catch(error => {
@@ -49,3 +57,4 @@ function onChangeInput(event) {
     }
   }
 }
+
