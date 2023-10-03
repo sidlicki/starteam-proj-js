@@ -166,6 +166,7 @@ overlay.addEventListener('click', function () {
 function modalIngredOpen() {
   overlay.classList.add('active');
   modal2.classList.add('active');
+  document.body.classList.add('overflow-hidden');
 }
 
 // Function close modal from button
