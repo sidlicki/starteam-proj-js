@@ -60,13 +60,13 @@ function createCardIngredient({
 </div>
 </div>
   <div class="modal-cocktail-ingred add-two"></div>
-  
+
   <p class="modal-ingred-text add-one">${description}</p>
   <ul class="ingredients-list">
-  <li class="ingredients-element add-li">Type: ${type}</li>
-  <li class="ingredients-element add-li">Country of origin: ${country}</li>
-  <li class="ingredients-element add-li">Alcohol by volume: ${abv}</li>
-  <li class="ingredients-element add-li">Flavour: ${flavour}</li>
+  <li class="ingredients-element add-li">Type: ${type || "Has no data"}</li>
+  <li class="ingredients-element add-li">Country of origin: ${country || "Has no data"}</li>
+  <li class="ingredients-element add-li">Alcohol by volume: ${abv || "Has no data"}</li>
+  <li class="ingredients-element add-li">Flavour: ${flavour || "Has no data"}</li>
 </ul>
   <button type="button" class="modal-add-ingred-btn-fav">ADD TO FAVORITE</button>
   <button type="button" class="modal-remove-ingred-btn-fav is-hidden">REMOVE FROM FAVORITE</button>
