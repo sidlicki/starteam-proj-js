@@ -68,7 +68,7 @@ body.dark .burger-icon {
   visibility: visible;
   pointer-events: auto;
 }
-.mobile-menu-logo-text {
+.mobile-menu-logo-link {
   font-weight: 600;
   font-size: 16px;
   line-height: 1.13;
@@ -78,6 +78,8 @@ body.dark .burger-icon {
   width: 21px;
   height: 18px;
   fill: var(--turquoise-color);
+  display: inline-block;
+  vertical-align: text-top;
 }
 .mobile-menu-close-btn {
   border: none;
@@ -386,7 +388,7 @@ body.dark .dropbtn {
   .mobile-buttons {
     gap: 24px;
   }
-  .mobile-menu-logo-text {
+  .mobile-menu-logo-link {
     font-size: 22px;
     line-height: 1.09;
   }

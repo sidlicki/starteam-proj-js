@@ -39,8 +39,8 @@ function createCardCocktail({ drink, drinkThumb, instructions, ingredients }) {
 </div>
   <h2 class="modal-cocktail-subtitle add-subtitle">INSTRUCTIONS:</h2>
   <p class="modal-cocktail-text add-one">${instructions}</p>
-  <button type="button" class="modal-add-cocktail-btn-fav">ADD TO FAVORITE</button>
-  <button type="button" class="modal-remove-cocktail-btn-fav is-hidden">REMOVE FROM FAVORITE</button>
+  <button type="button" class="modal-add-cocktail-btn-fav" name="add-cocktail">ADD TO FAVORITE</button>
+  <button type="button" class="modal-remove-cocktail-btn-fav is-hidden" name="remove-cocktail">REMOVE FROM FAVORITE</button>
   <button type="button" class="modal-cocktail-btn-back" name="close-modal">BACK</button>`;
   return markup;
 }
@@ -117,7 +117,10 @@ async function onRenderOpenModal(currentIdCard) {
 
 // Listen overlay (space around modal window)
 overlay.addEventListener('click', function () {
-  modal1.classList.remove('active');
+  if (modal1) {
+    modal1.classList.remove('active');
+  }
+
   document.body.classList.remove('overflow-hidden');
   this.classList.remove('active');
 });
