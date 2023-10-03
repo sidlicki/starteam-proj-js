@@ -9,8 +9,9 @@ import defaultImg from '/img/mobile/coctail@2x.webp';
 import { getScreenWidthValue } from './screen-value';
  
 
-export function pagiation(cocList, cardMarkup){
-    let numberOfPhoto =getScreenWidthValue();
+export function pagiation(cocList, flag, classNameOfContainer,numbPhoto){
+    // let numberOfPhoto =getScreenWidthValue();
+    let numberOfPhoto =numbPhoto===6 ? 6 : getScreenWidthValue();
     let maxNumberOfPaginator = 3;
     // console.log(cardMarkup);
     
@@ -41,35 +42,105 @@ export function pagiation(cocList, cardMarkup){
     
     console.log(createNewArr());
     
+    let cardMarkup;
+    
 
+///////////////
+
+const getAlcoholLabelText = alcoholValue => {
+    alcoholValue = alcoholValue.toLowerCase();
+    return alcoholValue === 'yes'
+      ? 'Alcoholic'
+      : alcoholValue === 'no'
+      ? 'Non-Alcoholic'
+      : 'NA';
+  };
+
+///////////////
 
 
     const renderCards = (currentItemPaginator) =>{
-         console.log(currentItemPaginator);
-         console.log(createNewArr()[currentItemPaginator]);
-         console.log("");
+
+        console.log(currentItemPaginator);
+        console.log(createNewArr()[currentItemPaginator]);
+        console.log("");
 
             
             const markup = createNewArr()[currentItemPaginator].map((item) => {
             const { _id, drink, drinkThumb, description } = item;
-              return `
-              <li class="cocktail-card" id="${_id}">
-                      <img class="cocktail-image" src="${drinkThumb}" onerror="this.src='${defaultImg}'" alt="${drink}" loading="lazy" width="307" height="257"/>
-                      <h3 class="cocktail-name">${drink.slice(0, 25)}</h3>
-                      <p class="cocktail-info">${description.slice(0, 115) + '...'}</p>
-                      <div class="btns-info">
-                          <button type="button" data-action="learnmore" class="js-learn-more learn-more-button" id="${_id}">Learn more</button>
-                          <button type="button" data-action="addtofav" class="js-add-to add-to-button" id="${_id}">
-                              <svg class="icon-heart" width="18px" height="18px">
-                                  <use href="${spriteUrl}#icon-heart"></use>
-                              </svg>
-                          </button>
-                      </div>
-                  </li>
-              `;
+
+            if (flag==="byName"||flag==="byAbc"){
+                cardMarkup=`
+                <li class="cocktail-card" id="${_id}">
+                        <img class="cocktail-image" src="${drinkThumb}" onerror="this.src='${defaultImg}'" alt="${drink}" loading="lazy" width="307" height="257"/>
+                        <h3 class="cocktail-name">${drink.slice(0, 25)}</h3>
+                        <p class="cocktail-info">${description.slice(0, 115) + '...'}</p>
+                        <div class="btns-info">
+                            <button type="button" data-action="learnmore" class="js-learn-more learn-more-button" id="${_id}">Learn more</button>
+                            <button type="button" data-action="addtofav" class="js-add-to add-to-button" id="${_id}">
+                                <svg class="icon-heart" width="18px" height="18px">
+                                    <use href="${spriteUrl}#icon-heart"></use>
+                                </svg>
+                            </button>
+                        </div>
+                    </li>
+                `;  
+            }else if(flag==="byfavoriteCoctails"){
+                cardMarkup=`<li class="cocktail-list-favorite">
+                <img class="cocktail-item-img-favorite" src="${
+                  drinkThumb
+                }" onerror="this.src='${defaultImg}'" alt="preview cocktail" width="307" height="auto">
+                <div class="trk">
+                <h2 class="cocktail-name-favorite">${drink.slice(0, 25)}</h2>
+                <p class="description-container-favorite">${
+                  description.slice(0, 111) + ' . . .'
+                }</p>
+                <div class="button-wrap-favorite" >
+                    <button type="button" data-action="learnmore" class="learn-more-favorite" id="${
+                      _id
+                    }">LEARN MORE</button>
+                    <button type="button" class="remove-favorite" id="${_id}">
+                        <svg class="svg-icon-favorite-trash" width="18" height="18">
+                            <use href="${spriteUrl}#icon-trash"></use>
+                        </svg>
+                    </button>
+                </div>
+                </div>
+            </li>`;
+            }else{
+                cardMarkup=`
+                <li class="fav-ingredients-list-item" data-ingredient-id="${item._id}">
+                  <h2 class="fav-ingredient-title">${item.title || 'No title'}</h2>
+                  <p class="fav-ingredient-alcohol">${getAlcoholLabelText(item.alcohol)}</p>
+                  <p class="fav-ingredient-description">${
+                    item.description || 'No description'
+                  }</p>
+                  <div class="fav-ingredients-buttons-wrapper">
+                    <button
+                      type="button"
+                      class="fav-ingredients-learn-more-btn"
+                      data-action="ingredient-learn-more">Learn more</button>
+                    <button
+                      type="button"
+                      class="fav-ingredients-remove-from-fav-btn"
+                      data-action="igredient-remove-from-favorite">
+                        <svg
+                          class="fav-ingredients-icon-trash"
+                          width="18px"
+                          height="18px"
+                          aria-label="Remove favorite ingredient"
+                          >
+                            <use href="${spriteUrl}#icon-trash"></use>
+                        </svg>
+                    </button>
+                  </div>
+                </li>`
+            }
+
+              return cardMarkup;
             }).join("");
-        
-            document.querySelector('.cocktails-list').innerHTML= markup;
+            console.log(cardMarkup);
+            document.querySelector(`.${classNameOfContainer}`).innerHTML= markup;
             
     }
      renderCards(0);

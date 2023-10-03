@@ -9,6 +9,10 @@ import noCoctailMobWebp2x from '/img/mobile/coctail@2x.webp';
 import noCoctailTabWebp from '/img/tablet/coctail.webp';
 import noCoctailTabWebp2x from '/img/tablet/coctail@2x.webp';
 
+import Pagination from 'tui-pagination';
+import {pagiation} from "./pagination";
+import 'tui-pagination/dist/tui-pagination.css';
+
 const favCocktailList = document.querySelector('.fav-cocktail-list');
 const notFoundBlock = document.querySelector('.not-found');
 document.addEventListener('DOMContentLoaded', generateCocktails);
@@ -27,37 +31,37 @@ function addRemoveFavoriteButtonClickHandlers() {
 }
 
 // структура картки
-const renderCocktail = (arr, container) => {
-  const list = arr
-    .map(
-      item =>
-        `<li class="cocktail-list-favorite">
-            <img class="cocktail-item-img-favorite" src="${
-              item.drinkThumb
-            }" onerror="this.src='${defaultImg}'" alt="preview cocktail" width="307" height="auto">
-            <div class="trk">
-            <h2 class="cocktail-name-favorite">${item.drink.slice(0, 25)}</h2>
-            <p class="description-container-favorite">${
-              item.description.slice(0, 111) + ' . . .'
-            }</p>
-            <div class="button-wrap-favorite" >
-                <button type="button" data-action="learnmore" class="learn-more-favorite" id="${
-                  item._id
-                }">LEARN MORE</button>
-                <button type="button" class="remove-favorite" id="${item._id}">
-                    <svg class="svg-icon-favorite-trash" width="18" height="18">
-                        <use href="${spriteUrl}#icon-trash"></use>
-                    </svg>
-                </button>
-            </div>
-            </div>
-        </li>`
-    )
-    .join('');
+// const renderCocktail = (arr, container) => {
+//   const list = arr
+//     .map(
+//       item =>
+//         `<li class="cocktail-list-favorite">
+//             <img class="cocktail-item-img-favorite" src="${
+//               item.drinkThumb
+//             }" onerror="this.src='${defaultImg}'" alt="preview cocktail" width="307" height="auto">
+//             <div class="trk">
+//             <h2 class="cocktail-name-favorite">${item.drink.slice(0, 25)}</h2>
+//             <p class="description-container-favorite">${
+//               item.description.slice(0, 111) + ' . . .'
+//             }</p>
+//             <div class="button-wrap-favorite" >
+//                 <button type="button" data-action="learnmore" class="learn-more-favorite" id="${
+//                   item._id
+//                 }">LEARN MORE</button>
+//                 <button type="button" class="remove-favorite" id="${item._id}">
+//                     <svg class="svg-icon-favorite-trash" width="18" height="18">
+//                         <use href="${spriteUrl}#icon-trash"></use>
+//                     </svg>
+//                 </button>
+//             </div>
+//             </div>
+//         </li>`
+//     )
+//     .join('');
   
-  container.innerHTML = list; // Оновлено: використовуємо innerHTML для заміни вмісту контейнера
-  addRemoveFavoriteButtonClickHandlers(); // Оновлено: додали обробники подій для нових кнопок видалення
-};
+//   container.innerHTML = list; // Оновлено: використовуємо innerHTML для заміни вмісту контейнера
+//   addRemoveFavoriteButtonClickHandlers(); // Оновлено: додали обробники подій для нових кнопок видалення
+// };
 
 // функція для генерації списку коктейлів
 export async function generateCocktails() {
@@ -71,7 +75,9 @@ export async function generateCocktails() {
     const data = await fetchCocktailDetails(
       localFavorite.map(cocktail => cocktail)
     );
-      renderCocktail(data, favCocktailList);
+      console.log(data);
+      //renderCocktail(data, favCocktailList);
+      pagiation(data, "byfavoriteCoctails", "fav-cocktail-list",6);
       notFoundBlock.innerHTML = '';
   } else {
       
