@@ -44,6 +44,12 @@
 .modal-ingred-text {
     margin-top: 8px;
     font-size: 14px;
+  
+}
+
+.type-ingred
+{
+  text-transform: uppercase;
 }
 
 .add-one {

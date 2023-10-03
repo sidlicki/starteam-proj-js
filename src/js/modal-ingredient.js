@@ -40,12 +40,12 @@ function createCardIngredient({
   <div class="add-content">
   <h1 class="modal-ingred-title">${title}</h1>
 
-  <p class="modal-ingred-text add-one">${type}</p>
+  <p class="modal-ingred-text type-ingred add-one">${type}</p>
   <div class="modal-cocktail-ingred add-two"></div>
 </div>
 </div>
   <h2 class="modal-ingred-subtitle add-subtitle"></h2>
-  <p class="modal-ingred-text add-one">${title}: ${description}</p>
+  <p class="modal-ingred-text add-one"><span style ="font-weight: bold"> ${title}</span> is an ${description}</p>
   <ul class="ingredients-list">
   <li class="ingredients-element">Type: ${type}</li>
   <li class="ingredients-element">Country of origin: ${country}</li>
