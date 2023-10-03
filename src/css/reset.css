@@ -48,6 +48,10 @@ body {
   user-select: none;
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
 main {
   flex: 1;
 }
