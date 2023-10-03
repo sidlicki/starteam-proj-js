@@ -56,22 +56,26 @@ body.dark .hero-title-motto {
 }
 /*--стилі для кнопки--*/
 .hero-button {
-    border: none;
+    border-style: double;
     padding: 14px 28px;
     border-radius: 12px;
     background-color: var(--violet-color);
     color: var(--light-gray-color);
     font-weight: 600;
     font-size: 14px;
+    font-style: oblique;
     line-height: 1.4;
-    letter-spacing: 2%;
     text-transform: uppercase;
-    transition: background-color var(--transition-dur-and-time-func);
+    transition: background-color   var(--transition-dur-and-time-func), 
+                border-style var(--transition-dur-and-time-func),
+                color var(--transition-dur-and-time-func);
 }
 
 .hero-button:hover,
 .hero-button:focus {
     background-color:#6E7FCF;
+    border-style: solid;
+    color: var(--pale-blue-color)
 }
 
 /*-----стилі для кнопки [ТЕМНА ТЕМА]-----*/
