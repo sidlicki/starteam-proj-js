@@ -20,7 +20,7 @@
     margin-bottom: 26px;
 }
 
-/*--стилі для заголовк--*/
+/*--стилі для заголовкy--*/
 .hero-title{
     max-width: 335px;  
     color: var(--black-color);
@@ -29,14 +29,17 @@
     line-height: 1.2;
     margin-bottom: 18px;
 }
+/*-------стилі для заголовку [ТЕМНА ТЕМА]---------*/
+body.dark .hero-title {
+    color: var(--light-gray-color);
+}
 /*--стилі для фрагменту заголовка курсивом--*/
 
 .title-fragment-italic{
     color: var(--violet-color);
     font-style: italic;
 }
-/*--стилі для підзаголовка--*/
-
+/*--стилі для підзаголовку--*/
 .hero-title-motto{
     max-width: 335px;
     margin-top: 18px;
@@ -45,10 +48,13 @@
     line-height: 1.4;
     font-weight: 400;
     color: var(--black-color);
+}
 
+/*-----стилі для підзаголовка [ТЕМНА ТЕМА]------*/
+body.dark .hero-title-motto {
+    color: var(--light-gray-color);
 }
 /*--стилі для кнопки--*/
-
 .hero-button {
     border: none;
     padding: 14px 28px;
@@ -68,102 +74,69 @@
     background-color:#6E7FCF;
 }
 
-/*--стилі для блоку з зображенням і описом до зображення--*/
+/*-----стилі для кнопки [ТЕМНА ТЕМА]-----*/
+body.dark .hero-button {
+    color: var(--light-gray-color);
+}
 
-/*--стилі для зовнішнього контейнера, який огортає зображення--*/
+/*-----стилі для зображення [ТЕМНА] і [СВІТЛА] теми-----*/
 
-
-/* .hero-image-general-div{
-    padding-top: 50px;
-     display: flex;
-
-} */
 .hero-image-elements-wrapper {
 width: 100%;
 width: 342px;
 height: 481px;
-  background-image: image-set(
+background-image: image-set(
    url('/img/images-Hero/mobile/group-light.webp') type('image/webp'),
    url('/img/images-Hero/mobile/group-light@2x.webp') type('image/webp'));
+
 background-size: cover;
 background-repeat: no-repeat;
 background-position: center;
 }
-
-/*--описуємо медіа-правило для фонового зображення для HERO-mobile--*/
+body.dark .hero-image-elements-wrapper {
+    background-image: image-set(url('/img/images-Hero/mobile/group-dark.webp') type('image/webp'),
+            url('/img/images-Hero/mobile/group-dark@2x.webp') type('image/webp'));
+}
 
 @media screen and (min-device-pixel-ratio: 2) and (max-width: 767px),
 screen and (min-resolution: 192dpi) and (max-width: 767px),
 screen and (min-resolution: 2ppx) and (max-width: 767px) {
+
     .hero-image-elements-wrapper{
         background-image: image-set(
         url('/img/images-Hero/mobile/group-light.webp') type('image/webp'),
         url('/img/images-Hero/mobile/group-light@2x.webp') type('image/webp'));
     }
+
+     body.dark .hero-image-elements-wrapper {
+        background-image: image-set(
+        url('/img/images-Hero/mobile/group-dark.webp') type('image/webp'),
+        url('/img/images-Hero/mobile/group-dark@2x.webp') type('image/webp'));
+    }
 }
 
-/*--стилі для внутрішнього контейнера,який є бузковим фоном зображення--*/
-/* .background-decoration-recktangle {
-    z-index: 1;
-    border-radius: 80px 0px;
-    background: #7E8FDD;
-    box-shadow: 0px 28px 75px 0px rgba(88, 109, 204, 0.5);
-    width: 230px;
-    height: 338px;
-    position: relative;
-    overflow: visible;
-} */
 
-/*--стилі для зображення--*/
-/* .picture-hero {
-    position: absolute;
-    z-index: 2;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 0;
-    width: 354px;
-    height: 387px;
-} */
-
-/*--стилі для тексту під зображенням--*/
-
-/* .hero-img-description{
-    color: #242424;
-    font-family: Poppins;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 20px; */
-        /* 142.857% */
-    /* letter-spacing: 0.28px;
-    text-transform: uppercase;
-    max-width: 173px;
-} */
 /*-------------------------TABLET-------------------------*/
 
 @media screen and (min-width: 768px) {
     .hero-content {
         flex-direction: row;
-        justify-content: center;
-        gap: 8px;
-        margin-bottom: 100px;
-        
+        justify-content: space-between;
+        gap: 0px;
+        margin-bottom: 100px; 
     }
-
     .hero-text-wrapper {
         display: flex;
         flex-direction: column;
         justify-content: start;
     }
-
     .hero-title {
     max-width: 384px;
     font-size: 44px;
     line-height: 1.1;
     margin-bottom: 18px;
     color: var(--black-color);
-    }
-         
+    }  
     .hero-title-motto {
       max-width: 338px;
       font-size: 16px;
@@ -177,26 +150,23 @@ screen and (min-resolution: 2ppx) and (max-width: 767px) {
     line-height: 1.3;
     } 
 
-    /*--стилі для зовнішнього контейнера, 
-    який огортає контентне зображення HERO-tablet--*/
-
+    /*--стилі зображення HERO-tablet [ТЕМНА]і [СВІТЛА] теми--*/
   .hero-image-elements-wrapper {
-    /* max-width: 427px;
-    padding-top: 78px;
-    margin-left: -60px;
-    margin-right: -70px;
-    gap: 50px; */
     margin-left: -60px;
     margin-right: -70px;
     width: 100%;
     width: 427px;
     height: 593px;
-
     background-image: image-set(url('/img/images-Hero/tablet/group-light.webp') type('image/webp'),
             url('/img/images-Hero/tablet/group-light@2x.webp') type('image/webp'));
     }
+
+ body.dark .hero-image-elements-wrapper {
+     background-image: image-set(url('/img/images-Hero/tablet/group-dark.webp') type('image/webp'),
+             url('/img/images-Hero/tablet/group-dark@2x.webp') type('image/webp'));
+ }
   
-    /*--описуємо медіа-правило для фонового зображення для HERO-tablet--*/
+/*--описуємо медіа-правило для фонового зображення для HERO-tablet--*/
   @media screen and (min-device-pixel-ratio: 2) and (min-width: 768px),
     screen and (min-resolution: 192dpi) and (min-width: 768px),
     screen and (min-resolution: 2ppx) and (min-width: 768px) {
@@ -205,43 +175,30 @@ screen and (min-resolution: 2ppx) and (max-width: 767px) {
                 url('/img/images-Hero/tablet/group-light.webp') type('image/webp'),
                  url('/img/images-Hero/tablet/group-light@2x.webp') type('image/webp'));
             }
-    }
-
-    /* .background-decoration-recktangle {
-        width: 293px;
-         height: 417px;
-    }
-
-    .picture-hero {
-        width: 333px;
-        height: 451px;
-        transform: translateX(-56%)
-    }  */
-
+        }
+    body.dark .hero-image-elements-wrapper {
+            background-image: image-set(
+                url('/img/images-Hero/tablet/group-dark.webp') type('image/webp'),
+                url('/img/images-Hero/tablet/group-dark@2x.webp') type('image/webp'));
+        }
 }
-
 
 /*--------------------DESKTOP--------------------*/
 
-/*--стилі для зовнішнього контейнера, 
-який огортає зображення HERO-desctop--*/
+/*--стилі зображення HERO-tablet [ТЕМНА]і [СВІТЛА] теми--*/
 
 @media screen and (min-width: 1280px) {
-
     .hero-section {
-            padding-top: 0px;
-        }
-    
+        padding-top: 54px;
+    } 
     .hero-content {
         gap: 56px;
         justify-content: space-between;
     }
-    
     .hero-title-motto{
         max-width: 480px;
         font-size: 20px;
-        line-height: 1.3;
-        
+        line-height: 1.3;  
     }
      .hero-title {
         max-width: 555px;
@@ -249,7 +206,6 @@ screen and (min-resolution: 2ppx) and (max-width: 767px) {
         line-height: 1.1;
         margin-bottom: 28px;
         }
-
     .hero-image-elements-wrapper {
         width: 100%;
         width: 552px;
@@ -261,6 +217,12 @@ screen and (min-resolution: 2ppx) and (max-width: 767px) {
             url('/img/images-Hero/desktop/group-light@2x.webp') type('image/webp'));
     }
 
+ body.dark .hero-image-elements-wrapper {
+        background-image: image-set(
+            url('/img/images-Hero/desktop/group-dark.webp') type('image/webp'),
+            url('/img/images-Hero/desktop/group-dark@2x.webp') type('image/webp'));
+        }
+
 /*--описуємо медіа-правило для фонового зображення для HERO-desctop--*/
 
      @media screen and (min-device-pixel-ratio: 2) and (min-width: 1280px),
@@ -269,18 +231,12 @@ screen and (min-resolution: 2ppx) and (max-width: 767px) {
         .hero-image-elements-wrapper {
                 background-image: image-set(url('/img/images-Hero/tablet/group-light.webp') type('image/webp'),
                         url('/img/images-Hero/tablet/group-light@2x.webp') type('image/webp'));
-            }
-   
+        }
+    }
+     body.dark .hero-image-elements-wrapper {
+        background-image: image-set(
+            url('/img/images-Hero/desktop/group-dark.webp') type('image/webp'),
+            url('/img/images-Hero/desktop/group-dark@2x.webp') type('image/webp'));
     }
 
-     /* .background-decoration-recktangle {
-        width: 380px;
-        height: 476px;
-    }
-
-    .picture-hero {
-        width: 410px;
-        height: 565px;
-        transform: translateX(-54%)
-    } */
 } 
