@@ -14,8 +14,7 @@ export function pagiation(cocList, flag, classNameOfContainer, numbPhoto) {
   let maxNumberOfPaginator = 3;
   // console.log(cardMarkup);
   if (cocList.length <= numberOfPhoto) {
-    document.querySelector(".tui-pagination").classList.add("visually-hidden");
-    
+    document.querySelector('.tui-pagination').classList.add('visually-hidden');
   }
 
   const container = document.getElementById('tui-pagination-container');
@@ -71,7 +70,7 @@ export function pagiation(cocList, flag, classNameOfContainer, numbPhoto) {
 
         if (flag === 'byName' || flag === 'byAbc') {
           cardMarkup = `
-                <li class="cocktail-card" id="${_id}">
+                <li class="cocktail-card">
                         <img class="cocktail-image" src="${drinkThumb}" onerror="this.src='${defaultImg}'" alt="${drink}" loading="lazy" width="307" height="257"/>
                         <h3 class="cocktail-name">${drink.slice(0, 25)}</h3>
                         <p class="cocktail-info">${
