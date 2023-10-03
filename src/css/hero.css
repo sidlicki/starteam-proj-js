@@ -82,7 +82,7 @@ body.dark .hero-button {
 /*-----стилі для зображення [ТЕМНА] і [СВІТЛА] теми-----*/
 
 .hero-image-elements-wrapper {
-width: 100%;
+width: max-content;
 width: 342px;
 height: 481px;
 background-image: image-set(
