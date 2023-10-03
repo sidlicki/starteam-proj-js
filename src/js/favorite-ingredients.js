@@ -3,10 +3,6 @@ import coctailWebp from '/img/mobile/coctail.webp';
 import coctailWebp2x from '/img/mobile/coctail@2x.webp';
 import spriteUrl from '/img/svg/sprite.svg';
 
-import Pagination from 'tui-pagination';
-import {pagiation} from "./pagination";
-import 'tui-pagination/dist/tui-pagination.css';
-
 const LOCAL_STORAGE_FAV_INGREDIENTS_KEY = 'favoriteIngredients';
 
 let favoriteIngredientsDetails = [];
@@ -124,15 +120,12 @@ const getIngredientsData = async ids => {
 
 const renderFavoriteIngredients = () => {
   if (favoriteIngredientIds.length) {
-    document.querySelector(".loader").classList.remove("loader");
-    pagiation(favoriteIngredientsDetails, "byFavoriteIngradients", "fav-ingredients-list",6);
-    
-    // const ingredientItemsMarkup = favoriteIngredientsDetails
-    //   .map(ingredient => createFavoriteIngredientItemMarkup(ingredient))
-    //   .join('');
-    // const ingredientsListMarkup = `<ul class="fav-ingredients-list">${ingredientItemsMarkup}</ul>`;
+    const ingredientItemsMarkup = favoriteIngredientsDetails
+      .map(ingredient => createFavoriteIngredientItemMarkup(ingredient))
+      .join('');
+    const ingredientsListMarkup = `<ul class="fav-ingredients-list">${ingredientItemsMarkup}</ul>`;
 
-    // favoriteIngredientsContainer.innerHTML = ingredientsListMarkup;
+    favoriteIngredientsContainer.innerHTML = ingredientsListMarkup;
   } else {
     favoriteIngredientsContainer.innerHTML = emptyFavoriteIngredientsMarkup;
   }
