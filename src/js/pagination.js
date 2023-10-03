@@ -6,11 +6,11 @@ import 'tui-pagination/dist/tui-pagination.css';
 
 import spriteUrl from '/img/svg/sprite.svg';
 import defaultImg from '/img/mobile/coctail@2x.webp';
-
-
+import { getScreenWidthValue } from './screen-value';
+ 
 
 export function pagiation(cocList, cardMarkup){
-    let numberOfPhoto = 9;
+    let numberOfPhoto =getScreenWidthValue();
     let maxNumberOfPaginator = 3;
     // console.log(cardMarkup);
     
