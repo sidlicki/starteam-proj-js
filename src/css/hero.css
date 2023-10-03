@@ -82,16 +82,16 @@ body.dark .hero-button {
 /*-----стилі для зображення [ТЕМНА] і [СВІТЛА] теми-----*/
 
 .hero-image-elements-wrapper {
-width: max-content;
-width: 342px;
-height: 481px;
-background-image: image-set(
-   url('/img/images-Hero/mobile/group-light.webp') type('image/webp'),
-   url('/img/images-Hero/mobile/group-light@2x.webp') type('image/webp'));
+    max-width: 100%;
+    width: 342px;
+    height: 481px;
+    background-image: image-set(
+    url('/img/images-Hero/mobile/group-light.webp') type('image/webp'),
+    url('/img/images-Hero/mobile/group-light@2x.webp') type('image/webp'));
 
-background-size: cover;
-background-repeat: no-repeat;
-background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 body.dark .hero-image-elements-wrapper {
     background-image: image-set(url('/img/images-Hero/mobile/group-dark.webp') type('image/webp'),
@@ -154,7 +154,6 @@ screen and (min-resolution: 2ppx) and (max-width: 767px) {
   .hero-image-elements-wrapper {
     margin-left: -60px;
     margin-right: -70px;
-    width: 100%;
     width: 427px;
     height: 593px;
     background-image: image-set(url('/img/images-Hero/tablet/group-light.webp') type('image/webp'),
@@ -207,7 +206,6 @@ screen and (min-resolution: 2ppx) and (max-width: 767px) {
         margin-bottom: 28px;
         }
     .hero-image-elements-wrapper {
-        width: 100%;
         width: 552px;
         height: 672px;
         margin-left: 0px;
