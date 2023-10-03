@@ -55,11 +55,12 @@ function createCardIngredient({
   <div class="add-content">
   <h1 class="modal-ingred-title">${title}</h1>
 
-  <p class="modal-ingred-text type-ingred add-one">${type}</p>
+  <p class="modal-ingred-text type-ingred add-one ">${type}</p>
+  
+</div>
+</div>
   <div class="modal-cocktail-ingred add-two"></div>
-</div>
-</div>
-  <h2 class="modal-ingred-subtitle add-subtitle"></h2>
+  
   <p class="modal-ingred-text add-one">${description}</p>
   <ul class="ingredients-list">
   <li class="ingredients-element add-li">Type: ${type}</li>

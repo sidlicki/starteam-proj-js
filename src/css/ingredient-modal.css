@@ -1,8 +1,16 @@
 
 /* зважайте будь ласка на те щоб не дублювати назви класів */
 
-
-
+/* .ingredient-modal-type {
+  color: rgba(36, 36, 36, 0.5);
+  font-size: 14px;
+  font-weight: 600;
+   line-height: 18px;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(36, 36, 36, 0.1);
+  padding-bottom: 20px;
+} 
+*/
 
 /*------------MOBILE------------*/
 @media screen and (max-width: 767px) {
@@ -49,7 +57,7 @@
 
 
 .modal-ingred-text {
-    margin-top: 8px;
+    margin-top: 18px;
     font-size: 14px;
     margin-bottom: 40px;
   
@@ -65,7 +73,14 @@
 }
 
 .add-two {
-  color: rgba(36, 36, 36, 0.8);
+  
+  color: rgba(36, 36, 36, 0.5);
+  font-size: 14px;
+  font-weight: 600;
+   line-height: 18px;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(36, 36, 36, 0.1);
+  /* padding-bottom: 20px; */
 }
 
 
