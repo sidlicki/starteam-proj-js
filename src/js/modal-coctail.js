@@ -53,72 +53,75 @@ function createCardCocktail({ drink, drinkThumb, instructions, ingredients }) {
 // Async function render and open modal window cocktails
 async function onRenderOpenModal(currentIdCard) {
   // if (event.target.nodeName == 'BUTTON')
-    try {
-      const cocktailDetails = await fetchCocktailDetails(currentIdCard);
+  try {
+    const cocktailDetails = await fetchCocktailDetails(currentIdCard);
 
-      if (cocktailDetails.length === 0) {
-        console.log(`Error`);
-        return;
-      }
-      cardCocktail.innerHTML = '';
-      cardCocktail.innerHTML = createCardCocktail(cocktailDetails[0]);
-      modalCocktOpen();
-
-      //----------- Working with Local Storage ----------- //
-
-      // Button "Add-to-Favorite" modal window cocktail
-      const btnModalAddFav = document.querySelector(
-        '.modal-add-cocktail-btn-fav'
-      );
-
-      // Button "Remove-from-Favorite" modal window cocktail
-      const btnModalRemoveFav = document.querySelector(
-        '.modal-remove-cocktail-btn-fav'
-      );
-
-      // Проверяем, есть ли карточка с определенным id в массиве, считанном из Local Storage
-      const indexModalFav = favoriteCocktails.findIndex(
-        item => item === cocktailDetails[0]._id
-      );
-
-      // Если карточки с таким id нет, то скрываем кнопку "Add to Fav" и показываем кнопку "Remove from Fav"
-      if (indexModalFav !== -1) {
-        btnModalAddFav.classList.add('is-hidden');
-        btnModalRemoveFav.classList.remove('is-hidden');
-      }
-
-      // Manage button "Add to Favorite"
-      btnModalAddFav.addEventListener('click', () => {
-        btnModalAddFav.classList.add('is-hidden');
-        btnModalRemoveFav.classList.remove('is-hidden');
-        onAddFavCocktClick(cocktailDetails[0]._id);
-      });
-
-      // Manage button "Remove from Favorite"
-      btnModalRemoveFav.addEventListener('click', () => {
-        btnModalAddFav.classList.remove('is-hidden');
-        btnModalRemoveFav.classList.add('is-hidden');
-        onRemFavCocktClick(cocktailDetails[0]._id);
-      });
-
-    
-      // Listen static html-button close modal window
-      btnCloseModal.addEventListener('click', modalCocktClose);
-      // Listen dynamic js-button close modal window
-      cardCocktail.addEventListener('click', event => {
-        if (event.target.name == 'close-modal') modalCocktClose();
-      });
-      //------------------END WORKING with LOCAL STORAGE -------------------//
-    } catch (error) {
-      console.log(error);
+    if (cocktailDetails.length === 0) {
+      console.log(`Error`);
+      return;
     }
+    cardCocktail.innerHTML = '';
+    cardCocktail.innerHTML = createCardCocktail(cocktailDetails[0]);
+    modalCocktOpen();
+
+    //----------- Working with Local Storage ----------- //
+
+    // Button "Add-to-Favorite" modal window cocktail
+    const btnModalAddFav = document.querySelector(
+      '.modal-add-cocktail-btn-fav'
+    );
+
+    // Button "Remove-from-Favorite" modal window cocktail
+    const btnModalRemoveFav = document.querySelector(
+      '.modal-remove-cocktail-btn-fav'
+    );
+
+    // Проверяем, есть ли карточка с определенным id в массиве, считанном из Local Storage
+    const indexModalFav = favoriteCocktails.findIndex(
+      item => item === cocktailDetails[0]._id
+    );
+
+    // Если карточки с таким id нет, то скрываем кнопку "Add to Fav" и показываем кнопку "Remove from Fav"
+    if (indexModalFav !== -1) {
+      btnModalAddFav.classList.add('is-hidden');
+      btnModalRemoveFav.classList.remove('is-hidden');
+    }
+
+    // Manage button "Add to Favorite"
+    btnModalAddFav.addEventListener('click', () => {
+      btnModalAddFav.classList.add('is-hidden');
+      btnModalRemoveFav.classList.remove('is-hidden');
+      onAddFavCocktClick(cocktailDetails[0]._id);
+    });
+
+    // Manage button "Remove from Favorite"
+    btnModalRemoveFav.addEventListener('click', () => {
+      btnModalAddFav.classList.remove('is-hidden');
+      btnModalRemoveFav.classList.add('is-hidden');
+      onRemFavCocktClick(cocktailDetails[0]._id);
+    });
+
+    // Listen static html-button close modal window
+    btnCloseModal.addEventListener('click', modalCocktClose);
+    // Listen dynamic js-button close modal window
+    cardCocktail.addEventListener('click', event => {
+      if (event.target.name == 'close-modal') modalCocktClose();
+    });
+    //------------------END WORKING with LOCAL STORAGE -------------------//
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 //*--------------MANAGE of MODAL WINDOW----------------*/
 
 // Listen overlay (space around modal window)
 overlay.addEventListener('click', function () {
-  modal1.classList.remove('active');
+  if (modal1) {
+    modal1.classList.remove('active');
+  }
+
+  document.body.classList.remove('overflow-hidden');
   this.classList.remove('active');
 });
 
@@ -126,12 +129,14 @@ overlay.addEventListener('click', function () {
 function modalCocktOpen() {
   overlay.classList.add('active');
   modal1.classList.add('active');
+  document.body.classList.add('overflow-hidden');
 }
 
 // Function close modal from button
 function modalCocktClose() {
   modal1.classList.remove('active');
   overlay.classList.remove('active');
+  document.body.classList.remove('overflow-hidden');
 }
 
 /*-----------------END CODE MANAGE of MODAL WINDOW-------------------------------*/
