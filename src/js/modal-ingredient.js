@@ -53,15 +53,15 @@ function createCardIngredient({
   const markup = `<div class="add-cont">
 
   <div class="add-content">
-  <h1 class="modal-ingred-title">${title}</h1>
+  <h1 class="modal-ingred-title">${title || "Has no data"}</h1>
 
-  <p class="modal-ingred-text type-ingred add-one ">${type}</p>
+  <p class="modal-ingred-text type-ingred add-one ">${type || "Has no data"}</p>
   
 </div>
 </div>
   <div class="modal-cocktail-ingred add-two"></div>
 
-  <p class="modal-ingred-text add-one">${description}</p>
+  <p class="modal-ingred-text add-one">${description || "Has no data"}</p>
   <ul class="ingredients-list">
   <li class="ingredients-element add-li">Type: ${type || "Has no data"}</li>
   <li class="ingredients-element add-li">Country of origin: ${country || "Has no data"}</li>
