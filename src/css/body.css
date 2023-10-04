@@ -2,9 +2,11 @@ body {
   background-image: url('../img/body-background/bg-light-mobile.webp');
   background-repeat: no-repeat;
   background-size: cover;
+  transition: background-image 0.5s ease-in-out;
 }
 body.dark {
   background-image: url('../img/body-background/bg-dark-mobile.webp');
+  transition: background-image 0.5s ease-in-out;
 }
 
 @media screen and (min-width: 768px) {

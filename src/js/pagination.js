@@ -92,7 +92,7 @@ export function pagiation(
         
         if (flag === 'byName' || flag === 'byAbc') {
           cardMarkup = `
-                <li class="cocktail-card" id="${_id}">
+                <li class="cocktail-card">
                         <img class="cocktail-image" src="${drinkThumb}" onerror="this.src='${defaultImg}'" alt="${drink}" loading="lazy" width="307" height="257"/>
                         <h3 class="cocktail-name">${drink.slice(0, 25)}</h3>
                         <p class="cocktail-info">${

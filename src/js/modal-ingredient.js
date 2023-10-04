@@ -35,7 +35,6 @@ function createCardIngredient({
   flavour,
   country,
 }) {
-
   let words = description.split(' ');
   if (words.length > 0) {
     // Вибираємо перше слово
@@ -48,25 +47,29 @@ function createCardIngredient({
     description = description.replace(firstWord, formattedText);
   }
 
+  const markup = `<div class="add-cont-ingredients">
 
+  <div class="add-content-ingredients">
+  <h1 class="modal-ingred-title">${title || 'Has no data'}</h1>
 
-  const markup = `<div class="add-cont">
-
-  <div class="add-content">
-  <h1 class="modal-ingred-title">${title || "Has no data"}</h1>
-
-  <p class="modal-ingred-text type-ingred add-one ">${type || "Has no data"}</p>
+  <p class="modal-ingred-text-type type-ingred">${type || 'Has no data'}</p>
   
 </div>
 </div>
   <div class="modal-cocktail-ingred add-two"></div>
 
-  <p class="modal-ingred-text add-one">${description || "Has no data"}</p>
+  <p class="modal-ingred-text-descr">${description || 'Has no data'}</p>
   <ul class="ingredients-list">
-  <li class="ingredients-element add-li">Type: ${type || "Has no data"}</li>
-  <li class="ingredients-element add-li">Country of origin: ${country || "Has no data"}</li>
-  <li class="ingredients-element add-li">Alcohol by volume: ${abv || "Has no data"}</li>
-  <li class="ingredients-element add-li">Flavour: ${flavour || "Has no data"}</li>
+  <li class="ingredients-element add-li">Type: ${type || 'Has no data'}</li>
+  <li class="ingredients-element add-li">Country of origin: ${
+    country || 'Has no data'
+  }</li>
+  <li class="ingredients-element add-li">Alcohol by volume: ${
+    abv || 'Has no data'
+  }</li>
+  <li class="ingredients-element add-li">Flavour: ${
+    flavour || 'Has no data'
+  }</li>
 </ul>
   <button type="button" class="modal-add-ingred-btn-fav">ADD TO FAVORITE</button>
   <button type="button" class="modal-remove-ingred-btn-fav is-hidden">REMOVE FROM FAVORITE</button>

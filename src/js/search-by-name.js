@@ -1,9 +1,8 @@
 import { createMarkup } from './create-card';
 import { searchCocktailsByName } from './cocktail-api';
 import Pagination from 'tui-pagination';
-import {pagiation} from "./pagination";
+import { pagiation } from './pagination';
 import 'tui-pagination/dist/tui-pagination.css';
-
 
 import noCoctailMobWebp from '/img/mobile/coctail.webp';
 import noCoctailMobWebp2x from '/img/mobile/coctail@2x.webp';
@@ -57,4 +56,3 @@ function onChangeInput(event) {
     }
   }
 }
-

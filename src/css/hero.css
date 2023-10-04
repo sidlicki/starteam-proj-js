@@ -2,185 +2,198 @@
 
 /*-----------MOBILE-------------*/
 .hero-section {
-    padding-top: 70px;
-    overflow: hidden;
+  padding-top: 70px;
+  overflow: hidden;
 }
 
-.hero-content{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 27px;
-    margin-bottom: 40px;
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 27px;
+  margin-bottom: 40px;
 }
 
 /*--стилі для контейнеру з текстом--*/
-.hero-text-wrapper{
-    margin-bottom: 26px;
+.hero-text-wrapper {
+  margin-bottom: 26px;
 }
 
 /*--стилі для заголовкy--*/
-.hero-title{
-    max-width: 335px;  
-    color: var(--black-color);
-    font-weight: 400;
-    font-size: 32px;
-    line-height: 1.2;
-    margin-bottom: 18px;
+.hero-title {
+  max-width: 335px;
+  color: var(--black-color);
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 1.2;
+  margin-bottom: 18px;
 }
 /*-------стилі для заголовку [ТЕМНА ТЕМА]---------*/
 body.dark .hero-title {
-    color: var(--light-gray-color);
+  color: var(--light-gray-color);
 }
 /*--стилі для фрагменту заголовка курсивом--*/
 
-.title-fragment-italic{
-    color: var(--violet-color);
-    font-style: italic;
+.title-fragment-italic {
+  color: var(--violet-color);
+  font-style: italic;
 }
 /*--стилі для підзаголовку--*/
-.hero-title-motto{
-    max-width: 335px;
-    margin-top: 18px;
-    margin-bottom: 36px;
-    font-size: 14px;
-    line-height: 1.4;
-    font-weight: 400;
-    color: var(--black-color);
+.hero-title-motto {
+  max-width: 335px;
+  margin-top: 18px;
+  margin-bottom: 36px;
+  font-size: 14px;
+  line-height: 1.4;
+  font-weight: 400;
+  color: var(--black-color);
 }
 
 /*-----стилі для підзаголовка [ТЕМНА ТЕМА]------*/
 body.dark .hero-title-motto {
-    color: var(--light-gray-color);
+  color: var(--light-gray-color);
 }
 /*--стилі для кнопки--*/
 .hero-button {
-    padding: 14px 28px;
-    border-radius: 12px;
-    background-color: var(--violet-color);
-    color: var(--light-gray-color);
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 1.4;
-    text-transform: uppercase;
-    transition: background-color var(--transition-dur-and-time-func), 
-                border-style var(--transition-dur-and-time-func),
-                color var(--transition-dur-and-time-func);
+  width: 100%;
+  max-width: 178px;
+  display: flex;
+  padding: 14px 28px;
+  border-radius: 12px;
+  background-color: var(--violet-color);
+  color: var(--light-gray-color);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.4;
+  text-transform: uppercase;
+  transition: background-color var(--transition-dur-and-time-func),
+    border-style var(--transition-dur-and-time-func),
+    color var(--transition-dur-and-time-func);
 }
 
 .hero-button:hover,
 .hero-button:focus {
-    background-color:#6E7FCF;
-    color: var(--pale-blue-color)
+  background-color: #6e7fcf;
+  color: var(--pale-blue-color);
 }
 
 /*-----стилі для кнопки [ТЕМНА ТЕМА]-----*/
 body.dark .hero-button {
-    color: var(--light-gray-color);
+  color: var(--light-gray-color);
 }
 
 /*-----стилі для зображення [ТЕМНА] і [СВІТЛА] теми-----*/
 
 .hero-image-elements-wrapper {
-    max-width: 100%;
-    width: 342px;
-    height: 481px;
-    background-image: image-set(
+  max-width: 100%;
+  width: 342px;
+  height: 481px;
+  background-image: image-set(
     url('/img/images-Hero/mobile/group-light.webp') type('image/webp'),
-    url('/img/images-Hero/mobile/group-light@2x.webp') type('image/webp'));
+    url('/img/images-Hero/mobile/group-light@2x.webp') type('image/webp')
+  );
 
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 body.dark .hero-image-elements-wrapper {
-    background-image: image-set(url('/img/images-Hero/mobile/group-dark.webp') type('image/webp'),
-            url('/img/images-Hero/mobile/group-dark@2x.webp') type('image/webp'));
+  background-image: image-set(
+    url('/img/images-Hero/mobile/group-dark.webp') type('image/webp'),
+    url('/img/images-Hero/mobile/group-dark@2x.webp') type('image/webp')
+  );
 }
 
 @media screen and (min-device-pixel-ratio: 2) and (max-width: 767px),
-screen and (min-resolution: 192dpi) and (max-width: 767px),
-screen and (min-resolution: 2ppx) and (max-width: 767px) {
+  screen and (min-resolution: 192dpi) and (max-width: 767px),
+  screen and (min-resolution: 2ppx) and (max-width: 767px) {
+  .hero-image-elements-wrapper {
+    background-image: image-set(
+      url('/img/images-Hero/mobile/group-light.webp') type('image/webp'),
+      url('/img/images-Hero/mobile/group-light@2x.webp') type('image/webp')
+    );
+  }
 
-    .hero-image-elements-wrapper{
-        background-image: image-set(
-        url('/img/images-Hero/mobile/group-light.webp') type('image/webp'),
-        url('/img/images-Hero/mobile/group-light@2x.webp') type('image/webp'));
-    }
-
-     body.dark .hero-image-elements-wrapper {
-        background-image: image-set(
-        url('/img/images-Hero/mobile/group-dark.webp') type('image/webp'),
-        url('/img/images-Hero/mobile/group-dark@2x.webp') type('image/webp'));
-    }
+  body.dark .hero-image-elements-wrapper {
+    background-image: image-set(
+      url('/img/images-Hero/mobile/group-dark.webp') type('image/webp'),
+      url('/img/images-Hero/mobile/group-dark@2x.webp') type('image/webp')
+    );
+  }
 }
-
 
 /*-------------------------TABLET-------------------------*/
 
 @media screen and (min-width: 768px) {
-    .hero-content {
-        flex-direction: row;
-        justify-content: space-between;
-        gap: 0px;
-        margin-bottom: 100px; 
-    }
-    .hero-text-wrapper {
-        display: flex;
-        flex-direction: column;
-        justify-content: start;
-    }
-    .hero-title {
+  .hero-content {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0px;
+    margin-bottom: 100px;
+  }
+  .hero-text-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+  }
+  .hero-title {
     max-width: 384px;
     font-size: 44px;
     line-height: 1.1;
     margin-bottom: 18px;
     color: var(--black-color);
-    }  
-    .hero-title-motto {
-      max-width: 338px;
-      font-size: 16px;
-      line-height: 1.6;
-      margin-bottom: 48px;
-      color: var(--black-color);
-    } 
-    .hero-button {
+  }
+  .hero-title-motto {
+    max-width: 338px;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 48px;
+    color: var(--black-color);
+  }
+  .hero-button {
+    max-width: 245px;
     padding: 22px 44px;
     font-size: 18px;
     line-height: 1.3;
-    } 
+  }
 
-    /*--стилі зображення HERO-tablet [ТЕМНА]і [СВІТЛА] теми--*/
+  /*--стилі зображення HERO-tablet [ТЕМНА]і [СВІТЛА] теми--*/
   .hero-image-elements-wrapper {
     margin-left: -60px;
     margin-right: -70px;
     width: 427px;
     height: 593px;
-    background-image: image-set(url('/img/images-Hero/tablet/group-light.webp') type('image/webp'),
-            url('/img/images-Hero/tablet/group-light@2x.webp') type('image/webp'));
-    }
+    background-image: image-set(
+      url('/img/images-Hero/tablet/group-light.webp') type('image/webp'),
+      url('/img/images-Hero/tablet/group-light@2x.webp') type('image/webp')
+    );
+  }
 
- body.dark .hero-image-elements-wrapper {
-     background-image: image-set(url('/img/images-Hero/tablet/group-dark.webp') type('image/webp'),
-             url('/img/images-Hero/tablet/group-dark@2x.webp') type('image/webp'));
- }
-  
-/*--описуємо медіа-правило для фонового зображення для HERO-tablet--*/
+  body.dark .hero-image-elements-wrapper {
+    background-image: image-set(
+      url('/img/images-Hero/tablet/group-dark.webp') type('image/webp'),
+      url('/img/images-Hero/tablet/group-dark@2x.webp') type('image/webp')
+    );
+  }
+
+  /*--описуємо медіа-правило для фонового зображення для HERO-tablet--*/
   @media screen and (min-device-pixel-ratio: 2) and (min-width: 768px),
     screen and (min-resolution: 192dpi) and (min-width: 768px),
     screen and (min-resolution: 2ppx) and (min-width: 768px) {
-        .hero-image-elements-wrapper {
-            background-image: image-set(
-                url('/img/images-Hero/tablet/group-light.webp') type('image/webp'),
-                 url('/img/images-Hero/tablet/group-light@2x.webp') type('image/webp'));
-            }
-        }
-    body.dark .hero-image-elements-wrapper {
-            background-image: image-set(
-                url('/img/images-Hero/tablet/group-dark.webp') type('image/webp'),
-                url('/img/images-Hero/tablet/group-dark@2x.webp') type('image/webp'));
-        }
+    .hero-image-elements-wrapper {
+      background-image: image-set(
+        url('/img/images-Hero/tablet/group-light.webp') type('image/webp'),
+        url('/img/images-Hero/tablet/group-light@2x.webp') type('image/webp')
+      );
+    }
+  }
+  body.dark .hero-image-elements-wrapper {
+    background-image: image-set(
+      url('/img/images-Hero/tablet/group-dark.webp') type('image/webp'),
+      url('/img/images-Hero/tablet/group-dark@2x.webp') type('image/webp')
+    );
+  }
 }
 
 /*--------------------DESKTOP--------------------*/
@@ -188,54 +201,58 @@ screen and (min-resolution: 2ppx) and (max-width: 767px) {
 /*--стилі зображення HERO-tablet [ТЕМНА]і [СВІТЛА] теми--*/
 
 @media screen and (min-width: 1280px) {
-    .hero-section {
-        padding-top: 54px;
-    } 
-    .hero-content {
-        gap: 56px;
-        justify-content: space-between;
-    }
-    .hero-title-motto{
-        max-width: 480px;
-        font-size: 20px;
-        line-height: 1.3;  
-    }
-     .hero-title {
-        max-width: 555px;
-        font-size: 64px;
-        line-height: 1.1;
-        margin-bottom: 28px;
-        }
-    .hero-image-elements-wrapper {
-        width: 552px;
-        height: 672px;
-        margin-left: 0px;
-        margin-right: -80px;
-        background-image: image-set(
-            url('/img/images-Hero/desktop/group-light.webp') type('image/webp'),
-            url('/img/images-Hero/desktop/group-light@2x.webp') type('image/webp'));
-    }
+  .hero-section {
+    padding-top: 54px;
+  }
+  .hero-content {
+    gap: 56px;
+    justify-content: space-between;
+  }
+  .hero-title-motto {
+    max-width: 480px;
+    font-size: 20px;
+    line-height: 1.3;
+  }
+  .hero-title {
+    max-width: 555px;
+    font-size: 64px;
+    line-height: 1.1;
+    margin-bottom: 28px;
+  }
+  .hero-image-elements-wrapper {
+    width: 552px;
+    height: 672px;
+    margin-left: 0px;
+    margin-right: -80px;
+    background-image: image-set(
+      url('/img/images-Hero/desktop/group-light.webp') type('image/webp'),
+      url('/img/images-Hero/desktop/group-light@2x.webp') type('image/webp')
+    );
+  }
 
- body.dark .hero-image-elements-wrapper {
-        background-image: image-set(
-            url('/img/images-Hero/desktop/group-dark.webp') type('image/webp'),
-            url('/img/images-Hero/desktop/group-dark@2x.webp') type('image/webp'));
-        }
+  body.dark .hero-image-elements-wrapper {
+    background-image: image-set(
+      url('/img/images-Hero/desktop/group-dark.webp') type('image/webp'),
+      url('/img/images-Hero/desktop/group-dark@2x.webp') type('image/webp')
+    );
+  }
 
-/*--описуємо медіа-правило для фонового зображення для HERO-desctop--*/
+  /*--описуємо медіа-правило для фонового зображення для HERO-desctop--*/
 
-     @media screen and (min-device-pixel-ratio: 2) and (min-width: 1280px),
+  @media screen and (min-device-pixel-ratio: 2) and (min-width: 1280px),
     screen and (min-resolution: 192dpi) and (min-width: 1280px),
     screen and (min-resolution: 2ppx) and (min-width: 1280px) {
-        .hero-image-elements-wrapper {
-                background-image: image-set(url('/img/images-Hero/tablet/group-light.webp') type('image/webp'),
-                        url('/img/images-Hero/tablet/group-light@2x.webp') type('image/webp'));
-        }
+    .hero-image-elements-wrapper {
+      background-image: image-set(
+        url('/img/images-Hero/tablet/group-light.webp') type('image/webp'),
+        url('/img/images-Hero/tablet/group-light@2x.webp') type('image/webp')
+      );
     }
-     body.dark .hero-image-elements-wrapper {
-        background-image: image-set(
-            url('/img/images-Hero/desktop/group-dark.webp') type('image/webp'),
-            url('/img/images-Hero/desktop/group-dark@2x.webp') type('image/webp'));
-    }
-
-} 
+  }
+  body.dark .hero-image-elements-wrapper {
+    background-image: image-set(
+      url('/img/images-Hero/desktop/group-dark.webp') type('image/webp'),
+      url('/img/images-Hero/desktop/group-dark@2x.webp') type('image/webp')
+    );
+  }
+}

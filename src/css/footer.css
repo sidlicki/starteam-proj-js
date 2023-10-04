@@ -20,6 +20,7 @@
 .logo-in-footer:hover,
 .logo-in-footer:focus {
   transform: scale(1.1);
+  transition: transform var(--transition-dur-and-time-func);
 }
 
 .text-logo-footer {
@@ -76,9 +77,10 @@
   height: 32px;
   transition: transform var(--transition-dur-and-time-func);
 }
-.social-icon-footer:hover,
-.social-icon-footer:focus {
+.social-link-footer:hover .social-icon-footer,
+.social-link-footer:focus .social-icon-footer {
   transform: scale(1.1);
+  transition: transform var(--transition-dur-and-time-func);
 }
 
 @media screen and (min-width: 768px) {

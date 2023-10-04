@@ -3,7 +3,7 @@ import { searchCocktailsByFirstLetter } from './cocktail-api';
 import { emptySearch } from './search-by-name';
 
 import Pagination from 'tui-pagination';
-import {pagiation} from "./pagination";
+import { pagiation } from './pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 
 const alphabetList = document.querySelector('.js-search-menu');
@@ -13,7 +13,7 @@ const alphabetSerchList = document.querySelector('.js-search-mobile');
 alphabetList.addEventListener('click', onSearchbyLetter);
 
 function onSearchbyLetter(evt) {
-    let firstLetter = evt.target.textContent;
+  let firstLetter = evt.target.textContent;
   searchCocktailsByFirstLetter(firstLetter)
     .then(cocktails => {
       if (cocktails && cocktails.length > 0) {
@@ -50,8 +50,3 @@ function onSearchByLetter(evt) {
             console.error('Error fetching cocktails:', error);
         });
 }
-
-
-
-
-
