@@ -53,7 +53,7 @@ function createCardIngredient({
   <h1 class="modal-ingred-title">${title || 'Has no data'}</h1>
 
   <p class="modal-ingred-text-type type-ingred">${type || 'Has no data'}</p>
-  
+
 </div>
 </div>
   <div class="modal-cocktail-ingred add-two"></div>
@@ -148,6 +148,9 @@ async function onRenderOpenModalIngred(event) {
         btnModalAddFav.classList.add('is-hidden');
         btnModalRemoveFav.classList.remove('is-hidden');
         onAddFavIngredClick(ingredientDetails[0]._id);
+        if (favIngredientsContainer) {
+          loadFavoriteIngredientsData();
+        }
       });
 
       // Manage button "Remove from Favorite"
@@ -155,6 +158,9 @@ async function onRenderOpenModalIngred(event) {
         btnModalAddFav.classList.remove('is-hidden');
         btnModalRemoveFav.classList.add('is-hidden');
         onRemFavIngredClick(ingredientDetails[0]._id);
+        if (favIngredientsContainer) {
+          loadFavoriteIngredientsData();
+        }
       });
 
       // Listen static html-button close modal window
@@ -176,9 +182,6 @@ overlay.addEventListener('click', function () {
   modal2.classList.remove('active');
   document.body.classList.remove('overflow-hidden');
   this.classList.remove('active');
-  if (favIngredientsContainer) {
-    loadFavoriteIngredientsData();
-  }
 });
 
 // Function open modal from button
@@ -194,7 +197,6 @@ function modalIngredCloseBack() {
   overlay.classList.remove('active');
   modalCocktOpen();
   if (favIngredientsContainer) {
-    loadFavoriteIngredientsData();
     document.body.classList.remove('overflow-hidden');
   }
 }
@@ -204,9 +206,6 @@ function modalIngredCloseBtn() {
   modal2.classList.remove('active');
   overlay.classList.remove('active');
   document.body.classList.remove('overflow-hidden');
-  if (favIngredientsContainer) {
-    loadFavoriteIngredientsData();
-  }
 }
 
 // Function open modal from button
