@@ -10,35 +10,78 @@
   padding-bottom: 20px;
 } 
 */
+strong {
+  color: #242424;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.modal-ingred-text-descr {
+  overflow-y: scroll;
+  height: 120px;
+}
 
 /*------------MOBILE------------*/
 @media screen and (max-width: 767px) {
 }
 
 .modal-ingredient-window {
-  width: 335px;
-  max-height: 95%;
+  width: 100%;
+  max-width: 335px;
   height: auto;
-  /*--max-height: 905px;--*/
+
   overflow: scroll;
   border-radius: 20px;
   background-color: white;
-  /*--border: 1px solid blue;--*/
-
   overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+body.dark .modal-ingredient-window {
+  background-color: #232330;
+}
+
+.modal-ingredient-window::-webkit-scrollbar {
+  display: none;
 }
 
 .modal-ingredient-content {
-  /*--border: 1px solid red;--*/
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding: 20px;
+  width: 100%;
+
+  max-width: 335px;
+  max-height: 616px;
+}
+
+body.dark .modal-ingredient-content {
+  background: #232330;
 }
 
 .modal-ingred-title {
   /* visibility: hidden; */
   font-size: 20px;
+  margin-top: 20px;
+  margin-bottom: 8px;
+}
+
+.modal-ingred-text-descr {
+  color: rgba(36, 36, 36, 0.5);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  margin-bottom: 40px;
+}
+
+body.dark .modal-ingred-text-descr {
+  color: rgba(253, 253, 255, 0.5);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+body.dark .modal-ingred-title {
+  color: #fdfdff;
 }
 
 .modal-ingred-subtitle {
@@ -50,18 +93,41 @@
   margin-bottom: 14px;
 }
 
-.modal-ingred-text {
-  margin-top: 18px;
+.modal-ingred-text-type {
+  /* margin-top: 18px; */
   font-size: 14px;
-  margin-bottom: 40px;
+  border-bottom: 1px solid rgba(36, 36, 36, 0.1);
+  padding-bottom: 20px;
+  /* margin-bottom: 40px; */
+  color: rgba(36, 36, 36, 0.5);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+  text-transform: uppercase;
+}
+
+body.dark .modal-ingred-text-type {
+  border-bottom: 1px solid rgba(253, 253, 255, 0.1);
+}
+
+body.dark .modal-ingred-text {
+  color: rgba(253, 253, 255, 0.5);
 }
 
 .type-ingred {
   text-transform: uppercase;
 }
 
+body.dark .type-ingred {
+  color: rgba(253, 253, 255, 0.5);
+}
+
 .add-one {
   color: rgba(36, 36, 36, 0.5);
+}
+
+body.dark strong {
+  color: #fdfdff;
 }
 
 /* .add-two {
@@ -84,10 +150,12 @@
 
 /*---Кнопка "Add to Favorite"---*/
 .modal-add-ingred-btn-fav {
-  width: 295px;
+  width: 100%;
+  max-width: 295px;
   height: 48px;
   margin-top: 40px;
   border-radius: 12px;
+  font-weight: 600;
   font-size: 14px;
   color: #fdfdff;
   border: none;
@@ -100,7 +168,8 @@
 
 /*---Кнопка "Remove from Favorite"---*/
 .modal-remove-ingred-btn-fav {
-  width: 295px;
+  width: 100%;
+  max-width: 295px;
   height: 48px;
   margin-top: 40px;
   border-radius: 12px;
@@ -116,10 +185,12 @@
 
 /*---Кнопка "Back"---*/
 .modal-ingred-btn-back {
-  width: 295px;
+  width: 100%;
+  max-width: 295px;
   height: 48px;
   margin-top: 14px;
   border-radius: 12px;
+  font-weight: 600;
   font-size: 14px;
   color: #242424;
   border: none;
@@ -129,8 +200,17 @@
   background-color: rgba(36, 36, 36, 0.2);
 }
 
+body.dark .modal-ingred-btn-back {
+  background-color: rgba(253, 253, 255, 0.1);
+  color: #fdfdff;
+}
+
+body.dark .modal-ingred-btn-back:hover {
+  background-color: rgba(253, 253, 255, 0.2);
+}
+
 .modal-btn-close {
-  position: absolute;
+  position: fixed;
   top: 14px;
   right: 14px;
   display: flex;
@@ -142,6 +222,24 @@
   width: 22px;
   height: 22px;
   /*--transition: background-color 0.3s, border 0.3s;--*/
+}
+
+body.dark .modal-btn-close {
+  color: var(#fdfdff);
+}
+
+.ingredients-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: rgba(36, 36, 36, 0.8);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+body.dark .ingredients-list {
+  color: rgba(253, 253, 255, 0.8);
 }
 
 /*-Описание иконки закрытия модального окна-*/
@@ -157,21 +255,30 @@
   /*--color: #7E8FDD;--*/
 }
 
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
 /*------------TABLET------------*/
 @media screen and (min-width: 768px) {
   .modal-ingredient-window {
-    width: 600px;
-    height: auto;
+    max-width: 600px;
+    /* height: auto; */
     /*--max-height: 569px;--*/
     /*--border: 1px solid blue; ---*/
   }
 
-  .modal-ingred-content {
-    /*--border: 1px solid red;--*/
-    padding-left: 40px;
-    padding-right: 40px;
-    padding-top: 40px;
-    padding-bottom: 40px;
+  .modal-ingredient-content {
+    max-width: 100%;
+    padding: 40px;
+  }
+
+  /* .modal-ingred-content {
+    --border: 1px solid red;--
+    padding: 40px;
+    width: 100%;
+  } */
+
+  body.dark .ingredients-list {
+    color: rgba(253, 253, 255, 0.8);
   }
 
   /* .modal-ingred-title {
@@ -185,6 +292,10 @@
     /*--border: 1px solid green;--*/
   }
 
+  .modal-ingred-title {
+    margin-top: 0;
+  }
+
   .add-content {
     margin-left: 20px;
     /*--border: 1px solid black;--*/
@@ -194,15 +305,22 @@
     margin-top: 20px;
   }
 
+  .modal-btn-close {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+  }
+
   .add-subtitle {
     margin-bottom: 18px;
   }
 
   /*---Кнопка "Add to Favorite"---*/
   .modal-add-ingred-btn-fav {
-    width: 251px;
+    max-width: 251px;
     height: 56px;
     margin-top: 40px;
+    font-weight: 600;
     margin-right: 18px;
     border-radius: 12px;
     font-size: 18px;
@@ -210,7 +328,7 @@
 
   /*---Кнопка "Remove from Favorite"---*/
   .modal-remove-ingred-btn-fav {
-    width: 291px;
+    max-width: 291px;
     height: 56px;
     margin-top: 40px;
     margin-right: 18px;
@@ -220,7 +338,7 @@
 
   /*---Кнопка "Back"---*/
   .modal-ingred-btn-back {
-    width: 172px;
+    max-width: 172px;
     height: 56px;
     /*--margin-top: 14px;--*/
     border-radius: 12px;
