@@ -3,6 +3,30 @@ import coctailWebp from '/img/mobile/coctail.webp';
 import coctailWebp2x from '/img/mobile/coctail@2x.webp';
 import spriteUrl from '/img/svg/sprite.svg';
 
+// ============ DELETE THE FOLLOWING CODE !!! ============
+const addFavoriteIngredientsBtn = document.querySelector(
+  '.temp-add-fav-ingredients'
+);
+
+addFavoriteIngredientsBtn.addEventListener('click', () => {
+  localStorage.setItem(
+    'favoriteIngredients',
+    JSON.stringify([
+      '64f1d5c969d8333cf130fbe8',
+      '64f1d5d269d8333cf130fc90',
+      '64aebb7f82d96cc69e0eb4b9',
+      '64f1d5dc69d8333cf130fd32',
+      '64f1d5d369d8333cf130fc9d',
+      '64f1d60069d8333cf130ff09',
+      '64aebb7f82d96cc69e0eb4ad',
+      '64f1d5c069d8333cf130fb3d',
+      '64f1d60169d8333cf130ff13',
+    ])
+  );
+});
+
+// =======================================================
+
 const LOCAL_STORAGE_FAV_INGREDIENTS_KEY = 'favoriteIngredients';
 
 let favoriteIngredientsDetails = [];
