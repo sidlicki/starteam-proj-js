@@ -1,18 +1,18 @@
-import{a as d,s as y,c as L,o as S,d as k,b as v,e as T,n as l,g as u}from"./add-remove-favorite-9b2c1582.js";import{g as M,p as o,n as C,a as E}from"./coctail@2x-3fa02ab7.js";function m(e){return e.map(({description:t,drink:n,drinkThumb:a,_id:s})=>`
+import{a as d,s as y,c as L,o as k,d as S,b as v,e as T,n as l,g as u}from"./add-remove-favorite-9b2c1582.js";import{g as M,p as o,n as C,a as E}from"./coctail@2x-3fa02ab7.js";function m(e){return e.map(({description:t,drink:n,drinkThumb:a,_id:s})=>`
     <li class="cocktail-card">
             <img class="cocktail-image" src="${a}" onerror="this.src='${d}'" alt="${n}" loading="lazy" width="307" height="257"/>
             <h3 class="cocktail-name">${n.slice(0,25)}</h3>
             <p class="cocktail-info">${t.slice(0,115)+"..."}</p>
             <div class="btns-info">
                 <button type="button" data-action="learnmore" class="js-learn-more learn-more-button" id="${s}">Learn more</button>
-                <button type="button" data-action="addtofav" class="js-add-to add-to-button" id="${s}">
+                <button type="button" data-action="addtofav" class="js-add-to add-to-button" aria-label="button like" id="${s}">
                     <svg class="icon-heart" width="18px" height="18px">
                         <use href="${y}#icon-heart"></use>
                     </svg>
                 </button>
             </div>
         </li>
-    `).join("")}const h=document.querySelector(".cocktails-list");let $=M();L($).then(e=>{h.innerHTML=m(e)});h.addEventListener("click",function(e){const t=e.target.id;switch(e.target.dataset.action){case"addtofav":console.log("Add to Favorite, ID",t);const n=e.target.children[0].classList;n.value=="icon-heart"?(n.replace("icon-heart","icon-heart-addtofavorite"),k(t)):(n.replace("icon-heart-addtofavorite","icon-heart"),v(t));break;case"learnmore":S(t);break}});document.body.addEventListener("click",q);function q(e){if(e.target.name==="add-cocktail"&&e.target.nodeName==="BUTTON"){let t=e.target.id;console.log(t),H(t)}}function H(e){document.getElementById(e).nextElementSibling.firstElementChild.classList.replace("icon-heart","icon-heart-addtofavorite")}document.body.addEventListener("click",x);function x(e){if(e.target.name==="remove-cocktail"&&e.target.nodeName==="BUTTON"){let t=e.target.id;A(t)}}function A(e){document.getElementById(e).nextElementSibling.firstElementChild.classList.replace("icon-heart-addtofavorite","icon-heart")}const c=document.querySelector(".search-input"),j=document.querySelector(".cocktails-list"),i=`
+    `).join("")}const h=document.querySelector(".cocktails-list");let $=M();L($).then(e=>{h.innerHTML=m(e)});h.addEventListener("click",function(e){const t=e.target.id;switch(e.target.dataset.action){case"addtofav":console.log("Add to Favorite, ID",t);const n=e.target.children[0].classList;n.value=="icon-heart"?(n.replace("icon-heart","icon-heart-addtofavorite"),S(t)):(n.replace("icon-heart-addtofavorite","icon-heart"),v(t));break;case"learnmore":k(t);break}});document.body.addEventListener("click",q);function q(e){if(e.target.name==="add-cocktail"&&e.target.nodeName==="BUTTON"){let t=e.target.id;console.log(t),H(t)}}function H(e){document.getElementById(e).nextElementSibling.firstElementChild.classList.replace("icon-heart","icon-heart-addtofavorite")}document.body.addEventListener("click",x);function x(e){if(e.target.name==="remove-cocktail"&&e.target.nodeName==="BUTTON"){let t=e.target.id;A(t)}}function A(e){document.getElementById(e).nextElementSibling.firstElementChild.classList.replace("icon-heart-addtofavorite","icon-heart")}const c=document.querySelector(".search-input"),j=document.querySelector(".cocktails-list"),i=`
           <div>
             <picture>
                 <!-- TABLET -->
