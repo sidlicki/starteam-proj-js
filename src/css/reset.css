@@ -37,6 +37,23 @@ img {
 body {
   margin: 0;
   font-family: Poppins;
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+main {
+  flex: 1;
 }
 
 svg {
