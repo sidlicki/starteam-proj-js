@@ -42,14 +42,12 @@ function onChangeInput(event) {
       searchCocktailsByName(inputValue)
         .then(cocktails => {
           if (cocktails && cocktails.length > 0) {
-            document.querySelector('.cocktails-header').innerHTML =
-              'Searching results';
-            pagiation(cocktails, 'byName', 'cocktails-list');
+            document.querySelector(".tui-pagination").classList.remove("visually-hidden");
+            pagiation(cocktails,"byName","cocktails-list");
+            
           } else {
             cardList.innerHTML = emptySearch;
-            document.querySelector('.tui-pagination').innerHTML = '';
-            document.querySelector('.cocktails-header').innerHTML =
-              'Searching results';
+            document.querySelector(".tui-pagination").classList.add("visually-hidden");
           }
         })
         .catch(error => {
