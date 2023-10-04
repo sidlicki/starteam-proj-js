@@ -17,13 +17,14 @@
   border: 2px solid rgba(126, 143, 221, 0.4);
   border-radius: 8px;
   color: #ffffff;
-  background: rgba(126, 143, 221, 0.4);
+  background-color: rgba(126, 143, 221, 0.4);
   cursor: pointer;
-transition: var(--transition-dur-and-time-func);
+  transition: background-color var(--transition-dur-and-time-func);
 }
 .search-select:focus,
 .search-select:hover {
-  background: #9cdfdf;
+  background-color: #9cdfdf;
+  transition: background-color var(--transition-dur-and-time-func);
 }
 .search-icon-down {
   content: '';
@@ -57,7 +58,7 @@ transition: var(--transition-dur-and-time-func);
   height: 40px;
   border-radius: 8px;
   border: 1px solid #fff;
-  background: rgba(126, 143, 221, 0.4);
+  background-color: rgba(126, 143, 221, 0.4);
   color: #fdfdff;
   text-align: center;
   font-family: Poppins;
@@ -66,16 +67,17 @@ transition: var(--transition-dur-and-time-func);
   font-weight: 600;
   line-height: normal;
   cursor: pointer;
-transition: var(--transition-dur-and-time-func);
+  transition: background-color var(--transition-dur-and-time-func);
 }
 .search-menu-item:hover,
 .search-menu-item:focus {
-  background: #9cdfdf;
+  background-color: #9cdfdf;
+  transition: background-color var(--transition-dur-and-time-func);
 }
 
 body.dark .search-menu-item {
-    background: rgba(126, 143, 221, 0.40);
-    border: 1px solid rgba(126, 143, 221, 0.40);
+  background: rgba(126, 143, 221, 0.4);
+  border: 1px solid rgba(126, 143, 221, 0.4);
 }
 body.dark .search-menu-item:hover,
 .search-menu-item:focus {
@@ -89,7 +91,6 @@ body.dark .search-menu-item:hover,
   padding-bottom: 40px;
 }
 .search-input {
-
   width: 100%;
   height: 44px;
   border-radius: 80px;
@@ -101,14 +102,14 @@ body.dark .search-menu-item:hover,
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  transition: var(--transition-dur-and-time-func);
+  transition: background-color var(--transition-dur-and-time-func);
 }
 
 body.dark .search-input {
-    color: #fdfdff;
-    background: var(--black-color);
+  color: #fdfdff;
+  background-color: var(--black-color);
+  transition: background-color var(--transition-dur-and-time-func);
 }
-
 
 .search-icon {
   position: absolute;
@@ -119,9 +120,8 @@ body.dark .search-input {
   transform: translateY(-50%);
 }
 body.dark .search-icon {
-    fill: #FDFDFF;
+  fill: #fdfdff;
 }
-
 
 @media screen and (min-width: 768px) {
   .search-one {
@@ -144,9 +144,9 @@ body.dark .search-icon {
     padding-top: 50px;
     padding-bottom: 50px;
   }
-.search-input {
+  .search-input {
     max-width: 300px;
-}
+  }
   .search-icon {
     left: 220px;
   }
