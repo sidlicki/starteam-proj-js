@@ -67,6 +67,8 @@ body.dark .burger-icon {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
+  transition: opacity var(--transition-dur-and-time-func),
+    visibility var(--transition-dur-and-time-func);
 }
 .mobile-menu-logo-link {
   font-weight: 600;
