@@ -6,34 +6,21 @@ import { onAddFavCocktClick, onRemFavCocktClick } from './add-remove-favorite';
 
 let quantity = getScreenWidthValue(); //присвоєння значення 8/9 викликом функція яка визначає ширину екрану
 
-// Потрібна перевірка, чи є вже Улюблені коктейлі...
-// Зробити файл з загальними змінними для всіх...
-
-// let favoriteCocktails =
-//   JSON.parse(localStorage.getItem('favoriteCocktails')) || [];
-
-// function isInFavorite(currentIdCard) {
-//   const indexModalFav = favoriteCocktails.findIndex(
-//     item => item === currentIdCard);
-  
-//   console.log(indexModalFav);
-
-//    if (indexModalFav !== -1) {
-//       btnModalAddFav.classList.add('is-hidden');
-//       btnModalRemoveFav.classList.remove('is-hidden');
-//     }
-// }
-
-//let favCocktailIds = JSON.parse(localStorage.getItem(favoriteId)) || [];
-//console.log(favoriteCocktails);
-
 // Запит на бекенд + відмальовування карток в список (cardList)
 fetchRandomCocktails(quantity).then(cocktails => {
   cardList.innerHTML = createMarkup(cocktails);
+ // Код для закрашивания сердечка, если коктейль есть в избранных / LS
+ // Начало
+  let arr = [];
+for (let i = 0; i < cocktails.length; i++) {
+  arr.push(cocktails[i]._id)
+}
+findAndAddSameElems(arr, favoriteCocktails)
+// Конец
 });
 
 // Прослуховувач + Обробник кліку по кнопках карток на головній сторінці
-const cardList = document.querySelector(`.cocktails-list`); //
+const cardList = document.querySelector(`.cocktails-list`); 
 
 cardList.addEventListener('click', function (event) {
   
@@ -42,32 +29,18 @@ cardList.addEventListener('click', function (event) {
 
   switch (event.target.dataset.action) {
     case 'addtofav':
-      console.log('Add to Favorite, ID', currentIdCard);
-
-      // isInFavorite(currentIdCard)
-      // викликати тут функцію. котра додає/забирає елемент до локал сторейдж
-      
-      // event.target.children[0].classList.replace('icon-heart', 'icon-heart-addtofavorite')
-      // console.log(event.target.children[0].classList.value);
-      
-      const iconHeartSet = event.target.children[0].classList;
-      
-      // const indexModalFav = favoriteCocktails.findIndex(
-      //   item => item === currentIdCard
-      // );
             
+      const iconHeartSet = event.target.children[0].classList;
+                     
       if (iconHeartSet.value == 'icon-heart') {
         iconHeartSet.replace('icon-heart', 'icon-heart-addtofavorite');
-        //console.log(iconHeartSet.value);
 
         onAddFavCocktClick(currentIdCard)
       } else {
         iconHeartSet.replace('icon-heart-addtofavorite', 'icon-heart');
-        //console.log(iconHeartSet.value);
 
         onRemFavCocktClick(currentIdCard)
       }
-      //console.log(favoriteCocktails);
       break;
     
     case 'learnmore':
@@ -87,19 +60,12 @@ function onClickAdd(event) {
  if (event.target.name === 'add-cocktail' && event.target.nodeName === 'BUTTON'){
   let cardId = event.target.id;
   //console.log(cardId)
-  //onAddSvg(cardId);
   let btnAdd = document.getElementById(cardId);
   const addSvg = (btnAdd.nextElementSibling).firstElementChild;
   addSvg.classList.replace('icon-heart', 'icon-heart-addtofavorite')
  }
 }
 
-// function onAddSvg(cardId) {
-//   let btnAdd = document.getElementById(cardId);
-//   const addSvg = (btnAdd.nextElementSibling).firstElementChild;
-//   addSvg.classList.replace('icon-heart', 'icon-heart-addtofavorite')
-// }
-  
 // REMOVE HEART from ICON
 document.body.addEventListener('click', onClickRem);
 
@@ -113,9 +79,24 @@ function onClickRem(event) {
  }
 }
 
-// function onRemSvg(cardId) {
-//   let btnRem = document.getElementById(cardId);
-//   const remSvg = (btnRem.nextElementSibling).firstElementChild;
-//   remSvg.classList.replace('icon-heart-addtofavorite', 'icon-heart')
-// }
 export { onClickAdd, onClickRem };
+  
+// Функция формирования массива повторяющихся элементов
+// из массива рандомных коктейлей и массива избранных (LS)
+function findAndAddSameElems(arr1, arr2) {
+  const resultArr = []
+  for (let i = 0; i < arr1.length; i++) {
+    for (let j = 0; j < arr2.length; j++) {
+      if (arr1[i] === arr2[j]) {
+        resultArr.push(arr1[i])
+      }
+    }
+  }
+  console.log(resultArr);
+  
+  for (let k = 0; k < resultArr.length; k++) {
+    let btnLeranMore = document.getElementById(resultArr[k]);
+    const iconHeart = (btnLeranMore.nextElementSibling).firstElementChild;
+    iconHeart.classList.replace('icon-heart', 'icon-heart-addtofavorite');
+  }
+}

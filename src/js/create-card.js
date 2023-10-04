@@ -1,9 +1,11 @@
 import spriteUrl from '/img/svg/sprite.svg';
 import defaultImg from '/img/mobile/coctail@2x.webp';
+
 function createMarkup(arr) {
-  return arr
+
+    const markup = arr
     .map(
-      ({ description, drink, drinkThumb, _id }) =>
+        ({ description, drink, drinkThumb, _id }) =>    
         `
     <li class="cocktail-card">
             <img class="cocktail-image" src="${drinkThumb}" onerror="this.src='${defaultImg}'" alt="${drink}" loading="lazy" width="307" height="257"/>
@@ -20,7 +22,8 @@ function createMarkup(arr) {
         </li>
     `
     )
-    .join(``);
-}
+        .join(``);
+    return markup;
+};
 
 export { createMarkup };
