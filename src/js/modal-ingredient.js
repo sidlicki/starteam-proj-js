@@ -59,7 +59,7 @@ function createCardIngredient({
   
 </div>
 </div>
-  <div class="modal-cocktail-ingred add-two"></div>
+  <div class="modal-cocktail-ingred add-two-plus"></div>
 
   <p class="modal-ingred-text add-one">${description || "Has no data"}</p>
   <ul class="ingredients-list">

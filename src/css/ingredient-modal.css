@@ -64,7 +64,7 @@
   color: rgba(36, 36, 36, 0.5);
 }
 
-/* .add-two {
+.add-two-plus {
   
   color: rgba(36, 36, 36, 0.5);
   font-size: 14px;
@@ -72,7 +72,8 @@
    line-height: 18px;
   text-transform: uppercase;
   border-bottom: 1px solid rgba(36, 36, 36, 0.1);
-  /* padding-bottom: 20px; */
+   padding-bottom: 20px; 
+}
 
 .modal-cocktail-ingred {
   margin-top: 20px;
