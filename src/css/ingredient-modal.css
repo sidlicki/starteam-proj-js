@@ -27,15 +27,13 @@ strong {
 }
 
 .modal-ingredient-window {
-  width: 335px;
-  min-height: min-content;
-  /* height: min-content; */
-  /*--max-height: 905px;--*/
+  width: 100%;
+  max-width: 335px;
+  height: auto;
+
   overflow: scroll;
   border-radius: 20px;
   background-color: white;
-  /*--border: 1px solid blue;--*/
-
   overflow-x: hidden;
   overflow-y: hidden;
 }
@@ -49,14 +47,11 @@ body.dark .modal-ingredient-window {
 }
 
 .modal-ingredient-content {
-  /*--border: 1px solid red;--*/
-  /* padding-left: 20px;
-  padding-right: 20px;
-  padding-top: 40px;
-  padding-bottom: 40px; */
   padding: 20px;
-  width: 335px;
-  height: 616px;
+  width: 100%;
+
+  max-width: 335px;
+  max-height: 616px;
 }
 
 body.dark .modal-ingredient-content {
@@ -155,7 +150,8 @@ body.dark strong {
 
 /*---Кнопка "Add to Favorite"---*/
 .modal-add-ingred-btn-fav {
-  width: 295px;
+  width: 100%;
+  max-width: 295px;
   height: 48px;
   margin-top: 40px;
   border-radius: 12px;
@@ -172,7 +168,8 @@ body.dark strong {
 
 /*---Кнопка "Remove from Favorite"---*/
 .modal-remove-ingred-btn-fav {
-  width: 295px;
+  width: 100%;
+  max-width: 295px;
   height: 48px;
   margin-top: 40px;
   border-radius: 12px;
@@ -188,7 +185,8 @@ body.dark strong {
 
 /*---Кнопка "Back"---*/
 .modal-ingred-btn-back {
-  width: 295px;
+  width: 100%;
+  max-width: 295px;
   height: 48px;
   margin-top: 14px;
   border-radius: 12px;
@@ -196,7 +194,6 @@ body.dark strong {
   font-size: 14px;
   color: #242424;
   border: none;
-  /* margin-bottom: 40px; */
 }
 
 .modal-ingred-btn-back:hover {
@@ -213,7 +210,7 @@ body.dark .modal-ingred-btn-back:hover {
 }
 
 .modal-btn-close {
-  position: absolute;
+  position: fixed;
   top: 14px;
   right: 14px;
   display: flex;
@@ -263,14 +260,14 @@ body.dark .ingredients-list {
 /*------------TABLET------------*/
 @media screen and (min-width: 768px) {
   .modal-ingredient-window {
-    width: 600px;
+    max-width: 600px;
     /* height: auto; */
     /*--max-height: 569px;--*/
     /*--border: 1px solid blue; ---*/
   }
 
   .modal-ingredient-content {
-    width: 100%;
+    max-width: 100%;
     padding: 40px;
   }
 
@@ -320,7 +317,7 @@ body.dark .ingredients-list {
 
   /*---Кнопка "Add to Favorite"---*/
   .modal-add-ingred-btn-fav {
-    width: 251px;
+    max-width: 251px;
     height: 56px;
     margin-top: 40px;
     font-weight: 600;
@@ -331,7 +328,7 @@ body.dark .ingredients-list {
 
   /*---Кнопка "Remove from Favorite"---*/
   .modal-remove-ingred-btn-fav {
-    width: 291px;
+    max-width: 291px;
     height: 56px;
     margin-top: 40px;
     margin-right: 18px;
@@ -341,7 +338,7 @@ body.dark .ingredients-list {
 
   /*---Кнопка "Back"---*/
   .modal-ingred-btn-back {
-    width: 172px;
+    max-width: 172px;
     height: 56px;
     /*--margin-top: 14px;--*/
     border-radius: 12px;
