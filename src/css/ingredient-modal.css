@@ -10,6 +10,17 @@
   padding-bottom: 20px;
 } 
 */
+strong {
+  color: #242424;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.modal-ingred-text-descr {
+  overflow-y: scroll;
+  height: 120px;
+}
 
 /*------------MOBILE------------*/
 @media screen and (max-width: 767px) {
@@ -17,8 +28,8 @@
 
 .modal-ingredient-window {
   width: 335px;
-  max-height: 95%;
-  height: auto;
+  min-height: min-content;
+  /* height: min-content; */
   /*--max-height: 905px;--*/
   overflow: scroll;
   border-radius: 20px;
@@ -26,6 +37,7 @@
   /*--border: 1px solid blue;--*/
 
   overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 body.dark .modal-ingredient-window {
@@ -43,11 +55,34 @@ body.dark .modal-ingredient-window {
   padding-top: 40px;
   padding-bottom: 40px; */
   padding: 20px;
+  width: 335px;
+  height: 616px;
+}
+
+body.dark .modal-ingredient-content {
+  background: #232330;
 }
 
 .modal-ingred-title {
   /* visibility: hidden; */
   font-size: 20px;
+  margin-top: 20px;
+  margin-bottom: 8px;
+}
+
+.modal-ingred-text-descr {
+  color: rgba(36, 36, 36, 0.5);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  margin-bottom: 40px;
+}
+
+body.dark .modal-ingred-text-descr {
+  color: rgba(253, 253, 255, 0.5);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
 }
 
 body.dark .modal-ingred-title {
@@ -63,10 +98,21 @@ body.dark .modal-ingred-title {
   margin-bottom: 14px;
 }
 
-.modal-ingred-text {
-  margin-top: 18px;
+.modal-ingred-text-type {
+  /* margin-top: 18px; */
   font-size: 14px;
-  margin-bottom: 40px;
+  border-bottom: 1px solid rgba(36, 36, 36, 0.1);
+  padding-bottom: 20px;
+  /* margin-bottom: 40px; */
+  color: rgba(36, 36, 36, 0.5);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+  text-transform: uppercase;
+}
+
+body.dark .modal-ingred-text-type {
+  border-bottom: 1px solid rgba(253, 253, 255, 0.1);
 }
 
 body.dark .modal-ingred-text {
@@ -113,6 +159,7 @@ body.dark strong {
   height: 48px;
   margin-top: 40px;
   border-radius: 12px;
+  font-weight: 600;
   font-size: 14px;
   color: #fdfdff;
   border: none;
@@ -145,9 +192,11 @@ body.dark strong {
   height: 48px;
   margin-top: 14px;
   border-radius: 12px;
+  font-weight: 600;
   font-size: 14px;
   color: #242424;
   border: none;
+  /* margin-bottom: 40px; */
 }
 
 .modal-ingred-btn-back:hover {
@@ -178,6 +227,24 @@ body.dark .modal-ingred-btn-back:hover {
   /*--transition: background-color 0.3s, border 0.3s;--*/
 }
 
+body.dark .modal-btn-close {
+  color: var(#fdfdff);
+}
+
+.ingredients-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: rgba(36, 36, 36, 0.8);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+body.dark .ingredients-list {
+  color: rgba(253, 253, 255, 0.8);
+}
+
 /*-Описание иконки закрытия модального окна-*/
 .modal-btn-close-icon {
   width: 24px;
@@ -191,22 +258,27 @@ body.dark .modal-ingred-btn-back:hover {
   /*--color: #7E8FDD;--*/
 }
 
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
 /*------------TABLET------------*/
 @media screen and (min-width: 768px) {
   .modal-ingredient-window {
     width: 600px;
-    height: auto;
+    /* height: auto; */
     /*--max-height: 569px;--*/
     /*--border: 1px solid blue; ---*/
   }
 
-  .modal-ingred-content {
-    /*--border: 1px solid red;--*/
-    padding-left: 40px;
-    padding-right: 40px;
-    padding-top: 40px;
-    padding-bottom: 40px;
+  .modal-ingredient-content {
+    width: 100%;
+    padding: 40px;
   }
+
+  /* .modal-ingred-content {
+    --border: 1px solid red;--
+    padding: 40px;
+    width: 100%;
+  } */
 
   body.dark .ingredients-list {
     color: rgba(253, 253, 255, 0.8);
@@ -223,6 +295,10 @@ body.dark .modal-ingred-btn-back:hover {
     /*--border: 1px solid green;--*/
   }
 
+  .modal-ingred-title {
+    margin-top: 0;
+  }
+
   .add-content {
     margin-left: 20px;
     /*--border: 1px solid black;--*/
@@ -230,6 +306,12 @@ body.dark .modal-ingred-btn-back:hover {
 
   .modal-ingred-subtitle {
     margin-top: 20px;
+  }
+
+  .modal-btn-close {
+    position: absolute;
+    top: 18px;
+    right: 18px;
   }
 
   .add-subtitle {
@@ -241,6 +323,7 @@ body.dark .modal-ingred-btn-back:hover {
     width: 251px;
     height: 56px;
     margin-top: 40px;
+    font-weight: 600;
     margin-right: 18px;
     border-radius: 12px;
     font-size: 18px;
