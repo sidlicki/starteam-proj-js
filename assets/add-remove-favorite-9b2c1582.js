@@ -55,18 +55,18 @@
                 </svg>
             </button>
           </div>
-        </li>`;q=JSON.parse(localStorage.getItem(He)||"[]");const cr=e=>{if(e.target.nodeName!=="BUTTON"||e.target.dataset.action!=="igredient-remove-from-favorite")return;const t=e.target.closest(".fav-ingredients-list-item").dataset.ingredientId;q=q.filter(n=>n!==t),localStorage.setItem(He,JSON.stringify(q)),ue=ue.filter(n=>n._id!==t),St()};Ie&&Ie.addEventListener("click",cr);const Ze=document.querySelector(".fav-ingredients-container"),lr=async e=>{ue=await Qn(e)},St=()=>{if(q.length){const t=`<ul class="fav-ingredients-list">${ue.map(n=>ar(n)).join("")}</ul>`;Ze.innerHTML=t}else Ze.innerHTML=or},ge=async()=>{q=JSON.parse(localStorage.getItem(He))||[],await lr(q),St()};Ie&&ge();const Ae=document.querySelector(".modal-ingredient-content"),ur=document.querySelector(".js-modal-close"),Le=document.querySelector(".modal-cocktail-window"),Z=document.querySelector(".fav-ingredients-container"),G=document.querySelector(".overlay"),ee=document.querySelector(".modal1"),ve=document.querySelector(".modal2");let D=JSON.parse(localStorage.getItem("favoriteIngredients"))||[];function dr({_id:e,title:t,description:n,type:r,abv:s,flavour:i,country:o}){let l=n.split(" ");if(l.length>0){let d=l[0],c="<strong>"+d+"</strong>";n=n.replace(d,c)}return`<div class="add-cont">
+        </li>`;q=JSON.parse(localStorage.getItem(He)||"[]");const cr=e=>{if(e.target.nodeName!=="BUTTON"||e.target.dataset.action!=="igredient-remove-from-favorite")return;const t=e.target.closest(".fav-ingredients-list-item").dataset.ingredientId;q=q.filter(n=>n!==t),localStorage.setItem(He,JSON.stringify(q)),ue=ue.filter(n=>n._id!==t),St()};Ie&&Ie.addEventListener("click",cr);const Ze=document.querySelector(".fav-ingredients-container"),lr=async e=>{ue=await Qn(e)},St=()=>{if(q.length){const t=`<ul class="fav-ingredients-list">${ue.map(n=>ar(n)).join("")}</ul>`;Ze.innerHTML=t}else Ze.innerHTML=or},ge=async()=>{q=JSON.parse(localStorage.getItem(He))||[],await lr(q),St()};Ie&&ge();const Ae=document.querySelector(".modal-ingredient-content"),ur=document.querySelector(".js-modal-close"),Le=document.querySelector(".modal-cocktail-window"),Z=document.querySelector(".fav-ingredients-container"),G=document.querySelector(".overlay"),ee=document.querySelector(".modal1"),ve=document.querySelector(".modal2");let D=JSON.parse(localStorage.getItem("favoriteIngredients"))||[];function dr({_id:e,title:t,description:n,type:r,abv:s,flavour:i,country:o}){let l=n.split(" ");if(l.length>0){let d=l[0],c="<strong>"+d+"</strong>";n=n.replace(d,c)}return`<div class="add-cont-ingredients">
 
-  <div class="add-content">
+  <div class="add-content-ingredients">
   <h1 class="modal-ingred-title">${t||"Has no data"}</h1>
 
-  <p class="modal-ingred-text type-ingred add-one ">${r||"Has no data"}</p>
+  <p class="modal-ingred-text-type type-ingred">${r||"Has no data"}</p>
   
 </div>
 </div>
   <div class="modal-cocktail-ingred add-two"></div>
 
-  <p class="modal-ingred-text add-one">${n||"Has no data"}</p>
+  <p class="modal-ingred-text-descr">${n||"Has no data"}</p>
   <ul class="ingredients-list">
   <li class="ingredients-element add-li">Type: ${r||"Has no data"}</li>
   <li class="ingredients-element add-li">Country of origin: ${o||"Has no data"}</li>
