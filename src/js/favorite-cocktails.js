@@ -20,14 +20,41 @@ document.addEventListener('DOMContentLoaded', generateCocktails);
 // Оновлено: додавання обробників подій для кнопок видалення
 function addRemoveFavoriteButtonClickHandlers() {
   const removeFavoriteButtons = document.querySelectorAll('.remove-favorite');
-
+  
   removeFavoriteButtons.forEach(button => {
+    
+    
     button.addEventListener('click', () => {
+      let currentPage;
+
       const cocktailId = button.id;
       onRemFavCocktClick(cocktailId);
-      generateCocktails(); // Оновлено: оновіть дані після видалення коктейлю
+      
+      if(document.querySelector(".tui-pagination").classList.contains("visually-hidden")===false){
+      
+        if(removeFavoriteButtons.length!==0){
+          
+          currentPage = Number(document.querySelector(".tui-is-selected").textContent);
+          
+          if(removeFavoriteButtons.length===1){
+              currentPage = Number(document.querySelector(".tui-is-selected").textContent);
+              currentPage=currentPage-1
+      }
+    }}
+    
+      console.log("favoriteCurrentPage= "+currentPage);
+      generateCocktails(currentPage); // Оновлено: оновіть дані після видалення коктейлю
     });
   });
+}
+
+function clicPaginator(e){
+  if (e.target===e.currentTarget){
+    return
+  }
+  console.log("clickkk")
+  addRemoveFavoriteButtonClickHandlers();
+  
 }
 
 // структура картки
@@ -64,7 +91,7 @@ function addRemoveFavoriteButtonClickHandlers() {
 // };
 
 // функція для генерації списку коктейлів
-export async function generateCocktails() {
+export async function generateCocktails(currentPage) {
   
 
   const localFavorite =
@@ -77,10 +104,14 @@ export async function generateCocktails() {
     );
       console.log(data);
       //renderCocktail(data, favCocktailList);
-      pagiation(data, "byfavoriteCoctails", "fav-cocktail-list",6);
+      pagiation(data, "byfavoriteCoctails", "fav-cocktail-list",6,currentPage);
+      addRemoveFavoriteButtonClickHandlers();
+      document.querySelector(".tui-pagination").addEventListener("click",clicPaginator)
+      
+      
       notFoundBlock.innerHTML = '';
   } else {
-    document.querySelector(".tui-pagination").innerHTML=""; 
+    document.querySelector(".tui-pagination").classList.add("visually-hidden"); 
     notFoundBlock.classList.remove('is-hidden');
     notFoundBlock.innerHTML = `
             <picture>

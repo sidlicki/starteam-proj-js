@@ -17,15 +17,16 @@ function onSearchbyLetter(evt) {
   searchCocktailsByFirstLetter(firstLetter)
     .then(cocktails => {
       if (cocktails && cocktails.length > 0) {
-        console.log(cocktails);
+        document.querySelector(".tui-pagination").classList.remove("visually-hidden");
         pagiation(cocktails, "byAbc", "cocktails-list");
       } else {
+        document.querySelector(".tui-pagination").classList.add("visually-hidden");
         cardList.innerHTML = emptySearch;
       }
     })
     .catch(error => {
       console.error('Error fetching cocktails:', error);
-      document.querySelector(".tui-pagination").innerHTML="";
+      
     });
 }
 
@@ -37,11 +38,12 @@ function onSearchByLetter(evt) {
     searchCocktailsByFirstLetter(firstLetter)
         .then(cocktails => {
             if (cocktails && cocktails.length > 0) {
-                cardList.innerHTML = createMarkup(cocktails);
+                // cardList.innerHTML = createMarkup(cocktails);
+                document.querySelector(".tui-pagination").classList.remove("visually-hidden");
                 pagiation(cocktails, "byAbc", "cocktails-list");
             } else {
                 cardList.innerHTML = emptySearch;
-                document.querySelector(".tui-pagination").innerHTML="";
+                document.querySelector(".tui-pagination").classList.add("visually-hidden");
             }
         })
         .catch(error => {

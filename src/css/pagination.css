@@ -15,6 +15,11 @@
   margin-bottom: 80px;
 }
 
+#tui-pagination-container .tui-pagination strong {
+    background: #FFFFFF;
+    border:#FFFFFF;
+}
+
 #tui-pagination-container .tui-first,
 #tui-pagination-container .tui-last {
   display: none;

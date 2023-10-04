@@ -7,25 +7,45 @@ import 'tui-pagination/dist/tui-pagination.css';
 import spriteUrl from '/img/svg/sprite.svg';
 import defaultImg from '/img/mobile/coctail@2x.webp';
 import { getScreenWidthValue } from './screen-value';
-
-export function pagiation(cocList, flag, classNameOfContainer, numbPhoto) {
+let instance;
+export function pagiation(
+  cocList,
+  flag,
+  classNameOfContainer,
+  numbPhoto,
+  currentPage
+) {
   // let numberOfPhoto =getScreenWidthValue();
+  console.log('Виклик pagination');
   let numberOfPhoto = numbPhoto === 6 ? 6 : getScreenWidthValue();
   let maxNumberOfPaginator = 3;
   // console.log(cardMarkup);
   if (cocList.length <= numberOfPhoto) {
-    document.querySelector(".tui-pagination").classList.add("visually-hidden");
-    
+    document.querySelector('.tui-pagination').classList.add('visually-hidden');
   }
 
   const container = document.getElementById('tui-pagination-container');
-
-  const instance = new Pagination(container, {
+  
+    instance = new Pagination(container, {
     totalItems: cocList.length,
     itemsPerPage: numberOfPhoto,
     visiblePages: maxNumberOfPaginator,
   }).getCurrentPage();
+  let pagesPaginator = Array.from(document.querySelectorAll('.tui-page-btn'));
 
+  console.log('currentPage= ' + currentPage);
+  if (Number.isInteger(currentPage) === true) {
+    // instance.getCurrentPage(2);
+    pagesPaginator.forEach(item => {
+      
+      if (Number(item.textContent) === currentPage) {
+        console.log(item);
+        // instance.movePageTo(2);
+        item.click();
+        
+      }
+    });
+  }
   const createNewArr = () => {
     let newArr = [];
     let numberOfPhotoJ = numberOfPhoto;
@@ -43,6 +63,8 @@ export function pagiation(cocList, flag, classNameOfContainer, numbPhoto) {
     return newArr;
   };
 
+
+
   console.log(createNewArr());
 
   let cardMarkup;
@@ -59,16 +81,15 @@ export function pagiation(cocList, flag, classNameOfContainer, numbPhoto) {
   };
 
   ///////////////
-
+ 
   const renderCards = currentItemPaginator => {
-    console.log(currentItemPaginator);
-    console.log(createNewArr()[currentItemPaginator]);
-    console.log('');
+    // console.log(currentItemPaginator);
+    // console.log(createNewArr()[currentItemPaginator]);
+    // console.log('');
 
-    const markup = createNewArr()
-      [currentItemPaginator].map(item => {
+    const markup = createNewArr()[currentItemPaginator].map(item => {
         const { _id, drink, drinkThumb, description } = item;
-
+        
         if (flag === 'byName' || flag === 'byAbc') {
           cardMarkup = `
                 <li class="cocktail-card" id="${_id}">
@@ -144,10 +165,14 @@ export function pagiation(cocList, flag, classNameOfContainer, numbPhoto) {
         return cardMarkup;
       })
       .join('');
-    console.log(cardMarkup);
+    // console.log(cardMarkup);
     document.querySelector(`.${classNameOfContainer}`).innerHTML = markup;
   };
-  renderCards(0);
+
+  const value = Number.isInteger(currentPage) === true ? currentPage-1 : 0;
+  console.log('value= ' + value);
+  console.log('');
+  renderCards(value);
 
   const addClassNumber = () => {
     const arrOfAllItem = Array.from(document.querySelectorAll('.tui-page-btn'));
@@ -195,7 +220,7 @@ export function pagiation(cocList, flag, classNameOfContainer, numbPhoto) {
       renderCards(Number(e.target.textContent) - 1);
     }
   }
-
+//   instance.movePageTo(2);
   container.addEventListener('click', clickFunc);
 }
 
