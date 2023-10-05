@@ -12,6 +12,7 @@ import noCoctailTabWebp2x from '/img/tablet/coctail@2x.webp';
 const searchInput = document.querySelector('.search-input');
 const cardList = document.querySelector('.cocktails-list');
 const wrapperLoader = document.querySelector('.wrapper-loader');
+const cocktailsHeaderText = document.querySelector('.cocktails-header');
 
 export const emptySearch = `
           <div>
@@ -39,6 +40,7 @@ function onChangeInput(event) {
     searchInput.value = '';
     wrapperLoader.classList.remove('is-hidden');
     cardList.innerHTML = '';
+    cocktailsHeaderText.innerHTML = 'Searching results';
 
     if (inputValue) {
       searchCocktailsByName(inputValue)

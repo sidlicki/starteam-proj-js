@@ -9,6 +9,7 @@ const alphabetList = document.querySelector('.js-search-menu');
 const cardList = document.querySelector('.cocktails-list');
 const alphabetSerchList = document.querySelector('.js-search-mobile');
 const wrapperLoader = document.querySelector('.wrapper-loader');
+const cocktailsHeaderText = document.querySelector('.cocktails-header');
 
 alphabetList.addEventListener('click', onSearchbyLetter);
 
@@ -16,6 +17,7 @@ function onSearchbyLetter(evt) {
   let firstLetter = evt.target.textContent;
   cardList.innerHTML = '';
   wrapperLoader.classList.remove('is-hidden');
+  cocktailsHeaderText.innerHTML = 'Searching results';
 
   searchCocktailsByFirstLetter(firstLetter)
     .then(cocktails => {
@@ -50,6 +52,7 @@ function onSearchByLetter(evt) {
 
   cardList.innerHTML = '';
   wrapperLoader.classList.remove('is-hidden');
+  cocktailsHeaderText.innerHTML = 'Searching results';
 
   searchCocktailsByFirstLetter(firstLetter)
     .then(cocktails => {
