@@ -3,6 +3,7 @@ import { createMarkup } from './create-card';
 import { getScreenWidthValue } from './screen-value';
 import { favoriteCocktails, onRenderOpenModal } from './modal-coctail';
 import { onAddFavCocktClick, onRemFavCocktClick } from './add-remove-favorite';
+import { onClickAdd, onClickRem } from './add-remove-favorite-main';
 
 let quantity = getScreenWidthValue(); //присвоєння значення 8/9 викликом функція яка визначає ширину екрану
 
@@ -12,9 +13,9 @@ fetchRandomCocktails(quantity).then(cocktails => {
  // Код для закрашивания сердечка, если коктейль есть в избранных / LS
  // Начало
   let arr = [];
-for (let i = 0; i < cocktails.length; i++) {
-  arr.push(cocktails[i]._id)
-}
+  for (let i = 0; i < cocktails.length; i++) {
+    arr.push(cocktails[i]._id)
+  }
 findAndAddSameElems(arr, favoriteCocktails)
 // Конец
 });
@@ -53,34 +54,9 @@ cardList.addEventListener('click', function (event) {
 
 export { cardList };
   
-// ADD HEART in ICON 
 document.body.addEventListener('click', onClickAdd);
-
-function onClickAdd(event) {
- if (event.target.name === 'add-cocktail' && event.target.nodeName === 'BUTTON'){
-  let cardId = event.target.id;
-  //console.log(cardId)
-  let btnAdd = document.getElementById(cardId);
-  const addSvg = (btnAdd.nextElementSibling).firstElementChild;
-  addSvg.classList.replace('icon-heart', 'icon-heart-addtofavorite')
- }
-}
-
-// REMOVE HEART from ICON
 document.body.addEventListener('click', onClickRem);
 
-function onClickRem(event) {
- if (event.target.name === 'remove-cocktail' && event.target.nodeName === 'BUTTON'){
-  let cardId = event.target.id;
-  // onRemSvg(cardId);
-  let btnRem = document.getElementById(cardId);
-  const remSvg = (btnRem.nextElementSibling).firstElementChild;
-  remSvg.classList.replace('icon-heart-addtofavorite', 'icon-heart')
- }
-}
-
-export { onClickAdd, onClickRem };
-  
 // Функция формирования массива повторяющихся элементов
 // из массива рандомных коктейлей и массива избранных (LS)
 function findAndAddSameElems(arr1, arr2) {
@@ -100,3 +76,5 @@ function findAndAddSameElems(arr1, arr2) {
     iconHeart.classList.replace('icon-heart', 'icon-heart-addtofavorite');
   }
 }
+
+export { findAndAddSameElems };
