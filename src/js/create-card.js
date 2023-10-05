@@ -13,7 +13,7 @@ function createMarkup(arr) {
             <p class="cocktail-info">${description.slice(0, 115) + '...'}</p>
             <div class="btns-info">
                 <button type="button" data-action="learnmore" class="js-learn-more learn-more-button" id="${_id}">Learn more</button>
-                <button type="button" data-action="addtofav" class="js-add-to add-to-button" id="${_id}">
+                <button type="button" data-action="addtofav" class="js-add-to add-to-button" aria-label="button like" id="${_id}">
                     <svg class="icon-heart" width="18px" height="18px">
                         <use href="${spriteUrl}#icon-heart"></use>
                     </svg>
@@ -27,3 +27,5 @@ function createMarkup(arr) {
 };
 
 export { createMarkup };
+
+// в 14 стрічці додав аріал лейбл для того шоб пейджспід не сварився
