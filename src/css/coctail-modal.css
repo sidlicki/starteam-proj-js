@@ -5,8 +5,9 @@
 }
 
 .modal-cocktail-window {
-  width: 335px;
-  max-height: 95%;
+  width: 100%;
+  max-width: 335px;
+  max-height: 90%;
   height: auto;
   /*--max-height: 905px;--*/
   overflow-y: scroll;
@@ -18,7 +19,6 @@
 .modal-cocktail-window::-webkit-scrollbar {
   display: none;
 }
-
 
 body.dark .modal-cocktail-window {
   background-color: #232330;
@@ -70,20 +70,24 @@ body.dark .modal-cocktail-text {
 
 .add-two {
   color: rgba(36, 36, 36, 0.8);
+  transition: color var(--transition-dur-and-time-func);
 }
 
 .add-two:hover,
 .add-two:focus {
   color: var(--violet-color);
+  transition: color var(--transition-dur-and-time-func);
 }
 
 body.dark .add-two {
   color: var(--light-gray-color);
+  transition: color var(--transition-dur-and-time-func);
 }
 
 body.dark .add-two:hover,
 body.dark .add-two:focus {
   color: var(--violet-color);
+  transition: color var(--transition-dur-and-time-func);
 }
 
 .modal-cocktail-ingred {
@@ -95,7 +99,8 @@ body.dark .add-two:focus {
 
 /*---Кнопка "Add to Favorite"---*/
 .modal-add-cocktail-btn-fav {
-  width: 295px;
+  width: 100%;
+  max-width: 295px;
   height: 48px;
   margin-top: 40px;
   border-radius: 12px;
@@ -103,16 +108,19 @@ body.dark .add-two:focus {
   color: var(--light-gray-color);
   border: none;
   background-color: var(--violet-color);
+  transition: background-color var(--transition-dur-and-time-func);
 }
 
 .modal-add-cocktail-btn-fav:hover,
 .modal-add-cocktail-btn-fav:focus {
   background-color: #6e7fcf;
+  transition: background-color var(--transition-dur-and-time-func);
 }
 
 /*---Кнопка "Remove from Favorite"---*/
 .modal-remove-cocktail-btn-fav {
-  width: 295px;
+  width: 100%;
+  max-width: 295px;
   height: 48px;
   margin-top: 40px;
   border-radius: 12px;
@@ -120,16 +128,19 @@ body.dark .add-two:focus {
   color: #fdfdff;
   border: none;
   background-color: var(--violet-color);
+  transition: background-color var(--transition-dur-and-time-func);
 }
 
 .modal-remove-cocktail-btn-fav:hover,
 .modal-remove-cocktail-btn-fav:focus {
   background-color: #6e7fcf;
+  transition: background-color var(--transition-dur-and-time-func);
 }
 
 /*---Кнопка "Back"---*/
 .modal-cocktail-btn-back {
-  width: 295px;
+  width: 100%;
+  max-width: 295px;
   height: 48px;
   margin-top: 14px;
   border-radius: 12px;
@@ -137,11 +148,13 @@ body.dark .add-two:focus {
   color: var(--black-color);
   background-color: rgba(36, 36, 36, 0.1);
   border: none;
+  transition: background-color var(--transition-dur-and-time-func);
 }
 
 .modal-cocktail-btn-back:hover,
 .modal-cocktail-btn-back:focus {
   background-color: rgba(36, 36, 36, 0.2);
+  transition: background-color var(--transition-dur-and-time-func);
 }
 
 body.dark .modal-cocktail-btn-back {
@@ -153,7 +166,6 @@ body.dark .modal-cocktail-btn-back:hover,
 body.dark .modal-cocktail-btn-back:focus {
   background-color: rgba(253, 253, 255, 0.2);
 }
-
 
 .modal-btn-close {
   position: absolute;
@@ -187,7 +199,7 @@ body.dark .modal-btn-close-icon {
 /*------------TABLET------------*/
 @media screen and (min-width: 768px) {
   .modal-cocktail-window {
-    width: 600px;
+    max-width: 600px;
     height: auto;
     /*--overflow: hidden;--*/
     /*--max-height: 569px;--*/
