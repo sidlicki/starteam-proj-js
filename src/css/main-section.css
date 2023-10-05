@@ -92,10 +92,12 @@ body.dark .cocktails-header {
 
   box-shadow: 0px 4px 46px 0px #0000000d;
 
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  /* transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; */
+  transition: transform var(--transition-dur-and-time-func), box-shadow var(--transition-dur-and-time-func);
 }
 .cocktail-card:hover {
-  transform: translateY(-4px);
+  /* transform: translateY(-4px); */
+  transform: scale(1.015);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 body.dark .cocktail-card {
@@ -213,10 +215,10 @@ body.dark .cocktail-info {
   background-color: var(--violet-color);
   color: var(--light-gray-color);
 
-  transform: translateY(-1px);
+  transform: scale(1.03);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  transition: transform var(--transition-dur-and-time-func),
-    background-color var(--transition-dur-and-time-func);
+  /* transition: transform var(--transition-dur-and-time-func),
+    background-color var(--transition-dur-and-time-func); */
 }
 body.dark .learn-more-button {
   color: var(--light-gray-color);
@@ -253,7 +255,7 @@ body.dark .learn-more-button {
 }
 .add-to-button:hover,
 .add-to-button:focus {
-  transform: translateY(-1px);
+  transform: scale(1.1);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
