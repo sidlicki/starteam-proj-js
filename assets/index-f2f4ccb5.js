@@ -1,4 +1,4 @@
-import{d as S,n as u,a as g,e as h}from"./main-start-a2a2481a.js";import{p as l,n as T,a as b}from"./coctail@2x-260a11d1.js";const a=document.querySelector(".search-input"),p=document.querySelector(".cocktails-list"),o=document.querySelector(".wrapper-loader"),k=document.querySelector(".cocktails-header"),d=`
+import{d as S,n as u,a as g,e as h}from"./main-start-8541495b.js";import{p as l,n as T,a as b}from"./coctail@2x-c5d170b3.js";const a=document.querySelector(".search-input"),p=document.querySelector(".cocktails-list"),o=document.querySelector(".wrapper-loader"),k=document.querySelector(".cocktails-header"),d=`
           <div>
             <picture>
                 <!-- TABLET -->
