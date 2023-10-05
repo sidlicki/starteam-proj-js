@@ -11,6 +11,7 @@ import noCoctailTabWebp2x from '/img/tablet/coctail@2x.webp';
 
 const searchInput = document.querySelector('.search-input');
 const cardList = document.querySelector('.cocktails-list');
+const wrapperLoader = document.querySelector('.wrapper-loader');
 
 export const emptySearch = `
           <div>
@@ -36,17 +37,28 @@ function onChangeInput(event) {
   if (event.key === 'Enter') {
     const inputValue = searchInput.value.trim();
     searchInput.value = '';
+    wrapperLoader.classList.remove('is-hidden');
+    cardList.innerHTML = '';
 
     if (inputValue) {
       searchCocktailsByName(inputValue)
         .then(cocktails => {
           if (cocktails && cocktails.length > 0) {
-            document.querySelector(".tui-pagination").classList.remove("visually-hidden");
-            pagiation(cocktails,"byName","cocktails-list");
-            
+            document
+              .querySelector('.tui-pagination')
+              .classList.remove('visually-hidden');
+            try {
+              pagiation(cocktails, 'byName', 'cocktails-list');
+            } catch {
+            } finally {
+              wrapperLoader.classList.add('is-hidden');
+            }
           } else {
             cardList.innerHTML = emptySearch;
-            document.querySelector(".tui-pagination").classList.add("visually-hidden");
+            document
+              .querySelector('.tui-pagination')
+              .classList.add('visually-hidden');
+            wrapperLoader.classList.add('is-hidden');
           }
         })
         .catch(error => {

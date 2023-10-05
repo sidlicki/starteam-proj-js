@@ -5,12 +5,18 @@ import { favoriteCocktails, onRenderOpenModal } from './modal-coctail';
 import { onAddFavCocktClick, onRemFavCocktClick } from './add-remove-favorite';
 
 const cardList = document.querySelector(`.cocktails-list`); //
+const wrapperLoader = document.querySelector('.wrapper-loader');
 
 let quantity = getScreenWidthValue(); //присвоєння значення 8/9 викликом функція яка визначає ширину екрану
 
 fetchRandomCocktails(quantity).then(cocktails => {
   if (cardList) {
-    cardList.innerHTML = createMarkup(cocktails);
+    try {
+      cardList.innerHTML = createMarkup(cocktails);
+    } catch {
+    } finally {
+      wrapperLoader.classList.add('is-hidden');
+    }
   }
   createArrPage(cocktails);
 });

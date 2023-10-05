@@ -28,9 +28,9 @@
 /* Desktop */
 @media only screen and (min-width: 1280px) {
   .container-cocktails {
-      /* max-width: 768px; */
-      padding: 0 100px;
-    }
+    /* max-width: 768px; */
+    padding: 0 100px;
+  }
   .main-section {
     padding-bottom: 100px;
   }
@@ -51,14 +51,15 @@
 
   margin-bottom: 40px;
 }
-body.dark .cocktails-header{
+body.dark .cocktails-header {
   color: var(--light-gray-color);
 }
 
 @media only screen and (min-width: 768px) {
   .cocktails-header {
     font-size: 40px;
-    line-height: 1.2;  }
+    line-height: 1.2;
+  }
 }
 
 .cocktails-list {
@@ -104,8 +105,8 @@ body.dark .cocktails-header{
   transform: translateY(-4px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
-body.dark .cocktail-card{
-    background-color: #232330;
+body.dark .cocktail-card {
+  background-color: #232330;
 }
 
 @media only screen and (min-width: 768px) {
@@ -128,11 +129,11 @@ body.dark .cocktail-name {
 }
 @media only screen and (min-width: 768px) {
   .cocktail-name {
-      font-size: 20px;
-      line-height: 1.33;
-    
-      margin-left: 10px;
-      margin-bottom: 14px;
+    font-size: 20px;
+    line-height: 1.33;
+
+    margin-left: 10px;
+    margin-bottom: 14px;
   }
 }
 /* @media only screen and (min-width: 1280px) {
@@ -160,7 +161,7 @@ body.dark .cocktail-name {
   width: 100%;
   height: 54px;
   margin: 0 6px 20px 6px;
-  
+
   font-weight: 400;
   font-size: 14px;
   line-height: 1.29;
@@ -200,14 +201,14 @@ body.dark .cocktail-info {
   display: flex;
   align-items: center;
   justify-content: center;
-  
+
   cursor: pointer;
 
   width: 100%;
   min-height: 48px;
   border-radius: 12px;
 
-  border: 1px solid #7E8FDD;
+  border: 1px solid #7e8fdd;
 
   /* border-color: var(--violet-color);
   border-width: 1px; */
@@ -255,8 +256,8 @@ body.dark .learn-more-button {
   min-width: 48px;
   min-height: 48px;
   border-radius: 12px;
-  
-  border: 1px solid #7E8FDD;
+
+  border: 1px solid #7e8fdd;
   /* border-color: var(--violet-color);
   border-width: 1px; */
 
@@ -289,10 +290,17 @@ body.dark .learn-more-button {
 .icon-heart {
   fill: var(--violet-color);
   stroke: var(--light-gray-color);
-  
+
   width: 18px;
   height: 18px;
 }
 .icon-heart-addtofavorite {
   fill: var(--light-gray-color);
+}
+
+.wrapper-loader {
+  padding-top: 30px;
+  width: min-content;
+  margin-left: auto;
+  margin-right: auto;
 }
