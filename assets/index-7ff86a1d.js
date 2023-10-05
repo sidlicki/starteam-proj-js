@@ -1,4 +1,4 @@
-import{a as l,s as b,c as y,n as s,d,e as v,o as L,g as k,b as S}from"./add-remove-favorite-b986a415.js";import{p as o,n as C,a as E,g as $}from"./coctail@2x-fcf02a73.js";function q(e){return e.map(({description:t,drink:a,drinkThumb:n,_id:r})=>`
+import{a as l,s as b,c as y,n as s,d,e as v,o as L,g as k,b as S}from"./add-remove-favorite-956f59bd.js";import{p as o,n as C,a as E,g as $}from"./coctail@2x-734021f6.js";function q(e){return e.map(({description:t,drink:a,drinkThumb:n,_id:r})=>`
     <li class="cocktail-card">
             <img class="cocktail-image" src="${n}" onerror="this.src='${l}'" alt="${a}" loading="lazy" width="307" height="257"/>
             <h3 class="cocktail-name">${a.slice(0,25)}</h3>
