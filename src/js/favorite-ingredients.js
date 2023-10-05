@@ -1,3 +1,4 @@
+import Pagination from 'tui-pagination';
 import { fetchIngredientDetails } from '/js/cocktail-api';
 import coctailWebp from '/img/mobile/coctail.webp';
 import coctailWebp2x from '/img/mobile/coctail@2x.webp';
@@ -7,10 +8,13 @@ const LOCAL_STORAGE_FAV_INGREDIENTS_KEY = 'favoriteIngredients';
 
 let favoriteIngredientsDetails = [];
 let favoriteIngredientIds = [];
+let currentPage = 1;
+let itemsPerPage = 6;
 
 const favIngredientsContainer = document.querySelector(
   '.fav-ingredients-container'
 );
+const paginationContainer = document.querySelector('.tui-pagination');
 
 const getAlcoholLabelText = alcoholValue => {
   alcoholValue = alcoholValue.toLowerCase();
@@ -19,6 +23,41 @@ const getAlcoholLabelText = alcoholValue => {
     : alcoholValue === 'no'
     ? 'Non-Alcoholic'
     : 'NA';
+};
+
+const createFavoriteIngredientItemMarkup = ({
+  _id,
+  title,
+  alcohol,
+  description,
+}) => {
+  return `
+    <li class="fav-ingredients-list-item" data-ingredient-id="${_id}">
+      <h2 class="fav-ingredient-title">${title || 'No title'}</h2>
+      <p class="fav-ingredient-alcohol">${getAlcoholLabelText(alcohol)}</p>
+      <p class="fav-ingredient-description">${
+        description || 'No description'
+      }</p>
+      <div class="fav-ingredients-buttons-wrapper">
+        <button
+          type="button"
+          class="fav-ingredients-learn-more-btn"
+          data-action="ingredient-learn-more">Learn more</button>
+        <button
+          type="button"
+          class="fav-ingredients-remove-from-fav-btn"
+          data-action="igredient-remove-from-favorite">
+            <svg
+              class="fav-ingredients-icon-trash"
+              width="18px"
+              height="18px"
+              aria-label="Remove favorite ingredient"
+              >
+                <use href="${spriteUrl}#icon-trash"></use>
+            </svg>
+        </button>
+      </div>
+    </li>`;
 };
 
 const emptyFavoriteIngredientsMarkup = `
@@ -36,46 +75,35 @@ const emptyFavoriteIngredientsMarkup = `
       <span class="no-fav-ingredients-text-accent"> favorite ingredients </span>yet
     </p>
   </div>
-  `;
+`;
 
-const createFavoriteIngredientItemMarkup = ({
-  _id,
-  title,
-  alcohol,
-  description,
-}) => {
-  return `
-        <li class="fav-ingredients-list-item" data-ingredient-id="${_id}">
-          <h2 class="fav-ingredient-title">${title || 'No title'}</h2>
-          <p class="fav-ingredient-alcohol">${getAlcoholLabelText(alcohol)}</p>
-          <p class="fav-ingredient-description">${
-            description || 'No description'
-          }</p>
-          <div class="fav-ingredients-buttons-wrapper">
-            <button
-              type="button"
-              class="fav-ingredients-learn-more-btn"
-              data-action="ingredient-learn-more">Learn more</button>
-            <button
-              type="button"
-              class="fav-ingredients-remove-from-fav-btn"
-              data-action="igredient-remove-from-favorite">
-                <svg
-                  class="fav-ingredients-icon-trash"
-                  width="18px"
-                  height="18px"
-                  aria-label="Remove favorite ingredient"
-                  >
-                    <use href="${spriteUrl}#icon-trash"></use>
-                </svg>
-            </button>
-          </div>
-        </li>`;
+const renderIngredients = page => {
+  const startIndex = (page - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentPageIngredients = favoriteIngredientsDetails.slice(
+    startIndex,
+    endIndex
+  );
+
+  if (
+    currentPageIngredients.length === 0 &&
+    favoriteIngredientsDetails.length === 0
+  ) {
+    favIngredientsContainer.innerHTML = emptyFavoriteIngredientsMarkup;
+    return;
+  } else if (currentPageIngredients.length === 0) {
+    currentPage = Math.max(currentPage - 1, 1);
+    renderIngredients(currentPage);
+    renderPagination();
+    return;
+  }
+
+  const ingredientItemsMarkup = currentPageIngredients
+    .map(ingredient => createFavoriteIngredientItemMarkup(ingredient))
+    .join('');
+  const ingredientsListMarkup = `<ul class="fav-ingredients-list">${ingredientItemsMarkup}</ul>`;
+  favIngredientsContainer.innerHTML = ingredientsListMarkup;
 };
-
-favoriteIngredientIds = JSON.parse(
-  localStorage.getItem(LOCAL_STORAGE_FAV_INGREDIENTS_KEY) || '[]'
-);
 
 const removeIngredientFromFavorites = event => {
   if (
@@ -100,7 +128,8 @@ const removeIngredientFromFavorites = event => {
   favoriteIngredientsDetails = favoriteIngredientsDetails.filter(
     item => item._id !== ingredientId
   );
-  renderFavoriteIngredients();
+  renderIngredients(currentPage);
+  renderPagination();
 };
 
 if (favIngredientsContainer) {
@@ -110,32 +139,43 @@ if (favIngredientsContainer) {
   );
 }
 
-const favoriteIngredientsContainer = document.querySelector(
-  '.fav-ingredients-container'
-);
-
 const getIngredientsData = async ids => {
-  favoriteIngredientsDetails = await fetchIngredientDetails(ids);
+  if (ids.length) {
+    favoriteIngredientsDetails = await fetchIngredientDetails(ids);
+  }
 };
 
-const renderFavoriteIngredients = () => {
-  if (favoriteIngredientIds.length) {
-    const ingredientItemsMarkup = favoriteIngredientsDetails
-      .map(ingredient => createFavoriteIngredientItemMarkup(ingredient))
-      .join('');
-    const ingredientsListMarkup = `<ul class="fav-ingredients-list">${ingredientItemsMarkup}</ul>`;
+const renderPagination = () => {
+  paginationContainer.innerHTML = '';
 
-    favoriteIngredientsContainer.innerHTML = ingredientsListMarkup;
+  const totalItems = favoriteIngredientsDetails.length;
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+  if (totalPages <= 1) {
+    paginationContainer.style.display = 'none';
   } else {
-    favoriteIngredientsContainer.innerHTML = emptyFavoriteIngredientsMarkup;
+    paginationContainer.style.display = 'block';
+
+    const pagination = new Pagination(paginationContainer, {
+      totalItems,
+      itemsPerPage,
+      page: currentPage,
+    });
+
+    pagination.on('afterMove', event => {
+      currentPage = event.page;
+      renderIngredients(currentPage);
+    });
   }
 };
 
 const loadFavoriteIngredientsData = async () => {
   favoriteIngredientIds =
     JSON.parse(localStorage.getItem(LOCAL_STORAGE_FAV_INGREDIENTS_KEY)) || [];
-  await getIngredientsData(favoriteIngredientIds);
-  renderFavoriteIngredients();
+  await getIngredientsData(favoriteIngredientIds).then(() => {
+    renderIngredients(currentPage);
+    renderPagination();
+  });
 };
 
 if (favIngredientsContainer) {
