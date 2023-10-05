@@ -5,8 +5,9 @@
 }
 
 .modal-cocktail-window {
-  width: 335px;
-  max-height: 95%;
+  width: 100%;
+  max-width: 335px;
+  max-height: 90%;
   height: auto;
   /*--max-height: 905px;--*/
   overflow-y: scroll;
@@ -187,7 +188,7 @@ body.dark .modal-btn-close-icon {
 /*------------TABLET------------*/
 @media screen and (min-width: 768px) {
   .modal-cocktail-window {
-    width: 600px;
+    max-width: 600px;
     height: auto;
     /*--overflow: hidden;--*/
     /*--max-height: 569px;--*/
