@@ -120,3 +120,26 @@
 @media screen and (min-width: 1280px) {
   /* немає змін для десктоп версії */
 }
+
+/*  */
+.scroll-to-top-btn {
+  display: none;
+  position: fixed;
+  bottom: 30px;
+  right: 40px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: #9cdfdfac;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 30px;
+  height: 50px;
+  width: 100px;
+  transition: background-color var(--transition-dur-and-time-func);
+}
+
+.scroll-to-top-btn:hover {
+  background-color: #06aeaec1;
+}

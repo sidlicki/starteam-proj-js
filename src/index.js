@@ -5,3 +5,4 @@ import './js/modal-ingredient';
 import './js/search-by-name';
 import './js/create-card';
 import './js/main-start';
+import './js/scroll-to-top';
