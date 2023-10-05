@@ -14,7 +14,17 @@ import 'tui-pagination/dist/tui-pagination.css';
 
 const favCocktailList = document.querySelector('.fav-cocktail-list');
 const notFoundBlock = document.querySelector('.not-found');
-document.addEventListener('DOMContentLoaded', generateCocktails);
+const wrapperLoader = document.querySelector('.wrapper-loader-fav-cocktails');
+
+document.addEventListener('DOMContentLoaded', () => {
+  wrapperLoader.classList.remove('is-hidden');
+  try {
+    generateCocktails();
+  } catch {
+  } finally {
+    wrapperLoader.classList.add('is-hidden');
+  }
+});
 
 // Оновлено: додавання обробників подій для кнопок видалення
 function addRemoveFavoriteButtonClickHandlers() {

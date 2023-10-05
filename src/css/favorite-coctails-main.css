@@ -275,3 +275,10 @@ body.dark .no-fav-cocktail-text {
 body.dark .cocktail-list-favorite {
   background: #232330;
 }
+
+.wrapper-loader-fav-cocktails {
+  padding-top: 30px;
+  width: min-content;
+  margin-left: auto;
+  margin-right: auto;
+}
