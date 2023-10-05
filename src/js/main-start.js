@@ -3,7 +3,7 @@ import { createMarkup } from './create-card';
 import { getScreenWidthValue } from './screen-value';
 import { favoriteCocktails, onRenderOpenModal } from './modal-coctail';
 import { onAddFavCocktClick, onRemFavCocktClick } from './add-remove-favorite';
-import { onClickAdd, onClickRem } from './add-remove-favorite-main';
+//import { onClickAdd, onClickRem } from './add-remove-favorite-main';
 
 let quantity = getScreenWidthValue(); //присвоєння значення 8/9 викликом функція яка визначає ширину екрану
 
