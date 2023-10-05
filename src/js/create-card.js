@@ -24,5 +24,3 @@ function createMarkup(arr) {
 }
 
 export { createMarkup };
-
-// в 14 стрічці додав аріал лейбл для того шоб пейджспід не сварився

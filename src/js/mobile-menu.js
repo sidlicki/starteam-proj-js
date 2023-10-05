@@ -1,16 +1,14 @@
-// "axios"/ "modern-normalize" /"notiflix" /"tui-pagination" - вже встановлено
-// console.log('hello');
 (() => {
   const mobileMenu = document.querySelector('.js-menu-container');
   const openMenuBtn = document.querySelector('.js-open-mobile-menu');
   const closeMenuBtn = document.querySelector('.js-close-mobile-menu');
 
   const toggleMenu = () => {
-    const isMenuOpen = openMenuBtn.getAttribute('aria-expanded') === 'true' || false;
+    const isMenuOpen =
+      openMenuBtn.getAttribute('aria-expanded') === 'true' || false;
     openMenuBtn.setAttribute('aria-expanded', !isMenuOpen);
 
     mobileMenu.classList.toggle('is-open');
-
   };
 
   openMenuBtn.addEventListener('click', toggleMenu);

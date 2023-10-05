@@ -1,15 +1,10 @@
-// "axios"/ "modern-normalize" /"notiflix" /"tui-pagination" - вже встановлено
-// console.log('hello');
 import Pagination from 'tui-pagination';
-import { testArr } from './test/test-coctails';
 import 'tui-pagination/dist/tui-pagination.css';
 
 import spriteUrl from '/img/svg/sprite.svg';
 import defaultImg from '/img/mobile/coctail@2x.webp';
 import { getScreenWidthValue } from './screen-value';
-import { findAndAddSameElems, createArrPage } from './main-start';
-import { favoriteCocktails } from './modal-coctail';
-
+import { createArrPage } from './main-start';
 
 let instance;
 export function pagiation(
@@ -19,34 +14,25 @@ export function pagiation(
   numbPhoto,
   currentPage
 ) {
-  // let numberOfPhoto =getScreenWidthValue();
-  console.log('Виклик pagination');
   let numberOfPhoto = numbPhoto === 6 ? 6 : getScreenWidthValue();
   let maxNumberOfPaginator = 3;
-  // console.log(cardMarkup);
   if (cocList.length <= numberOfPhoto) {
     document.querySelector('.tui-pagination').classList.add('visually-hidden');
   }
 
   const container = document.getElementById('tui-pagination-container');
-  
-    instance = new Pagination(container, {
+
+  instance = new Pagination(container, {
     totalItems: cocList.length,
     itemsPerPage: numberOfPhoto,
     visiblePages: maxNumberOfPaginator,
   }).getCurrentPage();
   let pagesPaginator = Array.from(document.querySelectorAll('.tui-page-btn'));
 
-  console.log('currentPage= ' + currentPage);
   if (Number.isInteger(currentPage) === true) {
-    // instance.getCurrentPage(2);
     pagesPaginator.forEach(item => {
-      
       if (Number(item.textContent) === currentPage) {
-        console.log(item);
-        // instance.movePageTo(2);
         item.click();
-        
       }
     });
   }
@@ -67,10 +53,6 @@ export function pagiation(
     return newArr;
   };
 
-
-
-  console.log(createNewArr());
-
   let cardMarkup;
 
   ///////////////
@@ -85,15 +67,12 @@ export function pagiation(
   };
 
   ///////////////
- 
-  const renderCards = currentItemPaginator => {
-    // console.log(currentItemPaginator);
-    // console.log(createNewArr()[currentItemPaginator]);
-    // console.log('');
 
-    const markup = createNewArr()[currentItemPaginator].map(item => {
+  const renderCards = currentItemPaginator => {
+    const markup = createNewArr()
+      [currentItemPaginator].map(item => {
         const { _id, drink, drinkThumb, description } = item;
-        
+
         if (flag === 'byName' || flag === 'byAbc') {
           cardMarkup = `
                 <li class="cocktail-card">
@@ -169,13 +148,10 @@ export function pagiation(
         return cardMarkup;
       })
       .join('');
-    // console.log(cardMarkup);
     document.querySelector(`.${classNameOfContainer}`).innerHTML = markup;
   };
 
-  const value = Number.isInteger(currentPage) === true ? currentPage-1 : 0;
-  console.log('value= ' + value);
-  console.log('');
+  const value = Number.isInteger(currentPage) === true ? currentPage - 1 : 0;
   renderCards(value);
   createArrPage(createNewArr()[value]);
 
@@ -191,59 +167,45 @@ export function pagiation(
 
   function clickFunc(e) {
     addClassNumber();
-    if (e.target === e.currentTarget) {
-      console.log('out button');
-      return;
-    }
+    try {
+      if (e.target === e.currentTarget) {
+        return;
+      }
 
-    if (
-      e.target.classList.contains('tui-prev') ||
-      e.target.classList.contains('tui-ico-prev')
-    ) {
-      //console.log("1");
-      //console.log(createNewArr()[Number(document.querySelector('.tui-is-selected').textContent)-1]);
-      renderCards(
-        Number(document.querySelector('.tui-is-selected').textContent) - 1
-      );
-      createArrPage(createNewArr()[Number(document.querySelector('.tui-is-selected').textContent) - 1]);
-    }
+      if (
+        e.target.classList.contains('tui-prev') ||
+        e.target.classList.contains('tui-ico-prev')
+      ) {
+        renderCards(
+          Number(document.querySelector('.tui-is-selected').textContent) - 1
+        );
+        createArrPage(
+          createNewArr()[
+            Number(document.querySelector('.tui-is-selected').textContent) - 1
+          ]
+        );
+      }
 
-    if (
-      e.target.classList.contains('tui-next') ||
-      (e.target.classList.contains('tui-ico-next') &&
-        e.target.classList.contains('tui-is-disabled') === false)
-    ) {
-      //console.log("2")
-      //console.log(createNewArr()[Number(document.querySelector('.tui-is-selected').textContent)-1]);
-      renderCards(
-        Number(document.querySelector('.tui-is-selected').textContent) - 1
-      );
-      createArrPage(createNewArr()[Number(document.querySelector('.tui-is-selected').textContent) - 1]);
-    }
+      if (
+        e.target.classList.contains('tui-next') ||
+        (e.target.classList.contains('tui-ico-next') &&
+          e.target.classList.contains('tui-is-disabled') === false)
+      ) {
+        renderCards(
+          Number(document.querySelector('.tui-is-selected').textContent) - 1
+        );
+        createArrPage(
+          createNewArr()[
+            Number(document.querySelector('.tui-is-selected').textContent) - 1
+          ]
+        );
+      }
 
-    if (e.target.classList.contains('tui-number-item')) {
-      //console.log(Number(e.target.textContent)-1)
-      //console.log(createNewArr()[Number(e.target.textContent)-1])
-      renderCards(Number(e.target.textContent) - 1);
-      createArrPage(createNewArr()[Number(e.target.textContent) - 1]);
-    }
+      if (e.target.classList.contains('tui-number-item')) {
+        renderCards(Number(e.target.textContent) - 1);
+        createArrPage(createNewArr()[Number(e.target.textContent) - 1]);
+      }
+    } catch {}
   }
-//   instance.movePageTo(2);
   container.addEventListener('click', clickFunc);
 }
-
-// const mrkp =`<li class="cocktail-list__cocktail-item">
-// <img class="cocktail-item_img" src="${drinkThumb}" alt="preview cocktail" width="316" height="auto">
-// <h2 class="cocktail-item__name">${drink}</h2>
-// <p class="cocktail-item__description">${description}</p>
-// <div class="button-wrap" data-id-drink='${_id}'>
-//     <button type="button" class="cocktail-item__learn-more">Learn more</button>
-//     <button type="button" class="cocktail-item__"></button>
-//         <svg class="svg" width="21" height="19">
-//             <use href=""></use>
-//         </svg>
-//     </button>
-// </div>
-// </li>`;
-
-// pagiation(testArr,mrkp)

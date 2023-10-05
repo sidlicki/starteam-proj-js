@@ -1,5 +1,3 @@
-
-
 import { favoriteCocktails } from './modal-coctail';
 
 import { favoriteIngredients } from './modal-ingredient';

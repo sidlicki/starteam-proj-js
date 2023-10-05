@@ -1,5 +1,3 @@
-// "axios"/ "modern-normalize" /"notiflix" /"tui-pagination" - вже встановлено
-
 import { fetchCocktailDetails } from './cocktail-api';
 import { onAddFavCocktClick, onRemFavCocktClick } from './add-remove-favorite';
 
@@ -8,10 +6,6 @@ const btnCloseModal = document.querySelector('.modal-btn-close');
 
 const overlay = document.querySelector('.overlay');
 const modal1 = document.querySelector('.modal1');
-//const cocktailList =
-//  document.querySelector('.cocktails-list') ??
-//  document.querySelector('.fav-cocktail-list');
-// const favoriteCocktailList = document.querySelector('.fav-cocktail-list');
 
 let favoriteCocktails =
   JSON.parse(localStorage.getItem('favoriteCocktails')) || [];
@@ -27,7 +21,13 @@ function renderIngredients(ingredients) {
 }
 
 // Function Render content modal window cocktails
-function createCardCocktail({ _id, drink, drinkThumb, instructions, ingredients }) {
+function createCardCocktail({
+  _id,
+  drink,
+  drinkThumb,
+  instructions,
+  ingredients,
+}) {
   const markup = `<div class="add-cont">
   <img class="modal-cocktail-img" src="${drinkThumb}" alt="" />
   <div class="add-content">
@@ -45,11 +45,6 @@ function createCardCocktail({ _id, drink, drinkThumb, instructions, ingredients 
   return markup;
 }
 
-// Add listener to Main page "Cocktails"
-//cocktailList.addEventListener('click', onRenderOpenModal);
-// Add listener to page "Favorite Cocktails"
-//favoriteCocktailList.addEventListener('click', onRenderOpenModal);
-
 // Async function render and open modal window cocktails
 async function onRenderOpenModal(currentIdCard) {
   // if (event.target.nodeName == 'BUTTON')
@@ -57,7 +52,6 @@ async function onRenderOpenModal(currentIdCard) {
     const cocktailDetails = await fetchCocktailDetails(currentIdCard);
 
     if (cocktailDetails.length === 0) {
-      console.log(`Error`);
       return;
     }
     cardCocktail.innerHTML = '';
@@ -108,9 +102,7 @@ async function onRenderOpenModal(currentIdCard) {
       if (event.target.name == 'close-modal') modalCocktClose();
     });
     //------------------END WORKING with LOCAL STORAGE -------------------//
-  } catch (error) {
-    console.log(error);
-  }
+  } catch (error) {}
 }
 
 //*--------------MANAGE of MODAL WINDOW----------------*/

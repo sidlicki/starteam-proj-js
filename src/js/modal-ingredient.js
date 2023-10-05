@@ -1,5 +1,3 @@
-// "axios"/ "modern-normalize" /"notiflix" /"tui-pagination" - вже встановлено
-
 import { fetchIngredientDetailsTest } from './cocktail-api';
 import { loadFavoriteIngredientsData } from './favorite-ingredients';
 import {
@@ -18,10 +16,6 @@ const favIngredientsContainer = document.querySelector(
 const overlay = document.querySelector('.overlay');
 const modal1 = document.querySelector('.modal1');
 const modal2 = document.querySelector('.modal2');
-
-//const ingredientList =
-//  document.querySelector('.ingredients-list') ??
-//  document.querySelector('.fav-ingredient-list');
 
 let favoriteIngredients =
   JSON.parse(localStorage.getItem('favoriteIngredients')) || [];
@@ -77,7 +71,6 @@ function createCardIngredient({
   return markup;
 }
 
-/*---------------МОЙ КОД-------------------------*/
 
 // Add listener to Main page "Cocktails"
 if (modalCocktailCard) {
@@ -88,14 +81,9 @@ if (favIngredientsContainer) {
   favIngredientsContainer.addEventListener('click', onRenderOpenModalIngred);
 }
 
-//cocktailList.addEventListener('click', onRenderOpenModal);  ??
-// Add listener to page "Favorite Cocktails"
-//favoriteCocktailList.addEventListener('click', onRenderOpenModal);
-
 // Async function render and open modal window cocktails
 async function onRenderOpenModalIngred(event) {
   event.preventDefault();
-  //if (event.target.nodeName == 'BUTTON' && event.target.dataset.action == 'learnmore')
   if (
     event.target.dataset.action === 'ingredient-learn-more' ||
     event.target.nodeName === 'A'
@@ -106,10 +94,8 @@ async function onRenderOpenModalIngred(event) {
         : event.target.closest('.fav-ingredients-list-item').dataset
             .ingredientId;
       const ingredientDetails = await fetchIngredientDetailsTest(ingredientId);
-      //const ingredientDetails = await fetchCocktailDetails('639b6de9ff77d221f190c51e')
 
       if (ingredientDetails.length === 0) {
-        console.log(`Error`);
         return;
       }
       cardIngredient.innerHTML = '';
@@ -171,7 +157,6 @@ async function onRenderOpenModalIngred(event) {
       });
       //------------------END WORKING with LOCAL STORAGE -------------------//
     } catch (error) {
-      console.log(error);
     }
 }
 

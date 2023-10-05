@@ -11,8 +11,7 @@ import noCoctailTabWebp2x from '/img/tablet/coctail@2x.webp';
 
 const searchInput = document.querySelector('.search-input');
 const cardList = document.querySelector('.cocktails-list');
-let coctailList;
-let markupCard;
+
 export const emptySearch = `
           <div>
             <picture>
