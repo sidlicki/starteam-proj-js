@@ -9,7 +9,10 @@ const cardList = document.querySelector(`.cocktails-list`); //
 let quantity = getScreenWidthValue(); //присвоєння значення 8/9 викликом функція яка визначає ширину екрану
 
 fetchRandomCocktails(quantity).then(cocktails => {
+  if (cardList) {
   cardList.innerHTML = createMarkup(cocktails);
+  }
+  createArrPage(cocktails);
 });
 
 // Потрібна перевірка, чи є вже Улюблені коктейлі...
@@ -35,8 +38,9 @@ fetchRandomCocktails(quantity).then(cocktails => {
 
 // Прослуховувач + Обробник кліку по кнопках карток на головній сторінці
 
+if (cardList) {
 cardList.addEventListener('click', function (event) {
-  
+ 
   const currentIdCard = event.target.id;
   //console.log(event);
 
@@ -76,7 +80,9 @@ cardList.addEventListener('click', function (event) {
       onRenderOpenModal(currentIdCard);        
       break;
   }
+
 });
+}
 
 export { cardList };
   
@@ -115,3 +121,44 @@ function onRemSvg(cardId) {
   remSvg.classList.replace('icon-heart-addtofavorite', 'icon-heart')
 }
 
+
+
+//////////////////////////////////////////
+export function findAndAddSameElems(arr1, arr2) {
+  const resultArr = []
+  for (let i = 0; i < arr1.length; i++) {
+    for (let j = 0; j < arr2.length; j++) {
+      if (arr1[i] === arr2[j]) {
+        resultArr.push(arr1[i])
+      }
+    }
+  }
+      console.log(resultArr);
+
+  for (let k = 0; k < resultArr.length; k++) {
+    let btnLearnMore = document.getElementById(resultArr[k]);
+    //let iconHeart;
+    //if (iconHeart) {
+      if (btnLearnMore) {
+    let iconHeart = (btnLearnMore.nextElementSibling).firstElementChild;
+    iconHeart.classList.replace('icon-heart', 'icon-heart-addtofavorite');
+    }
+  }
+    //else {
+    //  return;
+    //}
+   }
+//  }
+
+
+////////////////////////////////////////////
+export function createArrPage(arrPage){
+
+let arr = [];
+
+ for (let i = 0; i < arrPage.length; i++) {
+   arr.push((arrPage[i])._id)
+ }
+ findAndAddSameElems(arr, favoriteCocktails)
+return arr;
+}

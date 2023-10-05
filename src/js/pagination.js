@@ -7,6 +7,10 @@ import 'tui-pagination/dist/tui-pagination.css';
 import spriteUrl from '/img/svg/sprite.svg';
 import defaultImg from '/img/mobile/coctail@2x.webp';
 import { getScreenWidthValue } from './screen-value';
+import { findAndAddSameElems, createArrPage } from './main-start';
+import { favoriteCocktails } from './modal-coctail';
+
+
 let instance;
 export function pagiation(
   cocList,
@@ -173,6 +177,7 @@ export function pagiation(
   console.log('value= ' + value);
   console.log('');
   renderCards(value);
+  createArrPage(createNewArr()[value]);
 
   const addClassNumber = () => {
     const arrOfAllItem = Array.from(document.querySelectorAll('.tui-page-btn'));
@@ -200,6 +205,7 @@ export function pagiation(
       renderCards(
         Number(document.querySelector('.tui-is-selected').textContent) - 1
       );
+      createArrPage(createNewArr()[Number(document.querySelector('.tui-is-selected').textContent) - 1]);
     }
 
     if (
@@ -212,12 +218,14 @@ export function pagiation(
       renderCards(
         Number(document.querySelector('.tui-is-selected').textContent) - 1
       );
+      createArrPage(createNewArr()[Number(document.querySelector('.tui-is-selected').textContent) - 1]);
     }
 
     if (e.target.classList.contains('tui-number-item')) {
       //console.log(Number(e.target.textContent)-1)
       //console.log(createNewArr()[Number(e.target.textContent)-1])
       renderCards(Number(e.target.textContent) - 1);
+      createArrPage(createNewArr()[Number(e.target.textContent) - 1]);
     }
   }
 //   instance.movePageTo(2);
