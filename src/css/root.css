@@ -6,7 +6,7 @@
   --pale-blue-color: #f8f9ff;
   --light-gray-color: #fdfdff;
 
-  --transition-dur-and-time-func: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-dur-and-time-func: 350ms cubic-bezier(0.4, 0, 0.2, 1);
 
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
